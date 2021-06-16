@@ -1,0 +1,136 @@
+﻿%%%% DESCRIPTION %%%%%
+% Title of Document: 
+% Start Date: 
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%FINAL CHECK%%%%%%%%%
+%read text
+%Bibliography list
+%spell check
+%chklatex
+%unusedlabels
+%Overfull
+
+\documentclass[12pt, letterpaper, reqno]{amsart}
+
+\usepackage[utf8]{inputenc}
+% indicate the language, for example, spanish or russian
+\usepackage[english]{babel}
+%\usepackage[spanish]{babel}
+
+%comments
+\usepackage{comment}
+
+%drawings
+\usepackage{graphicx}
+
+%commutative diagrams
+\usepackage[all]{xypic}
+
+%%%%%%%% DIMENSIONS %%%%%%%%%%%
+\textwidth=16truecm
+\textheight=22truecm
+\topmargin=0pt
+\oddsidemargin=20pt
+\evensidemargin=20pt
+\baselineskip1.2truecm
+
+%%%%%%%% THEOREMS %%%%%%%%%%%%
+\theoremstyle{definition}
+%\newtheorem{df}{Definition}
+\newtheorem{df}{Definition}
+\theoremstyle{plain}
+\newtheorem{prop}{Proposition}
+%\newtheorem{prop}{Proposición}
+\newtheorem{thm}{Theorem}
+%\newtheorem{thm}{Teorema}
+\newtheorem{lm}{Lemma}
+%\newtheorem{lm}{Lema}
+\newtheorem{cor}{Corollary}
+%\newtheorem{cor}{Corolario}
+\theoremstyle{remark}
+\newtheorem{ex}{Example}
+%\newtheorem{ex}{Ejemplo}
+\newtheorem{rem}{Remark}
+%\newtheorem{rem}{Observación}
+
+%%%%%%%% COMMENTS (REMOVE THEM IN THE FINAL VERSION!!!) %%%%%%%
+\def\comment#1{{\par \tt #1}}
+
+%%%%%%%%% FOR DRAFT%%%%%%%%%%%%%
+%\renewcommand{\baselinestretch}{1.5}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%% PAPER DATA %%%%%%%%%%%%%%%%%%%
+\author{Julián Jiménez Cárdenas}
+\address{}
+
+
+\title[Posgraduate Project]{Posgraduate Project}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\end{abstract}
+
+\section*{Introduction}
+\label{sec:0}
+
+
+\section{Section 1}
+\label{sec:1}
+
+A manifold without boundary $M$ of dimension $ m $  is said to be of class $ C^\infty $ if the differentiability class of the transition maps is $C^\infty.$ In this case, for every $ p\in M $ one can define the tangent space to $ p $, $ T_pM $, as the set of all derivations of the algebra of germs of smooth functions from $ M $ to $ \mathbb{R}  $,  based on $ p $. This definition of tangent space is equivalent (when the differentiability class of $ M $ is $ \infty $) to the equivalence class of germs of curves that passes through $ p $. If a manifold $ M $  is $C^r$, with $r< \infty$, the definition for tangent space is the latter, so we use that definition for the tangent space throughout this text, independently of the differentiability class.
+
+Joining the tangent spaces of every point of the manifold induces the tangent bundle,
+$$ TM = \bigsqcup_{p\in M} T_pM, $$ 
+equipped with manifold structure given by the one of $ M. $ It is called a bundle because the triple $ (TM, M,\pi:TM \rightarrow {M}) $ is in fact a bundle, where $ \pi:TM \rightarrow {M} $  is the projection function, that assigns each tangent vector to the point where it is based. Each fiber of this bundle is a tangent space based on a point, and the tangent bundle is in particular a vector bundle because each fiber has structure of finite dimensional real vector space. 
+
+For an arbitrary bundle $ (E,B,\pi:E \rightarrow {B}), $ a subbundle of this bundle $ (E',B',\pi':E' \rightarrow {B'}) $  is just a bundle that satisfies $ E'\subset E $, $ B'\subset B $ and $ \pi|_{E'}=\pi'. $ A distribution $ \mathcal{H} $ is a vector subbundle of the tangent bundle, with a fiber inner-product, and the pair of a manifold and a distribution over it defines a subriemannian geometry, as is stated in the following definition.
+
+\begin{df}[Subriemannian Geometry]
+	A subriemannian geometry over a manifold $ M $ consists of a distribution $ \mathcal{H}\subset TM $ (referred as horizontal distribution), \textit{i.e.}, a vector subbundle of the tangent bundle of $ M $, together with a fiber inner-product $ <\cdot,\cdot> $ on this subbundle. 
+\end{df}
+
+Some examples of this definition are given below.
+\begin{ex}[Riemannian Geometry]
+	Every riemannian geometry is in particular a subriemannian geometry, where the distribution is all the tangent bundle.
+\end{ex}
+
+\begin{ex}[Heisenberg Group]
+	This is a non-trivial case of subriemannian geometry. Take $ \mathbb{R} ^3 $ as the manifold, and define over it the distribution $ \mathcal{H}\subset T \mathbb{R} ^3 $, whose fiber at an arbitrary $ (x,y,z)\in \mathbb{R}^3  $ is   
+	$$ \mathcal{H}_{(x,y,z)} = \left\{ (v_1,v_2,v_3)\in T_{(x,y,z)} \mathbb{R}^3 : v_3- \frac{1}{2} \left( xv_2-yv_1 \right)=0   \right\}. $$ 
+	The inner product over $ \mathcal{H}_{(x,y,z)} $ is given by $<\cdot,\cdot>:  \mathcal{H}_{(x,y,z)}\times\mathcal{H}_{(x,y,z)} \rightarrow { \mathbb{R} }:(v,w)\mapsto v_1w_1+v_2w_2,$ where $ v=(v_1,v_2,v_3) $ and $ w=(w_1,w_2,w_3). $  
+
+\end{ex}
+	This last example is of particular interest because of its connection with the isoperimetrical problem
+
+
+%\newpage
+% if you would like to print contents
+%\tableofcontents
+
+% if you would like to print list of figures or tables
+% \listoffigures
+% \listoftables
+
+% if the package nomenclature is used
+%\printnomenclature
+
+\bibliographystyle{unsrt}
+\nocite{*}
+\bibliography{mybibliography}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
