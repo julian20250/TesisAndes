@@ -94,19 +94,32 @@ For an arbitrary bundle $ (E,B,\pi:E \rightarrow {B}), $ a subbundle of this bun
 \end{df}
 
 Some examples of this definition are given below.
-\begin{ex}[Riemannian Geometry]
+\begin{ex}[Riemannian Geometry]\label{ex:riem_geo}
 	Every riemannian geometry is in particular a subriemannian geometry, where the distribution is all the tangent bundle.
 \end{ex}
 
-\begin{ex}[Heisenberg Group]
+\begin{ex}[Heisenberg Group]\label{ex:heis_group}
 	This is a non-trivial case of subriemannian geometry. Take $ \mathbb{R} ^3 $ as the manifold, and define over it the distribution $ \mathcal{H}\subset T \mathbb{R} ^3 $, whose fiber at an arbitrary $ (x,y,z)\in \mathbb{R}^3  $ is   
 	$$ \mathcal{H}_{(x,y,z)} = \left\{ (v_1,v_2,v_3)\in T_{(x,y,z)} \mathbb{R}^3 : v_3- \frac{1}{2} \left( xv_2-yv_1 \right)=0   \right\}. $$ 
 	The inner product over $ \mathcal{H}_{(x,y,z)} $ is given by $<\cdot,\cdot>:  \mathcal{H}_{(x,y,z)}\times\mathcal{H}_{(x,y,z)} \rightarrow { \mathbb{R} }:(v,w)\mapsto v_1w_1+v_2w_2,$ where $ v=(v_1,v_2,v_3) $ and $ w=(w_1,w_2,w_3). $  
 
 \end{ex}
-	This last example is of particular interest because of its connection with the isoperimetrical problem
+	The last example is of particular interest because of its connection with the isoperimetrical problem.
+\begin{ex}[Vector Field over a Manifold]\label{ex:vect_field}
+	Any vector field $ X: M \rightarrow {TM} $ (seen as a section of the tangent bundle) determines a distribution over the manifold $ M $ whose fiber at an arbitrary $ p\in M $ is the span of $ X_p, $ and the fiber inner-product is the canonical one (given by the isomorphism $ T_pM\cong \mathbb{R} ^m, $ with $\operatorname{dim} \left( M \right) = m$).
 
+	As a particular case of this example, one can consider a system of $ n $ linear differential equations on $ \mathbb{R}^n $, that determines a vector field over $ \mathbb{R}^n,  $ and this in turn generates a distribution via the span of the vectors at each point, with the canonical fiber-inner product.
+\end{ex}
 
+Given a subriemannian geometry $ (M, \mathcal{H}), $ a curve or vector field is said to be \textbf{horizontal} if is tangent to $ H $. This means that, in the case of a curve, its tangent vector at every point is contained in the fibers of $ \mathcal{H} $; and in the case of a vector field, its image at every point where it is defined is contained in the fibers of $ \mathcal{H} .$   
+
+For example, every curve over a riemannian geometry is horizontal, as can be deduced from example \ref{ex:riem_geo}. In the example \ref{ex:heis_group}, only the liftings of the solutions of the isoperimetrical problem are horizontal. In example \ref{ex:vect_field}, and in particular in the case of systems of linear differential equations, the solution curves of the system of differential equations are examples of horizontal curves on this subriemannian geometry.
+
+In the particular case of the horizontal curves, one can define the \textbf{length of a horizontal smooth curve} $ \gamma $ (denoted by $ \ell(\gamma) $) as in the case of riemannian geometry:
+$$ \ell(\gamma) = \int ||\dot{\gamma}|| dt, $$ 
+since the tangent vectors of the curve at all points are in the fibers of the horizontal distribution, where there is a inner product defined, and $ ||\dot{\gamma}||= \sqrt[]{<\dot{\gamma}, \dot{\gamma}>}.  $   
+
+With the idea of length of horizontal curves, the \textbf{distance between two points} $ p,q\in M $  is defined as the infimum of the lengths of all absolutely continuous\footnote{A curve $ \gamma:I\subset \mathbb{R}  \rightarrow {M} $ is said to be absolutely continuous if it has derivative for almost all $ t\in I. $ } horizontal curves that begin in $ p $ and end in $ q $  
 %\newpage
 % if you would like to print contents
 %\tableofcontents
