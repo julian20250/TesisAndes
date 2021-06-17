@@ -113,7 +113,7 @@ Some examples of this definition are given below.
 
 Given a subriemannian geometry $ (M, \mathcal{H}), $ a curve or vector field is said to be \textbf{horizontal} if is tangent to $ H $. This means that, in the case of a curve, its tangent vector at every point is contained in the fibers of $ \mathcal{H} $; and in the case of a vector field, its image at every point where it is defined is contained in the fibers of $ \mathcal{H} .$   
 
-For example, every curve over a riemannian geometry is horizontal, as can be deduced from example \ref{ex:riem_geo}. In the example \ref{ex:heis_group}, only the liftings of the solutions of the isoperimetrical problem are horizontal. In example \ref{ex:vect_field}, and in particular in the case of systems of linear differential equations, the solution curves of the system of differential equations are examples of horizontal curves on this subriemannian geometry.
+For example, every curve over a riemannian geometry is horizontal, as can be deduced from example \ref{ex:riem_geo}. In the example \ref{ex:heis_group}, the liftings of the solutions of the isoperimetrical problem are horizontal. In example \ref{ex:vect_field}, and in particular in the case of systems of linear differential equations, the solution curves of the system of differential equations are examples of horizontal curves on this subriemannian geometry.
 
 In the particular case of the horizontal curves, one can define the \textbf{length of a horizontal smooth curve} $ \gamma $ (denoted by $ \ell(\gamma) $) as in the case of riemannian geometry:
 $$ \ell(\gamma) = \int ||\dot{\gamma}|| dt, $$ 
@@ -125,6 +125,15 @@ $$ d(p,q) = \operatorname{inf} \left\{ \ell(\gamma) \ |\ \gamma:[0,1] \rightarro
 
 The distance between two points is said to be infinite if there is no curve joining them. Also, in analogy with riemannian geometry, an absolutely continuous horizontal curve that realizes the distance between two points is called a \textbf{geodesic}. 
 
+Now the natural question that arises is if, given two points on a manifold with a given horizontal distribution, is there a geodesic that joins them? Or more generally, there exists a horizontal curve that joins them? To address this question, the present text will focus on \textbf{smooth distributions}, that is just a horizontal distribution over a manifold such that for each point $ p\in M $, there is an open neighborhood $ U $ of it on which there are smooth vector fields $ X_1,\dots,X_n: U \rightarrow {TM} $ that at each point of $ U $ form a base for the fiber of that point respect to the distribution.
+
+With a smooth distribution $ \mathcal{H} \subset TM, $ it is said that a nonempty immersed submanifold $ N\subseteq M $  is a \textbf{integral manifold} of $\mathcal{H}$ if $ T_p N = \mathcal{H}_p $ for all $ p\in N $ , \textit{i.e.}, if the tangent space of all points of the submanifold is the fiber of the horizontal distribution. As an example, in the subriemannian geometry given in example \ref{ex:vect_field}, the image of any integral curve of the vector field that determines the distribution over the manifold is an integral manifold for that distribution. A particular example of a distribution and its family of integral manifolds is given below.
+
+\begin{ex}[Orthogonal complement of radial vector field]
+	Let $ \mathcal{G} $ be the distribution over $ \mathbb{R}^n $ determined by the radial vector field\footnote{This text uses extensively the Einstein's sum convention.} $ x^i \partial / \partial x^i $, and let $ \mathcal{G}^\perp $ be its perpendicular bundle, \textit{i.e.,} the distribution whose fibers are the orthogonal complement of the fibers of $ \mathcal{G}. $ $ \mathcal{G}^\perp $ is a distribution over $ \mathbb{R}^n  $, and the sphere centered on $0$, of radius $ |x| $, for all $ x\neq0 $ is an integral submanifold of $ \mathcal{G}^\perp. $        
+\end{ex}
+
+There are cases when a subriemannian geometry over a manifold does not have integral manifolds, as is shown in the following example, taken from \cite{lee2018introduction}.
 \bibliographystyle{unsrt}
 \nocite{*}
 \bibliography{mybibliography}
