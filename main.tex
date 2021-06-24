@@ -30,7 +30,8 @@
 \usepackage{pdfpages}
 \usepackage{transparent}
 \usepackage{xcolor}
-
+\usepackage{mathtools}
+\usepackage{breqn}
 \newcommand{\incfig}[2][1]{%
     \def\svgwidth{#1\columnwidth}
     \import{./figures/}{#2.pdf_tex}
@@ -114,7 +115,7 @@ Some examples of this definition are given below.
 	Every riemannian geometry is in particular a subriemannian geometry, where the distribution is all the tangent bundle.
 \end{ex}
 
-\begin{ex}[Heisenberg Group]\label{ex:heis_group}
+\begin{ex}[Heisenberg Group]\label{ex:heis^group}
 	This is a non-trivial case of subriemannian geometry. Take $ \mathbb{R} ^3 $ as the manifold, and define over it the distribution $ \mathcal{H}\subset T \mathbb{R} ^3 $, whose fiber at an arbitrary $ (x,y,z)\in \mathbb{R}^3  $ is   
 	$$ \mathcal{H}_{(x,y,z)} = \left\{ (v_1,v_2,v_3)\in T_{(x,y,z)} \mathbb{R}^3 : v_3- \frac{1}{2} \left( xv_2-yv_1 \right)=0   \right\}. $$ 
 	The inner product over $ \mathcal{H}_{(x,y,z)} $ is given by $<\cdot,\cdot>:  \mathcal{H}_{(x,y,z)}\times\mathcal{H}_{(x,y,z)} \rightarrow { \mathbb{R} }:(v,w)\mapsto v_1w_1+v_2w_2,$ where $ v=(v_1,v_2,v_3) $ and $ w=(w_1,w_2,w_3). $  
@@ -129,7 +130,7 @@ Some examples of this definition are given below.
 
 Given a subriemannian geometry $ (M, \mathcal{H}), $ a curve or vector field is said to be \textbf{horizontal} if is tangent to $ H $. This means that, in the case of a curve, its tangent vector at every point is contained in the fibers of $ \mathcal{H} $; and in the case of a vector field, its image at every point where it is defined is contained in the fibers of $ \mathcal{H} .$   
 
-For example, every curve over a riemannian geometry is horizontal, as can be deduced from example \ref{ex:riem_geo}. In the example \ref{ex:heis_group}, the liftings of the solutions of the isoperimetrical problem are horizontal. In example \ref{ex:vect_field}, and in particular in the case of systems of linear differential equations, the solution curves of the system of differential equations are examples of horizontal curves on this subriemannian geometry.
+For example, every curve over a riemannian geometry is horizontal, as can be deduced from example \ref{ex:riem_geo}. In the example \ref{ex:heis^group}, the liftings of the solutions of the isoperimetrical problem are horizontal. In example \ref{ex:vect_field}, and in particular in the case of systems of linear differential equations, the solution curves of the system of differential equations are examples of horizontal curves on this subriemannian geometry.
 
 In the particular case of the horizontal curves, one can define the \textbf{length of a horizontal smooth curve} $ \gamma $ (denoted by $ \ell(\gamma) $) as in the case of riemannian geometry:
 $$ \ell(\gamma) = \int ||\dot{\gamma}|| dt, $$ 
@@ -142,7 +143,7 @@ $$ d(p,q) = \operatorname{inf} \left\{ \ell(\gamma) \ |\ \gamma:[0,1] \rightarro
 The distance between two points is said to be infinite if there is no curve joining them. Also, in analogy with riemannian geometry, an absolutely continuous horizontal curve that realizes the distance between two points is called a \textbf{geodesic}. 
 
 \subsection{Frobenius' Theorem}%
-\label{sub:chow_s_theorem}
+\label{sub:chow_s^theorem}
 
 
 Now the natural question that arises is if, given two points on a manifold with a given horizontal distribution, is there a geodesic that joins them? Or more generally, there exists a horizontal curve that joins them? To address this question, the present text will focus on \textbf{smooth distributions}, that is just a horizontal distribution over a manifold such that for each point $ p\in M $, there is an open neighborhood $ U $ of it on which there are smooth vector fields $ X_1,\dots,X_n: U \rightarrow {TM} $ that at each point of $ U $ form a base for the fiber of that point respect to the distribution.
@@ -190,7 +191,7 @@ Given a smooth distribution $ \mathcal{H}\subset TM $  of rank $ k, $ it is said
 \begin{figure}
     \centering
     \incfig{fittogether}
-    \caption{Flat chart for a distribution}
+    \caption{Flat chart for a distribution.}
     \label{fig:fittogether}
 \end{figure}
 
@@ -212,6 +213,48 @@ thanks to Frobenius' Theorem.
 \begin{thm}[Frobenius]
 	Every involutive distribution is completely integrable.	
 \end{thm}
+
+\begin{proof}
+	(Taken from \cite{lee2003introduction}) First, it will be shown that any involutive distribution is spanned by independent smooth commuting\footnote{It is said that two vector fields commute if its Lie bracket is zero. A set of smooth vector fields is commuting if the Lie bracket of every pair is zero.} vector fields, and as a consequence of this fact, the distribution is completely integrable.
+
+	Let $ \mathcal{H} $ be an involutive distribution of rank $ k $ on an $ m- $dimensional manifold $ M $, and let $ p\in M $ . Let $ (U,\varphi) $ be a smooth coordinate chart centered in $ p. $ Then, $ \varphi(U)\subset \mathbb{R}^m $, and let $ X_1,\dots,X_k $ be a smooth local frame for $ \mathcal{H} $ in $ U. $
+
+	Now, $ \left\{ d\varphi \left( X_i \right) \right\}_{i=1}^k $ is a set of linearly independent vector fields over $ \varphi(U). $ One can reordinate the coordinates of $ \mathbb{R}^m $ to make $ \mathcal{H}'_{\varphi(p)} $ (understood as the fiber of the distribution whose local frame is given by $ \left\{ d\varphi \left( X_i \right) \right\}_{i=1}^k $) complementary to the subspace generated by $ \left( \partial/\partial x^{k+1}|_{\varphi(p)},\dots,\partial/\partial x^{m}|_{\varphi(p)} \right). $   
+
+	Let $ \pi: \mathbb{R}^m \rightarrow  \mathbb{R}^k$ the projection onto the first $ k $ coordinates, that is, $ \pi(x^1,\dots,x^m)=(x^1,\dots,x^k). $ This map induces a smooth\footnote{Smooth because it is the composition $\mathcal{H}' \hookrightarrow T\varphi(U) \xrightarrow[]{d\pi} T\pi(\varphi(U))
+	$ }  bundle homomorphism $ d\pi: T \mathbb{R}^m \rightarrow \mathbb{R}^k	 $ that acts as follows:
+	$$ d\pi \left( \sum_{i=1}^m v_i \frac{\partial}{\partial x^i} \Big|_{\varphi(q)}   \right) = \sum_{i=1}^k v_i \frac{\partial}{\partial x^i} \Big|_{\pi(\varphi(q))}, \text{ for }q\in U.$$ 
+
+	By the choice of coordinates, $ \mathcal{H}'_{\varphi(p)}\subset T_{\varphi(p)} \mathbb{R}^m $ is complementary to the kernel of $ d\pi_{\varphi(p)}, $ so the restriction $ d\pi|_{\mathcal{H}'_{\varphi(p)}} $ is bijective. By continuity, the same is true for $ d\pi|_{\mathcal{H}'_{\varphi(q)}} $, with $ q\in U $, and therefore, the matrix entries of $ \left(d\pi|_{\mathcal{H}'_{\varphi(q)}} \right)^{-1}: T_{\pi(\varphi(q))} \mathbb{R}^k \rightarrow \mathcal{H}'_{\varphi(q)}$ are smooth, which makes the map smooth. With this in mind, the set of vector fields $ V_1,\dots,V_k $, defined by
+	$$ V_i|_{\varphi(q)}= \left(  d\pi|_{\mathcal{H}'_{\varphi(q)}}  \right)^{-1} \frac{\partial}{\partial x^i} \Big|_{\pi(\varphi(q))} $$ 
+	are a local frame of $ \mathcal{H'}. $ It is in fact a smooth commuting local frame, as will be seen below. 
+
+	First, notice that $ V_i $ and $ \partial/\partial x^i $ are $ \pi- $related, for $ i=1,\dots,k, $ because
+	$$ \frac{\partial}{\partial x^i} \Big|_{\pi(\varphi(q))} = d\pi |_{\mathcal{H}'_{\varphi(q)}} \left( V_i |_{\varphi(q)} \right) = d\pi_{\varphi(q)}(V_i|_{\varphi(q)}), $$ 
+	so by the naturality of Lie brackets,
+	$$ d\pi_{\varphi(q)} \left( \left[ V_i,V_j \right]_{\varphi(q)} \right)= \left[ \frac{\partial}{\partial x^i}, \frac{\partial}{\partial x^j}   \right]_{\pi(\varphi(q))}=0, $$ 
+	but as $ d\pi|_{\mathcal{H}'_{\varphi(q)}} $ is injective and $ [V_i,V_j]_{\varphi(q)}\in \mathcal{H}'_{\varphi(q)} $, since $ \mathcal{H} $ is involutive, $ [V_i,V_j]_{\varphi(q)}=0 $ for all $ q\in U, $ so $ \left\{ V_i \right\}_{i=1}^k $ form a smooth commuting frame for $ \mathcal{H}', $ and $ \left\{ d\varphi^{-1}(V_i) \right\}_{i=1}^k $ are a smooth commuting local frame for $ \mathcal{H}. $   
+
+	Finally, to show that the existence of the commuting frame $ \left\{V_i \right\}_{i=1}^k $ for $ \mathcal{H}' $ is a sufficient condition for $ \mathcal{H} $ to be completely integrable, let $ \theta_i $ be the flow of $ V_i, $ $i=1,\dots,k.$ There is a neighborhood $ W $ of $ \varphi(p)  $, contained in $ \varphi(U) $ such that the composition  
+	$ (\theta_1)_{t_1}\circ(\theta_2)_{t_2}\circ\cdots\circ(\theta_k)_{t_k} $
+	is well defined, for sufficiently small $ t_1,\dots,t_k $ ($|t_i|<\epsilon  $, for an adequate $ \epsilon>0$). Define $ \Omega \subset \mathbb{R}^{m-k} $ as    
+	$$ \Omega = \left\{ (s^{k+1},\dots,s^m)\in \mathbb{R}^{m-k}\ : \ (0,\dots,0,s^{k+1},\dots,s^m)\in W \right\}, $$ 
+	and $\Phi:(-\epsilon,\epsilon)\times \Omega \rightarrow \varphi(U)$ as
+	$$ \Phi(s^1,\dots,s^k,s^{k+1},\dots,s^m)=(\theta_1)_{s^1}\circ\cdots\circ(\theta_k)_{s^k}(0,\dots,0,s^{k+1},\dots,s^m). $$ 
+	
+	Notice that, by construction, $ \Phi( \left\{ 0 \right\}^k\times\Omega) = ({0}^k\times \mathbb{R}^{m-k})\cap W. $ Moreover, $ \partial/\partial s^i $ and $ V_i $ are $ \Phi- $related for $ i=1,\dots,k, $ because, as the flows commute, for a given $ s^0=(s^1,\dots,s^m)\in (-\epsilon,\epsilon)^k\times \Omega, $ 
+
+	\begin{dmath*}
+		d\Phi_{s^0} \left( \frac{\partial}{\partial s^i} \Big|_{s^0}  \right) f = \frac{\partial}{\partial s^i} \Big|_{s^0} f \left( \Phi \left( s^1,\dots,s^m \right) \right) = \frac{\partial}{\partial s^i} \Big|_{s^0} f \left( (\theta_1)_{s^1}\circ\cdots\circ(\theta_k)_{s^k}(0,\dots,0,s^{k+1},\dots,s^m) \right) = \frac{\partial}{\partial s^i} \Big|_{s^0} f \left( (\theta_i)_{s^i}\circ\cdots\circ(\theta_{i-1})_{s^{i-1}}\circ(\theta_{i+1})_{s^{i+1}}\circ\cdots\circ(\theta_k)_{s^k}(0,\dots,0,s^{k+1},\dots,s^m) \right),
+	\end{dmath*}
+	and for any $ q\in\varphi(U) $, $ t\mapsto (\theta_i)_t(q) $ is an integral curve of $ V_i, $ so the above expression is equal to $ V_i|_{\Phi(s^0)} f $, which shows that $ \partial/\partial s^i |_{s^0} $ and $ V_i $ are $ \Phi- $related.   
+
+	By the previous computations, $$ d\Phi_0\left( \frac{\partial}{\partial s^i}\Big|_{0} \right) = V_i |_{\varphi(p)}, \ i=1,\dots,k, $$ and on the other hand, since $ \Phi(0,\dots,0,s^{k+1},\dots,s^m)=(0,\dots,0,s^{k+1},\dots,s^m), $ it follows that
+	$$ d\Phi_0 \left( \frac{\partial}{\partial s^i}\Big|_{0}  \right) = \frac{\partial}{\partial x^i}\Big|_{\varphi(p)},\ i=k+1,\dots,m.  $$ 
+	
+	Therefore, $ d\Phi_0 $ takes the basis $ \left( \partial/\partial s^1 |_0,\dots,\partial/\partial s^m |_0 \right) $ of $ T_0 \mathbb{R}^m $ to the basis $ ( V_1|_{\varphi(p)},  \dots,$ $ V_k|_{\varphi(p)}, \partial/\partial x^{k+1}|_{\varphi(p)}, \dots, \partial/\partial x^{m}|_{\varphi(p)}) $ of $ T_{\varphi(p)} \varphi(U). $ By the inverse function theorem, $ \Phi $ is a local diffeomorphism (in a neighborhood of $ 0 $), and $ \phi=\Phi^{-1} $ is a smooth coordinate chart that takes $ V_i $ to $ \partial/\partial s^i $, for $ i=1,\dots,k, $ and takes $ \partial / \partial x^{i} $ to $ \partial/\partial s^i $, for $ i=k+1,\dots,m. $ Thus, the smooth coordinate chart flat for $ \mathcal{H} $ in a vicinity of $ p\in M $ is $ \phi\circ\varphi, $ and since this is independent of $ p $, for every point there is a smooth coordinate chart flat for $ \mathcal{H}, $ what makes $ \mathcal{H} $ a completely integrable distribution.
+
+\end{proof}
 \bibliographystyle{unsrt}
 \nocite{*}
 \bibliography{mybibliography}
