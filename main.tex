@@ -83,7 +83,6 @@
 
 \begin{document}
 \maketitle
-
 \begin{abstract}
 \end{abstract}
 
@@ -91,75 +90,86 @@
 \label{sec:0}
 
 
-\section{Frobenius' Theorem}
+\section{Distributions}
 \label{sec:1}
 
-\subsection{Subriemannian geometry}%
-\label{sub:subriemannian_geometry}
+\subsection{Distributions and Horizontal Curves}%
+\label{sub:distributions}
 
 
 A manifold without boundary $M$ of dimension $ m $  is said to be of class $ C^\infty $ if the differentiability class of the transition maps is $C^\infty.$ In this case, for every $ p\in M $ one can define the tangent space to $ p $, $ T_pM $, as the set of all derivations of the algebra of germs of smooth functions from $ M $ to $ \mathbb{R}  $,  based on $ p $. This definition of tangent space is equivalent (when the differentiability class of $ M $ is $ \infty $) to the equivalence class of germs of curves that passes through $ p $. If a manifold $ M $  is $C^r$, with $r< \infty$, the definition for tangent space is the latter, so we use that definition for the tangent space throughout this text, independently of the differentiability class.
 
 Joining the tangent spaces of every point of the manifold induces the tangent bundle,
 $$ TM = \bigsqcup_{p\in M} T_pM, $$ 
-equipped with manifold structure given by the one of $ M. $ It is called a bundle because the triple $ (TM, M,\pi:TM \rightarrow {M}) $ is in fact a bundle, where $ \pi:TM \rightarrow {M} $  is the projection function, that assigns each tangent vector to the point where it is based. Each fiber of this bundle is a tangent space based on a point, and the tangent bundle is in particular a vector bundle because each fiber has structure of finite dimensional real vector space. 
+equipped with manifold structure given by the one of $ M. $ It is called a bundle because the triple $ (TM, M,\pi:TM \rightarrow {M}) $ is in fact a bundle, where $ \pi:TM \rightarrow {M} $  is the projection function, that assigns each tangent vector to the point where it is based. Each fiber of this bundle is a tangent space based on a point, and the tangent bundle is in particular a vector bundle because each fiber has structure of finite dimensional real vector space. Moreover, the tangent bundle belongs to the class of smooth vector bundles, objects of particular interest in differential geometry.
 
-For an arbitrary bundle $ (E,B,\pi:E \rightarrow {B}), $ a subbundle of this bundle $ (E',B',\pi':E' \rightarrow {B'}) $  is just a bundle that satisfies $ E'\subset E $, $ B'\subset B $ and $ \pi|_{E'}=\pi'. $ A distribution $ \mathcal{H} $ is a vector subbundle of the tangent bundle, with a fiber inner-product, and the pair of a manifold and a distribution over it defines a subriemannian geometry, as is stated in the following definition.
+\begin{df}[Smooth Vector Bundle]\label{def:smooth_vector_bundle}
+	The triple $ (E, M, \pi: E \rightarrow {M}) $ is a smooth vector bundle if $ E,M $ are smooth manifolds, $ \pi $ is a smooth surjection; the fibers $ \pi^{-1}(p) $ for $ p\in M $  have the structure of finite dimensional vector spaces; and for every point $ p\in M $, there is an open neighborhood $ U $ of $ p $, a natural number $ k $ and a diffeomorphism $ \phi: U\times \mathbb{R}^k \rightarrow  \pi^{-1}(U),$ such that for all $ q\in U $ the following propositions hold:  
 
-\begin{df}[Subriemannian Geometry]
-	A subriemannian geometry over a manifold $ M $ consists of a distribution $ \mathcal{H}\subset TM $ (referred as horizontal distribution), \textit{i.e.}, a vector subbundle of the tangent bundle of $ M $, together with a fiber inner-product $ <\cdot,\cdot> $ on this subbundle. 
+	\begin{itemize}
+		\item $ (\pi\circ \phi)(q,v)=q $ for all $ v\in \mathbb{R}^k $, and  
+		\item the map $ v \mapsto \phi(p,v) $ is a linear isomorphism between the vector spaces $\pi^{-1}(p) $ and $ \mathbb{R}^k. $     
+	\end{itemize}
+	
 \end{df}
 
-Some examples of this definition are given below.
-\begin{ex}[Riemannian Geometry]\label{ex:riem_geo}
-	Every riemannian geometry is in particular a subriemannian geometry, where the distribution is all the tangent bundle.
-\end{ex}
+For an arbitrary bundle $ (E,B,\pi:E \rightarrow {B}), $ a subbundle of this bundle $ (E',B',\pi':E' \rightarrow {B'}) $  is just a bundle that satisfies $ E'\subset E $, $ B'\subset B $ and $ \pi|_{E'}=\pi'. $ In particular, a smooth vector subbundle is a vector subbundle that is also smooth. 
+\begin{df}[Distribution]
+	
+	A distribution $ \mathcal{H} $ over a manifold $ M $  is a vector subbundle of the tangent bundle $ TM $ . If this vector subbundle is in addition smooth, the distribution is said to be smooth, and the rank $ k $  of this distribution is defined as the dimension of its fibers.
 
-\begin{ex}[Heisenberg Group]\label{ex:heis^group}
-	This is a non-trivial case of subriemannian geometry. Take $ \mathbb{R} ^3 $ as the manifold, and define over it the distribution $ \mathcal{H}\subset T \mathbb{R} ^3 $, whose fiber at an arbitrary $ (x,y,z)\in \mathbb{R}^3  $ is   
-	$$ \mathcal{H}_{(x,y,z)} = \left\{ (v_1,v_2,v_3)\in T_{(x,y,z)} \mathbb{R}^3 : v_3- \frac{1}{2} \left( xv_2-yv_1 \right)=0   \right\}. $$ 
-	The inner product over $ \mathcal{H}_{(x,y,z)} $ is given by $<\cdot,\cdot>:  \mathcal{H}_{(x,y,z)}\times\mathcal{H}_{(x,y,z)} \rightarrow { \mathbb{R} }:(v,w)\mapsto v_1w_1+v_2w_2,$ where $ v=(v_1,v_2,v_3) $ and $ w=(w_1,w_2,w_3). $  
+	The fiber of $ \mathcal{H} $ at a point $ p\in M $ is denoted as $ H_p. $ 
+\end{df}
 
+The concept of (smooth) distribution can be defined in an alternative but equivalent (see \cite{lee2003introduction}, Ch. 19) fashion using 1-forms, with the help of the following proposition.
+
+\begin{prop}[Smooth Distribution (using 1-forms)]
+	Suppose that $ M $ is a smooth $ m- $dimensional manifold, and $ \mathcal{H} \subset TM$ is a distribution of rank $k$. Then $ \mathcal{H} $ is smooth if and only if for every point $ p\in M $ there is a neighborhood $ U $ of that point where exist $n-k$ smooth 1-forms $ \omega^1,\dots,\omega^{n-k}, $ such that for all $ q\in U $,
+
+	$$ \mathcal{H}_q = \operatorname{Ker} \omega^1|_q\cap \cdots \cap\operatorname{Ker} \omega^{n-k}|_q.  $$ 
+\end{prop}
+
+Some examples of distributions over manifolds are given below.
+\begin{ex}[Tangent Bundle]
+	For any manifold $ M $, the tangent bundle $ TM $ is by definition a distribution over it. 
 \end{ex}
-	The last example is of particular interest because of its connection with the isoperimetrical problem.
+\begin{ex}[Heisenberg Group]\label{ex:heis_group}
+	Take $ \mathbb{R} ^3 $ as the manifold, and define over it the distribution $ \mathcal{H}\subset T \mathbb{R} ^3 $, whose fiber at an arbitrary $ (x,y,z)\in \mathbb{R}^3  $ is   
+	$$ \mathcal{H}_{(x,y,z)} = \operatorname{Ker} \omega|_{(x,y,z)},$$
+	where $ \omega = dz-(x dy-y dx)/2\in\Omega^1( \mathbb{R}^3).$ 
+\end{ex}
+\begin{rem}
+	The last example is of particular interest because of its connection with the isoperimetrical problem. For more information see \cite{montgomery2002tour}, Ch. 1.
+\end{rem}
 \begin{ex}[Vector Field over a Manifold]\label{ex:vect_field}
-	Any vector field $ X: M \rightarrow {TM} $ (seen as a section of the tangent bundle) determines a distribution over the manifold $ M $ whose fiber at an arbitrary $ p\in M $ is the span of $ X_p, $ and the fiber inner-product is the canonical one (given by the isomorphism $ T_pM\cong \mathbb{R} ^m, $ with $\operatorname{dim} \left( M \right) = m$).
+	Any smooth vector field $ X: M \rightarrow {TM} $ (which does not cancel out at any point) on a manifold determines a distribution $ \mathcal{H}$ over the manifold $ M $ whose fiber at an arbitrary $ p\in M $ is the span of $ X_p. $
 
-	As a particular case of this example, one can consider a system of $ n $ linear differential equations on $ \mathbb{R}^n $, that determines a vector field over $ \mathbb{R}^n,  $ and this in turn generates a distribution via the span of the vectors at each point, with the canonical fiber-inner product.
+	As a particular case of this example, one can consider a system of $ n $ linear differential equations on $ \mathbb{R}^n $ without equilibrium points, that determines a vector field over $ \mathbb{R}^n,  $ and this in turn generates a distribution via the span of the vectors at each point.
 \end{ex}
 
-Given a subriemannian geometry $ (M, \mathcal{H}), $ a curve or vector field is said to be \textbf{horizontal} if is tangent to $ H $. This means that, in the case of a curve, its tangent vector at every point is contained in the fibers of $ \mathcal{H} $; and in the case of a vector field, its image at every point where it is defined is contained in the fibers of $ \mathcal{H} .$   
 
-For example, every curve over a riemannian geometry is horizontal, as can be deduced from example \ref{ex:riem_geo}. In the example \ref{ex:heis^group}, the liftings of the solutions of the isoperimetrical problem are horizontal. In example \ref{ex:vect_field}, and in particular in the case of systems of linear differential equations, the solution curves of the system of differential equations are examples of horizontal curves on this subriemannian geometry.
+Given a distribution $ \mathcal{H} $  over a manifold $M$,  a curve or vector field is said to be \textbf{horizontal} if it is tangent to $ \mathcal{H} $. This means that, in the case of a curve, its tangent vector at every point is contained in the fibers of $ \mathcal{H} $; and in the case of a vector field, its image at every point where it is defined is contained in the fibers of $ \mathcal{H} .$   
 
-In the particular case of the horizontal curves, one can define the \textbf{length of a horizontal smooth curve} $ \gamma $ (denoted by $ \ell(\gamma) $) as in the case of riemannian geometry:
-$$ \ell(\gamma) = \int ||\dot{\gamma}|| dt, $$ 
-since the tangent vectors of the curve at all points are in the fibers of the horizontal distribution, where there is a inner product defined, and $ ||\dot{\gamma}||= \sqrt[]{<\dot{\gamma}, \dot{\gamma}>}.  $   
-
-With the idea of length of horizontal curves, the \textbf{distance between two points} $ p,q\in M $, denoted by $ d(p,q), $   is defined as the infimum of the lengths of all absolutely continuous\footnote{A curve $ \gamma:I\subset \mathbb{R}  \rightarrow {M} $ is said to be absolutely continuous if it has derivative for almost all $ t\in I. $ } horizontal curves that begin in $ p $ and end in $ q $, that is, 
-
-$$ d(p,q) = \operatorname{inf} \left\{ \ell(\gamma) \ |\ \gamma:[0,1] \rightarrow {M} \text{ is absolutely continuous and }\gamma(0)=p, \ \gamma(1)=q \right\}. $$ 
-
-The distance between two points is said to be infinite if there is no curve joining them. Also, in analogy with riemannian geometry, an absolutely continuous horizontal curve that realizes the distance between two points is called a \textbf{geodesic}. 
+For example, every curve over a riemannian structure is horizontal. In the example \ref{ex:heis_group}, the liftings of the solutions of the isoperimetrical problem are horizontal. In example \ref{ex:vect_field}, and in particular in the case of systems of linear differential equations, the solution curves of the system of differential equations are examples of horizontal curves for that distribution.
 
 \subsection{Frobenius' Theorem}%
 \label{sub:chow_s^theorem}
 
 
-Now the natural question that arises is if, given two points on a manifold with a given horizontal distribution, is there a geodesic that joins them? Or more generally, there exists a horizontal curve that joins them? To address this question, the present text will focus on \textbf{smooth distributions}, that is just a horizontal distribution over a manifold such that for each point $ p\in M $, there is an open neighborhood $ U $ of it on which there are smooth vector fields $ X_1,\dots,X_n: U \rightarrow {TM} $ that at each point of $ U $ form a base for the fiber of that point respect to the distribution.
+Now the natural question that arises is if, given two points on a manifold with a given horizontal distribution, is there a smooth horizontal curve that joins them? Or more generally, there exists an absolutely continuous horizontal curve that joins them? To address this question, the present text will focus on \textbf{smooth distributions}, which are characterized by the property that for each point $ p\in M $, there is an open neighborhood $ U $ of it on which there are smooth vector fields $ X_1,\dots,X_n: U \rightarrow {TM} $ that at each point of $ U $ form a base for the fiber of that point respect to the distribution (see definition \ref{def:smooth_vector_bundle}).
 
-With a smooth distribution $ \mathcal{H} \subset TM, $ it is said that a nonempty immersed submanifold $ N\subseteq M $  is a \textbf{integral manifold} of $\mathcal{H}$ if $ T_p N = \mathcal{H}_p $ for all $ p\in N $ , \textit{i.e.}, if the tangent space of all points of the submanifold is the fiber of the horizontal distribution. As an example, in the subriemannian geometry given in example \ref{ex:vect_field}, the image of any integral curve of the vector field that determines the distribution over the manifold is an integral manifold for that distribution. A particular example of a distribution and its family of integral manifolds is given below.
+With a smooth distribution $ \mathcal{H} \subset TM, $ it is said that a nonempty immersed submanifold $ N\subseteq M $  is a \textbf{integral manifold} of $\mathcal{H}$ if $ T_p N = \mathcal{H}_p $ for all $ p\in N $ , \textit{i.e.}, if the tangent space of all points of the submanifold is the fiber of the horizontal distribution. As an example, in the distribution given in example \ref{ex:vect_field}, the image of any integral curve of the vector field that determines the distribution over the manifold is an integral manifold for that distribution. A particular example of a distribution and its family of integral manifolds is given below.
 
 \begin{ex}[Orthogonal complement of radial vector field]
-	Let $ \mathcal{G} $ be the distribution over $ \mathbb{R}^n $ determined by the radial vector field\footnote{This text uses extensively the Einstein's sum convention.} $ x^i \partial / \partial x^i $, and let $ \mathcal{G}^\perp $ be its perpendicular bundle, \textit{i.e.,} the distribution whose fibers are the orthogonal complement of the fibers of $ \mathcal{G}. $ $ \mathcal{G}^\perp $ is a distribution over $ \mathbb{R}^n  $, and the sphere centered on $0$, of radius $ |x| $, for all $ x\neq0 $ is an integral submanifold of $ \mathcal{G}^\perp. $        
+	Let $ \mathcal{G} $ be the distribution over $ \mathbb{R}^n $ determined by the radial vector field $ x^i \partial / \partial x^i $, and let $ \mathcal{G}^\perp $ be its perpendicular bundle, \textit{i.e.,} the distribution whose fibers are the orthogonal complement of the fibers of $ \mathcal{G}. $ $ \mathcal{G}^\perp $ is a distribution over $ \mathbb{R}^n  $, and the sphere centered on $0$, of radius $ |x| $, for all $ x\neq0 $ is an integral submanifold of $ \mathcal{G}^\perp. $        
 \end{ex}
 
-There are cases when a subriemannian geometry over a manifold does not have integral manifolds, as is shown in the following example, taken from \cite{lee2003introduction}.
+There are cases of distributions over a manifold that do not have integral manifolds, as is shown in the following example, taken from \cite{lee2003introduction}, Ch. 19.
 
-\begin{ex}[Subriemannian geometry without integral manifolds] \label{ex:no_integral_manifolds}
+\begin{ex}[Distribution without integral manifolds] \label{ex:no_integral_manifolds}
 	Consider the distribution $ \mathcal{H} $ over $ \mathbb{R}^3 $ spanned by the following vector fields: 
 	$$ X = \frac{\partial}{\partial x} + y \frac{\partial}{\partial z}, \quad Y = \frac{\partial}{\partial y}.  $$ 
-	This distribution does not have integral manifolds. To see this, suppose that $ N $ is an integral manifold that contains an arbitrary point $ \textbf{x} \in \mathbb{R}^3.  $ Because $ X $ and $ Y $ are tangent to $ N $, any integral curve\footnote{Curve whose derivative at each point is the same as the evaluation of the given vector field at that point.} of $ X $ or $ Y $ that starts in $ N $ stays in $ N $, at least for a short time (\textit{i.e.}, the integral curve $ \gamma $ must be defined over a sufficiently small interval such that its image is fully contained in $ N $).   
+	This distribution does not have integral manifolds. To see this, suppose that $ N $ is an integral manifold that contains an arbitrary point $ \textbf{x} \in \mathbb{R}^3.  $ Because $ X $ and $ Y $ are tangent to $ N $, any integral curve of $ X $ or $ Y $ that starts in $ N $ stays in $ N $, at least for a short time (\textit{i.e.}, the integral curve $ \gamma $ must be defined over a sufficiently small interval such that its image is fully contained in $ N $).   
 
 	Therefore, as the integral curve of $ X $ is a straight line contained in the plane that is parallel to the $ xz- $plane, there is a segment of this line that is contained in $ N $, and for every point in this segment, the integral curves of $ Y $ that passes through them are straight lines parallel to the $ y- $axis, so there must be an open vicinity of $ \textbf{x}  $ that contains a plane generated by the segments of the integral curves of $ X $ and $ Y $ that passes through $ \textbf{x}$ (see figure \ref{fig:no_integral_manifolds}). However, the tangent plane at any point $ p $  of this plane  off of the segment induced by the integral curve of $ X $ is not equal to $ \mathcal{H}_p, $ since $ X $ depends of $ y $.   
 \end{ex}
@@ -179,13 +189,6 @@ A smooth distribution $ \mathcal{H} $ over a manifold $ M $ is called \textbf{in
 
 In fact, the involutivity condition does not need to be checked with all smooth vector fields on $ \Gamma( \mathcal{H}), $ but it suffices to check if the Lie brackets of pairs of smooth vector fields of the local frame that determines the distribution are tangent to it, since every smooth local frame tangent to $ \mathcal{H} $ is a linear combination of the smooth vector fields of the local frame. 
 
-There is also an alternative construction for smooth distributions in terms of 1-forms, equivalent to the definition in terms of a local frame that generates the distribution at each point. Nevertheless, this text will stick to this last definition, so that no comments will be made on this alternative definition. Moreover, this text will work with a special class of smooth distributions, that are known as constant rank's ones.
-
-\begin{df}[Constant Rank Distribution]
-	A smooth distribution $ \mathcal{H}\subset TM $ on $ M $ is called a constant rank distribution, or distribution of rank $ k $ if for all $ p\in M $ there is an open set $ U\subset M $ that contains $ p $ such that there exists a local frame of sections $X_1,\dots,X_k: U \rightarrow {M}
-	$  that generates $ \mathcal{H}_q $, for all $ q\in U, $ and $ k\in \mathbb{N}  $ is independent of the point $ p\in M $ chosen.  
-\end{df}
-
 Given a smooth distribution $ \mathcal{H}\subset TM $  of rank $ k, $ it is said that a smooth coordinate chart $ (U,\phi) $ of $ M $ is \textbf{flat for $ \mathcal{H} $ } if $ \phi(U) $ is a cube in $ \mathbb{R}^m  $ (being $ m $ the dimension of $ M $ ), and at points of $ U $, $ \mathcal{H} $ is spanned by the first $ k $ coordinate vector fields $ \partial/\partial x^1,\dots,\partial/\partial x^k $ (see figure \ref{fig:fittogether}). The geometrical meaning of this property for a distribution is that, locally (in that chart), the manifold is homeomorphic to a cube in $ \mathbb{R}^m,  $ and the vector subspaces induced by the distribution at each point fit together as affine spaces of dimension given by the rank of the distribution in $ \mathbb{R}^m $. Also, each slice of the form $ x^{k+1}=c^{k+1},\dots, x^m=c^m,$ for constants $ c^{k+1}, \dots, c^m $ in the image of $ U $ of such a chart is an integral manifold of the distribution generated by $ \partial/\partial x^1,\dots,\partial/\partial x^k $, and the preimage of this integral manifold is an integral manifold of $ \mathcal{H}, $ contained in $ U. $  
 
 \begin{figure}
@@ -198,31 +201,25 @@ Given a smooth distribution $ \mathcal{H}\subset TM $  of rank $ k, $ it is said
 The case when every point in $ M $ has a coordinate chart centered in it, flat for $ \mathcal{H} $ is discussed in the following definition and geometrical interpretation.
 
 \begin{df}[Completely Integrable Distribution]
-	A smooth constant rank distribution $ \mathcal{H}\subset TM $  is said to be \textbf{completely integrable} if there exists a flat chart for $ \mathcal{H} $ in a neighborhood of each point of $ M. $ 
+	A smooth distribution $ \mathcal{H}\subset TM $  is said to be \textbf{completely integrable} if there exists a flat chart for $ \mathcal{H} $ in a neighborhood of each point of $ M. $ 
 \end{df}
 
 When a distribution is completely integrable, there is a coordinate chart centered at every point $ p\in M $ , such that the manifolds locally looks like a cube in $ \mathbb{R}^m  $, and the distribution becomes the tangent subspace of dimension $ k $ generated by the first $ k $ vector fields that form the base of the tangent space at each point, as can be seen in figure \ref{fig:fittogether}. 
 
-Therefore, if a distribution is completely integrable, is then integrable, since there exists an integral manifold for each point (that in particular is a \textbf{maximal integral manifold}, as the dimension of this manifold coincides with the rank of the distribution), given by the integral manifold that contains this point in the image of the coordinate chart flat for $ \mathcal{H}. $ In this way, the following implications hold: 
-
-$$ \text{completely integrable } \Rightarrow \text{ integrable } \Rightarrow \text{ involutive.} $$  
-In fact, these implications are actually equivalences,
-$$ \text{completely integrable } \Leftrightarrow \text{ integrable } \Leftrightarrow \text{ involutive,} $$  
-thanks to Frobenius' Theorem. 
+Therefore, if a distribution is completely integrable, is then integrable, since there exists an integral manifold for each point (that in particular is a \textbf{maximal integral manifold}, as the dimension of this manifold coincides with the rank of the distribution), given by the integral manifold that contains this point in the image of the coordinate chart flat for $ \mathcal{H}. $ In this way, \textit{ if a distribution is completely integrable, it is integrable, and therefore involutive.} In fact, these implications are actually equivalences, thanks to Frobenius's theorem.
 
 \begin{thm}[Frobenius]
 	Every involutive distribution is completely integrable.	
 \end{thm}
 
 \begin{proof}
-	(Taken from \cite{lee2003introduction}) First, it will be shown that any involutive distribution is spanned by independent smooth commuting\footnote{It is said that two vector fields commute if its Lie bracket is zero. A set of smooth vector fields is commuting if the Lie bracket of every pair is zero.} vector fields, and as a consequence of this fact, the distribution is completely integrable.
+	(\cite{lee2003introduction}, Ch. 19) First, it will be shown that any involutive distribution is spanned by independent smooth commuting vector fields, and as a consequence of this fact, the distribution is completely integrable.
 
 	Let $ \mathcal{H} $ be an involutive distribution of rank $ k $ on an $ m- $dimensional manifold $ M $, and let $ p\in M $ . Let $ (U,\varphi) $ be a smooth coordinate chart centered in $ p. $ Then, $ \varphi(U)\subset \mathbb{R}^m $, and let $ X_1,\dots,X_k $ be a smooth local frame for $ \mathcal{H} $ in $ U. $
 
 	Now, $ \left\{ d\varphi \left( X_i \right) \right\}_{i=1}^k $ is a set of linearly independent vector fields over $ \varphi(U). $ One can reordinate the coordinates of $ \mathbb{R}^m $ to make $ \mathcal{H}'_{\varphi(p)} $ (understood as the fiber of the distribution whose local frame is given by $ \left\{ d\varphi \left( X_i \right) \right\}_{i=1}^k $) complementary to the subspace generated by $ \left( \partial/\partial x^{k+1}|_{\varphi(p)},\dots,\partial/\partial x^{m}|_{\varphi(p)} \right). $   
 
-	Let $ \pi: \mathbb{R}^m \rightarrow  \mathbb{R}^k$ the projection onto the first $ k $ coordinates, that is, $ \pi(x^1,\dots,x^m)=(x^1,\dots,x^k). $ This map induces a smooth\footnote{Smooth because it is the composition $\mathcal{H}' \hookrightarrow T\varphi(U) \xrightarrow[]{d\pi} T\pi(\varphi(U))
-	$ }  bundle homomorphism $ d\pi: T \mathbb{R}^m \rightarrow \mathbb{R}^k	 $ that acts as follows:
+	Let $ \pi: \mathbb{R}^m \rightarrow  \mathbb{R}^k$ the projection onto the first $ k $ coordinates, that is, $ \pi(x^1,\dots,x^m)=(x^1,\dots,x^k). $ This map induces a smooth (smooth because it is the composition $\mathcal{H}' \hookrightarrow T\varphi(U) \xrightarrow[]{d\pi} T\pi(\varphi(U))$ )  bundle homomorphism $ d\pi: T \mathbb{R}^m \rightarrow \mathbb{R}^k	 $ that acts as follows:
 	$$ d\pi \left( \sum_{i=1}^m v_i \frac{\partial}{\partial x^i} \Big|_{\varphi(q)}   \right) = \sum_{i=1}^k v_i \frac{\partial}{\partial x^i} \Big|_{\pi(\varphi(q))}, \text{ for }q\in U.$$ 
 
 	By the choice of coordinates, $ \mathcal{H}'_{\varphi(p)}\subset T_{\varphi(p)} \mathbb{R}^m $ is complementary to the kernel of $ d\pi_{\varphi(p)}, $ so the restriction $ d\pi|_{\mathcal{H}'_{\varphi(p)}} $ is bijective. By continuity, the same is true for $ d\pi|_{\mathcal{H}'_{\varphi(q)}} $, with $ q\in U $, and therefore, the matrix entries of $ \left(d\pi|_{\mathcal{H}'_{\varphi(q)}} \right)^{-1}: T_{\pi(\varphi(q))} \mathbb{R}^k \rightarrow \mathcal{H}'_{\varphi(q)}$ are smooth, which makes the map smooth. With this in mind, the set of vector fields $ V_1,\dots,V_k $, defined by
@@ -255,6 +252,42 @@ thanks to Frobenius' Theorem.
 	Therefore, $ d\Phi_0 $ takes the basis $ \left( \partial/\partial s^1 |_0,\dots,\partial/\partial s^m |_0 \right) $ of $ T_0 \mathbb{R}^m $ to the basis $ ( V_1|_{\varphi(p)},  \dots,$ $ V_k|_{\varphi(p)}, \partial/\partial x^{k+1}|_{\varphi(p)}, \dots, \partial/\partial x^{m}|_{\varphi(p)}) $ of $ T_{\varphi(p)} \varphi(U). $ By the inverse function theorem, $ \Phi $ is a local diffeomorphism (in a neighborhood of $ 0 $), and $ \phi=\Phi^{-1} $ is a smooth coordinate chart that takes $ V_i $ to $ \partial/\partial s^i $, for $ i=1,\dots,k, $ and takes $ \partial / \partial x^{i} $ to $ \partial/\partial s^i $, for $ i=k+1,\dots,m. $ Thus, the smooth coordinate chart flat for $ \mathcal{H} $ in a vicinity of $ p\in M $ is $ \phi\circ\varphi, $ and since this is independent of $ p $, for every point there is a smooth coordinate chart flat for $ \mathcal{H}, $ what makes $ \mathcal{H} $ a completely integrable distribution.
 
 \end{proof}
+
+\section{Subriemannian Geometry}%
+\label{sec:subriemannian_geometry}
+
+\subsection{Subriemannian Structure and Geodesics}%
+\label{sub:subriemannian_structure_and_geodesics}
+
+
+ If a distribution is doted with a fiber inner-product, the pair of a manifold and a distribution over it defines a subriemannian structure, as is stated in the following definition.
+\begin{df}[Subriemannian Structure]
+	A subriemannian structure over a manifold $ M $ is a distribution $ \mathcal{H}\subset TM $, called horizontal distribution, endowed with a fiber inner-product $ <\cdot,\cdot> $ on this subbundle, which is a positive definite smooth quadratic form, belonging to the smooth sections of the smooth bundle $ T^2_0 M \xrightarrow[\pi] M. $ ((2,0) tensor fields over a manifold).
+\end{df}
+
+Some examples of subriemannian structures are given below.
+\begin{ex}[Riemannian Structure]\label{ex:riem_geo2}
+	Every riemannian structure is in particular a subriemannian structure, where the distribution is all the tangent bundle.
+\end{ex}
+
+\begin{ex}[Heisenberg Group]\label{ex:heis_group2}
+	The distribution of the Heisenberg group is commented in example \ref{ex:heis_group}. The inner product over a fiber $ \mathcal{H}_{(x,y,z)} $, with $ (x,y,z)\in \mathbb{R}^3 $  is given by $<\cdot,\cdot>:  \mathcal{H}_{(x,y,z)}\times\mathcal{H}_{(x,y,z)} \rightarrow { \mathbb{R} }:(v,w)\mapsto v_1w_1+v_2w_2,$ where $ v=(v_1,v_2,v_3) $ and $ w=(w_1,w_2,w_3). $  
+
+\end{ex}
+\begin{ex}[Vector Field over a Manifold]\label{ex:vect_field2}
+	As seen in example \ref{ex:vect_field}, any smooth vector field $ X: M \rightarrow TM$ that does not cancel out in any point determines a distribution.  The fiber inner-product $ <\cdot,\cdot>: \mathcal{H}_p \times \mathcal{H}_p \rightarrow \mathbb{R} $ for $ p\in M $  is given by $<\lambda_1 X_p,\lambda_2 X_p>=\lambda_1 \lambda_2.$
+\end{ex}
+In the particular case of the horizontal curves, one can define the \textbf{length of a horizontal smooth curve} $ \gamma $ (denoted by $ \ell(\gamma) $) as in the case of riemannian geometry:
+$$ \ell(\gamma) = \int ||\dot{\gamma}|| dt, $$ 
+since the tangent vectors of the curve at all points are in the fibers of the horizontal distribution, where there is a inner product defined, and $ ||\dot{\gamma}||= \sqrt[]{<\dot{\gamma}, \dot{\gamma}>}.  $   
+
+With the idea of length of horizontal curves, the \textbf{distance between two points} $ p,q\in M $, denoted by $ d(p,q), $   is defined as the infimum of the lengths of all absolutely continuous horizontal curves that begin in $ p $ and end in $ q $, that is, 
+
+$$ d(p,q) = \operatorname{inf} \left\{ \ell(\gamma) \ |\ \gamma:[0,1] \rightarrow {M} \text{ is absolutely continuous and }\gamma(0)=p, \ \gamma(1)=q \right\}. $$ 
+
+The distance between two points is said to be infinite if there is no curve joining them. Also, in analogy with riemannian geometry, an absolutely continuous horizontal curve that realizes the distance between two points is called a \textbf{geodesic}. 
+
+
 \bibliographystyle{unsrt}
 \nocite{*}
 \bibliography{mybibliography}
