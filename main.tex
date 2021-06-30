@@ -253,6 +253,70 @@ Therefore, if a distribution is completely integrable, is then integrable, since
 
 \end{proof}
 
+The next proposition is one of the main consequences of Frobenius theorem, and it is fundamental to study foliations, topic that is going to be discussed below.
+\begin{prop}[Local structure of integral manifolds]\label{prop:local_structure}
+	Let $ \mathcal{H} $ be an involutive distribution of rank $ k $ on a smooth manifold $ M $, and let $ (U,\varphi) $ be a flat chart for $ \mathcal{H} $. If $ N $ is any connected integral manifold of $ \mathcal{H}, $ then $ \varphi(U\cap N) $ is the union of countably many disjoint open subsets of parallel $ k- $dimensional slices of $ \varphi(U) $, whose preimages are open in $ N $ and embedded in $ M $.
+\end{prop}
+
+\begin{figure}
+    \centering
+    \incfig{local_structure}
+    \caption{Local structure of an integral manifold.}
+    \label{fig:local_structure}
+\end{figure}
+
+\begin{proof}(\cite{lee2003introduction}, Ch. 19)
+	Let $ N $ be an integral manifold of $ \mathcal{H}. $ Since the inclusion map $ \iota: N \hookrightarrow M $ is continuous, $ \varphi( \iota^{-1}(U))=\varphi(N\cap U) $  is open in $ \varphi(N) $. Then, $ \varphi(U\cap N) $ is the union of open slices (\textit{i.e.}, open subsets of a slice of $ \varphi(U)$) with $ x_i=\text{constant} $, for $ i=k+1,\cdots,m.$ Moreover, this union is at most countable, because $ N $ is second countable, and since $ \varphi(N\cap U) $ is a union of open slices, $ \pi(\varphi(U\cap N)) $ consists of a countable number of points (recall that $ \pi: \varphi(U) \rightarrow \mathbb{R}^{m-k} $ is the projection onto the last $ m-k $ coordinates) in $ \mathbb{R}^{m-k}, $ which implies that the union of open slices is at most countable.  
+
+	Finally, if $ V $ is an open slice in the slice $ S, $ the inclusion map $ \varphi^{-1}(V) \hookrightarrow M $ is a smooth embedding, because it is the composition of smooth embeddings $ \varphi^{-1}(V)\hookrightarrow \varphi^{-1}(S) \hookrightarrow M.$ 
+\end{proof}
+
+The last proposition implies that one can put all the maximal integral manifolds of an involutive distribution of rank $ k $  together, to obtain a partition on $ M $ into $ k- $dimensional submanifolds, that satisfy the following definition.
+\begin{df}[Flat chart for a collection of submanifolds]
+	A smooth chart $ (U,\varphi) $ for $ M $ is called \textbf{flat for a collection $ \mathcal{F} $ of $ k- $dimensional submanifolds of $ M $} if $ \varphi(U) $ is a cube in $ \mathbb{R}^m, $ and the image of each submanifold via $ \varphi $ intersects $ \varphi(U) $ in either the empty set or in a countable union of $ k- $dimensional slices of the form $ x^{k+1}=c^{k+1},\dots,x^m=c^m. $   
+\end{df}
+
+\begin{df}[Foliation over a manifold]
+	A foliation of dimension $ k $ on a smooth manifold $ M $ is a collection $ \mathcal{F} $ of disjoint, connected, nonempty, immersed $ k- $dimensional submanifolds of $ M $ (called the \textbf{leaves} of the foliation), whose union is $ M $, and such that in a neighborhood of each point $ p\in M $ there is a flat chart for $ \mathcal{F}. $  
+\end{df}
+
+The following are examples of foliations over a manifold, mainly taken from \cite{lee2003introduction}, Ch. 19.
+
+\begin{ex}[Collection of affine subspaces]
+	The collection of all $ k- $dimensional affine subspaces of $ \mathbb{R}^m $ parallel to $ \mathbb{R}^k\times \left\{ 0 \right\} $ is a $ k- $dimensional foliation for $ \mathbb{R}^m. $ 
+\end{ex}
+
+\begin{ex}[Spheres centered at the origin]
+	The collection of all spheres centered at $ 0 $ is an $ (m-1)- $dimensional foliation of $ \mathbb{R}^m\setminus \left\{ 0 \right\} $. 
+\end{ex}
+
+\begin{ex}[Cartesian product of manifolds]\label{ex:product_foliation}
+	If $ M $ and $ N $ are connected smooth manifolds, the collection of subsets of the form $ M\times \left\{ q \right\}, $ with $ q\in N $, is a foliation of $ M\times N, $ each of whose leaves is diffeomorphic to $ M. $  	
+\end{ex}
+
+From the definition of foliations, it is clear that \textit{if $ \mathcal{F} $ is a foliation on a smooth manifold $ M, $ the collection of tangent spaces to the leaves of $ \mathcal{F} $ forms an involutive distribution on $ M. $} In a reciprocal way, the collection of maximal integral manifolds of an involutive distribution forms a foliation over the manifold, as it is stated in the global Frobenius theorem.
+
+\begin{thm}[Global Frobenius theorem]
+	Let $ \mathcal{H} $ be an involutive distribution on a smooth manifold $ M. $ The collection of all maximal connected integral manifolds of $ \mathcal{H} $ forms a foliation of $ M. $ 
+\end{thm}
+
+Following the procedure of \cite{lee2003introduction}, Ch.19, the next lemma is going to be used in the proof of this theorem.
+
+\begin{lm}
+	Suppose $ \mathcal{H}\subset TM $ is an involutive distribution, and let $ \left\{ N_\alpha \right\}_{\alpha\in A} $ be any collection of connected integral manifolds of $ \mathcal{H} $ with a point in common. Then, $ N=\bigcup_{\alpha} N_\alpha $ has a unique smooth manifold structure making it into a connected integral manifold of $ \mathcal{H}. $  
+\end{lm}
+
+\begin{proof}[Proof of the global Frobenius theorem]
+	(\cite{lee2003introduction}, Ch. 19) For each $ p\in M $, let $ L_p $ be the union of all connected integral manifolds of $ \mathcal{H} $ containing $ p. $ By the preceding lemma, $ L_p $ is a connected integral manifold of $ \mathcal{H} $ containing $ p $, and it is clearly maximal. By maximality, if $ L_p $ and $ L_{p'} $ intersect, $ L_p=L_{p'} $, because $ L_p\cup L_{p'} $ is an integral manifold containing both $ p $ and $ p' $. Thus, the maximal connected integral manifolds are either disjoint or identical.    
+
+	If $ (U,\varphi) $ is any flat chart for $ \mathcal{H}, $ then $ \varphi(L_p\cap U) $ is a countable union of open subsets of slices (by proposition \ref{prop:local_structure}). For any such slice $ S, $ if $ \varphi(U\cap L_p)\cap S $ is neither empty nor all of $ S, $ then $ L_p\cup \varphi^{-1}(S )$ is a connected integral manifold properly containing $ L_p, $ which contradicts the maximality of $ L_p. $ Therefore, $ \varphi(L_p\cap U) $ is precisely a countable union of slices, so the collection $ \left\{ L_p\ : \ p\in M \right\} $ is the desired foliation.
+\end{proof}
+
+With the global Frobenius theorem, one can address the question at the start of this subsection: in general, for an given distribution there is not a smooth horizontal curve that connects an arbitrary pair of points, because the points can be in different leaves of the foliation given by the distribution.
+
+\begin{ex}[Foliations on a torus]
+	The torus $ T= \mathbb{S}^1\times \mathbb{S}^1 $ can be endowed with the distribution induced by the cartesian product of manifolds (see example \ref{ex:product_foliation}). In this case, the foliation is conformed by copies of $ \mathbb{S}^1. $ The horizontal curves are segments of this copies, and if two points lay in different copies, there is not a horizontal curve that connects them.
+\end{ex}
 \section{Subriemannian Geometry}%
 \label{sec:subriemannian_geometry}
 
@@ -262,7 +326,7 @@ Therefore, if a distribution is completely integrable, is then integrable, since
 
  If a distribution is doted with a fiber inner-product, the pair of a manifold and a distribution over it defines a subriemannian structure, as is stated in the following definition.
 \begin{df}[Subriemannian Structure]
-	A subriemannian structure over a manifold $ M $ is a distribution $ \mathcal{H}\subset TM $, called horizontal distribution, endowed with a fiber inner-product $ <\cdot,\cdot> $ on this subbundle, which is a positive definite smooth quadratic form, belonging to the smooth sections of the smooth bundle $ T^2_0 M \xrightarrow[\pi] M. $ ((2,0) tensor fields over a manifold).
+	A subriemannian structure over a manifold $ M $ is a distribution $ \mathcal{H}\subset TM $, called horizontal distribution, endowed with a fiber inner-product $ <\cdot,\cdot> $ on this subbundle, which is a positive definite smooth quadratic form, belonging to the smooth sections of the smooth bundle $ T^2_0 M \xrightarrow[]{\pi} M. $ ((2,0) tensor fields over a manifold).
 \end{df}
 
 Some examples of subriemannian structures are given below.
