@@ -32,19 +32,27 @@
 \usepackage{xcolor}
 \usepackage{mathtools}
 \usepackage{breqn}
+%%%%%%%%%%%%%%%%%
 \newcommand{\incfig}[2][1]{%
     \def\svgwidth{#1\columnwidth}
     \import{./figures/}{#2.pdf_tex}
 }
+% why do we need this command?
+% \includegraphics does not work? 
+%%%%%%%%%%%%%%%%%%
 
 \pdfsuppresswarningpagegroup=1
+
+%todonotes
+\usepackage[colorinlistoftodos,prependcaption,backgroundcolor=white,size=tiny,textwidth=50pt]{todonotes}
+\setlength{\marginparwidth}{2cm}
 
 %%%%%%%% DIMENSIONS %%%%%%%%%%%
 \textwidth=16truecm
 \textheight=22truecm
 \topmargin=0pt
-\oddsidemargin=20pt
-\evensidemargin=20pt
+\oddsidemargin=0pt
+\evensidemargin=0pt
 \baselineskip1.2truecm
 
 %%%%%%%% THEOREMS %%%%%%%%%%%%
@@ -97,11 +105,11 @@
 \label{sub:distributions}
 
 
-A manifold without boundary $M$ of dimension $ m $  is said to be of class $ C^\infty $ if the differentiability class of the transition maps is $C^\infty.$ In this case, for every $ p\in M $ one can define the tangent space to $ p $, $ T_pM $, as the set of all derivations of the algebra of germs of smooth functions from $ M $ to $ \mathbb{R}  $,  based on $ p $. This definition of tangent space is equivalent (when the differentiability class of $ M $ is $ \infty $) to the equivalence class of germs of curves that passes through $ p $. If a manifold $ M $  is $C^r$, with $r< \infty$, the definition for tangent space is the latter, so we use that definition for the tangent space throughout this text, independently of the differentiability class.
+A manifold without boundary $M$ of dimension $ m $  is said to be of class $ C^\infty $ if the differentiability class of the transition maps is $C^\infty.$ In this case, for every $ p\in M $ one can define the tangent space to \todo{to $M$ at $p$} $ p $, $ T_p M $, as the set of all derivations of the algebra of germs of smooth functions from $ M $ to $ \mathbb{R}  $,  based on $ p $ \todo{based at $p$}. This definition of tangent space is equivalent (when the differentiability class of $ M $ is $ \infty $) to the equivalence class of germs of curves that passes through $ p $. If a manifold $ M $  is $C^r$, with $r< \infty$, the definition for tangent space is the latter, so we use that definition for the tangent space throughout this text, independently of the differentiability class.
 
-Joining the tangent spaces of every point of the manifold induces the tangent bundle,
+Joining\todo[inline]{We take the disjoint union of} the tangent spaces of every point of the manifold induces\todo{“induces”?} the tangent bundle,
 $$ TM = \bigsqcup_{p\in M} T_pM, $$ 
-equipped with manifold structure given by the one of $ M. $ It is called a bundle because the triple $ (TM, M,\pi:TM \rightarrow {M}) $ is in fact a bundle, where $ \pi:TM \rightarrow {M} $  is the projection function, that assigns each tangent vector to the point where it is based. Each fiber of this bundle is a tangent space based on a point, and the tangent bundle is in particular a vector bundle because each fiber has structure of finite dimensional real vector space. Moreover, the tangent bundle belongs to the class of smooth vector bundles, objects of particular interest in differential geometry.
+equipped with manifold structure given by the one of $ M. $ It is called a bundle because the triple $ (TM, M,\pi:TM \rightarrow {M}) $ is in fact a bundle\todo[inline]{Ok, but what is “a bundle”?}, where $ \pi:TM \rightarrow {M} $  is the projection function, that assigns each tangent vector to the point where it is based. Each fiber of this bundle is a tangent space based on a point, and the tangent bundle is in particular a vector bundle because each fiber has structure of finite dimensional real vector space. Moreover, the tangent bundle belongs to the class of smooth vector bundles, objects of particular interest in differential geometry.
 
 \begin{df}[Smooth Vector Bundle]\label{def:smooth_vector_bundle}
 	The triple $ (E, M, \pi: E \rightarrow {M}) $ is a smooth vector bundle if $ E,M $ are smooth manifolds, $ \pi $ is a smooth surjection; the fibers $ \pi^{-1}(p) $ for $ p\in M $  have the structure of finite dimensional vector spaces; and for every point $ p\in M $, there is an open neighborhood $ U $ of $ p $, a natural number $ k $ and a diffeomorphism $ \phi: U\times \mathbb{R}^k \rightarrow  \pi^{-1}(U),$ such that for all $ q\in U $ the following propositions hold:  
@@ -113,7 +121,7 @@ equipped with manifold structure given by the one of $ M. $ It is called a bundl
 	
 \end{df}
 
-For an arbitrary bundle $ (E,B,\pi:E \rightarrow {B}), $ a subbundle of this bundle $ (E',B',\pi':E' \rightarrow {B'}) $  is just a bundle that satisfies $ E'\subset E $, $ B'\subset B $ and $ \pi|_{E'}=\pi'. $ In particular, a smooth vector subbundle is a vector subbundle that is also smooth. 
+For an arbitrary bundle $ (E,B,\pi:E \rightarrow {B}), $ a subbundle of this bundle $ (E',B',\pi':E' \rightarrow {B'}) $  is just \todo[inline]{what is it: “a bundle”?}a bundle that satisfies $ E'\subset E $, $ B'\subset B $ and $ \pi|_{E'}=\pi'. $ In particular, a smooth vector subbundle is a vector subbundle that is also smooth. 
 \begin{df}[Distribution]
 	
 	A distribution $ \mathcal{H} $ over a manifold $ M $  is a vector subbundle of the tangent bundle $ TM $ . If this vector subbundle is in addition smooth, the distribution is said to be smooth, and the rank $ k $  of this distribution is defined as the dimension of its fibers.
@@ -141,37 +149,37 @@ Some examples of distributions over manifolds are given below.
 \begin{rem}
 	The last example is of particular interest because of its connection with the isoperimetrical problem. For more information see \cite{montgomery2002tour}, Ch. 1.
 \end{rem}
-\begin{ex}[Vector Field over a Manifold]\label{ex:vect_field}
-	Any smooth vector field $ X: M \rightarrow {TM} $ (which does not cancel out at any point) on a manifold determines a distribution $ \mathcal{H}$ over the manifold $ M $ whose fiber at an arbitrary $ p\in M $ is the span of $ X_p. $
+\begin{ex}[Vector Field over a Manifold]\todo[inline]{Why do you use capital letters?}\label{ex:vect_field}
+Any smooth vector field $ X: M \rightarrow {TM} $ (which does not cancel out at any point)\todo[inline]{“cancel out” $\to$ “vanish”} on a manifold determines a distribution $ \mathcal{H}$ over the manifold $ M $ whose fiber at an arbitrary $ p\in M $ is the span of $ X_p. $
 
-	As a particular case of this example, one can consider a system of $ n $ linear differential equations on $ \mathbb{R}^n $ without equilibrium points, that determines a vector field over $ \mathbb{R}^n,  $ and this in turn generates a distribution via the span of the vectors at each point.
+As a particular case of this example, one can consider a system of $ n $ linear differential equations on $ \mathbb{R}^n $ without equilibrium points, that determines a vector field over $ \mathbb{R}^n,  $ and this in turn generates a distribution via the span of the vectors at each point\todo{????}.
 \end{ex}
 
 
 Given a distribution $ \mathcal{H} $  over a manifold $M$,  a curve or vector field is said to be \textbf{horizontal} if it is tangent to $ \mathcal{H} $. This means that, in the case of a curve, its tangent vector at every point is contained in the fibers of $ \mathcal{H} $; and in the case of a vector field, its image at every point where it is defined is contained in the fibers of $ \mathcal{H} .$   
 
-For example, every curve over a riemannian structure is horizontal. In the example \ref{ex:heis_group}, the liftings of the solutions of the isoperimetrical problem are horizontal. In example \ref{ex:vect_field}, and in particular in the case of systems of linear differential equations, the solution curves of the system of differential equations are examples of horizontal curves for that distribution.
+For example, every curve over a riemannian structure is horizontal\todo[inline]{riemannian structure?}. In the example \ref{ex:heis_group}, the liftings of the solutions of the isoperimetrical problem are horizontal. In example \ref{ex:vect_field}, and in particular in the case of systems of linear differential equations, the solution curves of the system of differential equations are examples of horizontal curves for that distribution.
 
 \subsection{Frobenius' Theorem}%
 \label{sub:chow_s^theorem}
 
 
-Now the natural question that arises is if, given two points on a manifold with a given horizontal distribution, is there a smooth horizontal curve that joins them? Or more generally, there exists an absolutely continuous horizontal curve that joins them? To address this question, the present text will focus on \textbf{smooth distributions}, which are characterized by the property that for each point $ p\in M $, there is an open neighborhood $ U $ of it on which there are smooth vector fields $ X_1,\dots,X_n: U \rightarrow {TM} $ that at each point of $ U $ form a base for the fiber of that point respect to the distribution (see definition \ref{def:smooth_vector_bundle}).
+Now the natural question that arises is if, given two points on a manifold with a given horizontal distribution, is there a smooth horizontal curve that joins them? Or more generally, there exists an absolutely continuous horizontal curve that joins them? To address this question, the present text will focus on \textbf{smooth distributions}, which are characterized by the property that for each point $ p\in M $, there is an open neighborhood $ U $ of it on which there are smooth vector fields $ X_1,\dots,X_n: U \rightarrow {TM} $ that at each point of $ U $ form a base for the fiber of that point respect to the distribution (see definition \ref{def:smooth_vector_bundle})\todo{hard text!!!}.
 
-With a smooth distribution $ \mathcal{H} \subset TM, $ it is said that a nonempty immersed submanifold $ N\subseteq M $  is a \textbf{integral manifold} of $\mathcal{H}$ if $ T_p N = \mathcal{H}_p $ for all $ p\in N $ , \textit{i.e.}, if the tangent space of all points of the submanifold is the fiber of the horizontal distribution. As an example, in the distribution given in example \ref{ex:vect_field}, the image of any integral curve of the vector field that determines the distribution over the manifold is an integral manifold for that distribution. A particular example of a distribution and its family of integral manifolds is given below.
+With a smooth distribution $ \mathcal{H} \subset TM, $ it is said\todo[inline]{“it is said” $\to$ “we say”, active voice is always better than passive voice} that a nonempty immersed submanifold $ N\subseteq M $  is a \textbf{integral manifold}\todo{an integral manifold} of $\mathcal{H}$ if $ T_p N = \mathcal{H}_p $ for all $ p\in N $ , \textit{i.e.}, if the tangent space of all points of the submanifold is the fiber of the horizontal distribution. As an example, in the distribution given in example \ref{ex:vect_field}, the image of any integral curve of the vector field that determines the distribution over the manifold is an integral manifold for that distribution. A particular example of a distribution and its family of integral manifolds is given below.
 
-\begin{ex}[Orthogonal complement of radial vector field]
-	Let $ \mathcal{G} $ be the distribution over $ \mathbb{R}^n $ determined by the radial vector field $ x^i \partial / \partial x^i $, and let $ \mathcal{G}^\perp $ be its perpendicular bundle, \textit{i.e.,} the distribution whose fibers are the orthogonal complement of the fibers of $ \mathcal{G}. $ $ \mathcal{G}^\perp $ is a distribution over $ \mathbb{R}^n  $, and the sphere centered on $0$, of radius $ |x| $, for all $ x\neq0 $ is an integral submanifold of $ \mathcal{G}^\perp. $        
+\begin{ex}[Orthogonal complement of radial vector field]\todo{radial?}
+Let $ \mathcal{G} $ be the distribution over $ \mathbb{R}^n $ determined by the radial vector field $ x^i \partial / \partial x^i $, and let $ \mathcal{G}^\perp $ be its perpendicular bundle, \textit{i.e.,} the distribution whose fibers are the orthogonal complement of the fibers of $ \mathcal{G}. $ $ \mathcal{G}^\perp $ is a distribution over $ \mathbb{R}^n  $, and the sphere centered on $0$\todo{at $0$}, of radius $ |x| $, for all $ x\neq0 $ is an integral submanifold of $ \mathcal{G}^\perp. $        
 \end{ex}
 
-There are cases of distributions over a manifold that do not have integral manifolds, as is shown in the following example, taken from \cite{lee2003introduction}, Ch. 19.
+There are \todo[inline]{cases of distibutions $\to$ distributions} cases of distributions over a manifold that do not have integral manifolds, as is shown in the following example, taken from \cite{lee2003introduction}, Ch. 19.
 
 \begin{ex}[Distribution without integral manifolds] \label{ex:no_integral_manifolds}
 	Consider the distribution $ \mathcal{H} $ over $ \mathbb{R}^3 $ spanned by the following vector fields: 
 	$$ X = \frac{\partial}{\partial x} + y \frac{\partial}{\partial z}, \quad Y = \frac{\partial}{\partial y}.  $$ 
 	This distribution does not have integral manifolds. To see this, suppose that $ N $ is an integral manifold that contains an arbitrary point $ \textbf{x} \in \mathbb{R}^3.  $ Because $ X $ and $ Y $ are tangent to $ N $, any integral curve of $ X $ or $ Y $ that starts in $ N $ stays in $ N $, at least for a short time (\textit{i.e.}, the integral curve $ \gamma $ must be defined over a sufficiently small interval such that its image is fully contained in $ N $).   
 
-	Therefore, as the integral curve of $ X $ is a straight line contained in the plane that is parallel to the $ xz- $plane, there is a segment of this line that is contained in $ N $, and for every point in this segment, the integral curves of $ Y $ that passes through them are straight lines parallel to the $ y- $axis, so there must be an open vicinity of $ \textbf{x}  $ that contains a plane generated by the segments of the integral curves of $ X $ and $ Y $ that passes through $ \textbf{x}$ (see figure \ref{fig:no_integral_manifolds}). However, the tangent plane at any point $ p $  of this plane  off of the segment induced by the integral curve of $ X $ is not equal to $ \mathcal{H}_p, $ since $ X $ depends of $ y $.   
+	Therefore, as the integral curve of $ X $ is a straight line contained in the plane that is parallel to the $ xz- $plane, there is a segment of this line that is contained in $ N $, and for every point in this segment, the integral curves of $ Y $ that passes through them are straight lines parallel to the $ y- $axis, so there must be an open vicinity of $ \textbf{x}  $ \todo[inline]{vicinity $\to$ neighborhood} that contains a plane generated by the segments of the integral curves of $ X $ and $ Y $ that passes through $ \textbf{x}$ (see figure \ref{fig:no_integral_manifolds}). However, the tangent plane at any point $ p $  of this plane  off of the segment induced by the integral curve of $ X $ is not equal to $ \mathcal{H}_p, $ since $ X $ depends of $ y $.   
 \end{ex}
 
 \begin{figure}
