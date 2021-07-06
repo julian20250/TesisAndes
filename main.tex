@@ -32,6 +32,7 @@
 \usepackage{xcolor}
 \usepackage{mathtools}
 \usepackage{breqn}
+\usepackage{tikz-cd}
 %%%%%%%%%%%%%%%%%
 \newcommand{\incfig}[2][1]{%
     \def\svgwidth{#1\columnwidth}
@@ -39,6 +40,11 @@
 }
 % why do we need this command?
 % \includegraphics does not work? 
+% - it does work, but i need to use it
+% because the images that i create are in
+% .svg format (which provides more advantages),
+% so they need to be converted to pdf and inserted
+% using that command.
 %%%%%%%%%%%%%%%%%%
 
 \pdfsuppresswarningpagegroup=1
@@ -105,12 +111,11 @@
 \label{sub:distributions}
 
 
-A manifold without boundary $M$ of dimension $ m $  is said to be of class $ C^\infty $ if the differentiability class of the transition maps is $C^\infty.$ In this case, for every $ p\in M $ one can define the tangent space to \todo{to $M$ at $p$} $ p $, $ T_p M $, as the set of all derivations of the algebra of germs of smooth functions from $ M $ to $ \mathbb{R}  $,  based on $ p $ \todo{based at $p$}. This definition of tangent space is equivalent (when the differentiability class of $ M $ is $ \infty $) to the equivalence class of germs of curves that passes through $ p $. If a manifold $ M $  is $C^r$, with $r< \infty$, the definition for tangent space is the latter, so we use that definition for the tangent space throughout this text, independently of the differentiability class.
+A manifold without boundary $M$ of dimension $ m $  is said to be of class $ C^\infty $ if the differentiability class of the transition maps is $C^\infty.$ In this case, for every $ p\in M $ one can define the tangent space to $ M $ at $ p $, $ T_p M $, as the set of all derivations of the algebra of germs of smooth functions from $ M $ to $ \mathbb{R}  $,  based at $ p $. This definition of tangent space is equivalent (when the differentiability class of $ M $ is $ \infty $) to the equivalence class of germs of curves that passes through $ p $. If a manifold $ M $  is $C^r$, with $r< \infty$, the definition for tangent space is the latter, so we use that definition for the tangent space throughout this text, independently of the differentiability class.
 
-Joining\todo[inline]{We take the disjoint union of} the tangent spaces of every point of the manifold induces\todo{“induces”?} the tangent bundle,
+We take the disjoint union of the tangent spaces at every point of the manifold in order to define the tangent bundle,
 $$ TM = \bigsqcup_{p\in M} T_pM, $$ 
-equipped with manifold structure given by the one of $ M. $ It is called a bundle because the triple $ (TM, M,\pi:TM \rightarrow {M}) $ is in fact a bundle\todo[inline]{Ok, but what is “a bundle”?}, where $ \pi:TM \rightarrow {M} $  is the projection function, that assigns each tangent vector to the point where it is based. Each fiber of this bundle is a tangent space based on a point, and the tangent bundle is in particular a vector bundle because each fiber has structure of finite dimensional real vector space. Moreover, the tangent bundle belongs to the class of smooth vector bundles, objects of particular interest in differential geometry.
-
+equipped with manifold structure given by the one of $ M. $ It is called a bundle because the triple $ (TM, M,\pi:TM \rightarrow {M}) $ satisfies the following definition (see \cite{luke2013vector}, section 1.3), where $ \pi:TM \rightarrow {M} $  is the projection function, that assigns each tangent vector to the point where it is based. Each fiber of this bundle is a tangent space based on a point, and the tangent bundle is in particular a vector bundle because each fiber has structure of finite dimensional real vector space.
 \begin{df}[Smooth Vector Bundle]\label{def:smooth_vector_bundle}
 	The triple $ (E, M, \pi: E \rightarrow {M}) $ is a smooth vector bundle if $ E,M $ are smooth manifolds, $ \pi $ is a smooth surjection; the fibers $ \pi^{-1}(p) $ for $ p\in M $  have the structure of finite dimensional vector spaces; and for every point $ p\in M $, there is an open neighborhood $ U $ of $ p $, a natural number $ k $ and a diffeomorphism $ \phi: U\times \mathbb{R}^k \rightarrow  \pi^{-1}(U),$ such that for all $ q\in U $ the following propositions hold:  
 
@@ -118,10 +123,18 @@ equipped with manifold structure given by the one of $ M. $ It is called a bundl
 		\item $ (\pi\circ \phi)(q,v)=q $ for all $ v\in \mathbb{R}^k $, and  
 		\item the map $ v \mapsto \phi(p,v) $ is a linear isomorphism between the vector spaces $\pi^{-1}(p) $ and $ \mathbb{R}^k. $     
 	\end{itemize}
-	
+	The first condition means in algebraic terms that the following diagram is commutative,	
+	\begin{center}
+		\begin{tikzcd}
+		U\times \mathbb{R}^k \arrow[d, "p"'] \arrow[rr, "\phi"] &  & \pi^{-1}(U) \arrow[d, "\pi"] \\
+		U \arrow[rr, "Id"']                                     &  & U                           
+		\end{tikzcd}
+	\end{center}
+	where $ p:U\times \mathbb{R}^k \rightarrow U, \ p(q,v)=q$ is the projection onto the first factor.
 \end{df}
 
-For an arbitrary bundle $ (E,B,\pi:E \rightarrow {B}), $ a subbundle of this bundle $ (E',B',\pi':E' \rightarrow {B'}) $  is just \todo[inline]{what is it: “a bundle”?}a bundle that satisfies $ E'\subset E $, $ B'\subset B $ and $ \pi|_{E'}=\pi'. $ In particular, a smooth vector subbundle is a vector subbundle that is also smooth. 
+
+For an arbitrary smooth vector bundle bundle $ (E,B,\pi:E \rightarrow {B}), $ a subbundle of this bundle $ (E',B',\pi':E' \rightarrow {B'}) $  is a smooth vector bundle bundle that satisfies $ E'\subset E $, $ B'\subset B $ and $ \pi|_{E'}=\pi'. $
 \begin{df}[Distribution]
 	
 	A distribution $ \mathcal{H} $ over a manifold $ M $  is a vector subbundle of the tangent bundle $ TM $ . If this vector subbundle is in addition smooth, the distribution is said to be smooth, and the rank $ k $  of this distribution is defined as the dimension of its fibers.
@@ -129,7 +142,7 @@ For an arbitrary bundle $ (E,B,\pi:E \rightarrow {B}), $ a subbundle of this bun
 	The fiber of $ \mathcal{H} $ at a point $ p\in M $ is denoted as $ H_p. $ 
 \end{df}
 
-The concept of (smooth) distribution can be defined in an alternative but equivalent (see \cite{lee2003introduction}, Ch. 19) fashion using 1-forms, with the help of the following proposition.
+The concept of (smooth) distribution can be defined in an alternative but equivalent (see \cite{lee2003introduction}, Ch. 19, lemma 19.5) fashion using 1-forms, with the help of the following proposition.
 
 \begin{prop}[Smooth Distribution (using 1-forms)]
 	Suppose that $ M $ is a smooth $ m- $dimensional manifold, and $ \mathcal{H} \subset TM$ is a distribution of rank $k$. Then $ \mathcal{H} $ is smooth if and only if for every point $ p\in M $ there is a neighborhood $ U $ of that point where exist $n-k$ smooth 1-forms $ \omega^1,\dots,\omega^{n-k}, $ such that for all $ q\in U $,
@@ -149,37 +162,41 @@ Some examples of distributions over manifolds are given below.
 \begin{rem}
 	The last example is of particular interest because of its connection with the isoperimetrical problem. For more information see \cite{montgomery2002tour}, Ch. 1.
 \end{rem}
-\begin{ex}[Vector Field over a Manifold]\todo[inline]{Why do you use capital letters?}\label{ex:vect_field}
-Any smooth vector field $ X: M \rightarrow {TM} $ (which does not cancel out at any point)\todo[inline]{“cancel out” $\to$ “vanish”} on a manifold determines a distribution $ \mathcal{H}$ over the manifold $ M $ whose fiber at an arbitrary $ p\in M $ is the span of $ X_p. $
+\begin{ex}[Vector field over a manifold]\label{ex:vect_field}
+Any smooth vector field $ X: M \rightarrow {TM} $ (which does not vanish out at any point) on a manifold determines a distribution $ \mathcal{H}$ over the manifold $ M $ whose fiber at an arbitrary $ p\in M $ is the span of $ X_p. $
 
-As a particular case of this example, one can consider a system of $ n $ linear differential equations on $ \mathbb{R}^n $ without equilibrium points, that determines a vector field over $ \mathbb{R}^n,  $ and this in turn generates a distribution via the span of the vectors at each point\todo{????}.
+As a particular case of this example, one can consider a system of $ n $ linear differential equations on $ \mathbb{R}^n $ without equilibrium points, that determines a vector field over $ \mathbb{R}^n.$
 \end{ex}
 
 
 Given a distribution $ \mathcal{H} $  over a manifold $M$,  a curve or vector field is said to be \textbf{horizontal} if it is tangent to $ \mathcal{H} $. This means that, in the case of a curve, its tangent vector at every point is contained in the fibers of $ \mathcal{H} $; and in the case of a vector field, its image at every point where it is defined is contained in the fibers of $ \mathcal{H} .$   
 
-For example, every curve over a riemannian structure is horizontal\todo[inline]{riemannian structure?}. In the example \ref{ex:heis_group}, the liftings of the solutions of the isoperimetrical problem are horizontal. In example \ref{ex:vect_field}, and in particular in the case of systems of linear differential equations, the solution curves of the system of differential equations are examples of horizontal curves for that distribution.
+For example, every curve over a manifold with distribution given by its tangent bundle is horizontal. In the example \ref{ex:heis_group}, the liftings of the solutions of the isoperimetrical problem are horizontal. In example \ref{ex:vect_field}, and in particular in the case of systems of linear differential equations, the solution curves of the system of differential equations are examples of horizontal curves for that distribution.
 
 \subsection{Frobenius' Theorem}%
 \label{sub:chow_s^theorem}
 
 
-Now the natural question that arises is if, given two points on a manifold with a given horizontal distribution, is there a smooth horizontal curve that joins them? Or more generally, there exists an absolutely continuous horizontal curve that joins them? To address this question, the present text will focus on \textbf{smooth distributions}, which are characterized by the property that for each point $ p\in M $, there is an open neighborhood $ U $ of it on which there are smooth vector fields $ X_1,\dots,X_n: U \rightarrow {TM} $ that at each point of $ U $ form a base for the fiber of that point respect to the distribution (see definition \ref{def:smooth_vector_bundle})\todo{hard text!!!}.
+Now the natural question that arises is if, given two points on a manifold with a given horizontal distribution, is there a smooth horizontal curve that joins them? To address this question, the present text will use the following alternative definition of smooth distributions (\cite{lee2003introduction}, Ch. 19, page 491): 
 
-With a smooth distribution $ \mathcal{H} \subset TM, $ it is said\todo[inline]{“it is said” $\to$ “we say”, active voice is always better than passive voice} that a nonempty immersed submanifold $ N\subseteq M $  is a \textbf{integral manifold}\todo{an integral manifold} of $\mathcal{H}$ if $ T_p N = \mathcal{H}_p $ for all $ p\in N $ , \textit{i.e.}, if the tangent space of all points of the submanifold is the fiber of the horizontal distribution. As an example, in the distribution given in example \ref{ex:vect_field}, the image of any integral curve of the vector field that determines the distribution over the manifold is an integral manifold for that distribution. A particular example of a distribution and its family of integral manifolds is given below.
+\begin{df}[Smooth Distribution (local frame criterion)]
+	It is said that $ \mathcal{H}\subset TM $ is a smooth distribution over $M  $ if and only if  for each point $ p\in M $, there is an open neighborhood $ U $ of it on which there are smooth vector fields $ X_1,\dots,X_n: U \rightarrow {TM} $ that at each point of $ U $ form a base for the fiber of that point respect to the distribution.
+\end{df}
 
-\begin{ex}[Orthogonal complement of radial vector field]\todo{radial?}
-Let $ \mathcal{G} $ be the distribution over $ \mathbb{R}^n $ determined by the radial vector field $ x^i \partial / \partial x^i $, and let $ \mathcal{G}^\perp $ be its perpendicular bundle, \textit{i.e.,} the distribution whose fibers are the orthogonal complement of the fibers of $ \mathcal{G}. $ $ \mathcal{G}^\perp $ is a distribution over $ \mathbb{R}^n  $, and the sphere centered on $0$\todo{at $0$}, of radius $ |x| $, for all $ x\neq0 $ is an integral submanifold of $ \mathcal{G}^\perp. $        
+Given a smooth distribution $ \mathcal{H} \subset TM$, we say that a nonempty immersed submanifold $ N\subseteq M $  is an \textbf{integral manifold} of $\mathcal{H}$ if $ T_p N = \mathcal{H}_p $ for all $ p\in N $ , \textit{i.e.}, if the tangent space of all points of the submanifold is the fiber of the horizontal distribution. As an example, in the distribution given in example \ref{ex:vect_field}, the image of any integral curve of the vector field that determines the distribution over the manifold is an integral manifold for that distribution. A particular example (taken from \cite{lee2003introduction}, example 19.1) of a distribution and its family of integral manifolds is given below.
+
+\begin{ex}[Orthogonal complement of a given vector field]
+Let $ \mathcal{G} $ be the distribution over $ \mathbb{R}^n $ determined by the radial vector field $ x^i \partial / \partial x^i $, and let $ \mathcal{G}^\perp $ be its perpendicular bundle, \textit{i.e.,} the distribution whose fibers are the orthogonal complement of the fibers of $ \mathcal{G}. $ $ \mathcal{G}^\perp $ is a distribution over $ \mathbb{R}^n  $, and the sphere centered at $0$, of radius $ |x| $, for all $ x\neq0 $ is an integral submanifold of $ \mathcal{G}^\perp. $        
 \end{ex}
 
-There are \todo[inline]{cases of distibutions $\to$ distributions} cases of distributions over a manifold that do not have integral manifolds, as is shown in the following example, taken from \cite{lee2003introduction}, Ch. 19.
+There are distributions over a manifold that do not have integral manifolds, as is shown in the following example (taken from \cite{lee2003introduction}, Ch. 19, example 19.1).
 
 \begin{ex}[Distribution without integral manifolds] \label{ex:no_integral_manifolds}
 	Consider the distribution $ \mathcal{H} $ over $ \mathbb{R}^3 $ spanned by the following vector fields: 
 	$$ X = \frac{\partial}{\partial x} + y \frac{\partial}{\partial z}, \quad Y = \frac{\partial}{\partial y}.  $$ 
 	This distribution does not have integral manifolds. To see this, suppose that $ N $ is an integral manifold that contains an arbitrary point $ \textbf{x} \in \mathbb{R}^3.  $ Because $ X $ and $ Y $ are tangent to $ N $, any integral curve of $ X $ or $ Y $ that starts in $ N $ stays in $ N $, at least for a short time (\textit{i.e.}, the integral curve $ \gamma $ must be defined over a sufficiently small interval such that its image is fully contained in $ N $).   
 
-	Therefore, as the integral curve of $ X $ is a straight line contained in the plane that is parallel to the $ xz- $plane, there is a segment of this line that is contained in $ N $, and for every point in this segment, the integral curves of $ Y $ that passes through them are straight lines parallel to the $ y- $axis, so there must be an open vicinity of $ \textbf{x}  $ \todo[inline]{vicinity $\to$ neighborhood} that contains a plane generated by the segments of the integral curves of $ X $ and $ Y $ that passes through $ \textbf{x}$ (see figure \ref{fig:no_integral_manifolds}). However, the tangent plane at any point $ p $  of this plane  off of the segment induced by the integral curve of $ X $ is not equal to $ \mathcal{H}_p, $ since $ X $ depends of $ y $.   
+	Therefore, as the integral curve of $ X $ is a straight line contained in the plane that is parallel to the $ xz- $plane, there is a segment of this line that is contained in $ N $, and for every point in this segment, the integral curves of $ Y $ that passes through them are straight lines parallel to the $ y- $axis, so there must be an open neighborhood of $ \textbf{x}  $ that contains a plane generated by the segments of the integral curves of $ X $ and $ Y $ that passes through $ \textbf{x}$ (see figure \ref{fig:no_integral_manifolds}). However, the tangent plane at any point $ p $  of this plane  off of the segment induced by the integral curve of $ X $ is not equal to $ \mathcal{H}_p, $ since $ X $ depends of $ y $.   
 \end{ex}
 
 \begin{figure}
@@ -195,7 +212,7 @@ The set of all smooth vector fields  globally defined, tangent to the distributi
 
 A smooth distribution $ \mathcal{H} $ over a manifold $ M $ is called \textbf{integrable} if each point of $ M $ is contained in an integral manifold of $ \mathcal{H}. $  It is clear then that \textit{every integrable distribution is involutive}, because every pair of smooth vectors tangent to $ \mathcal{H}, $ defined over an open set $ U\subset M $, satisfy that their Lie bracket is also tangent to $ \mathcal{H} $ in that open set, since there exists a integral manifold $ N $  of $ \mathcal{H} $ for every point of $ U $ such that the pair of smooth vectors are tangent to $ N $, and in consequence, their Lie bracket is also tangent to $ N. $  
 
-In fact, the involutivity condition does not need to be checked with all smooth vector fields on $ \Gamma( \mathcal{H}), $ but it suffices to check if the Lie brackets of pairs of smooth vector fields of the local frame that determines the distribution are tangent to it, since every smooth local frame tangent to $ \mathcal{H} $ is a linear combination of the smooth vector fields of the local frame. 
+In fact, the involutivity condition does not need to be checked for all smooth vector fields on $ \Gamma( \mathcal{H}), $ but it suffices to check if the Lie brackets of pairs of smooth vector fields of the local frame that determines the distribution are tangent to it, since every smooth local frame tangent to $ \mathcal{H} $ is a linear combination of the smooth vector fields of the local frame. 
 
 Given a smooth distribution $ \mathcal{H}\subset TM $  of rank $ k, $ it is said that a smooth coordinate chart $ (U,\phi) $ of $ M $ is \textbf{flat for $ \mathcal{H} $ } if $ \phi(U) $ is a cube in $ \mathbb{R}^m  $ (being $ m $ the dimension of $ M $ ), and at points of $ U $, $ \mathcal{H} $ is spanned by the first $ k $ coordinate vector fields $ \partial/\partial x^1,\dots,\partial/\partial x^k $ (see figure \ref{fig:fittogether}). The geometrical meaning of this property for a distribution is that, locally (in that chart), the manifold is homeomorphic to a cube in $ \mathbb{R}^m,  $ and the vector subspaces induced by the distribution at each point fit together as affine spaces of dimension given by the rank of the distribution in $ \mathbb{R}^m $. Also, each slice of the form $ x^{k+1}=c^{k+1},\dots, x^m=c^m,$ for constants $ c^{k+1}, \dots, c^m $ in the image of $ U $ of such a chart is an integral manifold of the distribution generated by $ \partial/\partial x^1,\dots,\partial/\partial x^k $, and the preimage of this integral manifold is an integral manifold of $ \mathcal{H}, $ contained in $ U. $  
 
@@ -221,7 +238,7 @@ Therefore, if a distribution is completely integrable, is then integrable, since
 \end{thm}
 
 \begin{proof}
-	(\cite{lee2003introduction}, Ch. 19) First, it will be shown that any involutive distribution is spanned by independent smooth commuting vector fields, and as a consequence of this fact, the distribution is completely integrable.
+	(\cite{lee2003introduction}, Ch. 19, theorem 19.12) First, it will be shown that any involutive distribution is spanned by independent smooth commuting vector fields, and as a consequence of this fact, the distribution is completely integrable.
 
 	Let $ \mathcal{H} $ be an involutive distribution of rank $ k $ on an $ m- $dimensional manifold $ M $, and let $ p\in M $ . Let $ (U,\varphi) $ be a smooth coordinate chart centered in $ p. $ Then, $ \varphi(U)\subset \mathbb{R}^m $, and let $ X_1,\dots,X_k $ be a smooth local frame for $ \mathcal{H} $ in $ U. $
 
@@ -257,7 +274,7 @@ Therefore, if a distribution is completely integrable, is then integrable, since
 	By the previous computations, $$ d\Phi_0\left( \frac{\partial}{\partial s^i}\Big|_{0} \right) = V_i |_{\varphi(p)}, \ i=1,\dots,k, $$ and on the other hand, since $ \Phi(0,\dots,0,s^{k+1},\dots,s^m)=(0,\dots,0,s^{k+1},\dots,s^m), $ it follows that
 	$$ d\Phi_0 \left( \frac{\partial}{\partial s^i}\Big|_{0}  \right) = \frac{\partial}{\partial x^i}\Big|_{\varphi(p)},\ i=k+1,\dots,m.  $$ 
 	
-	Therefore, $ d\Phi_0 $ takes the basis $ \left( \partial/\partial s^1 |_0,\dots,\partial/\partial s^m |_0 \right) $ of $ T_0 \mathbb{R}^m $ to the basis $ ( V_1|_{\varphi(p)},  \dots,$ $ V_k|_{\varphi(p)}, \partial/\partial x^{k+1}|_{\varphi(p)}, \dots, \partial/\partial x^{m}|_{\varphi(p)}) $ of $ T_{\varphi(p)} \varphi(U). $ By the inverse function theorem, $ \Phi $ is a local diffeomorphism (in a neighborhood of $ 0 $), and $ \phi=\Phi^{-1} $ is a smooth coordinate chart that takes $ V_i $ to $ \partial/\partial s^i $, for $ i=1,\dots,k, $ and takes $ \partial / \partial x^{i} $ to $ \partial/\partial s^i $, for $ i=k+1,\dots,m. $ Thus, the smooth coordinate chart flat for $ \mathcal{H} $ in a vicinity of $ p\in M $ is $ \phi\circ\varphi, $ and since this is independent of $ p $, for every point there is a smooth coordinate chart flat for $ \mathcal{H}, $ what makes $ \mathcal{H} $ a completely integrable distribution.
+	Therefore, $ d\Phi_0 $ takes the basis $ \left( \partial/\partial s^1 |_0,\dots,\partial/\partial s^m |_0 \right) $ of $ T_0 \mathbb{R}^m $ to the basis $ ( V_1|_{\varphi(p)},  \dots,$ $ V_k|_{\varphi(p)}, \partial/\partial x^{k+1}|_{\varphi(p)}, \dots, \partial/\partial x^{m}|_{\varphi(p)}) $ of $ T_{\varphi(p)} \varphi(U). $ By the inverse function theorem, $ \Phi $ is a local diffeomorphism (in a neighborhood of $ 0 $), and $ \phi=\Phi^{-1} $ is a smooth coordinate chart that takes $ V_i $ to $ \partial/\partial s^i $, for $ i=1,\dots,k, $ and takes $ \partial / \partial x^{i} $ to $ \partial/\partial s^i $, for $ i=k+1,\dots,m. $ Thus, the smooth coordinate chart flat for $ \mathcal{H} $ in a neighborhood of $ p\in M $ is $ \phi\circ\varphi, $ and since this is independent of $ p $, for every point there is a smooth coordinate chart flat for $ \mathcal{H}, $ what makes $ \mathcal{H} $ a completely integrable distribution.
 
 \end{proof}
 
@@ -273,7 +290,7 @@ The next proposition is one of the main consequences of Frobenius theorem, and i
     \label{fig:local_structure}
 \end{figure}
 
-\begin{proof}(\cite{lee2003introduction}, Ch. 19)
+\begin{proof}(\cite{lee2003introduction}, Ch. 19, proposition 19.16)
 	Let $ N $ be an integral manifold of $ \mathcal{H}. $ Since the inclusion map $ \iota: N \hookrightarrow M $ is continuous, $ \varphi( \iota^{-1}(U))=\varphi(N\cap U) $  is open in $ \varphi(N) $. Then, $ \varphi(U\cap N) $ is the union of open slices (\textit{i.e.}, open subsets of a slice of $ \varphi(U)$) with $ x_i=\text{constant} $, for $ i=k+1,\cdots,m.$ Moreover, this union is at most countable, because $ N $ is second countable, and since $ \varphi(N\cap U) $ is a union of open slices, $ \pi(\varphi(U\cap N)) $ consists of a countable number of points (recall that $ \pi: \varphi(U) \rightarrow \mathbb{R}^{m-k} $ is the projection onto the last $ m-k $ coordinates) in $ \mathbb{R}^{m-k}, $ which implies that the union of open slices is at most countable.  
 
 	Finally, if $ V $ is an open slice in the slice $ S, $ the inclusion map $ \varphi^{-1}(V) \hookrightarrow M $ is a smooth embedding, because it is the composition of smooth embeddings $ \varphi^{-1}(V)\hookrightarrow \varphi^{-1}(S) \hookrightarrow M.$ 
@@ -288,7 +305,7 @@ The last proposition implies that one can put all the maximal integral manifolds
 	A foliation of dimension $ k $ on a smooth manifold $ M $ is a collection $ \mathcal{F} $ of disjoint, connected, nonempty, immersed $ k- $dimensional submanifolds of $ M $ (called the \textbf{leaves} of the foliation), whose union is $ M $, and such that in a neighborhood of each point $ p\in M $ there is a flat chart for $ \mathcal{F}. $  
 \end{df}
 
-The following are examples of foliations over a manifold, mainly taken from \cite{lee2003introduction}, Ch. 19.
+The following are examples of foliations over a manifold, mainly taken from \cite{lee2003introduction}, Ch. 19, example 19.18.
 
 \begin{ex}[Collection of affine subspaces]
 	The collection of all $ k- $dimensional affine subspaces of $ \mathbb{R}^m $ parallel to $ \mathbb{R}^k\times \left\{ 0 \right\} $ is a $ k- $dimensional foliation for $ \mathbb{R}^m. $ 
@@ -308,14 +325,14 @@ From the definition of foliations, it is clear that \textit{if $ \mathcal{F} $ i
 	Let $ \mathcal{H} $ be an involutive distribution on a smooth manifold $ M. $ The collection of all maximal connected integral manifolds of $ \mathcal{H} $ forms a foliation of $ M. $ 
 \end{thm}
 
-Following the procedure of \cite{lee2003introduction}, Ch.19, the next lemma is going to be used in the proof of this theorem.
+Following the procedure of \cite{lee2003introduction}, Ch.19, the next lemma (\cite{lee2003introduction}, Ch. 19, lemma 19.22) is going to be used in the proof of this theorem.
 
 \begin{lm}
 	Suppose $ \mathcal{H}\subset TM $ is an involutive distribution, and let $ \left\{ N_\alpha \right\}_{\alpha\in A} $ be any collection of connected integral manifolds of $ \mathcal{H} $ with a point in common. Then, $ N=\bigcup_{\alpha} N_\alpha $ has a unique smooth manifold structure making it into a connected integral manifold of $ \mathcal{H}. $  
 \end{lm}
 
 \begin{proof}[Proof of the global Frobenius theorem]
-	(\cite{lee2003introduction}, Ch. 19) For each $ p\in M $, let $ L_p $ be the union of all connected integral manifolds of $ \mathcal{H} $ containing $ p. $ By the preceding lemma, $ L_p $ is a connected integral manifold of $ \mathcal{H} $ containing $ p $, and it is clearly maximal. By maximality, if $ L_p $ and $ L_{p'} $ intersect, $ L_p=L_{p'} $, because $ L_p\cup L_{p'} $ is an integral manifold containing both $ p $ and $ p' $. Thus, the maximal connected integral manifolds are either disjoint or identical.    
+	(\cite{lee2003introduction}, Ch. 19, theorem 19.21) For each $ p\in M $, let $ L_p $ be the union of all connected integral manifolds of $ \mathcal{H} $ containing $ p. $ By the preceding lemma, $ L_p $ is a connected integral manifold of $ \mathcal{H} $ containing $ p $, and it is clearly maximal. By maximality, if $ L_p $ and $ L_{p'} $ intersect, $ L_p=L_{p'} $, because $ L_p\cup L_{p'} $ is an integral manifold containing both $ p $ and $ p' $. Thus, the maximal connected integral manifolds are either disjoint or identical.    
 
 	If $ (U,\varphi) $ is any flat chart for $ \mathcal{H}, $ then $ \varphi(L_p\cap U) $ is a countable union of open subsets of slices (by proposition \ref{prop:local_structure}). For any such slice $ S, $ if $ \varphi(U\cap L_p)\cap S $ is neither empty nor all of $ S, $ then $ L_p\cup \varphi^{-1}(S )$ is a connected integral manifold properly containing $ L_p, $ which contradicts the maximality of $ L_p. $ Therefore, $ \varphi(L_p\cap U) $ is precisely a countable union of slices, so the collection $ \left\{ L_p\ : \ p\in M \right\} $ is the desired foliation.
 \end{proof}
