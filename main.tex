@@ -174,7 +174,7 @@ Given a distribution $ \mathcal{H} $  over a manifold $M$,  a curve or vector fi
 For example, every curve over a manifold with distribution given by its tangent bundle is horizontal. In the example \ref{ex:heis_group}, the liftings of the solutions of the isoperimetrical problem are horizontal. In example \ref{ex:vect_field}, and in particular in the case of systems of linear differential equations, the solution curves of the system of differential equations are examples of horizontal curves for that distribution.
 
 \subsection{Frobenius' Theorem}%
-\label{sub:chow_s^theorem}
+\label{sub:frobenius_theorem}
 
 
 Now the natural question that arises is if, given two points on a manifold with a given horizontal distribution, is there a smooth horizontal curve that joins them? To address this question, the present text will use the following alternative definition of smooth distributions (\cite{lee2003introduction}, Ch. 19, page 491): 
@@ -342,6 +342,15 @@ With the global Frobenius theorem, one can address the question at the start of 
 \begin{ex}[Foliations on a torus]
 	The torus $ T= \mathbb{S}^1\times \mathbb{S}^1 $ can be endowed with the distribution induced by the cartesian product of manifolds (see example \ref{ex:product_foliation}). In this case, the foliation is conformed by copies of $ \mathbb{S}^1. $ The horizontal curves are segments of this copies, and if two points lay in different copies, there is not a horizontal curve that connects them.
 \end{ex}
+
+\subsection{Chow's Theorem}%
+\label{sub:chow_s_theorem}
+
+The section \ref{sub:frobenius_theorem} provides a class of (involutive) distributions where it is not true that every two points can be connected through a horizontal curve.  Now, it is worthwhile to ask for a sufficient condition for a distribution to have the connectedness property through horizontal curves. To discuss such a condition, we need to cover some preliminaries. 
+
+\begin{df}[Bracket Generating Distribution]
+	A distribution $ \mathcal{H}\subset TM $ is called bracket generating if any of its local frames $ X_1,\dots,X_k $ together with all of its iterated Lie brackets $ [X_i,X_j],[X_i,[X_j,X_k]],\dots, $ spans the tangent bundle $ TM. $  
+\end{df}
 \section{Subriemannian Geometry}%
 \label{sec:subriemannian_geometry}
 
@@ -351,7 +360,7 @@ With the global Frobenius theorem, one can address the question at the start of 
 
  If a distribution is doted with a fiber inner-product, the pair of a manifold and a distribution over it defines a subriemannian structure, as is stated in the following definition.
 \begin{df}[Subriemannian Structure]
-	A subriemannian structure over a manifold $ M $ is a distribution $ \mathcal{H}\subset TM $, called horizontal distribution, endowed with a fiber inner-product $ <\cdot,\cdot> $ on this subbundle, which is a positive definite smooth quadratic form, belonging to the smooth sections of the smooth bundle $ T^2_0 M \xrightarrow[]{\pi} M. $ ((2,0) tensor fields over a manifold).
+	A subriemannian structure over a manifold $ M $ is a distribution $ \mathcal{H}\subset TM $, called horizontal distribution, endowed with a fiber inner-product $ <\cdot,\cdot> $ on this subbundle, which is a section of the bundle $ T^2_0 \mathcal{H} \xrightarrow[]{\pi} M, $ with the property that in each fiber it restricts to an inner product, \textit{i.e.},  a positive definite symmetric bilinear form (see \cite{hatcher2003vector}, Ch. 1, page 12).
 \end{df}
 
 Some examples of subriemannian structures are given below.
@@ -375,6 +384,8 @@ With the idea of length of horizontal curves, the \textbf{distance between two p
 $$ d(p,q) = \operatorname{inf} \left\{ \ell(\gamma) \ |\ \gamma:[0,1] \rightarrow {M} \text{ is absolutely continuous and }\gamma(0)=p, \ \gamma(1)=q \right\}. $$ 
 
 The distance between two points is said to be infinite if there is no curve joining them. Also, in analogy with riemannian geometry, an absolutely continuous horizontal curve that realizes the distance between two points is called a \textbf{geodesic}. 
+
+
 
 
 \bibliographystyle{unsrt}
