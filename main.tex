@@ -33,6 +33,7 @@
 \usepackage{mathtools}
 \usepackage{breqn}
 \usepackage{tikz-cd}
+\usepackage{bbold}
 %%%%%%%%%%%%%%%%%
 \newcommand{\incfig}[2][1]{%
     \def\svgwidth{#1\columnwidth}
@@ -113,11 +114,8 @@
 
 A manifold without boundary $M$ of dimension $ m $  is said to be of class $ C^\infty $ if the differentiability class of the transition maps is $C^\infty.$ In this case, for every $ p\in M $ one can define the tangent space to $ M $ at $ p $, $ T_p M $, as the set of all derivations of the algebra of germs of smooth functions from $ M $ to $ \mathbb{R}  $,  based at $ p $. This definition of tangent space is equivalent (when the differentiability class of $ M $ is $ \infty $) to the equivalence class of germs of curves that passes through $ p $. If a manifold $ M $  is $C^r$, with $r< \infty$, the definition for tangent space is the latter, so we use that definition for the tangent space throughout this text, independently of the differentiability class.
 
-We take the disjoint union of the tangent spaces at every point of the manifold in order to define the tangent bundle,
-$$ TM = \bigsqcup_{p\in M} T_pM, $$ 
-equipped with manifold structure given by the one of $ M. $ It is called a bundle because the triple $ (TM, M,\pi:TM \rightarrow {M}) $ satisfies the following definition (see \cite{luke2013vector}, section 1.3), where $ \pi:TM \rightarrow {M} $  is the projection function, that assigns each tangent vector to the point where it is based. Each fiber of this bundle is a tangent space based on a point, and the tangent bundle is in particular a vector bundle because each fiber has structure of finite dimensional real vector space.
-\begin{df}[Smooth Vector Bundle]\label{def:smooth_vector_bundle}
-	The triple $ (E, M, \pi: E \rightarrow {M}) $ is a smooth vector bundle if $ E,M $ are smooth manifolds, $ \pi $ is a smooth surjection; the fibers $ \pi^{-1}(p) $ for $ p\in M $  have the structure of finite dimensional vector spaces; and for every point $ p\in M $, there is an open neighborhood $ U $ of $ p $, a natural number $ k $ and a diffeomorphism $ \phi: U\times \mathbb{R}^k \rightarrow  \pi^{-1}(U),$ such that for all $ q\in U $ the following propositions hold:  
+\begin{df}\label{def:smooth_vector_bundle}
+	The triple $ (E, M, \pi: E \rightarrow {M}) $ is a \textbf{smooth vector bundle} if $ E,M $ are smooth manifolds, $ \pi $ is a smooth surjection; the fibers $ \pi^{-1}(p) $ for $ p\in M $  have the structure of finite dimensional vector spaces; and for every point $ p\in M $, there is an open neighborhood $ U $ of $ p $, a natural number $ k $ and a diffeomorphism $ \phi: U\times \mathbb{R}^k \rightarrow  \pi^{-1}(U),$ such that for all $ q\in U $ the following propositions hold:  
 
 	\begin{itemize}
 		\item $ (\pi\circ \phi)(q,v)=q $ for all $ v\in \mathbb{R}^k $, and  
@@ -132,12 +130,15 @@ equipped with manifold structure given by the one of $ M. $ It is called a bundl
 	\end{center}
 	where $ p:U\times \mathbb{R}^k \rightarrow U, \ p(q,v)=q$ is the projection onto the first factor.
 \end{df}
+We take the disjoint union of the tangent spaces at every point of the manifold in order to define the tangent bundle,
+$$ TM = \bigsqcup_{p\in M} T_pM, $$ 
+equipped with manifold structure given by the one of $ M. $ It is called a bundle because the triple $ (TM, M,\pi:TM \rightarrow {M}) $ satisfies the definition of smooth vector bundle (see \cite{luke2013vector}, section 1.3), where $ \pi:TM \rightarrow {M} $  is the projection function, that assigns each tangent vector to the point where it is based. Each fiber of this bundle is a tangent space based on a point, and the tangent bundle is in particular a vector bundle because each fiber has structure of finite dimensional real vector space.
 
 
 For an arbitrary smooth vector bundle bundle $ (E,B,\pi:E \rightarrow {B}), $ a subbundle of this bundle $ (E',B',\pi':E' \rightarrow {B'}) $  is a smooth vector bundle bundle that satisfies $ E'\subset E $, $ B'\subset B $ and $ \pi|_{E'}=\pi'. $
-\begin{df}[Distribution]
+\begin{df}
 	
-	A distribution $ \mathcal{H} $ over a manifold $ M $  is a vector subbundle of the tangent bundle $ TM $ . If this vector subbundle is in addition smooth, the distribution is said to be smooth, and the rank $ k $  of this distribution is defined as the dimension of its fibers.
+	A \textbf{distribution} $ \mathcal{H} $ over a manifold $ M $  is a vector subbundle of the tangent bundle $ TM $ . If this vector subbundle is in addition smooth, the distribution is said to be smooth, and the rank $ k $  of this distribution is defined as the dimension of its fibers.
 
 	The fiber of $ \mathcal{H} $ at a point $ p\in M $ is denoted as $ H_p. $ 
 \end{df}
@@ -179,8 +180,8 @@ For example, every curve over a manifold with distribution given by its tangent 
 
 Now the natural question that arises is if, given two points on a manifold with a given horizontal distribution, is there a smooth horizontal curve that joins them? To address this question, the present text will use the following alternative definition of smooth distributions (\cite{lee2003introduction}, Ch. 19, page 491): 
 
-\begin{df}[Smooth Distribution (local frame criterion)]
-	It is said that $ \mathcal{H}\subset TM $ is a smooth distribution over $M  $ if and only if  for each point $ p\in M $, there is an open neighborhood $ U $ of it on which there are smooth vector fields $ X_1,\dots,X_n: U \rightarrow {TM} $ that at each point of $ U $ form a base for the fiber of that point respect to the distribution.
+\begin{df}
+	It is said that $ \mathcal{H}\subset TM $ is a \textbf{smooth distribution over $M  $} if and only if  for each point $ p\in M $, there is an open neighborhood $ U $ of it on which there are smooth vector fields $ X_1,\dots,X_n: U \rightarrow {TM} $ that at each point of $ U $ form a base for the fiber of that point respect to the distribution.
 \end{df}
 
 Given a smooth distribution $ \mathcal{H} \subset TM$, we say that a nonempty immersed submanifold $ N\subseteq M $  is an \textbf{integral manifold} of $\mathcal{H}$ if $ T_p N = \mathcal{H}_p $ for all $ p\in N $ , \textit{i.e.}, if the tangent space of all points of the submanifold is the fiber of the horizontal distribution. As an example, in the distribution given in example \ref{ex:vect_field}, the image of any integral curve of the vector field that determines the distribution over the manifold is an integral manifold for that distribution. A particular example (taken from \cite{lee2003introduction}, example 19.1) of a distribution and its family of integral manifolds is given below.
@@ -225,7 +226,7 @@ Given a smooth distribution $ \mathcal{H}\subset TM $  of rank $ k, $ it is said
 
 The case when every point in $ M $ has a coordinate chart centered in it, flat for $ \mathcal{H} $ is discussed in the following definition and geometrical interpretation.
 
-\begin{df}[Completely Integrable Distribution]
+\begin{df}
 	A smooth distribution $ \mathcal{H}\subset TM $  is said to be \textbf{completely integrable} if there exists a flat chart for $ \mathcal{H} $ in a neighborhood of each point of $ M. $ 
 \end{df}
 
@@ -297,12 +298,12 @@ The next proposition is one of the main consequences of Frobenius theorem, and i
 \end{proof}
 
 The last proposition implies that one can put all the maximal integral manifolds of an involutive distribution of rank $ k $  together, to obtain a partition on $ M $ into $ k- $dimensional submanifolds, that satisfy the following definition.
-\begin{df}[Flat chart for a collection of submanifolds]
+\begin{df}
 	A smooth chart $ (U,\varphi) $ for $ M $ is called \textbf{flat for a collection $ \mathcal{F} $ of $ k- $dimensional submanifolds of $ M $} if $ \varphi(U) $ is a cube in $ \mathbb{R}^m, $ and the image of each submanifold via $ \varphi $ intersects $ \varphi(U) $ in either the empty set or in a countable union of $ k- $dimensional slices of the form $ x^{k+1}=c^{k+1},\dots,x^m=c^m. $   
 \end{df}
 
-\begin{df}[Foliation over a manifold]
-	A foliation of dimension $ k $ on a smooth manifold $ M $ is a collection $ \mathcal{F} $ of disjoint, connected, nonempty, immersed $ k- $dimensional submanifolds of $ M $ (called the \textbf{leaves} of the foliation), whose union is $ M $, and such that in a neighborhood of each point $ p\in M $ there is a flat chart for $ \mathcal{F}. $  
+\begin{df}
+	A \textbf{foliation of dimension $ k $ on a smooth manifold $ M $} is a collection $ \mathcal{F} $ of disjoint, connected, nonempty, immersed $ k- $dimensional submanifolds of $ M $ (called the \textbf{leaves} of the foliation), whose union is $ M $, and such that in a neighborhood of each point $ p\in M $ there is a flat chart for $ \mathcal{F}. $  
 \end{df}
 
 The following are examples of foliations over a manifold, mainly taken from \cite{lee2003introduction}, Ch. 19, example 19.18.
@@ -343,14 +344,6 @@ With the global Frobenius theorem, one can address the question at the start of 
 	The torus $ T= \mathbb{S}^1\times \mathbb{S}^1 $ can be endowed with the distribution induced by the cartesian product of manifolds (see example \ref{ex:product_foliation}). In this case, the foliation is conformed by copies of $ \mathbb{S}^1. $ The horizontal curves are segments of this copies, and if two points lay in different copies, there is not a horizontal curve that connects them.
 \end{ex}
 
-\subsection{Chow's Theorem}%
-\label{sub:chow_s_theorem}
-
-The section \ref{sub:frobenius_theorem} provides a class of (involutive) distributions where it is not true that every two points can be connected through a horizontal curve.  Now, it is worthwhile to ask for a sufficient condition for a distribution to have the connectedness property through horizontal curves. To discuss such a condition, we need to cover some preliminaries. 
-
-\begin{df}[Bracket Generating Distribution]
-	A distribution $ \mathcal{H}\subset TM $ is called bracket generating if any of its local frames $ X_1,\dots,X_k $ together with all of its iterated Lie brackets $ [X_i,X_j],[X_i,[X_j,X_k]],\dots, $ spans the tangent bundle $ TM. $  
-\end{df}
 \section{Subriemannian Geometry}%
 \label{sec:subriemannian_geometry}
 
@@ -359,8 +352,10 @@ The section \ref{sub:frobenius_theorem} provides a class of (involutive) distrib
 
 
  If a distribution is doted with a fiber inner-product, the pair of a manifold and a distribution over it defines a subriemannian structure, as is stated in the following definition.
-\begin{df}[Subriemannian Structure]
-	A subriemannian structure over a manifold $ M $ is a distribution $ \mathcal{H}\subset TM $, called horizontal distribution, endowed with a fiber inner-product $ <\cdot,\cdot> $ on this subbundle, which is a section of the bundle $ T^2_0 \mathcal{H} \xrightarrow[]{\pi} M, $ with the property that in each fiber it restricts to an inner product, \textit{i.e.},  a positive definite symmetric bilinear form (see \cite{hatcher2003vector}, Ch. 1, page 12).
+\begin{df}
+	A \textbf{subriemannian structure over a manifold} $ M $ is a pair $ (\mathcal{H}, <\cdot,\cdot>)$, where $ \mathcal{H}\subset TM $ is a distribution and $ <\cdot,\cdot> $ is a section of the bundle $ T^2_0 \mathcal{H} \xrightarrow[]{\pi} M, $ which restricts to a positive definite symmetric bilinear form in each fiber (see \cite{hatcher2003vector}, Ch. 1, page 12).
+
+	$ \mathcal{H} $ is called \textbf{horizontal distribution}, and $ <\cdot,\cdot> $ is called \textbf{metric tensor}.  
 \end{df}
 
 Some examples of subriemannian structures are given below.
@@ -386,11 +381,46 @@ $$ d(p,q) = \operatorname{inf} \left\{ \ell(\gamma) \ |\ \gamma:[0,1] \rightarro
 The distance between two points is said to be infinite if there is no curve joining them. Also, in analogy with riemannian geometry, an absolutely continuous horizontal curve that realizes the distance between two points is called a \textbf{geodesic}. 
 
 
+\subsection{Chow's Theorem}%
+\label{sub:chow_s_theorem}
 
+The section \ref{sub:frobenius_theorem} provides a class of (involutive) distributions where it is not true that every two points can be connected through a horizontal curve.  Now, it is worthwhile to ask for a sufficient condition for a distribution to have the connectedness property through horizontal curves. To discuss such a condition, we need to cover some preliminaries. 
 
+\begin{df}
+	A distribution $ \mathcal{H}\subset TM $ is called \textbf{bracket generating} if any of its local frames $ X_1,\dots,X_k $ together with all of its iterated Lie brackets $ [X_i,X_j],[X_i,[X_j,X_k]],\dots, $ spans the tangent bundle $ TM. $  
+\end{df}
+
+\begin{lm}\label{lm:approx}
+	Let $ X_1,X_2 $ be two smooth vector fields over the manifold $ M $, with respective local flows $ \Phi_1,\Phi_2:(-\epsilon,\epsilon)\times U \rightarrow {U}$, and let $ p\in U. $ Then, in any coordinate system the following relation holds.  	 
+	$$ \left[ \Phi_1(t), \Phi_2(t) \right](p) := \left( \Phi_1(t)\circ \Phi_2(t) \circ \Phi_1(t)^{-1}\circ \Phi_2(t)^{-1} \right)(p)=p+t^2 \left[ X_1,X_2 \right](p) + O(t^3). $$ 
+\end{lm}
+\begin{proof}
+	By Taylor's theorem, we have $$ \Phi_i(t)(p)=p+tX_i(p)+ \frac{t^2}{2} X_i(X_i(p)) + O(t^3), \text{ for }i=1,2.  $$ 
+	In the other hand, as $ \left\{ \Phi_i(t) \right\}_{t\in(-\epsilon,\epsilon)} $ is the family of diffeomorphisms associated with the flow of $ X_i, $ $ \Phi_i(t)^{-1}=\Phi_i(-t). $ Then,   
+	\begin{dmath*}
+	 (\Phi_1(t)^{-1}\circ \Phi_2(t)^{-1})(p) = p- t \left( X_1(p)+X_2(p) \right)+ t^2 X_1(X_2(p)) + t^2 \left( X_1(X_1(p))+ X_2(X_2(p)) \right) + O(t^3), 
+	\end{dmath*}
+	and evaluating this expression in $ \Phi_1(t)\circ\Phi_2(t) $ gives the desired result.
+\end{proof}
+
+Chow's theorem guarantees that any bracket generating over a connected manifold distribution has the connectedness property through horizontal curves, and we going to derive this result in the rest of this section, following closely the procedure of \cite{montgomery2002tour}, Section 2.4. First of all, choose a base point $ p\in M $ and a local orthonormal frame $ X_i $, $ i=1,\dots, k $ for the distribution $ \mathcal{H} $. Let $ \Phi_i $ be their respective flows. These flows can be used to move easily in the horizontal directions (points connected to $ p $ through integral curves of the orthonormal frame), using the formula $ \Phi_i(t)(q)=q+tX_i(q)+O(t^2) $ for sufficiently small $ t. $ 
+
+The assignments $ t\mapsto \Phi_i(t)(q) $ are horizontal curves for the distribution $ \mathcal{H}, $ and are called \textbf{simple horizontal curves.} As the frame is orthonormal, the length of a simple horizontal curve with $ 0\leq t\leq \epsilon  $ is $ \epsilon. $   
+
+Applying $ \Phi_k(t_k)\circ\cdots\circ \Phi_2(t_2)\circ\Phi_1(t_1)$ to $ p $ and letting $ t_1,\dots,t_k $ vary over the cube $ |t_i|\leq\epsilon, $ we move from $ p $ to another point inside the $ k- $dimensional cube of volume $ (2\epsilon)^k. $ Each point of this cube can be reached from $ p $ through the concatenation of $ k $ or fewer flows, and this cube is inside of the subriemannian ball of radius $ k\epsilon $, that is,
+\begin{align*}
+ \operatorname{Box}_p(\epsilon):= \left\{ \Phi_k(t_k)\circ\cdots\circ \Phi_2(t_2)\circ\Phi_1(t_1)(p) \ | \ |t_i|<\epsilon, \ i=1,\dots,k \right\}\\ \subset \operatorname{B}(p, k\epsilon):= \left\{ q\in M \ | \ d(p,q)<k\epsilon \right\}.  
+\end{align*}
+
+We can move in the remaining directions along horizontal paths by successive applications of the commutators of flows, based on the bracket generating property of the distribution in the following way. Let $ \mathcal{H} $ denote also the sheaf of smooth vector fields tangent to $ \mathcal{H}, $ and define
+$$ \mathcal{H}^2 := \mathcal{H}\oplus [\mathcal{H},\mathcal{H}],\quad \mathcal{H}^{r+1} := \mathcal{H}^r\oplus [\mathcal{H}, \mathcal{H}^r], $$
+where
+$$ \left[ \mathcal{H}, \mathcal{H}^j \right]:= \operatorname{span} \left\{ [X,Y] \ | \ X\in \mathcal{H},\ Y \in \mathcal{H}^j \right\}, \text{ for }j=1,2,\dots  $$ 
+The movement in the $ \mathcal{H}^2/\mathcal{H} $ directions can be made along horizontal paths by applying the commutators $ \Phi_{ij}(t):= [\Phi_i(t),\Phi_j(t)] $ to $ p. $ As $ \Phi_{ij}(t)(p)=p+t^2[X_i, X_j](p) $ (by lemma \ref{lm:approx}) if $ |t|\leq\epsilon, $ we will move by an amount $ \epsilon^2 $ in the $ \mathcal{H}^2/\mathcal{H} $ directions. This process is realized inductively until exhausting the tangent space. Let $ I=(i_1,i_2,\dots,i_n), $ $ 1\leq i_j\leq k $, and $ X_I:=[X_{i_1}, X_J], $ where $ J=(i_2,\dots,i_n), $  so that $ X_I $ is the iteration of $ n $ Lie brackets. Similarly, define flows $ \Phi_I(t):=[\Phi_{i_1}(t), \Phi_J(t)] $. By successive application of lemma \ref{lm:approx}, we have that   
+$$ \Phi_I(t)= \mathbb{1} +t^n X_I+ O(t^{n+1}).$$ 
+Due to the bracket generating condition over any local frame of the distribution, we can select a local frame for the entire tangent bundle amongst the $ X_I, $ letting $ n $ and $ i_1,\dots,i_n $ vary accordingly. We choose such a frame and relabel it as $ Y_i, $ $ i=1,\dots,m, $ in a way that it satisfies: $ Y_1=X_1,\dots, Y_k=X_k $ span $ \mathcal{H} $ near $ p, $ $ \left\{ Y_1,\dots,Y_{n_2} \right\} $ span $ \mathcal{H}^2 $ near $ p, $ $ \left\{ Y_1,\dots,Y_{n_2},\dots,Y_{n_3} \right\} $ span $ \mathcal{H}^3 $ near $ p $,  and so on. The tuple $ (k,n_2,n_3,\dots, n_r) $ is called the \textbf{growth vector of the distribution at $ p $}, and the smallest integer $ r $ is called the \textbf{step or degree of nonholonomy of the distribution at $ p. $ }   
 \bibliographystyle{unsrt}
 \nocite{*}
 \bibliography{mybibliography}
-
 
 \end{document}
