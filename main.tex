@@ -411,7 +411,7 @@ The section \ref{sub:frobenius_theorem} provides a class of (involutive) distrib
 \end{df}
 
 \begin{lm}\label{lm:approx}
-	Let $ X_1,X_2 $ be two smooth vector fields over the manifold $ M $, with respective local flows $ \Phi_1,\Phi_2:(-\epsilon,\epsilon)\times U \rightarrow {U}$, and let $ p\in U. $ Then, in any coordinate system the following relation holds.  	 
+	Let $ X_1,X_2 $ be two smooth vector fields over the manifold $ M $, with respective local flows $ \Phi_1,\Phi_2:(-\epsilon,\epsilon)\times U \rightarrow {U}$, and let $ p\in U. $ Then, in any coordinate system the following relation holds:
 	$$ \left[ \Phi_1(t), \Phi_2(t) \right](p) := \left( \Phi_1(t)\circ \Phi_2(t) \circ \Phi_1(t)^{-1}\circ \Phi_2(t)^{-1} \right)(p)=p+t^2 \left[ X_1,X_2 \right](p) + O(t^3). $$ 
 \end{lm}
 \begin{proof}
@@ -420,7 +420,12 @@ The section \ref{sub:frobenius_theorem} provides a class of (involutive) distrib
 	\begin{dmath*}
 	 (\Phi_1(t)^{-1}\circ \Phi_2(t)^{-1})(p) = p- t \left( X_1(p)+X_2(p) \right)+ t^2 X_1(X_2(p)) + t^2 \left( X_1(X_1(p))+ X_2(X_2(p)) \right) + O(t^3), 
 	\end{dmath*}
-	and evaluating this expression in $ \Phi_1(t)\circ\Phi_2(t) $ gives the desired result.
+	and evaluating $ \Phi_1(t)\circ\Phi_2(t) $ in this point gives
+
+	\begin{dmath*}
+	\left( \Phi_1(t)\circ \Phi_2(t) \circ \Phi_1(t)^{-1}\circ \Phi_2(t)^{-1} \right)(p) = p+t^2 \left[ X_1,X_2 \right](p)+ t^2 \left( X_1(X_1(p)) + X_2(X_2(p)) \right) - t( X_1(p)+X_2(p)) - t^2 \left( X_1(X_1(p)) + X_2(X_2(p)) \right) +t( X_1(p)+X_2(p)) + O(t^3) = p+t^2 \left[ X_1,X_2 \right](p) + O(t^3), 
+	\end{dmath*}
+	which is the desired result.	
 \end{proof}
 
 Chow's theorem guarantees that any bracket generating over a connected manifold distribution has the connectedness property through horizontal curves, and we going to derive this result in the rest of this section, following closely the procedure of \cite{montgomery2002tour}, Section 2.4. First of all, choose a base point $ p\in M $ and a local orthonormal frame $ X_i $, $ i=1,\dots, k $ for the distribution $ \mathcal{H} $. Let $ \Phi_i $ be their respective flows. These flows can be used to move easily in the horizontal directions (points connected to $ p $ through integral curves of the orthonormal frame), using the formula $ \Phi_i(t)(q)=q+tX_i(q)+O(t^2) $ for sufficiently small $ t. $ 
@@ -429,7 +434,7 @@ The assignments $ t\mapsto \Phi_i(t)(q) $ are horizontal curves for the distribu
 
 Applying $ \Phi_k(t_k)\circ\cdots\circ \Phi_2(t_2)\circ\Phi_1(t_1)$ to $ p $ and letting $ t_1,\dots,t_k $ vary over the cube $ |t_i|\leq\epsilon, $ we move from $ p $ to another point inside the $ k- $dimensional cube of volume $ (2\epsilon)^k. $ Each point of this cube can be reached from $ p $ through the concatenation of $ k $ or fewer flows, and this cube is inside of the subriemannian ball of radius $ k\epsilon $, that is,
 \begin{align*}
- \operatorname{Box}_p(\epsilon):= \left\{ \Phi_k(t_k)\circ\cdots\circ \Phi_2(t_2)\circ\Phi_1(t_1)(p) \ | \ |t_i|<\epsilon, \ i=1,\dots,k \right\}\\ \subset \operatorname{B}(p, k\epsilon):= \left\{ q\in M \ | \ d(p,q)<k\epsilon \right\}.  
+ \operatorname{Box}_p(\epsilon):= \left\{ \Phi_k(t_k)\circ\cdots\circ \Phi_2(t_2)\circ\Phi_1(t_1)(p) \ | \ |t_i|<\epsilon, \ i=1,\dots,k \right\}\\ \subset \operatorname{B}(k\epsilon, p):= \left\{ q\in M \ | \ d(p,q)<k\epsilon \right\}.  
 \end{align*}
 
 We can move in the remaining directions along horizontal paths by successive applications of the commutators of flows, based on the bracket generating property of the distribution in the following way. Let $ \mathcal{H} $ denote also the sheaf of smooth vector fields tangent to $ \mathcal{H}, $ and define
@@ -439,6 +444,80 @@ $$ \left[ \mathcal{H}, \mathcal{H}^j \right]:= \operatorname{span} \left\{ [X,Y]
 The movement in the $ \mathcal{H}^2/\mathcal{H} $ directions can be made along horizontal paths by applying the commutators $ \Phi_{ij}(t):= [\Phi_i(t),\Phi_j(t)] $ to $ p. $ As $ \Phi_{ij}(t)(p)=p+t^2[X_i, X_j](p) $ (by lemma \ref{lm:approx}) if $ |t|\leq\epsilon, $ we will move by an amount $ \epsilon^2 $ in the $ \mathcal{H}^2/\mathcal{H} $ directions. This process is realized inductively until exhausting the tangent space. Let $ I=(i_1,i_2,\dots,i_n), $ $ 1\leq i_j\leq k $, and $ X_I:=[X_{i_1}, X_J], $ where $ J=(i_2,\dots,i_n), $  so that $ X_I $ is the iteration of $ n $ Lie brackets. Similarly, define flows $ \Phi_I(t):=[\Phi_{i_1}(t), \Phi_J(t)] $. By successive application of lemma \ref{lm:approx}, we have that   
 $$ \Phi_I(t)= \mathbb{1} +t^n X_I+ O(t^{n+1}).$$ 
 Due to the bracket generating condition over any local frame of the distribution, we can select a local frame for the entire tangent bundle amongst the $ X_I, $ letting $ n $ and $ i_1,\dots,i_n $ vary accordingly. We choose such a frame and relabel it as $ Y_i, $ $ i=1,\dots,m, $ in a way that it satisfies: $ Y_1=X_1,\dots, Y_k=X_k $ span $ \mathcal{H} $ near $ p, $ $ \left\{ Y_1,\dots,Y_{n_2} \right\} $ span $ \mathcal{H}^2 $ near $ p, $ $ \left\{ Y_1,\dots,Y_{n_2},\dots,Y_{n_3} \right\} $ span $ \mathcal{H}^3 $ near $ p $,  and so on. The tuple $ (k,n_2,n_3,\dots, n_r) $ is called the \textbf{growth vector of the distribution at $ p $}, and the smallest integer $ r $ is called the \textbf{step or degree of nonholonomy of the distribution at $ p. $ }   
+
+\begin{df}[\cite{montgomery2002tour}, page 49.] Let $ \left\{ Y_1,\dots, Y_m \right\} $ be the local frame of the tangent bundle in a neighborhood of $ p\in M $ constructed as stated before using the local frame of a bracket generating distribution. Let $ Y_i=X_I $, $ I=(i_1,\dots,i_{n_I}) $. We denote the length of $ I $ as $ w_i:= \left| I \right| $, and define the assignment $ i\mapsto w_i, $ called the \textbf{weighting associated to the growth vector}. 
+	
+\end{df}
+
+We relabel the flows $ \Phi_I $ in a similar fashion, so that $ \Phi_i $ is the flow associated to $ Y_i. $ In this case, each point $ \Phi_i(t)(p) $ is the endpoint of the concatenation of $ w_i $ simple horizontal curves, each one of length $ t $. If we impose that $ \left| t \right|\leq \epsilon, $ then $ \Phi_i(t)(p) $ lies in the ball of radius $ w_i\epsilon $ centered at $ p. $ Moreover, in coordinates we have that 
+$$ \Phi_i(t)(p)=p+t^{w_i}X_i(p)+ O(t^{w_i+1}), $$ 
+so $ \Phi_i(t)(p) $ lies in the Euclidean box of volume $ \epsilon^{w_i} $, in the $ \mathcal{H}^{w_i} $ directions. From this we can deduct that the subriemannian ball $ B(\epsilon,p) $ contains an Euclidean coordinate box whose sides are of order $ \epsilon^{w_i} $ in the $ i $-th direction. This result is known as the ball-box theorem, and it will be stated and proved after the following definitions.
+
+\begin{df}[\cite{montgomery2002tour}, definition 2.4.1] 
+	Coordinates $ y_1,\dots,y_m $ are said to be \textbf{linearly adapted to the distribution $\mathcal{H}$ at $ p $ } if $ \mathcal{H}^i(p):= \{ X(p) \ | \ X$ is a section of $\mathcal{H}$ defined on $p$$\}$ is annihilated by the differentials $ dy_{n_i+1},\dots, dy_m $ at $ p, $ where $ n_i=n_i(p) $ are the coordinates of the growth vector at $ p. $  
+\end{df}
+\begin{df}
+	The $ w $- weighted box of size $ \epsilon $ is the point set
+	$$ \operatorname{Box}^w(\epsilon) := \left\{ y\in \mathbb{R}^m \ | \ |y_i|\leq \epsilon^{w_i}; \ i=1,\dots,m \right\}.  $$ 
+\end{df}
+
+Set $ y_i $ as the coordinates centered at $ p $ such that $ dy_i(p) $ are the dual basis to the $ Y_i(p), $ so that these coordinates are linearly adapted to the distribution by definition.
+
+\begin{thm}[Ball-Box Theorem]
+	There exist linearly adapted coordinates $ y_1,\dots,y_m $ and positive constants $ c<C, \ \epsilon_0>0, $ such that for all $ \epsilon<\epsilon_0, $ 
+	$$ \operatorname{Box}^w(c\epsilon)\subset B(\epsilon, p)\subset \operatorname{Box}^w(C\epsilon).    $$ 
+\end{thm}
+\begin{figure}[ht]
+    \centering
+    \incfig{ballbox}
+    \caption{Ball box theorem.}
+    \label{fig:ballbox}
+\end{figure}
+\begin{proof}[Proof of $\operatorname{Box}^w(c\epsilon)\subset B(\epsilon, p)$] (\cite{montgomery2002tour}, theorem 2.4.2). As the approximation $ \Phi_{ij}(t)= \mathbb{1} + t^2 \left[ X_i,X_j \right] + O(t^3)$ has the coefficient $ t^2 $ that is always positive, we can not move in the negative $ [X_i,X_j] $ direction. To circunvent this, we define 
+	$$ \Psi_{i j}(t)=\left\{\begin{array}{ll}{\left[\Phi_{i}(t), \Phi_{j}(t)\right]} & t \geq 0 \\ {\left[\Phi_{j}(t), \Phi_{i}(t)\right]} & t<0,\end{array}\right. $$ 
+	so that
+	$$\Psi_{i j}(t)=\left\{\begin{array}{ll}I+t^{2} X_{i j}+O\left(t^{3}\right) & t \geq 0 \\ I-t^{2} X_{i j}+O\left(t^{3}\right) & t<0.\end{array}\right.$$
+This problem occurs wheneve the number $ w_i $ associated to the flow $ \Phi_I $ of $ Y_i $ is even. To solve this in general, we set
+$$\Psi_{I}(t)=\left\{\begin{array}{ll}
+\Phi_{I}(t) & t \geq 0 \\
+{\left[\Phi_{J}(t), \Phi_{i_{1}}(t)\right]} & t<0.
+\end{array}\right.$$
+If $ w_i $ is odd, we keep $ \Psi_I=\Phi_I, $ and we relabel $ \Psi_I $ as $ \Psi_i $ accordingly. Now, we introduce the functions
+$$\sigma_{i}(t)=\left\{\begin{array}{ll}
+t^{w_{i}} & w_{i} \text { even, } t \geq 0 \\
+-t^{w_{i}} & w_{i} \text { even, } t<0 \\
+t^{w_{i}} & w_{i} \text { odd }
+\end{array}\right.
+$$
+to simplify the notation of the approximation
+$$ \Psi_I(t)= \mathbb{1}+ \sigma_i(t) Y_i + O(t^{w_i+1}). $$ 
+Define the map $ F: \mathbb{R}^m \rightarrow {M} $ as $ F(t_1,\dots,t_m) = \left( \Psi_m(t_m) \circ \cdots \circ \Psi_1(t_1)\right)(p), $ and let $ y_i $ be linearly adapted coordinates for which the $ dy_i $ are dual to the $ Y_i $ of the basis of the tangent space at the base point $ p. $ Then, in coordinates,
+
+$$ F_i(t_1,\dots,t_m) = \sigma_i(t_i) + o(t_i^{w_i}) = \pm t_i^{w_i} + o(t_i^{w_i}), $$ 
+where the error $ o(t_i^{w_i}) $ corresponds to the composition of the previous $ \Psi_1(t), \dots,\Psi_{i-1}(t) $ flows evaluated in the big $ O- $errors of the previous sequential arguments. It remains to understand and bound these error terms, and for that we introduce the new variables $ s_i=\sigma_i(t), $ so that $ F_i(t_1,\dots,t_m)= s_i + o(s_i). $  
+
+The map $ \sigma=(\sigma_1,\dots,\sigma_m) $ is a homeomorphism between neighborhoods of $ 0 $ in $ \mathbb{R}^m, $ so let $ S $ be the inverse of $ \sigma $ that is given by $ S=(s_1,\dots,s_m), $ where $ s_i(t_i)=\pm |t_i|^{1/w_i}. $ Then, it follows that
+$$ y\circ F\circ S (s_1,\dots,s_m) = (s_1,\dots,s_m) + o(|s|), $$ 
+from where we deduce that $ F\circ S$ is differentiable at the origin because of the differentiability of both $ y $ and $ y\circ G\circ S $, and its derivative is the identity in the $ s-y $ coordinates, so it is also $ C^1 $ near $ 0. $ We will proceed applying the inverse function theorem to invert $ F\circ S $ in a neighborhood of $ p. $ 
+
+Write $ F\circ S(s_1,\dots,s_m) $ in coordinates as $ (y_1,\dots,y_m).$ Then, there exists a constant $ \epsilon_0 $ and constants $ c=c(\epsilon_0), \ C=C(\epsilon_0) $ such that $ c|s_i| \leq |y_i(s_1,\dots,s_m)|  \leq C|s_i|$ whenever $ |s_i|\leq \epsilon_0. $ Apply the constraint $ |s_i|\leq \epsilon^{w_i} $ to the $ s_i. $ It is clear that the inverse image of the point set $ |s_i|\leq \epsilon^{w_i} $ under the map $ S $ is the $ \epsilon- $cube box $ \operatorname{Box}(\epsilon)= \left\{ (t_1,\dots,t_m)\ | \ |t_i|\leq \epsilon \right\},  $  so that applying $ F $ to the $ \epsilon- $cube gives
+$$ \operatorname{Box}^{w}(c\epsilon) \subset F( \operatorname{Box}(\epsilon) ) \subset \operatorname{Box}^w(C\epsilon).   $$ 
+Each curve in $ F( \operatorname{Box} (\epsilon) )$ is the endpoint of a horizontal curve starting at $ p $ whose length is less than $ M\epsilon $, where $ M=M(w) $ counts the number of concatenations involved in $ F. $ Consequently,
+$$ F( \operatorname{Box} (\epsilon)) \subset B(M\epsilon, p), $$ 
+from where we get that $ \operatorname{Box}^w (c\epsilon)\subset B(\epsilon,p). $ 
+\end{proof}
+The remaining containment in the Ball-Box theorem won't be proved in this text, as the tools needed (privileged coordinates) are out of its scope. The proof of this containment can be found in \cite{montgomery2002tour}, section 2.7.
+
+With the Ball-Box theorem, Chow's theorem can be derived easily.
+
+\begin{thm}[Chow's Theorem]
+	If $ \mathcal{H} $ is a bracket generating distribution on a connected manifold $ M $, then any two points of $ M $ can be connected by a horizontal path.
+\end{thm}
+\begin{proof} (\cite{montgomery2002tour}, page 52). The containment $ \operatorname{Box}^w(c\epsilon) \subset B(\epsilon,p) \subset \operatorname{Box}^w(C\epsilon)  $ shows that $ B(\epsilon, p) $ is a neighborhood of $ p $, which means that the accesible points from $ p $ through horizontal curves form a neighborhood of $ p. $ Let $ q\in M $ be another arbitrary point on the connected manifold, and take a smooth curve $ \gamma $ connecting $ p $ and $ q. $  
+
+	The image of $ \gamma $ is compact, so we can cover it with finitely many succesive box neighborhoods, where the Ball-Box theorem holds. Denote these neighborhoods as $ U_1,\dots,U_n, $ with each one of these boxes centered on succesive points $ p_i $ along the image of $ \gamma, $ and $ p_1=p, $ $ p_n=q. $ Moreover, these open sets can be chosen in orden to satisfy $ U_i\cap U_{i+1}\neq\emptyset, $ so that there exists $ q_i \in U_i\cap U_{i+1}. $ By the Ball-Box theorem, we have paths connecting $ p_i $ with $ q_i, $ and $ q_i $ with $ p_{i+1}. $ Concatenating these paths yields a piecewise horizontal path connecting $ p $ and $ q. $ 
+	
+\end{proof}
 \bibliographystyle{unsrt}
 \nocite{*}
 \bibliography{mybibliography}
