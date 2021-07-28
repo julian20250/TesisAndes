@@ -526,6 +526,11 @@ With the Ball-Box theorem, Chow's theorem can be derived easily.
 	The image of $ \gamma $ is compact, so we can cover it with finitely many succesive box neighborhoods, where the Ball-Box theorem holds. Denote these neighborhoods as $ U_1,\dots,U_n, $ with each one of these boxes centered on succesive points $ p_i $ along the image of $ \gamma, $ and $ p_1=p, $ $ p_n=q. $ Moreover, these open sets can be chosen in orden to satisfy $ U_i\cap U_{i+1}\neq\emptyset, $ so that there exists $ q_i \in U_i\cap U_{i+1}. $ By the Ball-Box theorem, we have paths connecting $ p_i $ with $ q_i, $ and $ q_i $ with $ p_{i+1}. $ Concatenating these paths yields a piecewise horizontal path connecting $ p $ and $ q. $ 
 	
 \end{proof}
+\begin{ex}[Cartan's Distribution]
+	Consider the distribution over $ \mathbb{R}^3 $ determined by the 1-form $\omega =dy- zdx $, or reciprocally, by the smooth vector fields $ \partial /\partial x + z \partial / \partial y, \partial/\partial z. $ From its definition it is clear that Cartan's distribution is of rank 2, so we can not know beforehand if any two pair of points can be connected through a horizontal curve. Nevertheless, as 
+	$$ \left[ \frac{\partial}{\partial z}, \frac{\partial}{\partial x}+z \frac{\partial}{\partial y}    \right] = \frac{\partial}{\partial y}  $$ 
+and $ T \mathbb{R}^3 = \operatorname{span}\{  \partial/\partial x + z \partial / \partial y, \partial/\partial z, \partial/\partial y\} $, Cartan's distribution is bracket generating, so by Chow's theorem any two points in $ \mathbb{R}^3 $ can be connected by a horizontal path. 
+\end{ex}
 \bibliographystyle{unsrt}
 \nocite{*}
 \bibliography{mybibliography}
