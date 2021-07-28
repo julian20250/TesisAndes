@@ -121,7 +121,7 @@ A manifold without boundary $M$ of dimension $ m $  is said to be of class $ C^\
 		\item $ (\pi\circ \phi)(q,v)=q $ for all $ v\in \mathbb{R}^k $, and  
 		\item the map $ v \mapsto \phi(p,v) $ is a linear isomorphism between the vector spaces $\pi^{-1}(p) $ and $ \mathbb{R}^k. $     
 	\end{itemize}
-	The first condition means in algebraic terms that the following diagram is commutative,	
+	The first condition means that the following diagram is commutative,	
 	\begin{center}
 		\begin{tikzcd}
 		U\times \mathbb{R}^k \arrow[d, "p"'] \arrow[rr, "\phi"] &  & \pi^{-1}(U) \arrow[d, "\pi"] \\
@@ -131,7 +131,7 @@ A manifold without boundary $M$ of dimension $ m $  is said to be of class $ C^\
 	where $ p:U\times \mathbb{R}^k \rightarrow U, \ p(q,v)=q$ is the projection onto the first factor.
 \end{df}
 We take the disjoint union of the tangent spaces at every point of the manifold in order to define the tangent bundle,
-$$ TM = \bigsqcup_{p\in M} T_pM, $$ 
+$ TM = \bigsqcup_{p\in M} T_pM, $ 
 equipped with manifold structure given by the one of $ M. $ It is called a bundle because the triple $ (TM, M,\pi:TM \rightarrow {M}) $ satisfies the definition of smooth vector bundle, where $ \pi:TM \rightarrow {M} $  is the projection function, that assigns each tangent vector to the point where it is based. Each fiber of this bundle is a tangent space based on a point, and the tangent bundle is in particular a vector bundle because each fiber has structure of finite dimensional real vector space.
 
 
@@ -152,9 +152,9 @@ There is another important class of smooth vector bundles, namely, the tensor bu
 	If $ k=1,l=0, $ $T^0_1E=E,$ and if $ k=0,l=1, $ $ T^1_0=E^*. $ We associate $ T^0_0=M\times \mathbb{R} $ to the \textbf{trivial line bundle} if both $ k=l=0. $ 
 \end{rem}
 
-From the two last definitions it is not entirely clear that they satisfy the conditions to be a smooth vector bundle. The formal proof that both definitions are consistent definitions of smooth vector bundles can be found in \cite{luke2013vector}, section 1.3.
+The formal proof that both definitions are consistent definitions of smooth vector bundles can be found in \cite{luke2013vector}, section 1.3.
 \begin{df}
-	A \textbf{(smooth) section} of a (smooth) vector bundle $ (E,M,\pi:E \rightarrow {M}) $ is a (smooth) application $ s: M \rightarrow {E} $ such that $ \pi\circ s= \mathbb{1}_{M}. $    
+	A \textbf{smooth section} of a smooth vector bundle $ (E,M,\pi:E \rightarrow {M}) $ is a (smooth) application $ s: M \rightarrow {E} $ such that $ \pi\circ s= \mathbb{1}_{M}. $    
 \end{df}
 For an arbitrary smooth vector bundle bundle $ (E,B,\pi:E \rightarrow {B}), $ a subbundle of this bundle $ (E',B',\pi':E' \rightarrow {B'}) $  is a smooth vector bundle bundle that satisfies $ E'\subset E $, $ B'\subset B $ and $ \pi|_{E'}=\pi'. $
 \begin{df}
@@ -172,6 +172,11 @@ The concept of (smooth) distribution can be defined in an alternative but equiva
 	$$ \mathcal{H}_q = \operatorname{Ker} \omega^1|_q\cap \cdots \cap\operatorname{Ker} \omega^{n-k}|_q.  $$ 
 \end{prop}
 
+The following proposition gives an alternative way to represent a smooth distribution in terms of local frames (\cite{lee2003introduction}, Ch. 19, page 491).
+
+\begin{prop} [Smooth Distribution (using local frames)]
+	It is said that $ \mathcal{H}\subset TM $ is a smooth distribution over $M  $ if and only if  for each point $ p\in M $, there is an open neighborhood $ U $ of it on which there are smooth vector fields $ X_1,\dots,X_n: U \rightarrow {TM} $ that at each point of $ U $ form a base for the fiber of that point respect to the distribution.
+\end{prop}
 Some examples of distributions over manifolds are given below.
 \begin{ex}[Tangent Bundle]
 	For any manifold $ M $, the tangent bundle $ TM $ is by definition a distribution over it. 
@@ -179,19 +184,17 @@ Some examples of distributions over manifolds are given below.
 \begin{ex}[Heisenberg Group]\label{ex:heis_group}
 	Take $ \mathbb{R} ^3 $ as the manifold, and define over it the distribution $ \mathcal{H}\subset T \mathbb{R} ^3 $, whose fiber at an arbitrary $ (x,y,z)\in \mathbb{R}^3  $ is   
 	$$ \mathcal{H}_{(x,y,z)} = \operatorname{Ker} \omega|_{(x,y,z)},$$
-	where $ \omega = dz-(x dy-y dx)/2\in\Omega^1( \mathbb{R}^3).$ 
+	where $ \omega = dz-(x dy-y dx)/2\in\Omega^1( \mathbb{R}^3).$ It is important to notice that $ \omega\neq 0 $ for all $ (x,y,z)\in \mathbb{R}^3. $ 
 \end{ex}
 \begin{rem}
 	The last example is of particular interest because of its connection with the isoperimetrical problem. For more information see \cite{montgomery2002tour}, Ch. 1.
 \end{rem}
 \begin{ex}[Vector field over a manifold]\label{ex:vect_field}
 Any smooth vector field $ X: M \rightarrow {TM} $ (which does not vanish out at any point) on a manifold determines a distribution $ \mathcal{H}$ over the manifold $ M $ whose fiber at an arbitrary $ p\in M $ is the span of $ X_p. $
-
-As a particular case of this example, one can consider a system of $ n $ linear differential equations on $ \mathbb{R}^n $ without equilibrium points, that determines a vector field over $ \mathbb{R}^n.$
 \end{ex}
 
 
-Given a distribution $ \mathcal{H} $  over a manifold $M$,  a curve or vector field is said to be \textbf{horizontal} if it is tangent to $ \mathcal{H} $. This means that, in the case of a curve, its tangent vector at every point is contained in the fibers of $ \mathcal{H} $; and in the case of a vector field, its image at every point where it is defined is contained in the fibers of $ \mathcal{H} .$   
+Given a distribution $ \mathcal{H} $  over a manifold $M$,  a curve or vector field is said to be \textbf{horizontal} if it is tangent to $ \mathcal{H} $. This means that, in the case of a curve, its tangent vector at every point is contained in the fibers of $ \mathcal{H} $; and in the case of a vector field, its value at every point is contained in the fibers of $ \mathcal{H} .$   
 
 For example, every curve over a manifold with distribution given by its tangent bundle is horizontal. In the example \ref{ex:heis_group}, the liftings of the solutions of the isoperimetrical problem are horizontal. In example \ref{ex:vect_field}, and in particular in the case of systems of linear differential equations, the solution curves of the system of differential equations are examples of horizontal curves for that distribution.
 
@@ -199,16 +202,12 @@ For example, every curve over a manifold with distribution given by its tangent 
 \label{sub:frobenius_theorem}
 
 
-Now the natural question that arises is if, given two points on a manifold with a given horizontal distribution, is there a smooth horizontal curve that joins them? To address this question, the present text will use the following alternative definition of smooth distributions (\cite{lee2003introduction}, Ch. 19, page 491): 
-
-\begin{df}
-	It is said that $ \mathcal{H}\subset TM $ is a \textbf{smooth distribution over $M  $} if and only if  for each point $ p\in M $, there is an open neighborhood $ U $ of it on which there are smooth vector fields $ X_1,\dots,X_n: U \rightarrow {TM} $ that at each point of $ U $ form a base for the fiber of that point respect to the distribution.
-\end{df}
+Now the natural question that arises is if, given two points on a manifold with a given horizontal distribution, is there a smooth horizontal curve that joins them? 
 
 Given a smooth distribution $ \mathcal{H} \subset TM$, we say that a nonempty immersed submanifold $ N\subseteq M $  is an \textbf{integral manifold} of $\mathcal{H}$ if $ T_p N = \mathcal{H}_p $ for all $ p\in N $ , \textit{i.e.}, if the tangent space of all points of the submanifold is the fiber of the horizontal distribution. As an example, in the distribution given in example \ref{ex:vect_field}, the image of any integral curve of the vector field that determines the distribution over the manifold is an integral manifold for that distribution. A particular example (taken from \cite{lee2003introduction}, example 19.1) of a distribution and its family of integral manifolds is given below.
 
 \begin{ex}[Orthogonal complement of a given vector field]
-Let $ \mathcal{G} $ be the distribution over $ \mathbb{R}^n $ determined by the radial vector field $ x^i \partial / \partial x^i $, and let $ \mathcal{G}^\perp $ be its perpendicular bundle, \textit{i.e.,} the distribution whose fibers are the orthogonal complement of the fibers of $ \mathcal{G}. $ $ \mathcal{G}^\perp $ is a distribution over $ \mathbb{R}^n  $, and the sphere centered at $0$, of radius $ |x| $, for all $ x\neq0 $ is an integral submanifold of $ \mathcal{G}^\perp. $        
+Let $ \mathcal{H} $ be the distribution over $ \mathbb{R}^n $ determined by the radial vector field $ x^i \partial / \partial x^i $, and let $ \mathcal{H}^\perp $ be its perpendicular bundle, \textit{i.e.,} the distribution whose fibers are the orthogonal complement of the fibers of $ \mathcal{H}. $ $ \mathcal{H}^\perp $ is a distribution over $ \mathbb{R}^n  $, and the sphere centered at $0$, of radius $ |x| $, for all $ x\neq0 $ is an integral submanifold of $ \mathcal{H}^\perp. $        
 \end{ex}
 
 There are distributions over a manifold that do not have integral manifolds, as is shown in the following example (taken from \cite{lee2003introduction}, Ch. 19, example 19.1).
@@ -228,15 +227,22 @@ There are distributions over a manifold that do not have integral manifolds, as 
     \label{fig:no_integral_manifolds}
 \end{figure}
 
-A concept that at first seems far away, but is useful for analyzing integrability of manifolds (defined below) is the idea of involutivity. A smooth distribution $ \mathcal{H} $ is said to be \textbf{involutive} if given any pair of smooth vector fields $ X,Y $ defined on a open subset of $ M $  that satisfy $X_p,Y_p\in \mathcal{H}_p $, their Lie bracket also satisfies the same condition, \textit{i.e.}, it is tangent to the distribution in the given open subset. 
+A smooth distribution $ \mathcal{H} $ is said to be \textbf{involutive} if given any pair of smooth vector fields $ X,Y $ defined on a open subset of $ M $  that satisfy $X_p,Y_p\in \mathcal{H}_p $, their Lie bracket also satisfies the same condition, \textit{i.e.}, it is tangent to the distribution in the given open subset. 
 
-The set of all smooth vector fields  globally defined, tangent to the distribution $ \mathcal{H} $ is denoted as $ \Gamma( \mathcal{H}) $. It is clear from the definition of involutivity that if $ \mathcal{H} $ is involutive, $ \Gamma (\mathcal{H})\subset \mathfrak{X}(M) $ is a Lie subalgebra. The converse is also true, and can be proven extending any pair of smooth vector fields locally defined, tangent to $ \mathcal{H} ,$ to a pair of vector fields in $ \Gamma( \mathcal{H}), $ using an adequate bump function. 
+Let $ \Gamma(\mathcal{H}) $ be the set of all smooth vector fields globally defined, tangent to $ \mathcal{H}. $ It is clear from the definition of involutivity that if $ \mathcal{H} $ is involutive, $ \Gamma (\mathcal{H})\subset \mathfrak{X}(M) $ is a Lie subalgebra. The converse statement (if $ \Gamma(\mathcal{H}) $ is a Lie algebra, then $ \mathcal{H} $ is involutive) is also true, and can be proved extending any pair of smooth vector fields locally defined, tangent to $ \mathcal{H} ,$ to a pair of vector fields in $ \Gamma( \mathcal{H}), $ using an adequate bump function. 
 
 A smooth distribution $ \mathcal{H} $ over a manifold $ M $ is called \textbf{integrable} if each point of $ M $ is contained in an integral manifold of $ \mathcal{H}. $  It is clear then that \textit{every integrable distribution is involutive}, because every pair of smooth vectors tangent to $ \mathcal{H}, $ defined over an open set $ U\subset M $, satisfy that their Lie bracket is also tangent to $ \mathcal{H} $ in that open set, since there exists a integral manifold $ N $  of $ \mathcal{H} $ for every point of $ U $ such that the pair of smooth vectors are tangent to $ N $, and in consequence, their Lie bracket is also tangent to $ N. $  
 
-In fact, the involutivity condition does not need to be checked for all smooth vector fields on $ \Gamma( \mathcal{H}), $ but it suffices to check if the Lie brackets of pairs of smooth vector fields of the local frame that determines the distribution are tangent to it, since every smooth local frame tangent to $ \mathcal{H} $ is a linear combination of the smooth vector fields of the local frame. 
+In fact, the involutivity condition does not need to be checked for all smooth vector fields on $ \Gamma( \mathcal{H}), $ but it suffices to check if the Lie brackets of pairs of smooth vector fields of the local frame that determines the distribution are tangent to it, as the following lemma states (\cite{lee2003introduction}, lemma 19.4).
 
-Given a smooth distribution $ \mathcal{H}\subset TM $  of rank $ k, $ it is said that a smooth coordinate chart $ (U,\phi) $ of $ M $ is \textbf{flat for $ \mathcal{H} $ } if $ \phi(U) $ is a cube in $ \mathbb{R}^m  $ (being $ m $ the dimension of $ M $ ), and at points of $ U $, $ \mathcal{H} $ is spanned by the first $ k $ coordinate vector fields $ \partial/\partial x^1,\dots,\partial/\partial x^k $ (see figure \ref{fig:fittogether}). The geometrical meaning of this property for a distribution is that, locally (in that chart), the manifold is homeomorphic to a cube in $ \mathbb{R}^m,  $ and the vector subspaces induced by the distribution at each point fit together as affine spaces of dimension given by the rank of the distribution in $ \mathbb{R}^m $. Also, each slice of the form $ x^{k+1}=c^{k+1},\dots, x^m=c^m,$ for constants $ c^{k+1}, \dots, c^m $ in the image of $ U $ of such a chart is an integral manifold of the distribution generated by $ \partial/\partial x^1,\dots,\partial/\partial x^k $, and the preimage of this integral manifold is an integral manifold of $ \mathcal{H}, $ contained in $ U. $  
+\begin{lm}[Local frame criterion for involutivity] 
+	Let $ \mathcal{H}\subset TM $ be a distribution. If for every point in $ M $ there is a neighborhood such that there exists a local smooth frame $ (X_1,\dots, X_k) $ for $ \mathcal{H} $ such that $ [X_i,X_j] $ is a section of $ \mathcal{H} $ for each $ i,j, $ then $ \mathcal{H} $ is involutive.
+\end{lm}
+
+\begin{df}
+	Given a smooth distribution $ \mathcal{H}\subset TM $  of rank $ k, $ it is said that a smooth coordinate chart $ (U,\phi) $ of $ M $ is \textbf{flat for $ \mathcal{H} $ } if $ \phi(U) $ is a cube in $ \mathbb{R}^m  $ (being $ m $ the dimension of $ M $ ), and at points of $ U $, $ \mathcal{H} $ is spanned by the first $ k $ coordinate vector fields $ \partial/\partial x^1,\dots,\partial/\partial x^k $ (see figure \ref{fig:fittogether}).
+\end{df}
+The geometrical meaning of this property for a distribution is that, locally (in that chart), the manifold is homeomorphic to a cube in $ \mathbb{R}^m,  $ and the vector subspaces induced by the distribution at each point fit together as affine spaces of dimension given by the rank of the distribution in $ \mathbb{R}^m $. Also, each slice of the form $ x^{k+1}=c^{k+1},\dots, x^m=c^m,$ for constants $ c^{k+1}, \dots, c^m $ in the image of $ U $ of such a chart is an integral manifold of the distribution generated by $ \partial/\partial x^1,\dots,\partial/\partial x^k $, and the preimage of this integral manifold is an integral manifold of $ \mathcal{H}, $ contained in $ U. $  
 
 \begin{figure}
     \centering
@@ -251,9 +257,7 @@ The case when every point in $ M $ has a coordinate chart centered in it, flat f
 	A smooth distribution $ \mathcal{H}\subset TM $  is said to be \textbf{completely integrable} if there exists a flat chart for $ \mathcal{H} $ in a neighborhood of each point of $ M. $ 
 \end{df}
 
-When a distribution is completely integrable, there is a coordinate chart centered at every point $ p\in M $ , such that the manifolds locally looks like a cube in $ \mathbb{R}^m  $, and the distribution becomes the tangent subspace of dimension $ k $ generated by the first $ k $ vector fields that form the base of the tangent space at each point, as can be seen in figure \ref{fig:fittogether}. 
-
-Therefore, if a distribution is completely integrable, is then integrable, since there exists an integral manifold for each point (that in particular is a \textbf{maximal integral manifold}, as the dimension of this manifold coincides with the rank of the distribution), given by the integral manifold that contains this point in the image of the coordinate chart flat for $ \mathcal{H}. $ In this way, \textit{ if a distribution is completely integrable, it is integrable, and therefore involutive.} In fact, these implications are actually equivalences, thanks to Frobenius's theorem.
+Therefore, if a distribution is completely integrable, is then integrable, since there exists an integral manifold for each point (that in particular is known as \textbf{maximal integral manifold}, as the dimension of this manifold coincides with the rank of the distribution), given by the integral manifold that contains this point in the image of the coordinate chart flat for $ \mathcal{H}. $ In this way, \textit{ if a distribution is completely integrable, it is integrable, and therefore involutive.} In fact, these implications are actually equivalences, thanks to Frobenius's theorem.
 
 \begin{thm}[Frobenius]
 	Every involutive distribution is completely integrable.	
@@ -341,47 +345,45 @@ The following are examples of foliations over a manifold, mainly taken from \cit
 	If $ M $ and $ N $ are connected smooth manifolds, the collection of subsets of the form $ M\times \left\{ q \right\}, $ with $ q\in N $, is a foliation of $ M\times N, $ each of whose leaves is diffeomorphic to $ M. $  	
 \end{ex}
 
+\begin{ex}[Foliations on a torus]
+	The torus $ T= \mathbb{S}^1\times \mathbb{S}^1 $ can be endowed with the distribution induced by the cartesian product of manifolds (see example \ref{ex:product_foliation}). In this case, the foliation is conformed by copies of $ \mathbb{S}^1. $ The horizontal curves are segments of this copies, and if two points lay in different copies, there is not a horizontal curve that connects them.
+\end{ex}
+
 From the definition of foliations, it is clear that \textit{if $ \mathcal{F} $ is a foliation on a smooth manifold $ M, $ the collection of tangent spaces to the leaves of $ \mathcal{F} $ forms an involutive distribution on $ M. $} In a reciprocal way, the collection of maximal integral manifolds of an involutive distribution forms a foliation over the manifold, as it is stated in the global Frobenius theorem.
 
 \begin{thm}[Global Frobenius theorem]
 	Let $ \mathcal{H} $ be an involutive distribution on a smooth manifold $ M. $ The collection of all maximal connected integral manifolds of $ \mathcal{H} $ forms a foliation of $ M. $ 
 \end{thm}
 
-Following the procedure of \cite{lee2003introduction}, Ch.19, the next lemma (\cite{lee2003introduction}, Ch. 19, lemma 19.22) is going to be used in the proof of this theorem.
+The next lemma (\cite{lee2003introduction}, Ch. 19, lemma 19.22) is going to be used to prove this theorem.
 
-\begin{lm}
-	Suppose $ \mathcal{H}\subset TM $ is an involutive distribution, and let $ \left\{ N_\alpha \right\}_{\alpha\in A} $ be any collection of connected integral manifolds of $ \mathcal{H} $ with a point in common. Then, $ N=\bigcup_{\alpha} N_\alpha $ has a unique smooth manifold structure making it into a connected integral manifold of $ \mathcal{H}. $  
+\begin{lm}\label{lm:man_struct}
+	Suppose that $ \mathcal{H}\subset TM $ is an involutive distribution, and let $ \left\{ N_\alpha \right\}_{\alpha\in A} $ be any collection of connected integral manifolds of $ \mathcal{H} $ with a point in common. Then, $ N=\bigcup_{\alpha} N_\alpha $ has a unique smooth manifold structure making it into a connected integral manifold of $ \mathcal{H}. $  
 \end{lm}
 
 \begin{proof}[Proof of the global Frobenius theorem]
-	(\cite{lee2003introduction}, Ch. 19, theorem 19.21) For each $ p\in M $, let $ L_p $ be the union of all connected integral manifolds of $ \mathcal{H} $ containing $ p. $ By the preceding lemma, $ L_p $ is a connected integral manifold of $ \mathcal{H} $ containing $ p $, and it is clearly maximal. By maximality, if $ L_p $ and $ L_{p'} $ intersect, $ L_p=L_{p'} $, because $ L_p\cup L_{p'} $ is an integral manifold containing both $ p $ and $ p' $. Thus, the maximal connected integral manifolds are either disjoint or identical.    
+	(\cite{lee2003introduction}, Ch. 19, theorem 19.21) For each $ p\in M $, let $ L_p $ be the union of all connected integral manifolds of $ \mathcal{H} $ containing $ p. $ By lemma \ref{lm:man_struct}, $ L_p $ is a connected integral manifold of $ \mathcal{H} $ containing $ p $, and it is clearly maximal. By maximality, if $ L_p $ and $ L_{p'} $ intersect, $ L_p=L_{p'} $, because $ L_p\cup L_{p'} $ is an integral manifold containing both $ p $ and $ p' $. Thus, the maximal connected integral manifolds are either disjoint or identical.    
 
 	If $ (U,\varphi) $ is any flat chart for $ \mathcal{H}, $ then $ \varphi(L_p\cap U) $ is a countable union of open subsets of slices (by proposition \ref{prop:local_structure}). For any such slice $ S, $ if $ \varphi(U\cap L_p)\cap S $ is neither empty nor all of $ S, $ then $ L_p\cup \varphi^{-1}(S )$ is a connected integral manifold properly containing $ L_p, $ which contradicts the maximality of $ L_p. $ Therefore, $ \varphi(L_p\cap U) $ is precisely a countable union of slices, so the collection $ \left\{ L_p\ : \ p\in M \right\} $ is the desired foliation.
 \end{proof}
 
-With the global Frobenius theorem, one can address the question at the start of this subsection: in general, for an given distribution there is not a smooth horizontal curve that connects an arbitrary pair of points, because the points can be in different leaves of the foliation given by the distribution.
+With the global Frobenius theorem, one can answer the question at the start of this subsection: in general, for an given distribution there is no smooth horizontal curve that connects an arbitrary pair of points, because the points can be in different leaves of the foliation given by the distribution.
 
-\begin{ex}[Foliations on a torus]
-	The torus $ T= \mathbb{S}^1\times \mathbb{S}^1 $ can be endowed with the distribution induced by the cartesian product of manifolds (see example \ref{ex:product_foliation}). In this case, the foliation is conformed by copies of $ \mathbb{S}^1. $ The horizontal curves are segments of this copies, and if two points lay in different copies, there is not a horizontal curve that connects them.
-\end{ex}
 
 \section{Subriemannian Geometry}%
 \label{sec:subriemannian_geometry}
 
 \subsection{Subriemannian Structure and Geodesics}%
 \label{sub:subriemannian_structure_and_geodesics}
-
-
- If a distribution is doted with a fiber inner-product, the pair of a manifold and a distribution over it defines a subriemannian structure, as is stated in the following definition.
 \begin{df}
-	A \textbf{subriemannian structure over a manifold} $ M $ is a pair $ (\mathcal{H}, <\cdot,\cdot>)$, where $ \mathcal{H}\subset TM $ is a distribution and $ <\cdot,\cdot> $ is a section of the bundle $ T^0_2 \mathcal{H} \xrightarrow[]{\pi} M, $ which restricts to a positive definite symmetric bilinear form in each fiber (see \cite{hatcher2003vector}, Ch. 1, page 12).
+	A \textbf{subriemannian structure over a manifold} $ M $ is a pair $ (\mathcal{H}, <\cdot,\cdot>)$, where $ \mathcal{H}\subset TM $ is a distribution and $ <\cdot,\cdot> $ is a section of the bundle $ T^0_2 \mathcal{H} \xrightarrow[]{\pi} M, $ whose values are positive definite symmetric bilinear forms (see \cite{hatcher2003vector}, Ch. 1, page 12).
 
-	$ \mathcal{H} $ is called \textbf{horizontal distribution}, and $ <\cdot,\cdot> $ is called \textbf{metric tensor}.  
+	The distribution $ \mathcal{H} $ is called \textbf{horizontal}, and the tensor field $ <\cdot,\cdot> $ is called \textbf{metric}.  
 \end{df}
 
 Some examples of subriemannian structures are given below.
 \begin{ex}[Riemannian Structure]\label{ex:riem_geo2}
-	Every riemannian structure is in particular a subriemannian structure, where the distribution is all the tangent bundle.
+	Every riemannian structure is in particular a subriemannian structure, where the distribution is the entire tangent bundle.
 \end{ex}
 
 \begin{ex}[Heisenberg Group]\label{ex:heis_group2}
@@ -395,11 +397,15 @@ In the particular case of the horizontal curves, one can define the \textbf{leng
 $$ \ell(\gamma) = \int ||\dot{\gamma}|| dt, $$ 
 since the tangent vectors of the curve at all points are in the fibers of the horizontal distribution, where there is a inner product defined, and $ ||\dot{\gamma}||= \sqrt[]{<\dot{\gamma}, \dot{\gamma}>}.  $   
 
-With the idea of length of horizontal curves, the \textbf{distance between two points} $ p,q\in M $, denoted by $ d(p,q), $   is defined as the infimum of the lengths of all absolutely continuous horizontal curves that begin in $ p $ and end in $ q $, that is, 
-
+\begin{df}
+	The \textbf{distance between two points} $ p,q\in M $, denoted by $ d(p,q), $   is defined as the infimum of the lengths of all absolutely continuous horizontal curves that begin in $ p $ and end in $ q $, that is, 
 $$ d(p,q) = \operatorname{inf} \left\{ \ell(\gamma) \ |\ \gamma:[0,1] \rightarrow {M} \text{ is absolutely continuous and }\gamma(0)=p, \ \gamma(1)=q \right\}. $$ 
+The distance between two points is said to be infinite if there is no horizontal curve joining them.
+\end{df}
 
-The distance between two points is said to be infinite if there is no curve joining them. Also, in analogy with riemannian geometry, an absolutely continuous horizontal curve that realizes the distance between two points is called a \textbf{geodesic}. 
+The curves that are considered in the previous definition of distance are required to be absolutely continuous, that is a weaker condition of smoothness, and refers to a curve that is differentiable in almost all points of its domain. Nevertheless, the distance remains invariant if we consider instead the set of all smooth curves (see \cite{montgomery2002tour}, page 23), but the motivation to consider the bigger set of absolutely continuous curves is the fact that the curves that realize the distance between two points are not always smooth.
+
+In analogy with riemannian geometry, an absolutely continuous horizontal curve that realizes the distance between two points is called a \textbf{geodesic}. 
 
 
 \subsection{Chow's Theorem}%
@@ -408,7 +414,8 @@ The distance between two points is said to be infinite if there is no curve join
 The section \ref{sub:frobenius_theorem} provides a class of (involutive) distributions where it is not true that every two points can be connected through a horizontal curve.  Now, it is worthwhile to ask for a sufficient condition for a distribution to have the connectedness property through horizontal curves. To discuss such a condition, we need to cover some preliminaries. 
 
 \begin{df}
-	A distribution $ \mathcal{H}\subset TM $ is called \textbf{bracket generating} if any of its local frames $ X_1,\dots,X_k $ together with all of its iterated Lie brackets $ [X_i,X_j],[X_i,[X_j,X_k]],\dots, $ spans the tangent bundle $ TM. $  
+	A distribution $ \mathcal{H}\subset TM $ is called \textbf{bracket generating} if for every $ p\in M $, there is a local frame $ X_1,\dots,X_k: U \rightarrow {TM} $ of $ \mathcal{H} $ such that 
+	$$ TU = \operatorname{span}\left\{ [X_{i_1},\dots,[X_{i_{j-1}},X_{i_j}]]\ : \ i_1,\dots,i_j=1,\dots,k;\ j\in \mathbb{N} \right\}.  $$ 
 \end{df}
 
 \begin{lm}\label{lm:approx}
@@ -429,16 +436,16 @@ The section \ref{sub:frobenius_theorem} provides a class of (involutive) distrib
 	which is the desired result.	
 \end{proof}
 
-Chow's theorem guarantees that any bracket generating over a connected manifold distribution has the connectedness property through horizontal curves, and we going to derive this result in the rest of this section, following closely the procedure of \cite{montgomery2002tour}, Section 2.4. First of all, choose a base point $ p\in M $ and a local orthonormal frame $ X_i $, $ i=1,\dots, k $ for the distribution $ \mathcal{H} $. Let $ \Phi_i $ be their respective flows. These flows can be used to move easily in the horizontal directions (points connected to $ p $ through integral curves of the orthonormal frame), using the formula $ \Phi_i(t)(q)=q+tX_i(q)+O(t^2) $ for sufficiently small $ t. $ 
+Chow's theorem guarantees that any bracket generating over a connected manifold has the connectedness property through horizontal curves, and we going to derive this result in the rest of this section, following closely the procedure of \cite{montgomery2002tour}, Section 2.4. First of all, choose a base point $ p\in M $ and a local orthonormal frame $ X_i $, $ i=1,\dots, k $ for the distribution $ \mathcal{H} $. Let $ \Phi_i $ be their respective flows. These flows can be used to move in the horizontal directions (points connected to $ p $ through integral curves of the orthonormal frame), using the formula $ \Phi_i(t)(q)=q+tX_i(q)+O(t^2) $ for sufficiently small $ t. $ 
 
 The assignments $ t\mapsto \Phi_i(t)(q) $ are horizontal curves for the distribution $ \mathcal{H}, $ and are called \textbf{simple horizontal curves.} As the frame is orthonormal, the length of a simple horizontal curve with $ 0\leq t\leq \epsilon  $ is $ \epsilon. $   
 
-Applying $ \Phi_k(t_k)\circ\cdots\circ \Phi_2(t_2)\circ\Phi_1(t_1)$ to $ p $ and letting $ t_1,\dots,t_k $ vary over the cube $ |t_i|\leq\epsilon, $ we move from $ p $ to another point inside the $ k- $dimensional cube of volume $ (2\epsilon)^k. $ Each point of this cube can be reached from $ p $ through the concatenation of $ k $ or fewer flows, and this cube is inside of the subriemannian ball of radius $ k\epsilon $, that is,
+Applying $ \Phi_k(t_k)\circ\cdots\circ \Phi_2(t_2)\circ\Phi_1(t_1)$ to $ p $ and letting $ t_1,\dots,t_k $ vary over the cube $ |t_i|\leq\epsilon, $ we move from $ p $ to another point inside the $ k- $dimensional  cube of volume $ (2\epsilon)^k$ in the coordinate chart, whose sides are determined by the local frame in the image of $ p $. Each point of this cube can be reached from $ p $ through the concatenation of $ k $ or fewer flows, and this cube is inside of the subriemannian ball of radius $ k\epsilon $, that is,
 \begin{align*}
  \operatorname{Box}_p(\epsilon):= \left\{ \Phi_k(t_k)\circ\cdots\circ \Phi_2(t_2)\circ\Phi_1(t_1)(p) \ | \ |t_i|<\epsilon, \ i=1,\dots,k \right\}\\ \subset \operatorname{B}(k\epsilon, p):= \left\{ q\in M \ | \ d(p,q)<k\epsilon \right\}.  
 \end{align*}
 
-We can move in the remaining directions along horizontal paths by successive applications of the commutators of flows, based on the bracket generating property of the distribution in the following way. Let $ \mathcal{H} $ denote also the sheaf of smooth vector fields tangent to $ \mathcal{H}, $ and define
+We can move in the remaining directions along horizontal paths by successive applications of the commutators of flows, based on the bracket generating property of the distribution in the following way. Let $ \mathcal{H} $ denote also the sheaf of smooth vector fields tangent to $ \mathcal{H}, $ that is, the association between open sets $ U\subset M $ and horizontal smooth vector fields $ \mathcal{H}(U) $ defined locally on $ U $, and define the new vector sheaves
 $$ \mathcal{H}^2 := \mathcal{H}\oplus [\mathcal{H},\mathcal{H}],\quad \mathcal{H}^{r+1} := \mathcal{H}^r\oplus [\mathcal{H}, \mathcal{H}^r], $$
 where
 $$ \left[ \mathcal{H}, \mathcal{H}^j \right]:= \operatorname{span} \left\{ [X,Y] \ | \ X\in \mathcal{H},\ Y \in \mathcal{H}^j \right\}, \text{ for }j=1,2,\dots  $$ 
@@ -507,14 +514,14 @@ Each curve in $ F( \operatorname{Box} (\epsilon) )$ is the endpoint of a horizon
 $$ F( \operatorname{Box} (\epsilon)) \subset B(M\epsilon, p), $$ 
 from where we get that $ \operatorname{Box}^w (c\epsilon)\subset B(\epsilon,p). $ 
 \end{proof}
-The remaining containment in the Ball-Box theorem won't be proved in this text, as the tools needed (privileged coordinates) are out of its scope. The proof of this containment can be found in \cite{montgomery2002tour}, section 2.7.
+The remaining containment in the Ball-Box theorem will not be proved in this text, as the proof of Chow's theorem only requires the first containment. The proof of the remaining containment can be found in \cite{montgomery2002tour}, section 2.7.
 
 With the Ball-Box theorem, Chow's theorem can be derived easily.
 
 \begin{thm}[Chow's Theorem]
 	If $ \mathcal{H} $ is a bracket generating distribution on a connected manifold $ M $, then any two points of $ M $ can be connected by a horizontal path.
 \end{thm}
-\begin{proof} (\cite{montgomery2002tour}, page 52). The containment $ \operatorname{Box}^w(c\epsilon) \subset B(\epsilon,p) \subset \operatorname{Box}^w(C\epsilon)  $ shows that $ B(\epsilon, p) $ is a neighborhood of $ p $, which means that the accesible points from $ p $ through horizontal curves form a neighborhood of $ p. $ Let $ q\in M $ be another arbitrary point on the connected manifold, and take a smooth curve $ \gamma $ connecting $ p $ and $ q. $  
+\begin{proof} (\cite{montgomery2002tour}, page 52). The containment $ \operatorname{Box}^w(c\epsilon) \subset B(\epsilon,p)$ shows that $ B(\epsilon, p) $ is a neighborhood of $ p $, which means that the accesible points from $ p $ through horizontal curves form a neighborhood of $ p. $ Let $ q\in M $ be another arbitrary point on the connected manifold, and take a smooth curve $ \gamma $ connecting $ p $ and $ q. $  
 
 	The image of $ \gamma $ is compact, so we can cover it with finitely many succesive box neighborhoods, where the Ball-Box theorem holds. Denote these neighborhoods as $ U_1,\dots,U_n, $ with each one of these boxes centered on succesive points $ p_i $ along the image of $ \gamma, $ and $ p_1=p, $ $ p_n=q. $ Moreover, these open sets can be chosen in orden to satisfy $ U_i\cap U_{i+1}\neq\emptyset, $ so that there exists $ q_i \in U_i\cap U_{i+1}. $ By the Ball-Box theorem, we have paths connecting $ p_i $ with $ q_i, $ and $ q_i $ with $ p_{i+1}. $ Concatenating these paths yields a piecewise horizontal path connecting $ p $ and $ q. $ 
 	
