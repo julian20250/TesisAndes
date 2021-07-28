@@ -54,8 +54,8 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{ballbox.pdf}}%
-    \put(0.38120066,0.25406354){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$B(\epsilon,p)$\end{tabular}}}}%
-    \put(0.34111732,0.38498262){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$ \operatorname{Box}^{w}(c\epsilon) $\end{tabular}}}}%
+    \put(0.54240628,0.35615065){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$B(\epsilon,p)$\end{tabular}}}}%
+    \put(0.33954941,0.2438722){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$ \operatorname{Box}^{w}(c\epsilon) $\end{tabular}}}}%
     \put(0.75582511,0.45945759){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$ \operatorname{Box}^{w}(C\epsilon) $\end{tabular}}}}%
   \end{picture}%
 \endgroup%
