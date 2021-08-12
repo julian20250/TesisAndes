@@ -527,10 +527,71 @@ With the Ball-Box theorem, Chow's theorem can be derived easily.
 	
 \end{proof}
 \begin{ex}[Cartan's Distribution]
-	Consider the distribution over $ \mathbb{R}^3 $ determined by the 1-form $\omega =dy- zdx $, or reciprocally, by the smooth vector fields $ \partial /\partial x + z \partial / \partial y, \partial/\partial z. $ From its definition it is clear that Cartan's distribution is of rank 2, so we can not know beforehand if any two pair of points can be connected through a horizontal curve. Nevertheless, as 
+	Consider the distribution over $ \mathbb{R}^3 $ determined by the 1-form $\omega =dy- zdx $, or in dual manner, by the smooth vector fields $ \partial /\partial x + z \partial / \partial y, \partial/\partial z. $ From its definition it is clear that Cartan's distribution is of rank 2, so we can not know beforehand if any two pair of points can be connected through a horizontal curve. Nevertheless, as 
 	$$ \left[ \frac{\partial}{\partial z}, \frac{\partial}{\partial x}+z \frac{\partial}{\partial y}    \right] = \frac{\partial}{\partial y}  $$ 
 and $ T \mathbb{R}^3 = \operatorname{span}\{  \partial/\partial x + z \partial / \partial y, \partial/\partial z, \partial/\partial y\} $, Cartan's distribution is bracket generating, so by Chow's theorem any two points in $ \mathbb{R}^3 $ can be connected by a horizontal path. 
 \end{ex}
+
+\subsection{Metrics on Bundles}%
+\label{subsec:metrics_on_bundles}
+
+Let $ \pi : Q \rightarrow {M} $ be a submersion, which means that for all $ q\in Q $, $ d\pi_q : T_q Q \rightarrow {T_{\pi(q)}}M $ is a surjective map. In the other hand, The fiber $ Q_m = \pi^{-1}(m) $, with $ m=\pi(q) $ is a submanifold because $ m $ is a regular value of $ \pi. $  
+
+\begin{df}
+	Given a submersion $ \pi:Q \rightarrow {M}, $ the \textbf{vertical space at $ q\in Q $}, denoted as $ V_q $, is the tangent space to the fiber $ Q_m, $ with $ m=\pi(q), $ that is,  
+	$$ V_q = \operatorname{Ker}(d\pi_q) = T_q Q_m.  $$ 
+\end{df}
+
+The collection of vertical spaces is a distribution $ V \subset TQ $ that assigns to each $ q\in Q $ the space $ V_q. $ The distribution is by construction integrable, and its leaves are the fibers $ Q_m, $ $ m\in \pi(Q). $ 
+
+\begin{df}[\cite{montgomery2002tour}, definition 11.1.1]
+	An \textbf{Ehresmann connection} or simply \textbf{connection for a submersion} $ \pi:Q \rightarrow {M} $ is a distribution that is everywhere transverse to the vertical, that is,  
+	$$ V_q \oplus \mathcal{H}_q = T_q Q,\ \text{for all } q\in Q, $$ 
+	and is of complementary dimension to the vertical.
+\end{df}
+
+The restriction of $ d\pi_q $ to $ \mathcal{H}_q $ is a linear isomorphism because $ d\pi_q $ is surjective, and $ T_q Q / \operatorname{Ker}(d\pi_q) = T_q Q / V_q \cong \mathcal{H}_q \cong T_m M. $ If $ M $ is endowed with a metric, we can use this linear isomorphism to pull the inner product back to the horizontal distribution $ \mathcal{H}. $ This construction varies smoothly with $ q\in Q $ (\cite{montgomery2002tour}, page 194). With this, we obtain a subriemannian metric whose underlying distribution is the Ehresmann connection.
+
+\begin{df}
+	The subriemannian structure on $ Q $ induced by the Ehresmann connection $ \mathcal{H} $ for the submersion $ \pi:Q \rightarrow {M} $, the linear isomorphism $ \mathcal{H}_q \cong T_m M $ and the riemannian metric over $ M $ is called the \textbf{induced subriemannian structure}. 
+\end{df}
+
+\begin{df}
+	The \textbf{horizontal lift} of a curve $ c: I \rightarrow {M} $ starting at $ m\in M $ is defined (if exists) as the unique curve $ \gamma : I \rightarrow {Q} $ that is tangent to $ \mathcal{H}, $ starts at $ q\in Q_m, $ and projects to $c$, that is, $ \pi\circ\gamma = c. $ 
+\end{df}
+
+\begin{rem}
+	The connection $ \mathcal{H} $ is called complete if for every smooth curve $ c: I \rightarrow {M} $ has a horizontal lift.
+\end{rem}
+
+\begin{prop}
+	The induced subriemannian structure satisfies the following properties:
+	\begin{enumerate}
+		\item The subriemannian length of a horizontal path on $ Q $ equals the riemannian length of its projection to $ M. $ 
+		\item The horizontal lift of a riemannian geodesic in $ M $ is a subriemannian geodesic in $ Q. $ 
+		\item The projection $ \pi $ is distance decreasing, that is, $ d_M(\pi(q_1), \pi(q_2))\leq d_Q(q_1,q_2), $ for all $ q_1,q_2\in Q. $ 
+	\end{enumerate}
+\end{prop}
+\begin{proof}
+	\begin{enumerate}
+		\item Let $ \gamma: I \rightarrow {Q} $ be a horizontal path to $ \mathcal{H} $ starting at $ q\in Q. $ Then, its longitude is 
+
+		$$\ell_Q(\gamma) = \int_0^1 ||\dot{\gamma} (t) ||_{Q} dt = \int_0^1 || d\pi_{\gamma(t)}(\dot{\gamma}(t))||_M$$ 
+
+		having in mind that $d\pi_{\gamma(t)}$ induces an isomorphism between $ \mathcal{H}_{\gamma(t)} $ and $ T_{\pi(\gamma(t))} M,$ and this isomorphism determines the induced subriemannian structure over $ Q. $ As $c=\pi\circ\gamma$ and $ d/dt(\pi\circ\gamma) = d\pi_{\gamma(t)}(\dot{\gamma}(t)) $, $ \ell_Q(\gamma)=\ell_M(c). $  
+
+		\item Suppose that $ c: I \rightarrow {M} $ is a riemannian geodesic, and let $ \gamma: I \rightarrow {Q} $ be its respective horizontal lift. Take any other horizontal curve $ \eta: I \rightarrow {Q} $ with the same endpoints than $ \gamma. $ Then, by the first affirmation of this proposition and the fact that $ c $ is a geodesic, we have
+			$$ \ell_Q(\eta) = \ell_M(\pi\circ \eta) \geq \ell_M(c) = \ell_Q(\gamma),  $$ 
+		from where we get that $ \gamma: I \rightarrow {Q} $ is a subriemannian geodesic.
+
+	\item Let $ q_1,q_2\in Q. $ If $ d_Q(q_1,q_2) = \infty $ the result is immediate. Else, let $ \left\{ \gamma_i \right\}_{i\in \mathbb{N}} $ be a minimizing sequence of $ d_Q(q_1,q_2). $ Now consider the sequence of projected curves $ \left\{ \pi\circ\gamma_i \right\}_{i\in \mathbb{N}}, $ from where there are two possibilities: if this last sequence is minimizing, $ d_Q(q_1, q_2) = d_M(\pi(q_1), \pi(q_2)),$ as $ \ell_Q(\gamma_i)=\ell_M(\pi\circ\gamma) $;  if it is not minimizing,  $d_Q(q_1,q_2) = \lim_{i \rightarrow \infty} \ell_Q(\gamma_i) = \lim_{i \rightarrow \infty} \ell_M(\pi\circ\gamma_i) > d_M(\pi(q_1),\pi(q_2))$ by definition. Therefore, $ d_Q(q_1,q_2)\geq d_M(\pi(q_1),\pi(q_2)).$
+	\end{enumerate}
+\end{proof}
+
+\begin{df}
+	A riemannian metric on $ Q $ is said to be \textbf{compatible} with the induced subriemannian metric if the algebraic splitting $ TQ = V \oplus \mathcal{H} $ is an orthogonal decomposition with respect to the riemannian metric on $ Q$.  
+\end{df}
+
 \bibliographystyle{unsrt}
 \nocite{*}
 \bibliography{mybibliography}
