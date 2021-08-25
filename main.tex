@@ -532,8 +532,11 @@ With the Ball-Box theorem, Chow's theorem can be derived easily.
 and $ T \mathbb{R}^3 = \operatorname{span}\{  \partial/\partial x + z \partial / \partial y, \partial/\partial z, \partial/\partial y\} $, Cartan's distribution is bracket generating, so by Chow's theorem any two points in $ \mathbb{R}^3 $ can be connected by a horizontal path. 
 \end{ex}
 
-\subsection{Metrics on Bundles}%
-\label{subsec:metrics_on_bundles}
+\section{Subriemannian metrics on Bundles}%
+\label{sec:metrics_on_bundles}
+\subsection{Ehresmann connection}%
+\label{sub:ehresmann_connection}
+
 
 Let $ \pi : Q \rightarrow {M} $ be a submersion, which means that for all $ q\in Q $, $ d\pi_q : T_q Q \rightarrow {T_{\pi(q)}}M $ is a surjective map. In the other hand, The fiber $ Q_m = \pi^{-1}(m) $, with $ m=\pi(q) $ is a submanifold because $ m $ is a regular value of $ \pi. $  
 
@@ -576,7 +579,7 @@ The restriction of $ d\pi_q $ to $ \mathcal{H}_q $ is a linear isomorphism becau
 	\begin{enumerate}
 		\item Let $ \gamma: I \rightarrow {Q} $ be a horizontal path to $ \mathcal{H} $ starting at $ q\in Q. $ Then, its longitude is 
 
-		$$\ell_Q(\gamma) = \int_0^1 ||\dot{\gamma} (t) ||_{Q} dt = \int_0^1 || d\pi_{\gamma(t)}(\dot{\gamma}(t))||_M$$ 
+		$$\ell_Q(\gamma) = \int_0^1 ||\dot{\gamma} (t) ||_{Q} dt = \int_0^1 || d\pi_{\gamma(t)}(\dot{\gamma}(t))||_M dt,$$ 
 
 		having in mind that $d\pi_{\gamma(t)}$ induces an isomorphism between $ \mathcal{H}_{\gamma(t)} $ and $ T_{\pi(\gamma(t))} M,$ and this isomorphism determines the induced subriemannian structure over $ Q. $ As $c=\pi\circ\gamma$ and $ d/dt(\pi\circ\gamma) = d\pi_{\gamma(t)}(\dot{\gamma}(t)) $, $ \ell_Q(\gamma)=\ell_M(c). $  
 
@@ -592,6 +595,49 @@ The restriction of $ d\pi_q $ to $ \mathcal{H}_q $ is a linear isomorphism becau
 	A riemannian metric on $ Q $ is said to be \textbf{compatible} with the induced subriemannian metric if the algebraic splitting $ TQ = V \oplus \mathcal{H} $ is an orthogonal decomposition with respect to the riemannian metric on $ Q$.  
 \end{df}
 
+Thanks to the orthogonal algebraic splitting, a compatible riemannian metric is determined by its restriction to $ V, $ and the induced subriemannian structure restricted to $ \mathcal{H} $. This fact can be turned around in the following sense. Take a riemannian metric $ d^2S_Q $ on $ Q. $ Let $ V_q^\perp $ be the orthogonal complement of the vertical space $ V_q $ in $ q\in Q $ with respect to the riemannian metric, and set $ \mathcal{H}_q=V_q^\perp. $ The riemannian metric defines inner products in $ V_q^\perp $  and $ T_mM, $ being defined in the first as the restriction of the riemannian metric, and in the second is given by the metric and the isomorphism $ \mathcal{H}_q\cong T_mM. $ Nevertheless, this inner product on $ T_mM $ can depend on the point $ q\in Q_m $, as the metric could vary with the point of the fiber. If that is the case, we cannot construct a riemannian metric on $ M, $ as there is no consistent way to choose which $ q\in Q_m $ is going to be used to define the inner product (\cite{montgomery2002tour}, page 195).
+
+\begin{df}
+	Given a riemannian manifold $ (Q, d^2S_Q), \pi: Q \rightarrow {M}
+	$ a submersion, we say that the pair $ (\pi, d^2S_Q) $ is a \textbf{riemannian submersion} if the inner product defined on $ T_mM \cong \mathcal{H}_q $ does not depend of the point $ q\in Q_m $ chosen. 
+\end{df}
+
+Equivalently, we can say that $ (\pi, d^2S_Q) $ is a riemannian submersion if for each $ q\in Q, $ the restriction of $ d\pi_q $ to the horizontal $ \mathcal{H}_q:=V_q^\perp $ is a linear isometry between inner product spaces.
+
+\subsection{Metrics on Principal Bundles}%
+\label{sub:metrics_on_principal_bundles}
+
+\begin{df}[\cite{lee2003introduction}, page 268]
+Let $ M, G, Q $ be manifolds. A \textbf{fiber bundle} over $ M $ with fiber $ G $ is a manifold $ Q, $ together with a smooth surjective map $ \pi: Q \rightarrow {M}
+$ with the property that for each $ x\in M $ there is a neighborhood $ U $ of $ x $ and a diffeomorphism $ \phi:\pi^{-1}(U) \rightarrow {U\times G,}
+ $ called local trivialization of $ Q $ over $ U, $ such that the following diagram commutes:
+ \begin{center}
+ 	\begin{tikzcd}
+\pi^{-1}(U) \arrow[rd, "\pi"'] \arrow[rr, "\phi"] &   & U\times G \arrow[ld, "\operatorname{proj}_U"] \\
+                                                  & U &                                              
+\end{tikzcd}
+ \end{center}
+ $ Q $ is called \textbf{total space of the bundle}, $ M $ is the \textbf{base} and $ \pi $ the \textbf{projection}.   
+\end{df}
+
+\begin{df}[\cite{montgomery2002tour}, page 196]
+	The submersion $ \pi:Q \rightarrow {M}
+	$ with Ehresmann connection $ \mathcal{H} $ is called a \textbf{principal $ G- $bundle with connection} if it is a fiber bundle whose fiber $ G $ is a Lie group ($G$ is a manifold with group structure), and this group acts on $ Q $ in such a way that the following properties hold:
+	\begin{itemize}
+		\item $ G $ acts freely on $ Q, $ which means that there is an action $ \alpha: Q\times g \rightarrow {Q,}
+			$ denoted by $ \alpha(q,g) = q \cdot g, $ such that if $ q\cdot g=q, $ then $ g=e $ (the identity element of $ G $). 
+		\item The group orbits are the fibers of $ \pi:Q \rightarrow {M}
+			$, that is, for all $ m\in M, $ $ \pi^{-1}(m) = G_q := \left\{ q\cdot g \ | \ g\in G \right\}, $ with $ q\in Q_m. $ From this we can conclude that $ M $ is diffeomorphic to the quotient $ Q/G $ (equivalence classes of the relation $ p\sim q  $ if there is $ g\in G $ such that $ p=q\cdot g $). This diffeomorphism $ \phi: M \rightarrow {Q/G}
+			$  is given by $ \phi(m)=[q], $ with $ \pi(q)=m. $   
+		\item The $ G- $action on $ Q $ preserves the horizontal distribution $ \mathcal{H} $ in the sense that $ \mathcal{H}_{q\cdot g} = d(\alpha_g)_q (\mathcal{H}_q), $ for all $ q\in Q, $ $ g\in G $, where $ \alpha_g: Q \rightarrow {Q}
+		 : q\mapsto q\cdot g.$  
+	\end{itemize}
+\end{df}
+
+\begin{df}[\cite{montgomery2002tour}, definition 11.2.1]
+	A subriemannian metric $ (\mathcal{H}, <\cdot,\cdot>) $ on the principal $ G- $bundle $ \pi: Q \rightarrow {M}
+	 $ is called a \textbf{metric of bundle type} if the inner product $ <\cdot,\cdot> $ on $ \mathcal{H}$is induced from a riemannian metric on $ M. $ 
+\end{df}
 \bibliographystyle{unsrt}
 \nocite{*}
 \bibliography{mybibliography}
