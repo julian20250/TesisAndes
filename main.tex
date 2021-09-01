@@ -595,14 +595,14 @@ The restriction of $ d\pi_q $ to $ \mathcal{H}_q $ is a linear isomorphism becau
 	A riemannian metric on $ Q $ is said to be \textbf{compatible} with the induced subriemannian metric if the algebraic splitting $ TQ = V \oplus \mathcal{H} $ is an orthogonal decomposition with respect to the riemannian metric on $ Q$.  
 \end{df}
 
-Thanks to the orthogonal algebraic splitting, a compatible riemannian metric is determined by its restriction to $ V, $ and the induced subriemannian structure restricted to $ \mathcal{H} $. This fact can be turned around in the following sense. Take a riemannian metric $ d^2S_Q $ on $ Q. $ Let $ V_q^\perp $ be the orthogonal complement of the vertical space $ V_q $ in $ q\in Q $ with respect to the riemannian metric, and set $ \mathcal{H}_q=V_q^\perp. $ The riemannian metric defines inner products in $ V_q^\perp $  and $ T_mM, $ being defined in the first as the restriction of the riemannian metric, and in the second is given by the metric and the isomorphism $ \mathcal{H}_q\cong T_mM. $ Nevertheless, this inner product on $ T_mM $ can depend on the point $ q\in Q_m $, as the metric could vary with the point of the fiber. If that is the case, we cannot construct a riemannian metric on $ M, $ as there is no consistent way to choose which $ q\in Q_m $ is going to be used to define the inner product (\cite{montgomery2002tour}, page 195).
+Thanks to the orthogonal algebraic splitting, a compatible riemannian metric is determined by its restriction to $ V, $ and the induced subriemannian structure restricted to $ \mathcal{H} $. This fact can be turned around in the following sense. Take a riemannian metric $ g_Q $ on $ Q. $ Let $ V_q^\perp $ be the orthogonal complement of the vertical space $ V_q $ in $ q\in Q $ with respect to the riemannian metric, and set $ \mathcal{H}_q=V_q^\perp. $ The riemannian metric defines inner products in $ V_q^\perp $  and $ T_mM, $ being defined in the first as the restriction of the riemannian metric, and in the second is given by the metric and the isomorphism $ \mathcal{H}_q\cong T_mM. $ Nevertheless, this inner product on $ T_mM $ can depend on the point $ q\in Q_m $, as the metric could vary with the point of the fiber. If that is the case, we cannot construct a riemannian metric on $ M, $ as there is no consistent way to choose which $ q\in Q_m $ is going to be used to define the inner product (\cite{montgomery2002tour}, page 195).
 
 \begin{df}
-	Given a riemannian manifold $ (Q, d^2S_Q), \pi: Q \rightarrow {M}
-	$ a submersion, we say that the pair $ (\pi, d^2S_Q) $ is a \textbf{riemannian submersion} if the inner product defined on $ T_mM \cong \mathcal{H}_q $ does not depend of the point $ q\in Q_m $ chosen. 
+	Given a riemannian manifold $ (Q, g_Q), \pi: Q \rightarrow {M}
+	$ a submersion, we say that the pair $ (\pi, g_Q) $ is a \textbf{riemannian submersion} if the isomorphism $ d\pi_q |_{\mathcal{H}_q} $ is an isometry between $ T_m M $ and $ \mathcal{H}_q ,$ with $ q\in Q_m $. 
 \end{df}
 
-Equivalently, we can say that $ (\pi, d^2S_Q) $ is a riemannian submersion if for each $ q\in Q, $ the restriction of $ d\pi_q $ to the horizontal $ \mathcal{H}_q:=V_q^\perp $ is a linear isometry between inner product spaces.
+Notice that the previous definition gives a sufficient condition in order to guarantee the invariance of the inner product with respect of the point $ q\in Q_m $ chosen. 
 
 \subsection{Metrics on Principal Bundles}%
 \label{sub:metrics_on_principal_bundles}
@@ -620,18 +620,32 @@ $ with the property that for each $ x\in M $ there is a neighborhood $ U $ of $ 
  $ Q $ is called \textbf{total space of the bundle}, $ M $ is the \textbf{base} and $ \pi $ the \textbf{projection}.   
 \end{df}
 
+The following definition will require some ideas about group actions over manifolds, that we will cover next. First of all, recall that for a Lie group $ G $ and a manifold $ Q, $ a \textbf{group action} is a smooth application $ \alpha:  Q\times G \rightarrow Q $, denoted by $ \alpha(q,g) = q \cdot g, $ that satisfies the following properties:
+
+\begin{itemize}
+	\item For all $ q\in Q, $ $ q\cdot e = q $, where $ e $ is the identity element of $ G. $   
+	\item For all $ g,h\in G $ and $ q\in Q $, $ (q\cdot g) \cdot h =q\cdot(gh). $ 
+\end{itemize}
+
+If this action exists, we say that $ G $ acts on $ Q $ through $ \alpha. $ As a consequence of that definition, we can see that the map $ \alpha_g: Q \rightarrow Q: \ q\mapsto q\cdot g$ is a diffeomorphism for all $ g\in G $, as it is smooth and its inverse is $ \alpha_{g^{-1}}. $
+
+We say that the action $ \alpha $ \textbf{is free (or acts freely on $ Q $)} if $ \alpha_g = \mathbb{1}_{Q} $ (identity map of $ Q $) implies that $ g=e. $ Also, if the map $ \alpha $ is proper, that is, if the preimages of compact sets are compact sets, we say that the action is \textbf{proper (or acts properly on $ Q $) }. The \textbf{orbit of the action} $ G_q $ for a point $ q\in Q $  is defined as the image of the restriction $\alpha|_{\{q\}\times G},$  that is, $ G_q := \left\{q\cdot g \ | \ g\in G \right\}. $ With the idea of orbits we can construct an equivalence relation over $ Q $ in the following way: $ q\sim p $ if and only if $ G_p = G_q, $ that is, if both points belong to the same orbit, or written explicitly, if there is an element $ g\in G $ such that $ q = p\cdot g. $ The set of all equivalence classes is denoted as $ Q/G $, and is known as the \textbf{orbit space of the action}.     
+
+The orbit space of an action is not, in general, a manifold, but because of the \textbf{quotient manifold theorem} (see \cite{lee2003introduction}, theorem 21.10), it is sufficient to have a free, proper and smooth action in order to guarantee that $ Q/G $ is a topological manifold.
+
+\begin{df}
+	The submersion $ \pi: Q \rightarrow M$  is called a \textbf{principal $ G- $bundle} if its is a fiber bundle whose fiber $ G $ is a Lie group, and this group acts on $ Q $ in such a way that the following properties hold:
+	\begin{itemize}
+		\item $ G $ acts freely and properly on $ Q $.
+		\item The group orbits are the fibers of $ \pi:Q \rightarrow {M} $, that is, for all $ m\in M, $ $ \pi^{-1}(m) = G_q, $ with $ q\in Q_m. $ 
+	\end{itemize}
+\end{df}
+
+From this we can conclude that if $ \pi: Q \rightarrow M $ is a principal $ G- $bundle, then $Q/G  $ is a topological manifold, and $M $ is homeomorphic to $ Q/G $. This homeomorphism $ \phi: M \rightarrow {Q/G}$  is given by $ \phi(m)=[q], $ with $ \pi(q)=m. $   
+
 \begin{df}[\cite{montgomery2002tour}, page 196]
 	The submersion $ \pi:Q \rightarrow {M}
-	$ with Ehresmann connection $ \mathcal{H} $ is called a \textbf{principal $ G- $bundle with connection} if it is a fiber bundle whose fiber $ G $ is a Lie group ($G$ is a manifold with group structure), and this group acts on $ Q $ in such a way that the following properties hold:
-	\begin{itemize}
-		\item $ G $ acts freely on $ Q, $ which means that there is an action $ \alpha: Q\times g \rightarrow {Q,}
-			$ denoted by $ \alpha(q,g) = q \cdot g, $ such that if $ q\cdot g=q, $ then $ g=e $ (the identity element of $ G $). 
-		\item The group orbits are the fibers of $ \pi:Q \rightarrow {M}
-			$, that is, for all $ m\in M, $ $ \pi^{-1}(m) = G_q := \left\{ q\cdot g \ | \ g\in G \right\}, $ with $ q\in Q_m. $ From this we can conclude that $ M $ is diffeomorphic to the quotient $ Q/G $ (equivalence classes of the relation $ p\sim q  $ if there is $ g\in G $ such that $ p=q\cdot g $). This diffeomorphism $ \phi: M \rightarrow {Q/G}
-			$  is given by $ \phi(m)=[q], $ with $ \pi(q)=m. $   
-		\item The $ G- $action on $ Q $ preserves the horizontal distribution $ \mathcal{H} $ in the sense that $ \mathcal{H}_{q\cdot g} = d(\alpha_g)_q (\mathcal{H}_q), $ for all $ q\in Q, $ $ g\in G $, where $ \alpha_g: Q \rightarrow {Q}
-		 : q\mapsto q\cdot g.$  
-	\end{itemize}
+	$ with Ehresmann connection $ \mathcal{H} $ is called a \textbf{principal $ G- $bundle with connection} if it is a principal $ G- $bundle such that the $ G- $action on $ Q $ preserves the horizontal distribution $ \mathcal{H} $ in the sense that $ \mathcal{H}_{q\cdot g} = d(\alpha_g)_q (\mathcal{H}_q), $ for all $ q\in Q, $ $ g\in G $.
 \end{df}
 
 \begin{df}[\cite{montgomery2002tour}, definition 11.2.1]
@@ -640,21 +654,23 @@ $ with the property that for each $ x\in M $ there is a neighborhood $ U $ of $ 
 \end{df}
 
 \begin{ex}[Hopf Fibration]
-	We identify $ \mathbb{R}^4=\mathbb{C}\times \mathbb{C} $ and $ \mathbb{R}^3= \mathbb{C}\times \mathbb{R}  $  to define the submersion from $ \mathbb{S}^3= \left\{ (z_1,z_2)\ | \ z_1,z_2\in \mathbb{C}, \ |z_1|^2+|z_2|^2=1 \right\} $ to $ \mathbb{S}^2 = \{ (z,x)\ | \ z\in \mathbb{C},\ x\in \mathbb{R},\ |z|^2+$ $x^2=1 \} $  as $ \pi: \mathbb{S}^3 \rightarrow { \mathbb{S}^2},$ $ \pi(z_1,z_2) =(2z_1z_2^*, |z_1|^2-|z_2|^2).$ One can show that this map is a submersion analyzing the minors of the Jacobian matrix in Cartesian coordinates, and it is also a surjective map, as for every $ (w,x)\in \mathbb{S}^2 $ we can take $ (z_1,z_2) = ( |w|\sqrt{1/(2x-2)}\cdot e^{i \operatorname{Arg}(w)/2 },  \sqrt{(1-x)/2}\cdot e^{-i \operatorname{Arg}(w)/2 }) $ to have $ \pi(z_1,z_2) = (w,x). $ 
+	Recall that all rotations in $ \mathbb{R}^3 $ can be expressed in a simple way with help of quaternions. Every rotation around an axis given by a vector $ \vec{v}=(b,c,d) $ and an angle $ \theta $ is identified with an unitary quaternion $r = a+bi+cj+dk, $ where $ \theta = 2\arccos(a) $ (see \cite{lyons2003elementary}, page 6). This rotation $ R_r: \mathbb{R}^3 \rightarrow\mathbb{R}^3 $ is given by $ x\mapsto rxr^{-1} $, with $ r^{-1} = r^*/|r|, $ and $ x $ identified as a pure quaternion, that is, $ x=x_1i+x_2j+x_3k. $   The set of all unitary quaternions can be identified with $ \mathbb{S}^3 $, so that $ \mathbb{S}^3 $ acts on $ \mathbb{R}^3 $ via rotations. The Hopf projection is defined as the map $ \pi: \mathbb{S}^3 \rightarrow \mathbb{S}^2 $ that sends the point $ (1,0,0) $ to its respective image after rotating $ \mathbb{R}^3 $ with the associated quaternion, as an element of $ \mathbb{S}^3 $. That is, $ \pi(a,b,c,d) = R_r(1,0,0), $ where $ r=a+bi+cj+dk. $  
 
-	To identify the fibers of this submersion, let $ (z_1,z_2), (w_1,w_2)\in \pi^{-1}(w,x), $ so that $ (2z_1z_2^*, |z_1|^2-|z_2|^2)=(2w_1w_2^*, |w_1|^2-|w_2|^2). $ From $ |z_1|^2-|z_2|^2 = |w_1|^2-|w_2|^2 $ and $ |z_1|^2+|z_2|^2 = |w_1|^2+|w_2|^2=1$ we deduce that $ |z_i|=|w_i|, $ for $ i=1,2. $  From $ 2z_1z_2^*=2w_1w_2^*, $ we deduce that $ \operatorname{Arg}(z_1)- \operatorname{Arg}(z_2) =\operatorname{Arg}(w_1)- \operatorname{Arg}(w_2) $, and this is true only if $ \operatorname{Arg} (w_i) = \operatorname{Arg}(z_i)+\theta, $ for $ i=1,2, $ $ \theta\in \mathbb{R}. $ Moreover, as $ (e^{i\theta}z_1: e^{i\theta}z_2)\in \pi^{-1}(w,x), $ we have that
+	It is clear that the function $ \pi $ defined above is surjective, as every point $ x\in\mathbb{S}^2 $ can be reached from $ (1,0,0) $ through an adequate rotation. Explicitly, it suffices to take a normal vector to both $ (1,0,0), x $ as the axis of rotation, and the angle of rotation is the angle between both vectors. 
 
-	\begin{align*}
-		\pi^{-1}(w,x) = \{ (e^{i\theta}z_1, e^{i\theta}z_2) \ | \ (z_1,z_2)= ( |w|\sqrt{1/(2x-2)}\cdot e^{i \operatorname{Arg}(w)/2 },\\  \sqrt{(1-x)/2}\cdot e^{-i \operatorname{Arg}(w)/2 }), \theta\in [0,2\pi) \}.
-	\end{align*}
-	
-	Therefore, $ \pi^{-1}(w,x)\cong \mathbb{S}^1, $ and $ \mathbb{S}^3 $ can be seen as the disjoint union of these circles. In fact, with this assertion we can take $ U= \mathbb{S}^2\setminus \left\{ m \right\}, $ with $ m\in \mathbb{S}^2 $ arbitrary, and define a diffeomorphism $ \phi: \pi^{-1}(U) \rightarrow {U\times \mathbb{S}^1}
+	If we identify $ \mathbb{R}^4=\mathbb{C}\times \mathbb{C} $ and $ \mathbb{R}^3= \mathbb{R}\times\mathbb{C}  $, Hopf projection from $ \mathbb{S}^3= \{ (z_1,z_2)\  |$ $ \ z_1,z_2\in \mathbb{C}, \ |z_1|^2+|z_2|^2=1 \} $ to $ \mathbb{S}^2 = \{ (x,z)\ | \ z\in \mathbb{C},\ x\in \mathbb{R},\ |z|^2+$ $x^2=1 \} $  can be written as $ \pi: \mathbb{S}^3 \rightarrow { \mathbb{S}^2},$ $ \pi(z_1,z_2) =(|z_1|^2-|z_2|^2, 2z_1z_2^* ).$ In this form one can show that this map is a submersion analyzing the minors of the jacobian matrix in cartesian coordinates (see \cite{linintroductory}, proof of theorem 3.11).
+
+	To identify the fibers of this submersion, notice that $ \pi^{-1}(1,0) = \left\{ (w_1,0) \ | \ |w_1| =1 \right\} = \left\{ (e^{i\theta},0) \ | \ \theta\in (0,2\pi]  \right\} $. Now, in quaternion notation, if $ s,r\in \pi^{-1}(x), $ $ rir^{-1} = sis^{-1}=x $, that is, $ (s^{-1}r)i(r^{-1}s) = i $. Then, $ s^{-1}r \in \pi^{-1}(1,0), $ and $ r= se^{i\theta}, $ so $ \pi^{-1}(x) = \left\{ re^{i\theta}\ | \ \theta\in (0,2\pi] \right\} $, and each fiber is diffeomorphic to $ \mathbb{S}^1. $        
+
+	With this, $ \mathbb{S}^3 $ can be seen as the disjoint union of these circles, and endowing this disjoint union with the usual manifold structure of $ \mathbb{S}^3 $, we can take $ U= \mathbb{S}^2\setminus \left\{ m \right\}, $ with $ m\in \mathbb{S}^2 $ arbitrary, and define a diffeomorphism $ \phi: \pi^{-1}(U) \rightarrow {U\times \mathbb{S}^1}
 	 $ such that $ \pi: \mathbb{S}^3 \rightarrow { \mathbb{S}^2}
 	  $ is a fiber bundle with fiber $ \mathbb{S}^1. $ 
 
 	Now, we define an action $ \alpha: \mathbb{S}^3\times \mathbb{S}^1 \rightarrow { \mathbb{S}^3}
-	$, given by $ \alpha(z_1,z_2,\lambda) = (z_1\lambda, z_2\lambda), $ where $ (z_1,z_2)\in \mathbb{S}^3\subset \mathbb{C}^2 $ and $ \lambda\in \mathbb{S}^1 \subset \mathbb{C}. $ This action acts freely on $ \mathbb{S}^3, $ and its orbits coincide with the fibers of $ \pi, $ so that $ \mathbb{S}^3/ \mathbb{S}^1 \cong \mathbb{S}^2. $ Therefore, $ \pi: \mathbb{S}^3 \rightarrow { \mathbb{S}^2}
+	$, given by $ \alpha(z_1,z_2,\lambda) = (z_1\lambda, z_2\lambda), $ where $ (z_1,z_2)\in \mathbb{S}^3\subset \mathbb{C}^2 $ and $ \lambda\in \mathbb{S}^1 \subset \mathbb{C}. $ This action acts freely and properly on $ \mathbb{S}^3, $ and its orbits coincide with the fibers of $ \pi, $ so that $ \mathbb{S}^3/ \mathbb{S}^1 \cong \mathbb{S}^2. $ Therefore, $ \pi: \mathbb{S}^3 \rightarrow { \mathbb{S}^2}
 	 $ is a principal $ \mathbb{S}^1- $bundle.
+
+	 To find an Ehresmann connection for this submersion, we recall that, by the preimage of regular value theorem, $ \pi^{-1}(m) = \mathbb{S}^1_q $ is a submanifold of $ \mathbb{S}^3 $, of dimension $ \operatorname{dim}( \mathbb{S}^3)- \operatorname{dim}( \mathbb{S}^2) = 1,  $ and its tangent space (vertical space of the submersion) $ T_p \mathbb{S}^1_q $ is $ \operatorname{Ker}(d\pi_p),  $ and any complementary space (with respect to $ T \mathbb{S}^3 $)  to this tangent space would be an Ehresmann connection. Now, if $ \mathbb{S}^3 $ is endowed with the usual riemannian structure, there is only one Ehresmann connection compatible with the metric, and is given by $ \mathcal{H}_q = \operatorname{Ker}(d\pi_p)^\perp. $ 
 
 	 This principal $ \mathbb{S}^1- $bundle has connection because the kernel of $ d(\pi\circ \alpha_g)_q $ is the same of $ d\pi_q, $ as $ d\alpha_g $ is an isomorphism. Therefore, $ d(\alpha_g)_q ( \mathcal{H}_q) = \mathcal{H}_{q\cdot g}, $ and the $ \mathbb{S}^1- $action preserves $ \mathcal{H}. $ 
  
