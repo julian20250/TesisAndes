@@ -34,6 +34,11 @@
 \usepackage{breqn}
 \usepackage{tikz-cd}
 \usepackage{bbold}
+% Paragraph Settings:
+%\setlength{\parindent}{1em}
+\setlength{\parskip}{1em}
+% Skip indentation
+%\usepackage{parskip}
 %%%%%%%%%%%%%%%%%
 \newcommand{\incfig}[2][1]{%
     \def\svgwidth{#1\columnwidth}
@@ -548,15 +553,14 @@ Let $ \pi : Q \rightarrow {M} $ be a submersion, which means that for all $ q\in
 The collection of vertical spaces is a distribution $ V \subset TQ $ that assigns to each $ q\in Q $ the space $ V_q. $ The distribution is by construction integrable, and its leaves are the fibers $ Q_m, $ $ m\in \pi(Q). $ 
 
 \begin{df}[\cite{montgomery2002tour}, definition 11.1.1]
-	An \textbf{Ehresmann connection} or simply \textbf{connection for a submersion} $ \pi:Q \rightarrow {M} $ is a distribution that is everywhere transverse to the vertical, that is,  
-	$$ V_q \oplus \mathcal{H}_q = T_q Q,\ \text{for all } q\in Q, $$ 
-	and is of complementary dimension to the vertical.
+	A \textbf{connection for a submersion} $ \pi:Q \rightarrow {M} $ is a distribution that is everywhere transverse to the vertical, that is,  
+	$$ V_q \oplus \mathcal{H}_q = T_q Q,\ \text{for all } q\in Q. $$ 
 \end{df}
 
-The restriction of $ d\pi_q $ to $ \mathcal{H}_q $ is a linear isomorphism because $ d\pi_q $ is surjective, and $ T_q Q / \operatorname{Ker}(d\pi_q) = T_q Q / V_q \cong \mathcal{H}_q \cong T_m M. $ If $ M $ is endowed with a metric, we can use this linear isomorphism to pull the inner product back to the horizontal distribution $ \mathcal{H}. $ This construction varies smoothly with $ q\in Q $ (\cite{montgomery2002tour}, page 194). With this, we obtain a subriemannian metric whose underlying distribution is the Ehresmann connection.
+The restriction of $ d\pi_q $ to $ \mathcal{H}_q $ is a linear isomorphism because $ d\pi_q $ is surjective, and $ T_q Q / \operatorname{Ker}(d\pi_q) = T_q Q / V_q \cong \mathcal{H}_q \cong T_m M. $ If $ M $ is endowed with a metric, we can use this linear isomorphism to pull the inner product back to the horizontal distribution $ \mathcal{H}. $ This construction varies smoothly with $ q\in Q $ (\cite{montgomery2002tour}, page 194). With this, we obtain a subriemannian metric whose underlying distribution is the connection for the submersion.
 
 \begin{df}
-	The subriemannian structure on $ Q $ induced by the Ehresmann connection $ \mathcal{H} $ for the submersion $ \pi:Q \rightarrow {M} $, the linear isomorphism $ \mathcal{H}_q \cong T_m M $ and the riemannian metric over $ M $ is called the \textbf{induced subriemannian structure}. 
+	The subriemannian structure on $ Q $ induced by the connection $ \mathcal{H} $ for the submersion $ \pi:Q \rightarrow {M} $, the linear isomorphism $ \mathcal{H}_q \cong T_m M $ and the riemannian metric over $ M $ is called the \textbf{induced subriemannian structure}. 
 \end{df}
 
 \begin{df}
@@ -564,7 +568,7 @@ The restriction of $ d\pi_q $ to $ \mathcal{H}_q $ is a linear isomorphism becau
 \end{df}
 
 \begin{rem}
-	The connection $ \mathcal{H} $ is called complete if for every smooth curve $ c: I \rightarrow {M} $ has a horizontal lift.
+	The connection $ \mathcal{H} $ is called \textbf{complete} or is referred as \textbf{Ehresmann connection}  if for every smooth curve $ c: I \rightarrow {M} $ has a horizontal lift.
 \end{rem}
 
 \begin{prop}
@@ -634,47 +638,65 @@ We say that the action $ \alpha $ \textbf{is free (or acts freely on $ Q $)} if 
 The orbit space of an action is not, in general, a manifold, but because of the \textbf{quotient manifold theorem} (see \cite{lee2003introduction}, theorem 21.10), it is sufficient to have a free, proper and smooth action in order to guarantee that $ Q/G $ is a topological manifold.
 
 \begin{df}
-	The submersion $ \pi: Q \rightarrow M$  is called a \textbf{principal $ G- $bundle} if its is a fiber bundle whose fiber $ G $ is a Lie group, and this group acts on $ Q $ in such a way that the following properties hold:
+	The submersion $ \pi: Q \rightarrow M$  is called a \textbf{principal $ G $-bundle} if its is a fiber bundle whose fiber $ G $ is a Lie group, and this group acts on $ Q $ in such a way that the following properties hold:
 	\begin{itemize}
 		\item $ G $ acts freely and properly on $ Q $.
 		\item The group orbits are the fibers of $ \pi:Q \rightarrow {M} $, that is, for all $ m\in M, $ $ \pi^{-1}(m) = G_q, $ with $ q\in Q_m. $ 
 	\end{itemize}
 \end{df}
 
-From this we can conclude that if $ \pi: Q \rightarrow M $ is a principal $ G- $bundle, then $Q/G  $ is a topological manifold, and $M $ is homeomorphic to $ Q/G $. This homeomorphism $ \phi: M \rightarrow {Q/G}$  is given by $ \phi(m)=[q], $ with $ \pi(q)=m. $   
+From this we can conclude that if $ \pi: Q \rightarrow M $ is a principal $ G- $bundle, then $Q/G  $ is a topological manifold, and $M $ is homeomorphic to $ Q/G $. This homeomorphism $ \phi: M \rightarrow {Q/G}$  is given by $ \phi(m)=[q], $ with $ \pi(q)=m. $ 
 
 \begin{df}[\cite{montgomery2002tour}, page 196]
 	The submersion $ \pi:Q \rightarrow {M}
-	$ with Ehresmann connection $ \mathcal{H} $ is called a \textbf{principal $ G- $bundle with connection} if it is a principal $ G- $bundle such that the $ G- $action on $ Q $ preserves the horizontal distribution $ \mathcal{H} $ in the sense that $ \mathcal{H}_{q\cdot g} = d(\alpha_g)_q (\mathcal{H}_q), $ for all $ q\in Q, $ $ g\in G $.
+	$ with connection $ \mathcal{H} $ is called a \textbf{principal $ \mathbf{G} $-bundle with connection} if it is a principal $ G $-bundle such that the $ G $-action on $ Q $ preserves the horizontal distribution $ \mathcal{H} $ in the sense that $ \mathcal{H}_{q\cdot g} = d(\alpha_g)_q (\mathcal{H}_q), $ for all $ q\in Q, $ $ g\in G $.
 \end{df}
 
+An extremely useful property that any principal $ G $-bundle with connection has is that its connections is an Ehresmann connection, \textit{i.e.}, its complete, as stated in the following result. 
+
+\begin{prop}[\cite{kobayashi1963foundations}, proposition 3.1]\label{prop:comp_bundle}
+	Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection and $ c: I \rightarrow M $ a smooth curve. For an arbitrary $ q\in Q_{c(0)}= G_q $, there is a unique horizontal lift $ \gamma: I \rightarrow Q $ of $ c $ ($\pi\circ\gamma =c$, $ \dot{\gamma}(t)\in \mathcal{H}_{\gamma(t)} $ for all $ t\in I $) that starts from $ q $.    	
+\end{prop}
+
 \begin{df}[\cite{montgomery2002tour}, definition 11.2.1]
-	A subriemannian metric $ (\mathcal{H}, <\cdot,\cdot>) $ on the principal $ G- $bundle $ \pi: Q \rightarrow {M}
+	A subriemannian metric $ (\mathcal{H}, <\cdot,\cdot>) $ on the principal $ G $-bundle $ \pi: Q \rightarrow {M}
 	 $ is called a \textbf{metric of bundle type} if the inner product $ <\cdot,\cdot> $ on $ \mathcal{H}$ is induced from a riemannian metric on $ M. $ 
 \end{df}
 
-\begin{ex}[Hopf Fibration]
-	Recall that all rotations in $ \mathbb{R}^3 $ can be expressed in a simple way with help of quaternions. Every rotation around an axis given by a vector $ \vec{v}=(b,c,d) $ and an angle $ \theta $ is identified with an unitary quaternion $r = a+bi+cj+dk, $ where $ \theta = 2\arccos(a) $ (see \cite{lyons2003elementary}, page 6). This rotation $ R_r: \mathbb{R}^3 \rightarrow\mathbb{R}^3 $ is given by $ x\mapsto rxr^{-1} $, with $ r^{-1} = r^*/|r|, $ and $ x $ identified as a pure quaternion, that is, $ x=x_1i+x_2j+x_3k. $   The set of all unitary quaternions can be identified with $ \mathbb{S}^3 $, so that $ \mathbb{S}^3 $ acts on $ \mathbb{R}^3 $ via rotations. The Hopf projection is defined as the map $ \pi: \mathbb{S}^3 \rightarrow \mathbb{S}^2 $ that sends the point $ (1,0,0) $ to its respective image after rotating $ \mathbb{R}^3 $ with the associated quaternion, as an element of $ \mathbb{S}^3 $. That is, $ \pi(a,b,c,d) = R_r(1,0,0), $ where $ r=a+bi+cj+dk. $  
+\subsection{Examples of principal $ G $-bundles}%
+\label{sub:examples_of_principal_g_bundles}
 
-	It is clear that the function $ \pi $ defined above is surjective, as every point $ x\in\mathbb{S}^2 $ can be reached from $ (1,0,0) $ through an adequate rotation. Explicitly, it suffices to take a normal vector to both $ (1,0,0), x $ as the axis of rotation, and the angle of rotation is the angle between both vectors. 
+\subsubsection{Projection of cartesian product of manifolds}%
+\label{ssub:projection_of_cartesian_product_of_manifolds}
 
-	If we identify $ \mathbb{R}^4=\mathbb{C}\times \mathbb{C} $ and $ \mathbb{R}^3= \mathbb{R}\times\mathbb{C}  $, Hopf projection from $ \mathbb{S}^3= \{ (z_1,z_2)\  |$ $ \ z_1,z_2\in \mathbb{C}, \ |z_1|^2+|z_2|^2=1 \} $ to $ \mathbb{S}^2 = \{ (x,z)\ | \ z\in \mathbb{C},\ x\in \mathbb{R},\ |z|^2+$ $x^2=1 \} $  can be written as $ \pi: \mathbb{S}^3 \rightarrow { \mathbb{S}^2},$ $ \pi(z_1,z_2) =(|z_1|^2-|z_2|^2, 2z_1z_2^* ).$ In this form one can show that this map is a submersion analyzing the minors of the jacobian matrix in cartesian coordinates (see \cite{linintroductory}, proof of theorem 3.11).
+Let $ M$ be a manifold and $ G $ a Lie group. Define the projection onto the first factor $ \pi: M\times G \rightarrow M. $ It is clear that this map is surjective and a submersion. Moreover, it is a fiber bundle, whose local (global) trivialization is the identity map $ \iota : M\times G \rightarrow M\times G $.   
 
-	To identify the fibers of this submersion, notice that $ \pi^{-1}(1,0) = \left\{ (w_1,0) \ | \ |w_1| =1 \right\} = \left\{ (e^{i\theta},0) \ | \ \theta\in (0,2\pi]  \right\} $. Now, in quaternion notation, if $ s,r\in \pi^{-1}(x), $ $ rir^{-1} = sis^{-1}=x $, that is, $ (s^{-1}r)i(r^{-1}s) = i $. Then, $ s^{-1}r \in \pi^{-1}(1,0), $ and $ r= se^{i\theta}, $ so $ \pi^{-1}(x) = \left\{ re^{i\theta}\ | \ \theta\in (0,2\pi] \right\} $, and each fiber is diffeomorphic to $ \mathbb{S}^1. $        
+If we define the action $ \alpha: (M\times G) \times G \rightarrow M\times G $ as $ ((p, g),q)\mapsto (p,gq)  $, it is clear that $ G $ acts freely and properly on $ M\times G $, and $ \pi^{-1}(p) = \left\{ p \right\}\times G = G_{(p,g)} $, so that $ \pi $ is a principal $ G $-bundle. A connection for this bundle is simply $ TG $, as the kernel of $ d\pi $ is $ TM $, and $ T(M\times G) = TM\oplus TG.$      
+\subsubsection{Hopf Fibration}%
+\label{ssub:hopf_fibration}
 
-	With this, $ \mathbb{S}^3 $ can be seen as the disjoint union of these circles, and endowing this disjoint union with the usual manifold structure of $ \mathbb{S}^3 $, we can take $ U= \mathbb{S}^2\setminus \left\{ m \right\}, $ with $ m\in \mathbb{S}^2 $ arbitrary, and define a diffeomorphism $ \phi: \pi^{-1}(U) \rightarrow {U\times \mathbb{S}^1}
-	 $ such that $ \pi: \mathbb{S}^3 \rightarrow { \mathbb{S}^2}
+All rotations in $ \mathbb{R}^3 $ can be expressed in a simple way with help of quaternions. The set of quaternions is usually denoted as $ \mathbb{H} := \{ a+bi+cj+dj$  $|$  $a,b,c,d\in \mathbb{R} \}, $ and in it we can define sum and product operations. The sum of two quaternions $ a_1+b_1 i +c_1 j  + d_1k $, $ a_2+b_2 i +c_2 j  + d_2k $ is simply $ (a_1+a_2)+(b_1+b_2)i+(c_1+c_2)j+(d_1+d_2)k. $ The product is defined in order to satisfy the distributive property with respect to the sum, and it also satisfies the following rules: 
+$$ i^2=j^2=k^2=-1, \quad ij=-ji=k, jk=-kj=i, ki = -ik=j.  $$ 
+In analogy with the complex plane and its isomorphism with $\mathbb{R}^4$, we define the norm of $ z= a+bi+cj+dk $ as $ |z|=\sqrt{a^2+b^2+c^2+d^2}, $ and the conjugate of $ z $ as $ z^* = a-bi-cj-dk. $ Moreover, every quaternion $ z\neq 0 $ has a multiplicative inverse, given by $ z^{-1} = z^*/|z|^2. $ Every rotation around an axis given by a vector $ \vec{v}=(b,c,d) $ and an angle $ \theta $ can be identified with an unitary quaternion $r = a+bi+cj+dk$ ($|z|=1$),  where $ \theta = 2\arccos(a) $ (see \cite{lyons2003elementary}, page 6). This rotation $ R_r: \mathbb{R}^3 \rightarrow\mathbb{R}^3 $ is given by $ x\mapsto rxr^{-1}= rxr^*$, and $ x $ identified as a pure quaternion, that is, $ x=x_1i+x_2j+x_3k. $ To show explicitly that this map is the desired rotation, one can first show that this linear map preserves norm and the vector $ bi+cj+dk $, that is, it is an eigenvector with eigenvalue 1, so it must be a rotation with respect the axis given by $ (b,c,d) $. The idea of the proof that the rotation angle is $ 2\arccos(a) $ can be found in \cite{lyons2003elementary}, page 6, investigation step 3. 
+
+The set of all unitary quaternions can be identified with $ \mathbb{S}^3 $, so that $ \mathbb{S}^3 $ acts on $ \mathbb{R}^3 $ via rotations. The Hopf projection is defined as the map $ \pi: \mathbb{S}^3 \rightarrow \mathbb{S}^2 $ that sends the point $ (1,0,0) $ (identified as the quaternion $ i $)   to its respective image after rotating $ \mathbb{R}^3 $ with the associated quaternion, as an element of $ \mathbb{S}^3 $. That is, $ \pi(a,b,c,d) = R_r(1,0,0), $ where $ r=a+bi+cj+dk. $  The function $ \pi $ previously defined is surjective, as every point $ x\in\mathbb{S}^2 $ can be reached from $ (1,0,0) $ through an adequate rotation. Explicitly, it suffices to take a normal vector to both $ (1,0,0), x $ as the axis of rotation, and the angle of rotation is the angle between both vectors. 
+
+	If we identify $ \mathbb{R}^4=\mathbb{C}\times \mathbb{C} $ and $ \mathbb{R}^3= \mathbb{R}\times\mathbb{C}  $, Hopf projection from $ \mathbb{S}^3= \{ (z_1,z_2)\  |$ $ \ z_1,z_2\in \mathbb{C}, \ |z_1|^2+|z_2|^2=1 \} $ to $ \mathbb{S}^2 = \{ (x,z)\ | \ z\in \mathbb{C},\ x\in \mathbb{R},\ |z|^2+$ $x^2=1 \} $  can be written as $ \pi: \mathbb{S}^3 \rightarrow { \mathbb{S}^2},$ $ \pi(z_1,z_2) =(|z_1|^2-|z_2|^2, 2z_1z_2^* ),$ because writing explicitly $ rir^{-1} $ with $ r=a+bi+cj+dk $ gives $ (a^2+b^2-c^2-d^2)i+2(ad+bc)j+2(bd-ac)k. $    In this form one can show that this map is a submersion analyzing the minors of the jacobian matrix in cartesian coordinates (see \cite{linintroductory}, proof of theorem 3.11).
+
+	To recognize the fibers of this submersion, notice that $ \pi^{-1}(1,0) = \left\{ (w_1,0) \ | \ |w_1| =1 \right\} = \left\{ (e^{i\theta},0) \ | \ \theta\in (0,2\pi]  \right\} $. Now, in quaternion notation, if $ s,r\in \pi^{-1}(x), $ $ rir^{-1} = sis^{-1}=x $, that is, $ (s^{-1}r)i(r^{-1}s) = i $. Then, $ s^{-1}r \in \pi^{-1}(1,0), $ and $ r= se^{i\theta}, $ so $ \pi^{-1}(x) = \left\{ re^{i\theta}\ | \ \theta\in (0,2\pi] \right\} $, and each fiber is diffeomorphic to $ \mathbb{S}^1. $        
+
+	With this, $ \mathbb{S}^3 $ can be seen as the disjoint union of these circles, and endowing this disjoint union with the standard manifold structure of $ \mathbb{S}^3 $, we can take $ U= \mathbb{S}^2\setminus \left\{ m \right\}, $ with $ m\in \mathbb{S}^2 $ arbitrary, and define a diffeomorphism $ \phi: \pi^{-1}(U) \rightarrow {U\times \mathbb{S}^1}
+	$ such that $ \pi: \mathbb{S}^3 \rightarrow { \mathbb{S}^2}
 	  $ is a fiber bundle with fiber $ \mathbb{S}^1. $ 
 
 	Now, we define an action $ \alpha: \mathbb{S}^3\times \mathbb{S}^1 \rightarrow { \mathbb{S}^3}
 	$, given by $ \alpha(z_1,z_2,\lambda) = (z_1\lambda, z_2\lambda), $ where $ (z_1,z_2)\in \mathbb{S}^3\subset \mathbb{C}^2 $ and $ \lambda\in \mathbb{S}^1 \subset \mathbb{C}. $ This action acts freely and properly on $ \mathbb{S}^3, $ and its orbits coincide with the fibers of $ \pi, $ so that $ \mathbb{S}^3/ \mathbb{S}^1 \cong \mathbb{S}^2. $ Therefore, $ \pi: \mathbb{S}^3 \rightarrow { \mathbb{S}^2}
-	 $ is a principal $ \mathbb{S}^1- $bundle.
+	 $ is a principal $ \mathbb{S}^1$-bundle.
 
-	 To find an Ehresmann connection for this submersion, we recall that, by the preimage of regular value theorem, $ \pi^{-1}(m) = \mathbb{S}^1_q $ is a submanifold of $ \mathbb{S}^3 $, of dimension $ \operatorname{dim}( \mathbb{S}^3)- \operatorname{dim}( \mathbb{S}^2) = 1,  $ and its tangent space (vertical space of the submersion) $ T_p \mathbb{S}^1_q $ is $ \operatorname{Ker}(d\pi_p),  $ and any complementary space (with respect to $ T \mathbb{S}^3 $)  to this tangent space would be an Ehresmann connection. Now, if $ \mathbb{S}^3 $ is endowed with the usual riemannian structure, there is only one Ehresmann connection compatible with the metric, and is given by $ \mathcal{H}_q = \operatorname{Ker}(d\pi_p)^\perp. $ 
+	 To find a connection for this submersion, we recall that, by the preimage of regular value theorem, $ \pi^{-1}(m) = \mathbb{S}^1_q $ is a submanifold of $ \mathbb{S}^3 $, of dimension $ \operatorname{dim}( \mathbb{S}^3)- \operatorname{dim}( \mathbb{S}^2) = 1,  $ and its tangent space (vertical space of the submersion) $ T_p \mathbb{S}^1_q $ is $ \operatorname{Ker}(d\pi_p),  $ and any complementary subspace (with respect to $ T \mathbb{S}^3 $)  to this tangent space would be a connection. Now, if $ \mathbb{S}^3 $ is endowed with the standard riemannian structure, there is only one connection compatible with the metric, and is given by $ \mathcal{H}_q = \operatorname{Ker}(d\pi_p)^\perp. $ 
 
-	 This principal $ \mathbb{S}^1- $bundle has connection because the kernel of $ d(\pi\circ \alpha_g)_q $ is the same of $ d\pi_q, $ as $ d\alpha_g $ is an isomorphism. Therefore, $ d(\alpha_g)_q ( \mathcal{H}_q) = \mathcal{H}_{q\cdot g}, $ and the $ \mathbb{S}^1- $action preserves $ \mathcal{H}. $ 
+	 This principal $ \mathbb{S}^1$-bundle has connection because the kernel of $ d(\pi\circ \alpha_g)_q $ is the same of $ d\pi_q, $ as $ d\alpha_g $ is an isomorphism. Therefore, $ d(\alpha_g)_q ( \mathcal{H}_q) = \mathcal{H}_{q\cdot g}, $ and the $ \mathbb{S}^1 $-action preserves $ \mathcal{H}. $ By proposition \ref{prop:comp_bundle}, this connection $ \mathcal{H} $ is complete.
  
-\end{ex}
 \bibliographystyle{unsrt}
 \nocite{*}
 \bibliography{mybibliography}
