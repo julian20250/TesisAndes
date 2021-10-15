@@ -120,7 +120,7 @@
 A manifold without boundary $M$ of dimension $ m $  is said to be of class $ C^\infty $ if the differentiability class of the transition maps is $C^\infty.$ In this case, for every $ p\in M $ one can define the tangent space to $ M $ at $ p $, $ T_p M $, as the set of all derivations of the algebra of germs of smooth functions from $ M $ to $ \mathbb{R}  $,  based at $ p $. This definition of tangent space is equivalent (when the differentiability class of $ M $ is $ \infty $) to the equivalence class of germs of curves that passes through $ p $. If a manifold $ M $  is $C^r$, with $r< \infty$, the definition for tangent space is the latter, so we use that definition for the tangent space throughout this text, independently of the differentiability class.
 
 \begin{df}(\cite{luke2013vector}, section 1.3)\label{def:smooth_vector_bundle}
-	The triple $ (E, M, \pi: E \rightarrow {M}) $ is a \textbf{smooth vector bundle} if $ E,M $ are smooth manifolds, $ \pi $ is a smooth surjection; the fibers $ \pi^{-1}(p) $ for $ p\in M $  have the structure of finite dimensional vector spaces; and for every point $ p\in M $, there is an open neighborhood $ U $ of $ p $, a natural number $ k $ and a diffeomorphism $ \phi: U\times \mathbb{R}^k \rightarrow  \pi^{-1}(U),$ such that for all $ q\in U $ the following propositions hold:  
+	The triple $ (E, M, \pi: E \rightarrow {M}) $ is a \textit{smooth vector bundle} if $ E,M $ are smooth manifolds, $ \pi $ is a smooth surjection; the fibers $ \pi^{-1}(p) $ for $ p\in M $  have the structure of finite dimensional vector spaces; and for every point $ p\in M $, there is an open neighborhood $ U $ of $ p $, a natural number $ k $ and a diffeomorphism $ \phi: U\times \mathbb{R}^k \rightarrow  \pi^{-1}(U),$ such that for all $ q\in U $ the following propositions hold:  
 
 	\begin{itemize}
 		\item $ (\pi\circ \phi)(q,v)=q $ for all $ v\in \mathbb{R}^k $, and  
@@ -143,28 +143,28 @@ equipped with manifold structure given by the one of $ M. $ It is called a bundl
 
 There is another important class of smooth vector bundles, namely, the tensor bundles, that are defined following \cite{wendl2008lecture}, examples 2.4 and 2.5.
 \begin{df} 
-	If $ (E,M,\pi:E \rightarrow {M}) $ is a smooth vector bundle, the dual bundle of this bundle is another smooth vector bundle $ (E^*,M,\pi^*:E^*\rightarrow {M}) $, known as \textbf{ dual bundle}, whose fibers are the dual spaces to the fibers of $ E, $ that is,
+	If $ (E,M,\pi:E \rightarrow {M}) $ is a smooth vector bundle, the dual bundle of this bundle is another smooth vector bundle $ (E^*,M,\pi^*:E^*\rightarrow {M}) $, known as \textit{ dual bundle}, whose fibers are the dual spaces to the fibers of $ E, $ that is,
 	$$ (\pi^{*})^{-1}(p)=(\pi^{-1}(p))^*, \text{ for all }p\in M,$$ 
 	and $$ E^* =\bigsqcup_{p\in M} (\pi^*)^{-1}(p). $$ 
 \end{df}
 \begin{df}
-	If $ (E,M,\pi:E \rightarrow {M}) $ is a smooth vector bundle, the \textbf{$ (k,l)- $tensor bundle} associated to this bundle, with $ k,l\geq0 $, is defined as the smooth vector bundle $ (T^k_l E, M, \pi_{kl}: T^k_l E \rightarrow {M}) $, whose fibers are the vector spaces of $ (k,l) -$tensors of the fibers of $ E, $ that is,     
+	If $ (E,M,\pi:E \rightarrow {M}) $ is a smooth vector bundle, the \textit{$ (k,l)- $tensor bundle} associated to this bundle, with $ k,l\geq0 $, is defined as the smooth vector bundle $ (T^k_l E, M, \pi_{kl}: T^k_l E \rightarrow {M}) $, whose fibers are the vector spaces of $ (k,l) -$tensors of the fibers of $ E, $ that is,     
 	$$ \pi_{kl}^{-1}(p) = T^k_l \pi^{-1}(p)=\left( \bigotimes_{j=1}^l (\pi^{*})^{-1}(p)\right)\otimes \left( \bigotimes_{j=1}^k \pi^{-1}(p) \right), \text{ for all }p\in M, $$ 
 	and
 	$$ T^k_l E = \bigsqcup_{p\in M} \pi_{kl}^{-1}(p). $$ 
 \end{df}
 \begin{rem}
-	If $ k=1,l=0, $ $T^0_1E=E,$ and if $ k=0,l=1, $ $ T^1_0=E^*. $ We associate $ T^0_0=M\times \mathbb{R} $ to the \textbf{trivial line bundle} if both $ k=l=0. $ 
+	If $ k=1,l=0, $ $T^0_1E=E,$ and if $ k=0,l=1, $ $ T^1_0=E^*. $ We associate $ T^0_0=M\times \mathbb{R} $ to the \textit{trivial line bundle} if both $ k=l=0. $ 
 \end{rem}
 
 The formal proof that both definitions are consistent definitions of smooth vector bundles can be found in \cite{luke2013vector}, section 1.3.
 \begin{df}
-	A \textbf{smooth section} of a smooth vector bundle $ (E,M,\pi:E \rightarrow {M}) $ is a (smooth) application $ s: M \rightarrow {E} $ such that $ \pi\circ s= \mathbb{1}_{M}. $    
+	A \textit{smooth section} of a smooth vector bundle $ (E,M,\pi:E \rightarrow {M}) $ is a (smooth) application $ s: M \rightarrow {E} $ such that $ \pi\circ s= \mathbb{1}_{M}. $    
 \end{df}
 For an arbitrary smooth vector bundle bundle $ (E,B,\pi:E \rightarrow {B}), $ a subbundle of this bundle $ (E',B',\pi':E' \rightarrow {B'}) $  is a smooth vector bundle bundle that satisfies $ E'\subset E $, $ B'\subset B $ and $ \pi|_{E'}=\pi'. $
 \begin{df}
 	
-	A \textbf{distribution} $ \mathcal{H} $ over a manifold $ M $  is a vector subbundle of the tangent bundle $ TM $ . If this vector subbundle is in addition smooth, the distribution is said to be smooth, and the rank $ k $  of this distribution is defined as the dimension of its fibers.
+	A \textit{distribution} $ \mathcal{H} $ over a manifold $ M $  is a vector subbundle of the tangent bundle $ TM $ . If this vector subbundle is in addition smooth, the distribution is said to be smooth, and the rank $ k $  of this distribution is defined as the dimension of its fibers.
 
 	The fiber of $ \mathcal{H} $ at a point $ p\in M $ is denoted as $ H_p. $ 
 \end{df}
@@ -199,7 +199,7 @@ Any smooth vector field $ X: M \rightarrow {TM} $ (which does not vanish out at 
 \end{ex}
 
 
-Given a distribution $ \mathcal{H} $  over a manifold $M$,  a curve or vector field is said to be \textbf{horizontal} if it is tangent to $ \mathcal{H} $. This means that, in the case of a curve, its tangent vector at every point is contained in the fibers of $ \mathcal{H} $; and in the case of a vector field, its value at every point is contained in the fibers of $ \mathcal{H} .$   
+Given a distribution $ \mathcal{H} $  over a manifold $M$,  a curve or vector field is said to be \textit{horizontal} if it is tangent to $ \mathcal{H} $. This means that, in the case of a curve, its tangent vector at every point is contained in the fibers of $ \mathcal{H} $; and in the case of a vector field, its value at every point is contained in the fibers of $ \mathcal{H} .$   
 
 For example, every curve over a manifold with distribution given by its tangent bundle is horizontal. In the example \ref{ex:heis_group}, the liftings of the solutions of the isoperimetrical problem are horizontal. In example \ref{ex:vect_field}, and in particular in the case of systems of linear differential equations, the solution curves of the system of differential equations are examples of horizontal curves for that distribution.
 
@@ -209,7 +209,7 @@ For example, every curve over a manifold with distribution given by its tangent 
 
 Now the natural question that arises is if, given two points on a manifold with a given horizontal distribution, is there a smooth horizontal curve that joins them? 
 
-Given a smooth distribution $ \mathcal{H} \subset TM$, we say that a nonempty immersed submanifold $ N\subseteq M $  is an \textbf{integral manifold} of $\mathcal{H}$ if $ T_p N = \mathcal{H}_p $ for all $ p\in N $ , \textit{i.e.}, if the tangent space of all points of the submanifold is the fiber of the horizontal distribution. As an example, in the distribution given in example \ref{ex:vect_field}, the image of any integral curve of the vector field that determines the distribution over the manifold is an integral manifold for that distribution. A particular example (taken from \cite{lee2003introduction}, example 19.1) of a distribution and its family of integral manifolds is given below.
+Given a smooth distribution $ \mathcal{H} \subset TM$, we say that a nonempty immersed submanifold $ N\subseteq M $  is an \textit{integral manifold} of $\mathcal{H}$ if $ T_p N = \mathcal{H}_p $ for all $ p\in N $ , \textit{i.e.}, if the tangent space of all points of the submanifold is the fiber of the horizontal distribution. As an example, in the distribution given in example \ref{ex:vect_field}, the image of any integral curve of the vector field that determines the distribution over the manifold is an integral manifold for that distribution. A particular example (taken from \cite{lee2003introduction}, example 19.1) of a distribution and its family of integral manifolds is given below.
 
 \begin{ex}[Orthogonal complement of a given vector field]
 Let $ \mathcal{H} $ be the distribution over $ \mathbb{R}^n $ determined by the radial vector field $ x^i \partial / \partial x^i $, and let $ \mathcal{H}^\perp $ be its perpendicular bundle, \textit{i.e.,} the distribution whose fibers are the orthogonal complement of the fibers of $ \mathcal{H}. $ $ \mathcal{H}^\perp $ is a distribution over $ \mathbb{R}^n  $, and the sphere centered at $0$, of radius $ |x| $, for all $ x\neq0 $ is an integral submanifold of $ \mathcal{H}^\perp. $        
@@ -232,11 +232,11 @@ There are distributions over a manifold that do not have integral manifolds, as 
     \label{fig:no_integral_manifolds}
 \end{figure}
 
-A smooth distribution $ \mathcal{H} $ is said to be \textbf{involutive} if given any pair of smooth vector fields $ X,Y $ defined on a open subset of $ M $  that satisfy $X_p,Y_p\in \mathcal{H}_p $, their Lie bracket also satisfies the same condition, \textit{i.e.}, it is tangent to the distribution in the given open subset. 
+A smooth distribution $ \mathcal{H} $ is said to be \textit{involutive} if given any pair of smooth vector fields $ X,Y $ defined on a open subset of $ M $  that satisfy $X_p,Y_p\in \mathcal{H}_p $, their Lie bracket also satisfies the same condition, \textit{i.e.}, it is tangent to the distribution in the given open subset. 
 
 Let $ \Gamma(\mathcal{H}) $ be the set of all smooth vector fields globally defined, tangent to $ \mathcal{H}. $ It is clear from the definition of involutivity that if $ \mathcal{H} $ is involutive, $ \Gamma (\mathcal{H})\subset \mathfrak{X}(M) $ is a Lie subalgebra. The converse statement (if $ \Gamma(\mathcal{H}) $ is a Lie algebra, then $ \mathcal{H} $ is involutive) is also true, and can be proved extending any pair of smooth vector fields locally defined, tangent to $ \mathcal{H} ,$ to a pair of vector fields in $ \Gamma( \mathcal{H}), $ using an adequate bump function. 
 
-A smooth distribution $ \mathcal{H} $ over a manifold $ M $ is called \textbf{integrable} if each point of $ M $ is contained in an integral manifold of $ \mathcal{H}. $  It is clear then that \textit{every integrable distribution is involutive}, because every pair of smooth vectors tangent to $ \mathcal{H}, $ defined over an open set $ U\subset M $, satisfy that their Lie bracket is also tangent to $ \mathcal{H} $ in that open set, since there exists a integral manifold $ N $  of $ \mathcal{H} $ for every point of $ U $ such that the pair of smooth vectors are tangent to $ N $, and in consequence, their Lie bracket is also tangent to $ N. $  
+A smooth distribution $ \mathcal{H} $ over a manifold $ M $ is called \textit{integrable} if each point of $ M $ is contained in an integral manifold of $ \mathcal{H}. $  It is clear then that \textit{every integrable distribution is involutive}, because every pair of smooth vectors tangent to $ \mathcal{H}, $ defined over an open set $ U\subset M $, satisfy that their Lie bracket is also tangent to $ \mathcal{H} $ in that open set, since there exists a integral manifold $ N $  of $ \mathcal{H} $ for every point of $ U $ such that the pair of smooth vectors are tangent to $ N $, and in consequence, their Lie bracket is also tangent to $ N. $  
 
 In fact, the involutivity condition does not need to be checked for all smooth vector fields on $ \Gamma( \mathcal{H}), $ but it suffices to check if the Lie brackets of pairs of smooth vector fields of the local frame that determines the distribution are tangent to it, as the following lemma states (\cite{lee2003introduction}, lemma 19.4).
 
@@ -245,7 +245,7 @@ In fact, the involutivity condition does not need to be checked for all smooth v
 \end{lm}
 
 \begin{df}
-	Given a smooth distribution $ \mathcal{H}\subset TM $  of rank $ k, $ it is said that a smooth coordinate chart $ (U,\phi) $ of $ M $ is \textbf{flat for $ \mathcal{H} $ } if $ \phi(U) $ is a cube in $ \mathbb{R}^m  $ (being $ m $ the dimension of $ M $ ), and at points of $ U $, $ \mathcal{H} $ is spanned by the first $ k $ coordinate vector fields $ \partial/\partial x^1,\dots,\partial/\partial x^k $ (see figure \ref{fig:fittogether}).
+	Given a smooth distribution $ \mathcal{H}\subset TM $  of rank $ k, $ it is said that a smooth coordinate chart $ (U,\phi) $ of $ M $ is \textit{flat for $ \mathcal{H} $ } if $ \phi(U) $ is a cube in $ \mathbb{R}^m  $ (being $ m $ the dimension of $ M $ ), and at points of $ U $, $ \mathcal{H} $ is spanned by the first $ k $ coordinate vector fields $ \partial/\partial x^1,\dots,\partial/\partial x^k $ (see figure \ref{fig:fittogether}).
 \end{df}
 The geometrical meaning of this property for a distribution is that, locally (in that chart), the manifold is homeomorphic to a cube in $ \mathbb{R}^m,  $ and the vector subspaces induced by the distribution at each point fit together as affine spaces of dimension given by the rank of the distribution in $ \mathbb{R}^m $. Also, each slice of the form $ x^{k+1}=c^{k+1},\dots, x^m=c^m,$ for constants $ c^{k+1}, \dots, c^m $ in the image of $ U $ of such a chart is an integral manifold of the distribution generated by $ \partial/\partial x^1,\dots,\partial/\partial x^k $, and the preimage of this integral manifold is an integral manifold of $ \mathcal{H}, $ contained in $ U. $  
 
@@ -259,10 +259,10 @@ The geometrical meaning of this property for a distribution is that, locally (in
 The case when every point in $ M $ has a coordinate chart centered in it, flat for $ \mathcal{H} $ is discussed in the following definition and geometrical interpretation.
 
 \begin{df}
-	A smooth distribution $ \mathcal{H}\subset TM $  is said to be \textbf{completely integrable} if there exists a flat chart for $ \mathcal{H} $ in a neighborhood of each point of $ M. $ 
+	A smooth distribution $ \mathcal{H}\subset TM $  is said to be \textit{completely integrable} if there exists a flat chart for $ \mathcal{H} $ in a neighborhood of each point of $ M. $ 
 \end{df}
 
-Therefore, if a distribution is completely integrable, is then integrable, since there exists an integral manifold for each point (that in particular is known as \textbf{maximal integral manifold}, as the dimension of this manifold coincides with the rank of the distribution), given by the integral manifold that contains this point in the image of the coordinate chart flat for $ \mathcal{H}. $ In this way, \textit{ if a distribution is completely integrable, it is integrable, and therefore involutive.} In fact, these implications are actually equivalences, thanks to Frobenius's theorem.
+Therefore, if a distribution is completely integrable, is then integrable, since there exists an integral manifold for each point (that in particular is known as \textit{maximal integral manifold}, as the dimension of this manifold coincides with the rank of the distribution), given by the integral manifold that contains this point in the image of the coordinate chart flat for $ \mathcal{H}. $ In this way, \textit{ if a distribution is completely integrable, it is integrable, and therefore involutive.} In fact, these implications are actually equivalences, thanks to Frobenius's theorem.
 
 \begin{thm}[Frobenius]
 	Every involutive distribution is completely integrable.	
@@ -329,11 +329,11 @@ The next proposition is one of the main consequences of Frobenius theorem, and i
 
 The last proposition implies that one can put all the maximal integral manifolds of an involutive distribution of rank $ k $  together, to obtain a partition on $ M $ into $ k- $dimensional submanifolds, that satisfy the following definition.
 \begin{df}
-	A smooth chart $ (U,\varphi) $ for $ M $ is called \textbf{flat for a collection $ \mathcal{F} $ of $ k- $dimensional submanifolds of $ M $} if $ \varphi(U) $ is a cube in $ \mathbb{R}^m, $ and the image of each submanifold via $ \varphi $ intersects $ \varphi(U) $ in either the empty set or in a countable union of $ k- $dimensional slices of the form $ x^{k+1}=c^{k+1},\dots,x^m=c^m. $   
+	A smooth chart $ (U,\varphi) $ for $ M $ is called \textit{flat for a collection $ \mathcal{F} $ of $ k- $dimensional submanifolds of $ M $} if $ \varphi(U) $ is a cube in $ \mathbb{R}^m, $ and the image of each submanifold via $ \varphi $ intersects $ \varphi(U) $ in either the empty set or in a countable union of $ k- $dimensional slices of the form $ x^{k+1}=c^{k+1},\dots,x^m=c^m. $   
 \end{df}
 
 \begin{df}
-	A \textbf{foliation of dimension $ k $ on a smooth manifold $ M $} is a collection $ \mathcal{F} $ of disjoint, connected, nonempty, immersed $ k- $dimensional submanifolds of $ M $ (called the \textbf{leaves} of the foliation), whose union is $ M $, and such that in a neighborhood of each point $ p\in M $ there is a flat chart for $ \mathcal{F}. $  
+	A \textit{foliation of dimension $ k $ on a smooth manifold $ M $} is a collection $ \mathcal{F} $ of disjoint, connected, nonempty, immersed $ k- $dimensional submanifolds of $ M $ (called the \textit{leaves} of the foliation), whose union is $ M $, and such that in a neighborhood of each point $ p\in M $ there is a flat chart for $ \mathcal{F}. $  
 \end{df}
 
 The following are examples of foliations over a manifold, mainly taken from \cite{lee2003introduction}, Ch. 19, example 19.18.
@@ -381,9 +381,9 @@ With the global Frobenius theorem, one can answer the question at the start of t
 \subsection{Subriemannian Structure and Geodesics}%
 \label{sub:subriemannian_structure_and_geodesics}
 \begin{df}
-	A \textbf{subriemannian structure over a manifold} $ M $ is a pair $ (\mathcal{H}, <\cdot,\cdot>)$, where $ \mathcal{H}\subset TM $ is a distribution and $ <\cdot,\cdot> $ is a section of the bundle $ T^0_2 \mathcal{H} \xrightarrow[]{\pi} M, $ whose values are positive definite symmetric bilinear forms (see \cite{hatcher2003vector}, Ch. 1, page 12).
+	A \textit{subriemannian structure over a manifold} $ M $ is a pair $ (\mathcal{H}, <\cdot,\cdot>)$, where $ \mathcal{H}\subset TM $ is a distribution and $ <\cdot,\cdot> $ is a section of the bundle $ T^0_2 \mathcal{H} \xrightarrow[]{\pi} M, $ whose values are positive definite symmetric bilinear forms (see \cite{hatcher2003vector}, Ch. 1, page 12).
 
-	The distribution $ \mathcal{H} $ is called \textbf{horizontal}, and the tensor field $ <\cdot,\cdot> $ is called \textbf{metric}.  
+	The distribution $ \mathcal{H} $ is called \textit{horizontal}, and the tensor field $ <\cdot,\cdot> $ is called \textit{metric}.  
 \end{df}
 
 Some examples of subriemannian structures are given below.
@@ -398,19 +398,22 @@ Some examples of subriemannian structures are given below.
 \begin{ex}[Vector Field over a Manifold]\label{ex:vect_field2}
 	As seen in example \ref{ex:vect_field}, any smooth vector field $ X: M \rightarrow TM$ that does not cancel out in any point determines a distribution.  The fiber inner-product $ <\cdot,\cdot>: \mathcal{H}_p \times \mathcal{H}_p \rightarrow \mathbb{R} $ for $ p\in M $  is given by $<\lambda_1 X_p,\lambda_2 X_p>=\lambda_1 \lambda_2.$
 \end{ex}
-In the particular case of the horizontal curves, one can define the \textbf{length of a horizontal smooth curve} $ \gamma $ (denoted by $ \ell(\gamma) $) as in the case of riemannian geometry:
+In the particular case of the horizontal curves, one can define the \textit{length of a horizontal smooth curve} $ \gamma $ (denoted by $ \ell(\gamma) $) as in the case of riemannian geometry:
 $$ \ell(\gamma) = \int ||\dot{\gamma}|| dt, $$ 
 since the tangent vectors of the curve at all points are in the fibers of the horizontal distribution, where there is a inner product defined, and $ ||\dot{\gamma}||= \sqrt[]{<\dot{\gamma}, \dot{\gamma}>}.  $   
 
 \begin{df}
-	The \textbf{distance between two points} $ p,q\in M $, denoted by $ d(p,q), $   is defined as the infimum of the lengths of all absolutely continuous horizontal curves that begin in $ p $ and end in $ q $, that is, 
+	The \textit{distance between two points} $ p,q\in M $, denoted by $ d(p,q), $   is defined as the infimum of the lengths of all absolutely continuous horizontal curves that begin in $ p $ and end in $ q $, that is, 
 $$ d(p,q) = \operatorname{inf} \left\{ \ell(\gamma) \ |\ \gamma:[0,1] \rightarrow {M} \text{ is absolutely continuous and }\gamma(0)=p, \ \gamma(1)=q \right\}. $$ 
 The distance between two points is said to be infinite if there is no horizontal curve joining them.
 \end{df}
 
 The curves that are considered in the previous definition of distance are required to be absolutely continuous, that is a weaker condition of smoothness, and refers to a curve that is differentiable in almost all points of its domain. Nevertheless, the distance remains invariant if we consider instead the set of all smooth curves (see \cite{montgomery2002tour}, page 23), but the motivation to consider the bigger set of absolutely continuous curves is the fact that the curves that realize the distance between two points are not always smooth.
 
-In analogy with riemannian geometry, an absolutely continuous horizontal curve that realizes the distance between two points is called a \textbf{geodesic}. 
+\begin{df}
+	Given a subriemannian structure $ (\mathcal{H}, <,>) $ over a manifold $ M $  (or riemannian structure, if $ \mathcal{H}=TM $), it is said that an absolutely continuous horizontal curve $ \gamma:  [a,b] \rightarrow M$, with $ \gamma(a)=p, \gamma(b)=q $ is a \textit{geodesic} if it realizes the distance between $ p $ and $ q $, that is,   
+	$$ \ell(\gamma)= d(p,q). $$ 
+\end{df}
 
 
 \subsection{Chow's Theorem}%
@@ -419,7 +422,7 @@ In analogy with riemannian geometry, an absolutely continuous horizontal curve t
 The section \ref{sub:frobenius_theorem} provides a class of (involutive) distributions where it is not true that every two points can be connected through a horizontal curve.  Now, it is worthwhile to ask for a sufficient condition for a distribution to have the connectedness property through horizontal curves. To discuss such a condition, we need to cover some preliminaries. 
 
 \begin{df}
-	A distribution $ \mathcal{H}\subset TM $ is called \textbf{bracket generating} if for every $ p\in M $, there is a local frame $ X_1,\dots,X_k: U \rightarrow {TM} $ of $ \mathcal{H} $ such that 
+	A distribution $ \mathcal{H}\subset TM $ is called \textit{bracket generating} if for every $ p\in M $, there is a local frame $ X_1,\dots,X_k: U \rightarrow {TM} $ of $ \mathcal{H} $ such that 
 	$$ TU = \operatorname{span}\left\{ [X_{i_1},\dots,[X_{i_{j-1}},X_{i_j}]]\ : \ i_1,\dots,i_j=1,\dots,k;\ j\in \mathbb{N} \right\}.  $$ 
 \end{df}
 
@@ -443,7 +446,7 @@ The section \ref{sub:frobenius_theorem} provides a class of (involutive) distrib
 
 Chow's theorem guarantees that any bracket generating over a connected manifold has the connectedness property through horizontal curves, and we going to derive this result in the rest of this section, following closely the procedure of \cite{montgomery2002tour}, Section 2.4. First of all, choose a base point $ p\in M $ and a local orthonormal frame $ X_i $, $ i=1,\dots, k $ for the distribution $ \mathcal{H} $. Let $ \Phi_i $ be their respective flows. These flows can be used to move in the horizontal directions (points connected to $ p $ through integral curves of the orthonormal frame), using the formula $ \Phi_i(t)(q)=q+tX_i(q)+O(t^2) $ for sufficiently small $ t. $ 
 
-The assignments $ t\mapsto \Phi_i(t)(q) $ are horizontal curves for the distribution $ \mathcal{H}, $ and are called \textbf{simple horizontal curves.} As the frame is orthonormal, the length of a simple horizontal curve with $ 0\leq t\leq \epsilon  $ is $ \epsilon. $   
+The assignments $ t\mapsto \Phi_i(t)(q) $ are horizontal curves for the distribution $ \mathcal{H}, $ and are called \textit{simple horizontal curves.} As the frame is orthonormal, the length of a simple horizontal curve with $ 0\leq t\leq \epsilon  $ is $ \epsilon. $   
 
 Applying $ \Phi_k(t_k)\circ\cdots\circ \Phi_2(t_2)\circ\Phi_1(t_1)$ to $ p $ and letting $ t_1,\dots,t_k $ vary over the cube $ |t_i|\leq\epsilon, $ we move from $ p $ to another point inside the $ k- $dimensional  cube of volume $ (2\epsilon)^k$ in the coordinate chart, whose sides are determined by the local frame in the image of $ p $. Each point of this cube can be reached from $ p $ through the concatenation of $ k $ or fewer flows, and this cube is inside of the subriemannian ball of radius $ k\epsilon $, that is,
 \begin{align*}
@@ -456,9 +459,9 @@ where
 $$ \left[ \mathcal{H}, \mathcal{H}^j \right]:= \operatorname{span} \left\{ [X,Y] \ | \ X\in \mathcal{H},\ Y \in \mathcal{H}^j \right\}, \text{ for }j=1,2,\dots  $$ 
 The movement in the $ \mathcal{H}^2/\mathcal{H} $ directions can be made along horizontal paths by applying the commutators $ \Phi_{ij}(t):= [\Phi_i(t),\Phi_j(t)] $ to $ p. $ As $ \Phi_{ij}(t)(p)=p+t^2[X_i, X_j](p) $ (by lemma \ref{lm:approx}) if $ |t|\leq\epsilon, $ we will move by an amount $ \epsilon^2 $ in the $ \mathcal{H}^2/\mathcal{H} $ directions. This process is realized inductively until exhausting the tangent space. Let $ I=(i_1,i_2,\dots,i_n), $ $ 1\leq i_j\leq k $, and $ X_I:=[X_{i_1}, X_J], $ where $ J=(i_2,\dots,i_n), $  so that $ X_I $ is the iteration of $ n $ Lie brackets. Similarly, define flows $ \Phi_I(t):=[\Phi_{i_1}(t), \Phi_J(t)] $. By successive application of lemma \ref{lm:approx}, we have that   
 $$ \Phi_I(t)= \mathbb{1} +t^n X_I+ O(t^{n+1}).$$ 
-Due to the bracket generating condition over any local frame of the distribution, we can select a local frame for the entire tangent bundle amongst the $ X_I, $ letting $ n $ and $ i_1,\dots,i_n $ vary accordingly. We choose such a frame and relabel it as $ Y_i, $ $ i=1,\dots,m, $ in a way that it satisfies: $ Y_1=X_1,\dots, Y_k=X_k $ span $ \mathcal{H} $ near $ p, $ $ \left\{ Y_1,\dots,Y_{n_2} \right\} $ span $ \mathcal{H}^2 $ near $ p, $ $ \left\{ Y_1,\dots,Y_{n_2},\dots,Y_{n_3} \right\} $ span $ \mathcal{H}^3 $ near $ p $,  and so on. The tuple $ (k,n_2,n_3,\dots, n_r) $ is called the \textbf{growth vector of the distribution at $ p $}, and the smallest integer $ r $ is called the \textbf{step or degree of nonholonomy of the distribution at $ p. $ }   
+Due to the bracket generating condition over any local frame of the distribution, we can select a local frame for the entire tangent bundle amongst the $ X_I, $ letting $ n $ and $ i_1,\dots,i_n $ vary accordingly. We choose such a frame and relabel it as $ Y_i, $ $ i=1,\dots,m, $ in a way that it satisfies: $ Y_1=X_1,\dots, Y_k=X_k $ span $ \mathcal{H} $ near $ p, $ $ \left\{ Y_1,\dots,Y_{n_2} \right\} $ span $ \mathcal{H}^2 $ near $ p, $ $ \left\{ Y_1,\dots,Y_{n_2},\dots,Y_{n_3} \right\} $ span $ \mathcal{H}^3 $ near $ p $,  and so on. The tuple $ (k,n_2,n_3,\dots, n_r) $ is called the \textit{growth vector of the distribution at $ p $}, and the smallest integer $ r $ is called the \textit{step or degree of nonholonomy of the distribution at $ p. $ }   
 
-\begin{df}[\cite{montgomery2002tour}, page 49.] Let $ \left\{ Y_1,\dots, Y_m \right\} $ be the local frame of the tangent bundle in a neighborhood of $ p\in M $ constructed as stated before using the local frame of a bracket generating distribution. Let $ Y_i=X_I $, $ I=(i_1,\dots,i_{n_I}) $. We denote the length of $ I $ as $ w_i:= \left| I \right| $, and define the assignment $ i\mapsto w_i, $ called the \textbf{weighting associated to the growth vector}. 
+\begin{df}[\cite{montgomery2002tour}, page 49.] Let $ \left\{ Y_1,\dots, Y_m \right\} $ be the local frame of the tangent bundle in a neighborhood of $ p\in M $ constructed as stated before using the local frame of a bracket generating distribution. Let $ Y_i=X_I $, $ I=(i_1,\dots,i_{n_I}) $. We denote the length of $ I $ as $ w_i:= \left| I \right| $, and define the assignment $ i\mapsto w_i, $ called the \textit{weighting associated to the growth vector}. 
 	
 \end{df}
 
@@ -467,7 +470,7 @@ $$ \Phi_i(t)(p)=p+t^{w_i}X_i(p)+ O(t^{w_i+1}), $$
 so $ \Phi_i(t)(p) $ lies in the Euclidean box of volume $ \epsilon^{w_i} $, in the $ \mathcal{H}^{w_i} $ directions. From this we can deduct that the subriemannian ball $ B(\epsilon,p) $ contains an Euclidean coordinate box whose sides are of order $ \epsilon^{w_i} $ in the $ i $-th direction. This result is known as the ball-box theorem, and it will be stated and proved after the following definitions.
 
 \begin{df}[\cite{montgomery2002tour}, definition 2.4.1] 
-	Coordinates $ y_1,\dots,y_m $ are said to be \textbf{linearly adapted to the distribution $\mathcal{H}$ at $ p $ } if $ \mathcal{H}^i(p):= \{ X(p) \ | \ X$ is a section of $\mathcal{H}$ defined on $p$$\}$ is annihilated by the differentials $ dy_{n_i+1},\dots, dy_m $ at $ p, $ where $ n_i=n_i(p) $ are the coordinates of the growth vector at $ p. $  
+	Coordinates $ y_1,\dots,y_m $ are said to be \textit{linearly adapted to the distribution $\mathcal{H}$ at $ p $ } if $ \mathcal{H}^i(p):= \{ X(p) \ | \ X$ is a section of $\mathcal{H}$ defined on $p$$\}$ is annihilated by the differentials $ dy_{n_i+1},\dots, dy_m $ at $ p, $ where $ n_i=n_i(p) $ are the coordinates of the growth vector at $ p. $  
 \end{df}
 \begin{df}
 	The $ w $- weighted box of size $ \epsilon $ is the point set
@@ -543,32 +546,32 @@ and $ T \mathbb{R}^3 = \operatorname{span}\{  \partial/\partial x + z \partial /
 \label{sub:ehresmann_connection}
 
 
-Let $ \pi : Q \rightarrow {M} $ be a submersion, which means that for all $ q\in Q $, $ d\pi_q : T_q Q \rightarrow {T_{\pi(q)}}M $ is a surjective map. In the other hand, The fiber $ Q_m = \pi^{-1}(m) $, with $ m=\pi(q) $ is a submanifold because $ m $ is a regular value of $ \pi. $  
+Let $ \pi : Q \rightarrow {M} $ be a submersion, which means that for all $ q\in Q $, $ d\pi_q : T_q Q \rightarrow {T_{\pi(q)}}M $ is a surjective map. The fiber $ Q_m = \pi^{-1}(m) $, with $ m=\pi(q) $ is a submanifold because $ m $ is a regular value of $ \pi. $  
 
 \begin{df}
-	Given a submersion $ \pi:Q \rightarrow {M}, $ the \textbf{vertical space at $ q\in Q $}, denoted as $ V_q $, is the tangent space to the fiber $ Q_m, $ with $ m=\pi(q), $ that is,  
+	Given a submersion $ \pi:Q \rightarrow {M}, $ the \textit{vertical space at $ q\in Q $}, denoted as $ V_q $, is the tangent space to the fiber $ Q_m, $ with $ m=\pi(q), $ that is,  
 	$$ V_q = \operatorname{Ker}(d\pi_q) = T_q Q_m.  $$ 
 \end{df}
 
-The collection of vertical spaces is a distribution $ V \subset TQ $ that assigns to each $ q\in Q $ the space $ V_q. $ The distribution is by construction integrable, and its leaves are the fibers $ Q_m, $ $ m\in \pi(Q). $ 
+The collection of vertical spaces is a distribution $ V \subset TQ $ that assigns to each $ q\in Q $ the space $ V_q. $ The distribution is by construction integrable, and its integral manifolds are the fibers $ Q_m, $ $ m\in \pi(Q). $ 
 
 \begin{df}[\cite{montgomery2002tour}, definition 11.1.1]
-	A \textbf{connection for a submersion} $ \pi:Q \rightarrow {M} $ is a distribution that is everywhere transverse to the vertical, that is,  
+	A \textit{connection for a submersion} $ \pi:Q \rightarrow {M} $ is a distribution that is everywhere transverse to the vertical one, that is,  
 	$$ V_q \oplus \mathcal{H}_q = T_q Q,\ \text{for all } q\in Q. $$ 
 \end{df}
 
 The restriction of $ d\pi_q $ to $ \mathcal{H}_q $ is a linear isomorphism because $ d\pi_q $ is surjective, and $ T_q Q / \operatorname{Ker}(d\pi_q) = T_q Q / V_q \cong \mathcal{H}_q \cong T_m M. $ If $ M $ is endowed with a metric, we can use this linear isomorphism to pull the inner product back to the horizontal distribution $ \mathcal{H}. $ This construction varies smoothly with $ q\in Q $ (\cite{montgomery2002tour}, page 194). With this, we obtain a subriemannian metric whose underlying distribution is the connection for the submersion.
 
 \begin{df}
-	The subriemannian structure on $ Q $ induced by the connection $ \mathcal{H} $ for the submersion $ \pi:Q \rightarrow {M} $, the linear isomorphism $ \mathcal{H}_q \cong T_m M $ and the riemannian metric over $ M $ is called the \textbf{induced subriemannian structure}. 
+	The subriemannian structure on $ Q $ induced by the connection $ \mathcal{H} $ for the submersion $ \pi:Q \rightarrow {M} $, the linear isomorphism $ \mathcal{H}_q \cong T_m M $ and the riemannian metric over $ M $ is called the \textit{induced subriemannian structure}. 
 \end{df}
 
 \begin{df}
-	The \textbf{horizontal lift} of a curve $ c: I \rightarrow {M} $ starting at $ m\in M $ is defined (if exists) as the unique curve $ \gamma : I \rightarrow {Q} $ that is tangent to $ \mathcal{H}, $ starts at $ q\in Q_m, $ and projects to $c$, that is, $ \pi\circ\gamma = c. $ 
+	The \textit{horizontal lift} of a curve $ c: I \rightarrow {M} $ starting at $ m\in M $ is defined (if exists) as the unique curve $ \gamma : I \rightarrow {Q} $ that is tangent to $ \mathcal{H}, $ starts at $ q\in Q_m, $ and projects to $c$, that is, $ \pi\circ\gamma = c. $ 
 \end{df}
 
 \begin{rem}
-	The connection $ \mathcal{H} $ is called \textbf{complete} or is referred as \textbf{Ehresmann connection}  if for every smooth curve $ c: I \rightarrow {M} $ has a horizontal lift.
+	The connection $ \mathcal{H} $ is called \textit{complete} or is referred as an \textit{Ehresmann connection}  if every smooth curve $ c: I \rightarrow {M} $ has a horizontal lift.
 \end{rem}
 
 \begin{prop}
@@ -596,35 +599,35 @@ The restriction of $ d\pi_q $ to $ \mathcal{H}_q $ is a linear isomorphism becau
 \end{proof}
 
 \begin{df}
-	A riemannian metric on $ Q $ is said to be \textbf{compatible} with the induced subriemannian metric if the algebraic splitting $ TQ = V \oplus \mathcal{H} $ is an orthogonal decomposition with respect to the riemannian metric on $ Q$.  
+	A riemannian metric on $ Q $ is said to be \textit{compatible} with the induced subriemannian metric if the algebraic splitting $ TQ = V \oplus \mathcal{H} $ is an orthogonal decomposition with respect to the riemannian metric on $ Q$.  
 \end{df}
 
 Thanks to the orthogonal algebraic splitting, a compatible riemannian metric is determined by its restriction to $ V, $ and the induced subriemannian structure restricted to $ \mathcal{H} $. This fact can be turned around in the following sense. Take a riemannian metric $ g_Q $ on $ Q. $ Let $ V_q^\perp $ be the orthogonal complement of the vertical space $ V_q $ in $ q\in Q $ with respect to the riemannian metric, and set $ \mathcal{H}_q=V_q^\perp. $ The riemannian metric defines inner products in $ V_q^\perp $  and $ T_mM, $ being defined in the first as the restriction of the riemannian metric, and in the second is given by the metric and the isomorphism $ \mathcal{H}_q\cong T_mM. $ Nevertheless, this inner product on $ T_mM $ can depend on the point $ q\in Q_m $, as the metric could vary with the point of the fiber. If that is the case, we cannot construct a riemannian metric on $ M, $ as there is no consistent way to choose which $ q\in Q_m $ is going to be used to define the inner product (\cite{montgomery2002tour}, page 195).
 
 \begin{df}
 	Given a riemannian manifold $ (Q, g_Q), \pi: Q \rightarrow {M}
-	$ a submersion, we say that the pair $ (\pi, g_Q) $ is a \textbf{riemannian submersion} if the isomorphism $ d\pi_q |_{\mathcal{H}_q} $ is an isometry between $ T_m M $ and $ \mathcal{H}_q ,$ with $ q\in Q_m $. 
+	$ a submersion, we say that the pair $ (\pi, g_Q) $ is a \textit{riemannian submersion} if the isomorphism $ d\pi_q |_{\mathcal{H}_q} $ is an isometry between $ T_m M $ and $ \mathcal{H}_q ,$ with $ q\in Q_m $. 
 \end{df}
 
-Notice that the previous definition gives a sufficient condition in order to guarantee the invariance of the inner product with respect of the point $ q\in Q_m $ chosen. 
+The previous definition frees us from the problem of the dependence of the inner product induced on $ T_mM $ by the  vertical space $ V_q $ of the point $ q\in Q_m $ chosen, because the isometry between $ T_mM $ and $ \mathcal{H}_q $ guarantees that the inner product is independent of the element $ q. $
 
 \subsection{Metrics on Principal Bundles}%
 \label{sub:metrics_on_principal_bundles}
 
 \begin{df}[\cite{lee2003introduction}, page 268]
-	Let $ M, G, Q $ be manifolds. A \textbf{(locally trivial) fiber bundle} over $ M $ with fiber $ G $ is a manifold $ Q, $ together with a smooth surjective map $ \pi: Q \rightarrow {M}
+	Let $ M, G, Q $ be manifolds. A \textit{(locally trivial) fiber bundle} over $ M $ with fiber $ G $ is a manifold $ Q, $ together with a smooth surjective map $ \pi: Q \rightarrow {M}
 $ with the property that for each $ x\in M $ there is a neighborhood $ U $ of $ x $ and a diffeomorphism $ \phi:\pi^{-1}(U) \rightarrow {U\times G,}
- $ called local trivialization of $ Q $ over $ U, $ such that the following diagram commutes:
+ $ called a local trivialization of $ Q $ over $ U, $ such that the following diagram commutes:
  \begin{center}
  	\begin{tikzcd}
 \pi^{-1}(U) \arrow[rd, "\pi"'] \arrow[rr, "\phi"] &   & U\times G \arrow[ld, "\operatorname{proj}_U"] \\
                                                   & U &                                              
 \end{tikzcd}
  \end{center}
- $ Q $ is called \textbf{total space of the bundle}, $ M $ is the \textbf{base} and $ \pi $ the \textbf{projection}.   
+ $ Q $ is called the \textit{total space of the bundle}, $ M $ is the \textit{base} and $ \pi $ the \textit{projection}.   
 \end{df}
 
-The following definition will require some ideas about group actions over manifolds, that we will cover next. First of all, recall that for a Lie group $ G $ and a manifold $ Q, $ a \textbf{group action} is a smooth application $ \alpha:  Q\times G \rightarrow Q $, denoted by $ \alpha(q,g) = q \cdot g, $ that satisfies the following properties:
+The following definition will require some definitions related to group actions over manifolds, that we will cover next. First of all, recall that for a Lie group $ G $ and a manifold $ Q, $ a \textit{group action} is a smooth application $ \alpha:  Q\times G \rightarrow Q $, denoted by $ \alpha(q,g) = q \cdot g, $ such that:
 
 \begin{itemize}
 	\item For all $ q\in Q, $ $ q\cdot e = q $, where $ e $ is the identity element of $ G. $   
@@ -633,12 +636,12 @@ The following definition will require some ideas about group actions over manifo
 
 If this action exists, we say that $ G $ acts on $ Q $ through $ \alpha. $ As a consequence of that definition, we can see that the map $ \alpha_g: Q \rightarrow Q: \ q\mapsto q\cdot g$ is a diffeomorphism for all $ g\in G $, as it is smooth and its inverse is $ \alpha_{g^{-1}}. $
 
-We say that the action $ \alpha $ \textbf{is free (or acts freely on $ Q $)} if $ \alpha_g = \mathbb{1}_{Q} $ (identity map of $ Q $) implies that $ g=e. $ The \textbf{orbit of the action} $ G_q $ for a point $ q\in Q $  is defined as the image of the restriction $\alpha|_{\{q\}\times G},$  that is, $ G_q := \left\{q\cdot g \ | \ g\in G \right\}. $ With the idea of orbits we can construct an equivalence relation over $ Q $ in the following way: $ q\sim p $ if and only if $ G_p = G_q, $ that is, if both points belong to the same orbit, or written explicitly, if there is an element $ g\in G $ such that $ q = p\cdot g. $ The set of all equivalence classes is denoted as $ Q/G $, and is known as the \textbf{orbit space of the action}.     
+We say that the action $ \alpha $ \textit{is free (or that $ G $ acts freely on $ Q $)} if for all $ q\in Q $, $ q\dot g =q$   implies that $ g=e. $ The \textit{orbit $ G_q $ of the action}  for a point $ q\in Q $  is defined as the image of the restriction $\alpha|_{\{q\}\times G},$  that is, $ G_q := \left\{q\cdot g \ | \ g\in G \right\}. $ We can construct an equivalence relation over $ Q $ in the following way: $ q\sim p $ if and only if $ G_p = G_q, $ that is, if both points belong to the same orbit, or written explicitly, if there is an element $ g\in G $ such that $ q = p\cdot g. $ The set of all equivalence classes is denoted as $ Q/G $, and is known as the \textit{orbit space of the action}.     
 
-The orbit space of an action is not, in general, a manifold, but because of the \textbf{quotient manifold theorem} (see \cite{lee2003introduction}, theorem 21.10), it is sufficient to have a free, proper and smooth action in order to guarantee that $ Q/G $ is a topological manifold.
+The orbit space of an action is not, in general, a manifold, but because of the \textit{quotient manifold theorem} (see \cite{lee2003introduction}, theorem 21.10), it is sufficient to have a free, proper and smooth action in order to guarantee that $ Q/G $ is a topological manifold.
 
 \begin{df}
-	The submersion $ \pi: Q \rightarrow M$  is called a \textbf{principal $ G $-bundle} if its is a fiber bundle whose fiber $ G $ is a Lie group, and this group acts on $ Q $ in such a way that the following properties hold:
+	The submersion $ \pi: Q \rightarrow M$  is called a \textit{principal $ G $-bundle} if its is a fiber bundle whose fiber $ G $ is a Lie group, and this group acts on $ Q $ in such a way that the following properties hold:
 	\begin{itemize}
 		\item $ G $ acts freely on $ Q $.
 		\item The action orbits are the fibers of $ \pi:Q \rightarrow {M} $, that is, for all $ m\in M, $ $ \pi^{-1}(m) = G_q, $ with $ q\in Q_m. $ 
@@ -650,19 +653,19 @@ The orbit space of an action is not, in general, a manifold, but because of the 
 From this we can conclude that if $ \pi: Q \rightarrow M $ is a principal $ G- $bundle, then $Q/G  $ is a topological manifold, and $M $ is homeomorphic to $ Q/G $. This homeomorphism $ \phi: M \rightarrow {Q/G}$  is given by $ \phi(m)=[q], $ with $ \pi(q)=m. $ 
 
 \begin{df}[\cite{montgomery2002tour}, page 196]
-	The submersion $ \pi:Q \rightarrow {M}
-	$ with connection $ \mathcal{H} $ is called a \textbf{principal $ \mathbf{G} $-bundle with connection} if it is a principal $ G $-bundle such that the $ G $-action on $ Q $ preserves the horizontal distribution $ \mathcal{H} $ in the sense that $ \mathcal{H}_{q\cdot g} = d(\alpha_g)_q (\mathcal{H}_q), $ for all $ q\in Q, $ $ g\in G $.
+	Given a principal $ G $-bundle $ \pi: Q \rightarrow M, $ we say that a horizontal distribution $ \mathcal{H} $ is a \textit{connection for this principal $ G $-bundle} if it is a connection for $ \pi $ and the $ G $-action on $ Q $ preserves the horizontal distribution $ \mathcal{H} $ in the sense that $ \mathcal{H}_{q\cdot g} = d(\alpha_g)_q (\mathcal{H}_q), $ for all $ q\in Q, $ $ g\in G $. In this case, we say that the pair $ (\pi$, $ \mathcal{H}) $ is a \textit{principal $ G $-bundle with connection}. 
+
 \end{df}
 
-An extremely useful property that any principal $ G $-bundle with connection has is that its connections is an Ehresmann connection, \textit{i.e.}, its complete, as stated in the following result. 
+An extremely useful property that any principal $ G $-bundle with connection is that its connection is an Ehresmann connection, \textit{i.e.}, it is complete, as it is stated in the following result. 
 
 \begin{prop}[\cite{kobayashi1963foundations}, proposition 3.1]\label{prop:comp_bundle}
 	Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection and $ c: I \rightarrow M $ a smooth curve. For an arbitrary $ q\in Q_{c(0)}= G_q $, there is a unique horizontal lift $ \gamma: I \rightarrow Q $ of $ c $ ($\pi\circ\gamma =c$, $ \dot{\gamma}(t)\in \mathcal{H}_{\gamma(t)} $ for all $ t\in I $) that starts from $ q $.    	
 \end{prop}
 
 \begin{df}[\cite{montgomery2002tour}, definition 11.2.1]
-	A subriemannian metric $ (\mathcal{H}, <\cdot,\cdot>) $ on the principal $ G $-bundle $ \pi: Q \rightarrow {M}
-	 $ is called a \textbf{metric of bundle type} if the inner product $ <\cdot,\cdot> $ on $ \mathcal{H}$ is induced from a riemannian metric on $ M. $ 
+	A subriemannian metric $ (\mathcal{H}, <\cdot,\cdot>) $ on the total space of the principal $ G $-bundle $ \pi: Q \rightarrow {M}
+	 $ is called a \textit{metric of bundle type} if the inner product $ <\cdot,\cdot> $ on $ \mathcal{H}$ is induced from a riemannian metric on $ M. $ 
 \end{df}
 
 \subsection{Examples of principal $ G $-bundles}%
@@ -673,15 +676,15 @@ An extremely useful property that any principal $ G $-bundle with connection has
 
 Let $ M$ be a manifold and $ G $ a Lie group. Define the projection onto the first factor $ \pi: M\times G \rightarrow M. $ It is clear that this map is surjective and a submersion. Moreover, it is a fiber bundle, whose local (global) trivialization is the identity map $ \iota : M\times G \rightarrow M\times G $.   
 
-If we define the action $ \alpha: (M\times G) \times G \rightarrow M\times G $ as $ ((p, g),q)\mapsto (p,gq)  $, it is clear that $ G $ acts freely on $ M\times G $, $\iota(p, gh) = \iota(p,g)\cdot h $ (the local trivialization is equivariant with respect to the action) and $ \pi^{-1}(p) = \left\{ p \right\}\times G = G_{(p,g)} $, so that $ \pi $ is a principal $ G $-bundle. A connection for this bundle is simply $ TM $, as the kernel of $ d\pi $ is $ TG $, and $ T(M\times G) = TM\oplus TG.$      
+If we define the action $ \alpha: (M\times G) \times G \rightarrow M\times G $ as $ ((p, g),q)\mapsto (p,gq)  $, it is clear that $ G $ acts freely on $ M\times G $, $\iota(p, gh) = \iota(p,g)\cdot h $ (the local trivialization is equivariant with respect to the action) and $ \pi^{-1}(p) = \left\{ p \right\}\times G = G_{(p,g)} $, so that $ \pi $ is a principal $ G $-bundle. A connection for this bundle is the distribution $ \mathcal{H}_{(p,g)}\subset T(M\times G) $ transverse to the vertical $ V_{(m,g)} \cong T_g G $, that is, the connection is tangent to the foliation $ M\times \left\{ g \right\} $ at every point $ (m,g)\in M\times G. $
 \subsubsection{Hopf Fibration}%
 \label{ssub:hopf_fibration}
 
-All rotations in $ \mathbb{R}^3 $ can be expressed in a simple way with help of quaternions. The set of quaternions is usually denoted as $ \mathbb{H} := \{ a+bi+cj+dj$  $|$  $a,b,c,d\in \mathbb{R} \}, $ and in it we can define sum and product operations. The sum of two quaternions $ a_1+b_1 i +c_1 j  + d_1k $, $ a_2+b_2 i +c_2 j  + d_2k $ is simply $ (a_1+a_2)+(b_1+b_2)i+(c_1+c_2)j+(d_1+d_2)k. $ The product is defined in order to satisfy the distributive property with respect to the sum, and it also satisfies the following rules: 
+All rotations in $ \mathbb{R}^3 $ can be expressed compactly with help of quaternions. The set of quaternions is denoted as $ \mathbb{H} := \{ a+bi+cj+dj$  $|$  $a,b,c,d\in \mathbb{R} \}, $ and in it we can define sum and product operations. The sum of two quaternions $ a_1+b_1 i +c_1 j  + d_1k $, $ a_2+b_2 i +c_2 j  + d_2k $ is $ (a_1+a_2)+(b_1+b_2)i+(c_1+c_2)j+(d_1+d_2)k. $ The product is defined in order to satisfy the distributive property with respect to the sum, and it also satisfies the following rules: 
 $$ i^2=j^2=k^2=-1, \quad ij=-ji=k, jk=-kj=i, ki = -ik=j.  $$ 
 In analogy with the complex plane and its isomorphism with $\mathbb{R}^4$, we define the norm of $ z= a+bi+cj+dk $ as $ |z|=\sqrt{a^2+b^2+c^2+d^2}, $ and the conjugate of $ z $ as $ z^* = a-bi-cj-dk. $ Moreover, every quaternion $ z\neq 0 $ has a multiplicative inverse, given by $ z^{-1} = z^*/|z|^2. $ Every rotation around an axis given by a vector $ \vec{v}=(b,c,d) $ and an angle $ \theta $ can be identified with an unitary quaternion $r = a+bi+cj+dk$ ($|z|=1$),  where $ \theta = 2\arccos(a) $ (see \cite{lyons2003elementary}, page 6). This rotation $ R_r: \mathbb{R}^3 \rightarrow\mathbb{R}^3 $ is given by $ x\mapsto rxr^{-1}= rxr^*$, and $ x $ identified as a pure quaternion, that is, $ x=x_1i+x_2j+x_3k. $ To show explicitly that this map is the desired rotation, one can first show that this linear map preserves norm and the vector $ bi+cj+dk $, that is, it is an eigenvector with eigenvalue 1, so it must be a rotation with respect the axis given by $ (b,c,d) $. The idea of the proof that the rotation angle is $ 2\arccos(a) $ can be found in \cite{lyons2003elementary}, page 6, investigation step 3. 
 
-The set of all unitary quaternions can be identified with $ \mathbb{S}^3 $, so that $ \mathbb{S}^3 $ acts on $ \mathbb{R}^3 $ via rotations. The Hopf projection is defined as the map $ \pi: \mathbb{S}^3 \rightarrow \mathbb{S}^2 $ that sends the point $ (1,0,0) $ (identified as the quaternion $ i $)   to its respective image after rotating $ \mathbb{R}^3 $ with the associated quaternion, as an element of $ \mathbb{S}^3 $. That is, $ \pi(a,b,c,d) = R_r(1,0,0), $ where $ r=a+bi+cj+dk. $  The function $ \pi $ previously defined is surjective, as every point $ x\in\mathbb{S}^2 $ can be reached from $ (1,0,0) $ through an adequate rotation. Explicitly, it suffices to take a normal vector to both $ (1,0,0), x $ as the axis of rotation, and the angle of rotation is the angle between both vectors. 
+The set of all unitary quaternions is $ \mathbb{S}^3 $, so that $ \mathbb{S}^3 $ acts on $ \mathbb{R}^3 $ via rotations. The Hopf projection is defined as the map $ \pi: \mathbb{S}^3 \rightarrow \mathbb{S}^2 $ that sends the point $ (1,0,0) $ (identified as the quaternion $ i $)   to its respective image after rotating $ \mathbb{R}^3 $ with the associated quaternion, as an element of $ \mathbb{S}^3 $. That is, $ \pi(a,b,c,d) = R_r(1,0,0), $ where $ r=a+bi+cj+dk. $  The function $ \pi $ previously defined is surjective, as every point $ x\in\mathbb{S}^2 $ can be reached from $ (1,0,0) $ through an adequate rotation. Explicitly, it suffices to take a normal vector to both $ (1,0,0), x $ as the axis of rotation, and the angle of rotation is the angle between both vectors. 
 
 	If we identify $ \mathbb{R}^4=\mathbb{C}\times \mathbb{C} $ and $ \mathbb{R}^3= \mathbb{R}\times\mathbb{C}  $, Hopf projection from $ \mathbb{S}^3= \{ (z_1,z_2)\  |$ $ \ z_1,z_2\in \mathbb{C}, \ |z_1|^2+|z_2|^2=1 \} $ to $ \mathbb{S}^2 = \{ (x,z)\ | \ z\in \mathbb{C},\ x\in \mathbb{R},\ |z|^2+$ $x^2=1 \} $  can be written as $ \pi: \mathbb{S}^3 \rightarrow { \mathbb{S}^2},$ $ \pi(z_1,z_2) =(|z_1|^2-|z_2|^2, 2z_1z_2^* ),$ because writing explicitly $ rir^{-1} $ with $ r=a+bi+cj+dk $ gives $ (a^2+b^2-c^2-d^2)i+2(ad+bc)j+2(bd-ac)k. $    In this form one can show that this map is a submersion analyzing the minors of the jacobian matrix in cartesian coordinates (see \cite{linintroductory}, proof of theorem 3.11).
 
