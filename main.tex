@@ -23,6 +23,9 @@
 %drawings
 \usepackage{graphicx}
 
+%quotes
+\usepackage{dirtytalk}
+
 %commutative diagrams
 \usepackage[all]{xypic}
 
@@ -98,7 +101,7 @@
 \address{}
 
 
-\title[Posgraduate Project]{Posgraduate Project}
+\title[Elements of sub-Riemannian geometry and its applications]{Elements of sub-Riemannian geometry and its applications}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
@@ -606,10 +609,8 @@ Thanks to the orthogonal algebraic splitting, a compatible riemannian metric is 
 
 \begin{df}
 	Given a riemannian manifold $ (Q, g_Q), \pi: Q \rightarrow {M}
-	$ a submersion, we say that the pair $ (\pi, g_Q) $ is a \textit{riemannian submersion} if the isomorphism $ d\pi_q |_{\mathcal{H}_q} $ is an isometry between $ T_m M $ and $ \mathcal{H}_q ,$ with $ q\in Q_m $. 
+	$ a submersion, we say that the pair $ (\pi, g_Q) $ is a \textit{riemannian submersion} if for every $ m\in M $ and $ q\in Q_m $,  the isomorphism $ d\pi_q |_{\mathcal{H}_q} $ is an isometry between $ \mathcal{H}_q $ and $ T_m M$. 
 \end{df}
-
-The previous definition frees us from the problem of the dependence of the inner product induced on $ T_mM $ by the  vertical space $ V_q $ of the point $ q\in Q_m $ chosen, because the isometry between $ T_mM $ and $ \mathcal{H}_q $ guarantees that the inner product is independent of the element $ q. $
 
 \subsection{Metrics on Principal Bundles}%
 \label{sub:metrics_on_principal_bundles}
@@ -676,7 +677,7 @@ An extremely useful property that any principal $ G $-bundle with connection is 
 
 Let $ M$ be a manifold and $ G $ a Lie group. Define the projection onto the first factor $ \pi: M\times G \rightarrow M. $ It is clear that this map is surjective and a submersion. Moreover, it is a fiber bundle, whose local (global) trivialization is the identity map $ \iota : M\times G \rightarrow M\times G $.   
 
-If we define the action $ \alpha: (M\times G) \times G \rightarrow M\times G $ as $ ((p, g),q)\mapsto (p,gq)  $, it is clear that $ G $ acts freely on $ M\times G $, $\iota(p, gh) = \iota(p,g)\cdot h $ (the local trivialization is equivariant with respect to the action) and $ \pi^{-1}(p) = \left\{ p \right\}\times G = G_{(p,g)} $, so that $ \pi $ is a principal $ G $-bundle. A connection for this bundle is the distribution $ \mathcal{H}_{(p,g)}\subset T(M\times G) $ transverse to the vertical $ V_{(m,g)} \cong T_g G $, that is, the connection is tangent to the foliation $ M\times \left\{ g \right\} $ at every point $ (m,g)\in M\times G. $
+If we define the action $ \alpha: (M\times G) \times G \rightarrow M\times G $ as $ ((p, g),q)\mapsto (p,gq)  $, it is clear that $ G $ acts freely on $ M\times G $, $\iota(p, gh) = \iota(p,g)\cdot h $ (the local trivialization is equivariant with respect to the action) and $ \pi^{-1}(p) = \left\{ p \right\}\times G = G_{(p,g)} $, so that $ \pi $ is a principal $ G $-bundle. A connection for this bundle is the distribution $ \mathcal{H}_{(p,g)}= \operatorname{Ker} d\tilde{\pi}_(p,g)\subset T(M\times G) $, with $ \tilde{\pi}:M\times G \rightarrow G $ the projection onto the second factor.
 \subsubsection{Hopf Fibration}%
 \label{ssub:hopf_fibration}
 
@@ -697,6 +698,82 @@ The set of all unitary quaternions is $ \mathbb{S}^3 $, so that $ \mathbb{S}^3 $
 
 	This principal $ \mathbb{S}^1$-bundle has connection because the kernel of $ d(\pi\circ \alpha_g)_q $ is the same of $ d\pi_q, $ as $ d\alpha_g $ is an isomorphism. Therefore, $ d(\alpha_g)_q ( \mathcal{H}_q) = \mathcal{H}_{q\cdot g}, $ and the $ \mathbb{S}^1 $-action preserves $ \mathcal{H}. $ By proposition \ref{prop:comp_bundle}, this connection $ \mathcal{H} $ is complete.  
  
+\subsection{The main theorem}
+Before proceeding with one of the principal results on subriemannian geometry and metrics on bundles, we need to recall some definitions and important results of symplectic geometry. Therefore, this subsection is dedicated to the study of these prerequisites and to the statement and proof of the \say{main theorem}. To start, we consider what is a symplectic structure, and we develop this idea with help of the cotangent bundle.
+\begin{df}[\cite{arnol2013mathematical}, section 8A]
+	Let $ M $ be an even-dimensional manifold. A \textit{symplectic structure on $ M $ } is a closed non-degenerate differential 2-form $ \omega $ on $ M $, that is, 
+	$$ d\omega=0 \text{ and } \forall \xi \neq 0\ \exists \eta: \ \omega_x(\xi,\eta)\neq0 \ (\xi,\eta\in T_x M).$$ 
+	The pair $ (M,\omega) $ is called a \textit{symplectic manifold}. 
+\end{df}
+
+\begin{ex}[Canonical symplectic structure on $ \mathbb{R}^{2n}$]
+	Consider $ \mathbb{R}^{2n} $ with canonical coordinates $ (q_1,q_2,\dots,q_n,p_1,p_2,\dots,p_n) $. The 2-form $ \omega = dp_i\wedge dq_i $ is closed and non-degenerate, so that the pair $ ( \mathbb{R}^{2n}, dp_i\wedge dq_i) $ is a symplectic manifold.  
+\end{ex}
+
+\begin{df}[\cite{montgomery2002tour}, definition A.4.1]
+	A \textit{Hamiltonian} is a smooth function $ H: M \rightarrow \mathbb{R}, $ where $ (M,\omega) $ is a symplectic manifold.
+\end{df}
+
+\begin{df}[\cite{arnol2013mathematical}, page 203]
+	For each vector $ \xi\in T_mM  $ tangent to a symplectic manifold $ (M,\omega), $ we associate a 1-form $ \omega_\xi\in T^*_mM $ by the formula $$ \omega_\xi(\eta)=\omega(\xi,\eta). $$  
+\end{df}
+
+This last definition induces an isomorphism between $ T_mM $ and $ T^*_mM, $ given by the map $ \xi \mapsto \omega_\xi. $ If $ H: M \rightarrow \mathbb{R} $ is a Hamiltonian, then $ dH = \partial_i H dq^i $ is a differential 1-form on $ M, $ and by the previous isomorphism, at every point $ m\in M $ there is a tangent vector $ (X_H)_m \in T_mM $ such that $ (dH)_m = \omega_{(X_H)_m}. $ 
+
+\begin{df}
+	For a given Hamiltonian $ H: M \rightarrow \mathbb{R} $, the vector field $ X_H\in \mathfrak{X}(M) $ that satisfies $$ dH = \omega(X_H, \cdot) $$ is called \textit{Hamiltonian vector field} for $ H $, or \textit{symplectic gradient} of $ H. $ 
+\end{df}
+
+Over an arbitrary manifold $ M $, we can construct a symplectic manifold using the cotangent bundle. Suppose that $ M $ is an $ n$-dimensional manifold. $ T^*M= \bigsqcup_{p\in M} T^*_p M$ is then a $ 2n $-dimensional manifold. There is a canonical choice of coordinates for this space, namely, given $ x\in M, $ there is a coordinate chart $ (U_x,\phi) $ on $ M $ such that $ q=\phi(x)=(q_1,\dots,q_n)\in \mathbb{R}^n, $ and for a given 1-form $ \alpha\in T_xM,$ in these coordinates we have that $ \alpha=p_i dq_i; $ mixing these two coordinates we get the \textit{canonical coordinates of $ T^*M $}, where a given element $ \alpha\in T^*M $ can be represented locally as the pair of coordinates $ (q,p). $      
+
+\begin{thm}[\cite{arnol2013mathematical}, page 202]
+	The cotangent bundle $ T^*M $ has a natural symplectic structure given in coordinates by $\omega = dq^i\wedge dp_i.$
+\end{thm}
+
+Given that $ (T^*M, \omega = dq^i\wedge dp_i) $ is a symplectic manifold, for a Hamiltonian $ H: T^*M \rightarrow \mathbb{R}, $ there is a vector field $ X_H \in \mathfrak{X}(T^*M) $ such that $ dH = \omega (X_H,\cdot) $. Writing $ X_H $ in coordinates, $ X_H = X_i \partial q^i + X^i \partial p_i, $ and evaluating $ \partial q^j $ and $ \partial p_j $ in $ dH $ gives  
+
+$$ dH(\partial q^j) = \frac{\partial H}{\partial q^j} = \omega(X_H, \partial q^j) = -\omega(\partial q^j, X_H) = -X^j, \text{ and}  $$ 
+$$ dH(\partial p_j) = \frac{\partial H}{\partial p_j} =\omega(X_H, \partial p_j)=X_j, $$ 
+
+so that $ X_H = (\partial H/\partial p_j)\partial q^j - (\partial H / \partial q^j)\partial p_j $, and its integral curves are defined by the following system of differential equations:
+$$ \dot{q^i} = \frac{\partial H}{\partial p_i}, \quad \dot{p_i} =- \frac{\partial H}{\partial p_i}.   $$ 
+This system of differential equations receives the name of \textit{Hamilton's equations for $ H $.} 
+
+\begin{thm}
+The Hamiltonian $ H: T^*M \rightarrow \mathbb{R} $ is constant along the integral curves of the vector field $ X_H. $ 	
+\end{thm}
+
+\begin{proof}
+	Suppose that $ c:I\subseteq \mathbb{R} \rightarrow T^*M $ is an integral curve of $ X_H. $ Then, the composition $ (H\circ c) (t) $ can be differentiated with help of the transition maps on $ T^*M. $ Let $ t\in I, $ and $ (U_{c(t)}, \varphi) $ be a coordinate chart. Then, 
+	%\begin{multline}
+		
+	$$ \frac{d}{dt} (H\circ c)(t) = \frac{d}{dt} \left( \left( H\circ \varphi^{-1} \right)\circ \left( \varphi\circ c \right) \right)(t) = \frac{d(\varphi\circ c)^i}{dt}\cdot \frac{\partial (H\circ \varphi^{-1})}{\partial q^i}= X_H^i \partial_i H $$ $$= dH(X_H)=\omega(X_H, X_H)=0,$$    
+	%\end{multline}
+
+	and $ H $ is constant throughout the curve $ c $, given the skew-symmetry of $ \omega $. 
+\end{proof}
+
+\begin{df}[\cite{montgomery2002tour}, example 2, section A.4]
+	For any vector field $ \xi\in \mathfrak{X}(M), $ we define its momentum function $ P_\xi:T^*M \rightarrow \mathbb{R} $ by
+	$$ P_\xi(q,p)= p(\xi_q). $$ 
+\end{df}
+
+\begin{ex}[\cite{montgomery2002tour}, example 1, section A.4]
+	If $ \xi=\partial q^i\in \mathfrak{X}(M), $ its momentum function will be	
+	$$ P_{\partial q^i}(q,p)=p(\partial q_i) = p_i. $$ 
+	In the other hand, if we take the Hamiltonian $ H(p,q)=p_i, $ we get that $ X_H=\partial q^i. $ This says that the \textit{i}-th momentum generates translation in the \textit{i}-th position variable. 
+\end{ex}
+
+In local coordinates, $ P_\xi = p_i \xi_q^i. $ Computing its Hamilton's equations gives
+$$ \dot{q^i} = \xi_q^i,\quad \dot{p_i} = -p_j \frac{\partial \xi_q^j}{\partial q^i}.  $$ 
+The first Hamilton's equation says that the flow of the Hamiltonian vector field $ X_{P_\xi} $ on $ T^*M $ projects onto the flow of the original vector field $ \xi $ on $ M $ (\cite{montgomery2002tour}, page 278). To understand the second Hamilton's equation, recall that the \textit{cotangent lift} $ \Phi_{T^*}: T^*M \rightarrow T^*M $ of any diffeomorphism $ \Phi : M \rightarrow M $ is given by 
+$$ \Phi_{T^*}(q,p) = (\Phi(q), (\Phi^{-1})^*_{\Phi(q)}(p)), $$ 
+where $ (\Phi^{-1})^* $ is the pullback of $ \Phi^{-1} $, that is,
+$$ (\Phi^{-1})^*_{\Phi(q)}(p)(\eta) = p_q \left( d\Phi^{-1}_{\Phi(q)}(\eta) \right) $$ 
+for every $ \eta\in T_{\Phi(q)}M. $ If $ \Phi_t: M \rightarrow M $ is the flow of the vector field $ \xi, $ then the flow of $ X_{P_\xi} $ is $ (\Phi_t)_{T^*}, $ as
+$$ (\Phi_t)_{T^*}(q,p) = \left( \Phi_t(q), p_q \left( d(\Phi_{-t})_{\Phi(q)}(\cdot) \right) \right), $$ 
+and the first component represents the flow of $ \xi, $ while the second component is in coordinates $ p_i (\partial (\Phi_{-t})^i/\partial q^j)dq^j, $ so differentiating this expression with respect to $ t $ at $ t=0 $ gives $ -p_i (\partial \xi_q^i/\partial q^j)dq^j, $ which is the 1-form whose coordinates are equal to the coordinates on $ p $ of $ X_{P_\xi} $. Therefore, the second Hamilton's equation for $ P_\xi $ asserts that the Hamiltonian flow is the cotangent lift of this flow on the configuration space $ M $ (\cite{montgomery2002tour}, page 278). Summarizing, we have the formula 
+$$ X_{P_\xi} = \frac{d(\Phi_t)_{T^*}}{dt} \Big|_{t=0}.  $$ 
 \bibliographystyle{unsrt}
 \nocite{*}
 \bibliography{mybibliography}
