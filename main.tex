@@ -601,7 +601,7 @@ The restriction of $ d\pi_q $ to $ \mathcal{H}_q $ is a linear isomorphism becau
 	\end{enumerate}
 \end{proof}
 
-\begin{df}
+\begin{df}\label{df:compatible}
 	A riemannian metric on $ Q $ is said to be \textit{compatible} with the induced subriemannian metric if the algebraic splitting $ TQ = V \oplus \mathcal{H} $ is an orthogonal decomposition with respect to the riemannian metric on $ Q$.  
 \end{df}
 
@@ -702,8 +702,8 @@ The set of all unitary quaternions is $ \mathbb{S}^3 $, so that $ \mathbb{S}^3 $
 Before proceeding with one of the principal results on subriemannian geometry and metrics on bundles, we need to recall some definitions and important results of symplectic geometry. Therefore, this subsection is dedicated to the study of these prerequisites and to the statement and proof of the \say{main theorem}. To start, we consider what is a symplectic structure, and we develop this idea with help of the cotangent bundle.
 \begin{df}[\cite{arnol2013mathematical}, section 8A]
 	Let $ M $ be an even-dimensional manifold. A \textit{symplectic structure on $ M $ } is a closed non-degenerate differential 2-form $ \omega $ on $ M $, that is, 
-	$$ d\omega=0 \text{ and } \forall \xi \neq 0\ \exists \eta: \ \omega_x(\xi,\eta)\neq0 \ (\xi,\eta\in T_x M).$$ 
-	The pair $ (M,\omega) $ is called a \textit{symplectic manifold}. 
+	$$ d\omega=0 \text{ and } \forall \xi \neq 0: \ \omega_x(\xi,\cdot)\neq0 \ (\xi\in T_x M).$$ 
+	The non-degeneracy condition is equivalent to say that $ \operatorname{det}(\omega)\neq0 $. The pair $ (M,\omega) $ is called a \textit{symplectic manifold}. 
 \end{df}
 
 \begin{ex}[Canonical symplectic structure on $ \mathbb{R}^{2n}$]
@@ -724,7 +724,7 @@ This last definition induces an isomorphism between $ T_mM $ and $ T^*_mM, $ giv
 	For a given Hamiltonian $ H: M \rightarrow \mathbb{R} $, the vector field $ X_H\in \mathfrak{X}(M) $ that satisfies $$ dH = \omega(X_H, \cdot) $$ is called \textit{Hamiltonian vector field} for $ H $, or \textit{symplectic gradient} of $ H. $ 
 \end{df}
 
-Over an arbitrary manifold $ M $, we can construct a symplectic manifold using the cotangent bundle. Suppose that $ M $ is an $ n$-dimensional manifold. $ T^*M= \bigsqcup_{p\in M} T^*_p M$ is then a $ 2n $-dimensional manifold. There is a canonical choice of coordinates for this space, namely, given $ x\in M, $ there is a coordinate chart $ (U_x,\phi) $ on $ M $ such that $ q=\phi(x)=(q_1,\dots,q_n)\in \mathbb{R}^n, $ and for a given 1-form $ \alpha\in T_xM,$ in these coordinates we have that $ \alpha=p_i dq_i; $ mixing these two coordinates we get the \textit{canonical coordinates of $ T^*M $}, where a given element $ \alpha\in T^*M $ can be represented locally as the pair of coordinates $ (q,p). $      
+Over an arbitrary manifold $ M $, we can construct a symplectic manifold using the cotangent bundle. Suppose that $ M $ is an $ n$-dimensional manifold. $ T^*M= \bigsqcup_{p\in M} T^*_p M$ is then a $ 2n $-dimensional manifold. There is a canonical choice of coordinates for this space, namely, given $ x\in M, $ there is a coordinate chart $ (U_x,\phi) $ on $ M $ such that $ q=\phi(x)=(q_1,\dots,q_n)\in \mathbb{R}^n, $ and for a given 1-form $ \alpha\in T_xM,$ in these coordinates we have that $ \alpha=p_i dq^i; $ mixing these two coordinates we get the \textit{canonical coordinates of $ T^*M $}, where a given element $ \alpha\in T^*M $ can be represented locally as the pair of coordinates $ (q,p). $      
 
 \begin{thm}[\cite{arnol2013mathematical}, page 202]
 	The cotangent bundle $ T^*M $ has a natural symplectic structure given in coordinates by $\omega = dq^i\wedge dp_i.$
@@ -736,10 +736,10 @@ $$ dH(\partial q^j) = \frac{\partial H}{\partial q^j} = \omega(X_H, \partial q^j
 $$ dH(\partial p_j) = \frac{\partial H}{\partial p_j} =\omega(X_H, \partial p_j)=X_j, $$ 
 
 so that $ X_H = (\partial H/\partial p_j)\partial q^j - (\partial H / \partial q^j)\partial p_j $, and its integral curves are defined by the following system of differential equations:
-$$ \dot{q^i} = \frac{\partial H}{\partial p_i}, \quad \dot{p_i} =- \frac{\partial H}{\partial p_i}.   $$ 
+$$ \dot{q^i} = \frac{\partial H}{\partial p_i}, \quad \dot{p_i} =- \frac{\partial H}{\partial q^i}.   $$ 
 This system of differential equations receives the name of \textit{Hamilton's equations for $ H $.} 
 
-\begin{thm}
+\begin{thm}\label{thm:constantCurves}
 The Hamiltonian $ H: T^*M \rightarrow \mathbb{R} $ is constant along the integral curves of the vector field $ X_H. $ 	
 \end{thm}
 
@@ -754,19 +754,19 @@ The Hamiltonian $ H: T^*M \rightarrow \mathbb{R} $ is constant along the integra
 \end{proof}
 
 \begin{df}[\cite{montgomery2002tour}, example 2, section A.4]
-	For any vector field $ \xi\in \mathfrak{X}(M), $ we define its momentum function $ P_\xi:T^*M \rightarrow \mathbb{R} $ by
+	For any vector field $ \xi\in \mathfrak{X}(M), $ we define its \textit{ momentum function $ P_\xi:T^*M \rightarrow \mathbb{R} $} by
 	$$ P_\xi(q,p)= p(\xi_q). $$ 
 \end{df}
 
 \begin{ex}[\cite{montgomery2002tour}, example 1, section A.4]
-	If $ \xi=\partial q^i\in \mathfrak{X}(M), $ its momentum function will be	
+	If $ \xi=\partial q^i\in \mathfrak{X}( \mathbb{R}^n), $ its momentum function will be	
 	$$ P_{\partial q^i}(q,p)=p(\partial q_i) = p_i. $$ 
-	In the other hand, if we take the Hamiltonian $ H(p,q)=p_i, $ we get that $ X_H=\partial q^i. $ This says that the \textit{i}-th momentum generates translation in the \textit{i}-th position variable. 
+	In the other hand, if we take the Hamiltonian $ H(p,q)=p_i, $ we get that $ X_H=\partial q^i. $ 
 \end{ex}
 
 In local coordinates, $ P_\xi = p_i \xi_q^i. $ Computing its Hamilton's equations gives
 $$ \dot{q^i} = \xi_q^i,\quad \dot{p_i} = -p_j \frac{\partial \xi_q^j}{\partial q^i}.  $$ 
-The first Hamilton's equation says that the flow of the Hamiltonian vector field $ X_{P_\xi} $ on $ T^*M $ projects onto the flow of the original vector field $ \xi $ on $ M $ (\cite{montgomery2002tour}, page 278). To understand the second Hamilton's equation, recall that the \textit{cotangent lift} $ \Phi_{T^*}: T^*M \rightarrow T^*M $ of any diffeomorphism $ \Phi : M \rightarrow M $ is given by 
+The first Hamilton's equation says that the flow of the Hamiltonian vector field $ X_{P_\xi} $ on $ T^*M $ projects onto the flow of the original vector field $ \xi $ on $ M $ (\cite{montgomery2002tour}, page 278). To understand the second Hamilton's equation, recall that the \textit{cotangent lift} $ \Phi_{T^*}: T^*M \rightarrow T^*M $ of any diffeomorphism $ \Phi : M \rightarrow M $ is given in coordinates by 
 $$ \Phi_{T^*}(q,p) = (\Phi(q), (\Phi^{-1})^*_{\Phi(q)}(p)), $$ 
 where $ (\Phi^{-1})^* $ is the pullback of $ \Phi^{-1} $, that is,
 $$ (\Phi^{-1})^*_{\Phi(q)}(p)(\eta) = p_q \left( d\Phi^{-1}_{\Phi(q)}(\eta) \right) $$ 
@@ -774,6 +774,90 @@ for every $ \eta\in T_{\Phi(q)}M. $ If $ \Phi_t: M \rightarrow M $ is the flow o
 $$ (\Phi_t)_{T^*}(q,p) = \left( \Phi_t(q), p_q \left( d(\Phi_{-t})_{\Phi(q)}(\cdot) \right) \right), $$ 
 and the first component represents the flow of $ \xi, $ while the second component is in coordinates $ p_i (\partial (\Phi_{-t})^i/\partial q^j)dq^j, $ so differentiating this expression with respect to $ t $ at $ t=0 $ gives $ -p_i (\partial \xi_q^i/\partial q^j)dq^j, $ which is the 1-form whose coordinates are equal to the coordinates on $ p $ of $ X_{P_\xi} $. Therefore, the second Hamilton's equation for $ P_\xi $ asserts that the Hamiltonian flow is the cotangent lift of this flow on the configuration space $ M $ (\cite{montgomery2002tour}, page 278). Summarizing, we have the formula 
 $$ X_{P_\xi} = \frac{d(\Phi_t)_{T^*}}{dt} \Big|_{t=0}.  $$ 
+
+\begin{df}
+	Let $ f,g: T^*M \rightarrow \mathbb{R} $ be two Hamiltonians. We define the \textit{Poisson bracket of $ f $ and $ g $ } as 
+	$$ \left\{ f,g \right\} X_g(f),$$ 
+	where $ X_g  $ is the Hamiltonian vector field associated with $ g. $ 
+\end{df}
+The Poisson bracket is in coordinates
+$$ \left\{ f,g \right\} = \frac{\partial g}{\partial p_i}\frac{\partial f}{\partial q^i} - \frac{\partial g}{\partial q^i} \frac{\partial f}{\partial p_i}.   $$ 
+Another way to write the Poisson bracket of $ f $ and $ g $ using the symplectic form $ \omega $ of $ T^*M $ is the following:
+$$ \left\{ f,g \right\} = df(X_g)=\omega (X_f,X_g). $$ 
+\begin{prop}
+	The Poisson bracket satisfies the following properties:
+	\begin{enumerate}
+		\item $ \left\{ f,g \right\} = -\left\{ g,f \right\},$ 
+		\item $ \left\{ af+bg,h \right\} = a\left\{ f,g \right\}+ b \left\{ g,h \right\} ,   $ 
+		\item $ \left\{ f, \left\{ g,h \right\}  \right\} +\left\{ h, \left\{ f,g \right\}  \right\} + \left\{ g, \left\{ h,f \right\}  \right\} =0, $  
+		\item $ \left\{ f,gh \right\} =g \left\{ f,h \right\} + \left\{ f,g \right\} h,$ 
+	\end{enumerate}
+	where $ f,g,h: T^*M \rightarrow \mathbb{R} $ are Hamiltonians, and $ a,b\in \mathbb{R}. $ 
+\end{prop}
+The first three properties of last proposition guarantee that $ \left( C^\infty(T^*M), \left\{ \cdot,\cdot \right\}  \right) $ is a Lie algebra. The last property ia known as Leibniz identity, because due to it the operator $ f\mapsto \left\{ f,H \right\}  $, with $ H $ a Hamiltonian, is a derivation on $ C^\infty(T^*M): $ 
+
+$$ \left\{ fg,H \right\} =f \left\{ g,H \right\} +g \left\{ f,H \right\} . $$ 
+Therefore, $ f\mapsto \left\{ f,H \right\}  $ is a vector field on $T^*M$: the Hamiltonian vector field of $ H, \ X_H $ (\cite{montgomery2002tour}, page 279).
+
+\begin{prop}[Hamilton's equations in bracket form]
+	If $ c(t) $ is an integral curve for $ X_H $ and $ f\in C^\infty(T^*M) $ is a Hamiltonian, then
+	\begin{equation}\label{eq:HamEq}
+		\frac{d}{dt} \left( f\circ c \right)(t) = \left\{ f,H \right\} (c(t)).
+	\end{equation}
+\end{prop}
+\begin{proof}
+	Identical to the proof of theorem \ref{thm:constantCurves}.
+\end{proof}
+
+We write $ \dot{f}= \left\{ f,H \right\} $ to refer to the expression \eqref{eq:HamEq}, valid for any Hamiltonian $ f. $ Equation \eqref{eq:HamEq} also receives the name of Hamilton's equations, and when $ f $ runs over the canonical coordinates $ q^i,p_i, $ we get the Hamilton's equations previously stated.
+
+\begin{prop}[Poisson bracket of momentum functions]
+	For any two vector fields $ \xi,\eta \in \mathfrak{X}(M) $ with momentum functions $ P_\xi, P_\eta: T^*M \rightarrow \mathbb{R}, $ we have that
+	$$ \left\{ P_\xi,P_\eta \right\} = -P_{[\xi,\eta]}, $$ 
+	where $ [\xi,\eta] $ is the Lie bracket between $ \xi $ and $ \eta, $ and $ P_{[\xi,\eta]} $ is the momentum function of $ [\xi,\eta]\in \mathfrak{X}(M). $  
+\end{prop}
+\begin{proof}
+	Follows directly from calculus in coordinates.
+\end{proof}
+If $ (M,g) $ is a riemannian manifold, we define the \textit{riemannian Hamiltonian} $ H_R: T^*M \rightarrow \mathbb{R} $ as
+$$ H_R(q,p)=\frac{1}{2} g_q(p,p).$$
+In local coordinates, $  H_R(q,p)= g^{ij}(q)p_ip_j/2. $ This Hamiltonian has the following Hamilton's equations:
+$$ \dot{q^i} = \frac{\partial H_R}{\partial p_i} = g^{ij}p_j, \quad \dot{p_i} = - \frac{\partial H}{\partial q^i} = - \frac{1}{2} \frac{\partial g^{jk}(q)}{\partial q^i} p_jp_k. $$ 
+From the first Hamilton equation we deduce that $ p_i = g_{ij}\dot{q^j}, $ and substituting this expression in the second Hamilton equation gives $$ \dot{p_i} = \frac{1}{2} \frac{\partial g_{ml}}{\partial q^i}\dot{q^m}\dot{q^l} ,$$ so that 
+$$ \ddot{q^i} = \frac{\partial g^{ij}(q)}{\partial q^k} \dot{q^k}p_j+ g^{ij}\dot{p_j}= \frac{1}{2} g^{ij} \left( \frac{\partial g_{kl}}{\partial q^j}-2 \frac{\partial g_{jl}}{q^k}   \right)\dot{q^k}\dot{q^l} = -\Gamma_{kl}^i \dot{q^k}\dot{q^l},$$ 
+and $ q $ satisfies the geodesic equation, from where we deduce that the integral curves of $ X_{H_R} $ are geodesics. Moreover, any geodesic $ q(t) $ satisfies Hamilton's equations, given that $ p_i = g_{ij}\dot{q^j}. $ From this discussion we derive the following proposition.
+
+\begin{prop}
+	If $ (M,g) $ is a riemannian manifold, and $ H_R: T^*M \rightarrow \mathbb{R} $ is its riemannian Hamiltonian, $ q(t) $ is a geodesic if and only if $ (q^i(t), g_{ij}(q(t))\dot{q^j}(t)) $ is an integral curve of $ X_{H_R}. $ 
+\end{prop}
+
+\begin{df}[\cite{montgomery2002tour}, definition 1.5.2]
+	If $ M $ is a manifold, and $ \left( \mathcal{H}, <\cdot,\cdot> \right) $ is a subriemannian structure over it, we define the subriemannian Hamiltonian $ H_{sR}: T^*Q \rightarrow \mathbb{R} $ as $$ H_{sR}(p,q)= \frac{1}{2} (p,p)_q, $$   	
+	where $ (\cdot,\cdot) $ is the cometric induced by $ <\cdot,\cdot>. $ 
+\end{df}
+If $ \pi: Q \rightarrow M $ is a submersion, and $ (M,g) $ is a riemannian metric, we know that the submersion induces a subriemannian structure on $ Q, $ $ (\mathcal{H},<\cdot,\cdot>) $, where $ \mathcal{H} $ is the Ehresmann connection associated with $ \pi $, and $ <\cdot,\cdot> $ is defined by the isomorphism $ d\pi_q|_{\mathcal{H}_q}: \mathcal{H}_q \rightarrow T_{\pi(q)}M $ and the metric $ g $ on $ M. $ 
+
+The subriemannian Hamiltonian $ H_{sR}: T^*Q \rightarrow \mathbb{R}$ can be written in terms of the riemannian Hamiltonian $ H_R: T^*M \rightarrow \mathbb{R} $ in the following way: given the splitting $ TQ= \mathcal{H}\oplus V, $ we have that $ T^*Q = \mathcal{H}^* \oplus V^*, $ and so we have the canonical projection $ \operatorname{pr}_1: T^*Q \rightarrow \mathcal{H}^*. $ Now, we define a second projection $ \operatorname{pr}_2: \mathcal{H}^* \rightarrow T^*M $ by the formula $ \operatorname{pr}_2(\alpha)(v)=\alpha(h_q v), $ where $ \alpha\in \mathcal{H}^*_q, $ $ v\in T_{\pi(q)}M, $ and $h_qv$ is the horizontal lift of $ v $ into $ \mathcal{H}_q $ (well-defined and unique, because $ \mathcal{H} $ is an Ehresmann connection).
+\begin{prop}[\cite{montgomery2002tour}, proposition 11.1.5]
+	The induced subriemannian Hamiltonian is given by $H_{sR}= H_R \circ \operatorname{pr_2}\circ \operatorname{pr_1}. $ 
+\end{prop}
+
+\begin{df}
+	Let $ (M,g) $ be a riemannian manifold, and $G $ a Lie group that acts on $ M $ via the application $ \alpha: M\times G \rightarrow M, $ $ \alpha/m,h)= m\cdot h. $ We say that \textit{the metric $ g $ is $ G $-invariant} if  
+	$$ g_{m\cdot h}((d\alpha_h)_m(v),(d\alpha_h)_m(w))=g_m(v,w), $$ 
+	for all $ m\in M, $ $ v,w\in T_mM $ and $ h\in G. $ 
+\end{df}
+
+Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}. $ If $ (\mathcal{H},<\cdot,\cdot>) $ is a metric of bundle type, we say that a metric $ h $ on $ Q $ is a \textit{compatible riemannian metric} if $ h $ is $ G $-invariant and compatible (see definition \ref{df:compatible}). From this definition, it is clear that $ h|_{G_q}: TG_q \oplus TG_q \rightarrow \mathbb{R} $ is a right-invariant metric, and we can use it to define a metric on $ G $ as follows:
+
+Let $ \mathfrak{g}= \operatorname{Lie}(G)=T_eG, $ and $ \operatorname{exp} : \mathfrak{g}\rightarrow G $ be the exponential application. \textit{The infinitesimal generator map for the group action $ \sigma_q: \mathfrak{g}\rightarrow T_qQ $ } is defined as
+$$ \sigma_q(v) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} \left( q\cdot \operatorname{exp} (\epsilon v) \right).$$ 
+
+\begin{df}[\cite{montgomery2002tour}, definition 11.2.3]
+	For a given $ q\in Q, $ the bilinear form on $ \mathfrak{g}, $ $ \mathbb{I}_q: \mathfrak{g}\times \mathfrak{g}\rightarrow \mathbb{R}, $ given by
+	$$ \mathbb{I}_q(v,w) = h_q(\sigma_q v, \sigma_q w) $$ 
+	is called the \textit{moment of inertia tensor at $ q. $ } 
+\end{df}
 \bibliographystyle{unsrt}
 \nocite{*}
 \bibliography{mybibliography}
