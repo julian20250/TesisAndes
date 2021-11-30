@@ -37,11 +37,12 @@
 \usepackage{breqn}
 \usepackage{tikz-cd}
 \usepackage{bbold}
+\usepackage{url}
 % Paragraph Settings:
 %\setlength{\parindent}{1em}
 \setlength{\parskip}{1em}
 % Skip indentation
-%\usepackage{parskip}
+\usepackage{parskip}
 %%%%%%%%%%%%%%%%%
 \newcommand{\incfig}[2][1]{%
     \def\svgwidth{#1\columnwidth}
@@ -384,9 +385,9 @@ With the global Frobenius theorem, one can answer the question at the start of t
 \subsection{Subriemannian Structure and Geodesics}%
 \label{sub:subriemannian_structure_and_geodesics}
 \begin{df}
-	A \textit{subriemannian structure over a manifold} $ M $ is a pair $ (\mathcal{H}, <\cdot,\cdot>)$, where $ \mathcal{H}\subset TM $ is a distribution and $ <\cdot,\cdot> $ is a section of the bundle $ T^0_2 \mathcal{H} \xrightarrow[]{\pi} M, $ whose values are positive definite symmetric bilinear forms (see \cite{hatcher2003vector}, Ch. 1, page 12).
+	A \textit{subriemannian structure over a manifold} $ M $ is a pair $ (\mathcal{H}, \langle\cdot,\cdot\rangle)$, where $ \mathcal{H}\subset TM $ is a distribution and $ \langle\cdot,\cdot\rangle $ is a section of the bundle $ T^0_2 \mathcal{H} \xrightarrow[]{\pi} M, $ whose values are positive definite symmetric bilinear forms (see \cite{hatcher2003vector}, Ch. 1, page 12).
 
-	The distribution $ \mathcal{H} $ is called \textit{horizontal}, and the tensor field $ <\cdot,\cdot> $ is called \textit{metric}.  
+	The distribution $ \mathcal{H} $ is called \textit{horizontal}, and the tensor field $ \langle\cdot,\cdot\rangle $ is called \textit{metric}.  
 \end{df}
 
 Some examples of subriemannian structures are given below.
@@ -395,15 +396,15 @@ Some examples of subriemannian structures are given below.
 \end{ex}
 
 \begin{ex}[Heisenberg Group]\label{ex:heis_group2}
-	The distribution of the Heisenberg group is commented in example \ref{ex:heis_group}. The inner product over a fiber $ \mathcal{H}_{(x,y,z)} $, with $ (x,y,z)\in \mathbb{R}^3 $  is given by $<\cdot,\cdot>:  \mathcal{H}_{(x,y,z)}\times\mathcal{H}_{(x,y,z)} \rightarrow { \mathbb{R} }:(v,w)\mapsto v_1w_1+v_2w_2,$ where $ v=(v_1,v_2,v_3) $ and $ w=(w_1,w_2,w_3). $  
+	The distribution of the Heisenberg group is commented in example \ref{ex:heis_group}. The inner product over a fiber $ \mathcal{H}_{(x,y,z)} $, with $ (x,y,z)\in \mathbb{R}^3 $  is given by $\langle\cdot,\cdot\rangle:  \mathcal{H}_{(x,y,z)}\times\mathcal{H}_{(x,y,z)} \rightarrow { \mathbb{R} }:(v,w)\mapsto v_1w_1+v_2w_2,$ where $ v=(v_1,v_2,v_3) $ and $ w=(w_1,w_2,w_3). $  
 
 \end{ex}
 \begin{ex}[Vector Field over a Manifold]\label{ex:vect_field2}
-	As seen in example \ref{ex:vect_field}, any smooth vector field $ X: M \rightarrow TM$ that does not cancel out in any point determines a distribution.  The fiber inner-product $ <\cdot,\cdot>: \mathcal{H}_p \times \mathcal{H}_p \rightarrow \mathbb{R} $ for $ p\in M $  is given by $<\lambda_1 X_p,\lambda_2 X_p>=\lambda_1 \lambda_2.$
+	As seen in example \ref{ex:vect_field}, any smooth vector field $ X: M \rightarrow TM$ that does not cancel out in any point determines a distribution.  The fiber inner-product $ \langle\cdot,\cdot\rangle: \mathcal{H}_p \times \mathcal{H}_p \rightarrow \mathbb{R} $ for $ p\in M $  is given by $\langle\lambda_1 X_p,\lambda_2 X_p\rangle=\lambda_1 \lambda_2.$
 \end{ex}
 In the particular case of the horizontal curves, one can define the \textit{length of a horizontal smooth curve} $ \gamma $ (denoted by $ \ell(\gamma) $) as in the case of riemannian geometry:
 $$ \ell(\gamma) = \int ||\dot{\gamma}|| dt, $$ 
-since the tangent vectors of the curve at all points are in the fibers of the horizontal distribution, where there is a inner product defined, and $ ||\dot{\gamma}||= \sqrt[]{<\dot{\gamma}, \dot{\gamma}>}.  $   
+since the tangent vectors of the curve at all points are in the fibers of the horizontal distribution, where there is a inner product defined, and $ ||\dot{\gamma}||= \sqrt[]{\langle\dot{\gamma}, \dot{\gamma}\rangle}.  $   
 
 \begin{df}
 	The \textit{distance between two points} $ p,q\in M $, denoted by $ d(p,q), $   is defined as the infimum of the lengths of all absolutely continuous horizontal curves that begin in $ p $ and end in $ q $, that is, 
@@ -414,7 +415,7 @@ The distance between two points is said to be infinite if there is no horizontal
 The curves that are considered in the previous definition of distance are required to be absolutely continuous, that is a weaker condition of smoothness, and refers to a curve that is differentiable in almost all points of its domain. Nevertheless, the distance remains invariant if we consider instead the set of all smooth curves (see \cite{montgomery2002tour}, page 23), but the motivation to consider the bigger set of absolutely continuous curves is the fact that the curves that realize the distance between two points are not always smooth.
 
 \begin{df}
-	Given a subriemannian structure $ (\mathcal{H}, <,>) $ over a manifold $ M $  (or riemannian structure, if $ \mathcal{H}=TM $), it is said that an absolutely continuous horizontal curve $ \gamma:  [a,b] \rightarrow M$, with $ \gamma(a)=p, \gamma(b)=q $ is a \textit{geodesic} if it realizes the distance between $ p $ and $ q $, that is,   
+	Given a subriemannian structure $ (\mathcal{H}, \langle\cdot,\cdot\rangle) $ over a manifold $ M $  (or riemannian structure, if $ \mathcal{H}=TM $), it is said that an absolutely continuous horizontal curve $ \gamma:  [a,b] \rightarrow M$, with $ \gamma(a)=p, \gamma(b)=q $ is a \textit{geodesic} if it realizes the distance between $ p $ and $ q $, that is,   
 	$$ \ell(\gamma)= d(p,q). $$ 
 \end{df}
 
@@ -665,8 +666,8 @@ An extremely useful property that any principal $ G $-bundle with connection is 
 \end{prop}
 
 \begin{df}[\cite{montgomery2002tour}, definition 11.2.1]
-	A subriemannian metric $ (\mathcal{H}, <\cdot,\cdot>) $ on the total space of the principal $ G $-bundle $ \pi: Q \rightarrow {M}
-	 $ is called a \textit{metric of bundle type} if the inner product $ <\cdot,\cdot> $ on $ \mathcal{H}$ is induced from a riemannian metric on $ M. $ 
+	A subriemannian metric $ (\mathcal{H}, \langle\cdot,\cdot\rangle) $ on the total space of the principal $ G $-bundle $ \pi: Q \rightarrow {M}
+	 $ is called a \textit{metric of bundle type} if the inner product $ \langle\cdot,\cdot\rangle $ on $ \mathcal{H}$ is induced from a riemannian metric on $ M. $ 
 \end{df}
 
 \subsection{Examples of principal $ G $-bundles}%
@@ -694,7 +695,7 @@ The set of all unitary quaternions is $ \mathbb{S}^3 $, so that $ \mathbb{S}^3 $
 	With this, $ \mathbb{S}^3 $ can be seen as the disjoint union of these circles, and endowing this disjoint union with the standard manifold structure of $ \mathbb{S}^3 $, we identify $ \mathbb{S}^2 = \mathbb{C}P^1$, and take the open sets $ U_i= \left\{ \left[ z_0 : z_1 \right]\ | \ z_i\neq 0 \right\}$, with $ i=0,1. $ The local trivializations are (see \cite{luke2013vector}, page 68) $ \varphi_i: U_i \times \mathbb{S}^1 \rightarrow \pi^{-1}(U_i), $ $$ \varphi_i([z_0:z_1], \lambda) = \left( \frac{\lambda}{\sqrt{1+|\omega_i|^2}}, \frac{\lambda\omega_i}{\sqrt{1+|\omega_i|^2}}   \right), $$ with $ \omega_0=z_1/z_0 $ and $ \omega_1 = z_0/z_1. $ Now, we define an action $ \alpha: \mathbb{S}^3\times \mathbb{S}^1 \rightarrow { \mathbb{S}^3}
 	$, given by $ \alpha(z_1,z_2,\lambda) = (z_1\lambda, z_2\lambda), $ where $ (z_1,z_2)\in \mathbb{S}^3\subset \mathbb{C}^2 $ and $ \lambda\in \mathbb{S}^1 \subset \mathbb{C}. $ This action acts freely on $ \mathbb{S}^3, $ and its orbits coincide with the fibers of $ \pi, $ so that $ \mathbb{S}^3/ \mathbb{S}^1 \cong \mathbb{S}^2. $ From this point it is clear that the Hopf bundle is a fiber bundle, and its local trivializations are equivariant with respect to the action, as $ \varphi_i([z_0:z_1], \lambda_1\lambda_2) = \varphi_i([z_0:z_1], \lambda_1)\lambda_2. $ Therefore, $ \pi: \mathbb{S}^3 \rightarrow { \mathbb{S}^2} $ is a principal $ \mathbb{S}^1$-bundle.
 
-	To find a connection for this submersion, we recall that, by the preimage of regular value theorem, $ \pi^{-1}(m) = \mathbb{S}^1_q $ is a submanifold of $ \mathbb{S}^3 $, of dimension $ \operatorname{dim}( \mathbb{S}^3)- \operatorname{dim}( \mathbb{S}^2) = 1,  $ and its tangent space (vertical space of the submersion) $ T_q \mathbb{S}^1_q $ is $ \operatorname{Ker}(d\pi_q),  $ and any complementary subspace (with respect to $ T \mathbb{S}^3 $)  to this tangent space would be a connection. Now, if $ \mathbb{S}^3 $ is endowed with the standard riemannian structure, there is only one connection compatible with the metric, and is given by $ \mathcal{H}_q = \operatorname{Ker}(d\pi_q)^\perp. $ The vector that determines $ \operatorname{Ker}(d\pi_q)  $ can be found using the action if we consider the tangent vector of the curve $ \gamma: (-\epsilon, \epsilon) \rightarrow \mathbb{S}^3, $ $ t\mapsto \gamma(z_1,z_2, e^{it})=(z_1e^{it},z_2e^{it}) $ at $ t=0 $, where $ q=(z_1,z_2). $ With this, $ \operatorname{Ker}(d\pi_q) = <(iz_1, iz_2)>,  $ and the connection at $ q\in \mathbb{S}^3 $,  $ \mathcal{H}_q $, will be the orthogonal complement (with respect to $ \mathbb{R}^4 $ provided with the usual norm) of the vector space $ <(iz_1,iz_2), (z_1,z_2)>  {= <(x_1,y_1,x_2,y_2), (-y_1,x_1,-y_2,x_2)>}$, that is, $ \mathcal{H}_q = <(x_2,-y_2,-x_1,y_1),(y_2,x_2,-y_1,-x_1)>, $ where $ q=(x_1+iy_1, x_2+iy_2). $   
+	To find a connection for this submersion, we recall that, by the preimage of regular value theorem, $ \pi^{-1}(m) = \mathbb{S}^1_q $ is a submanifold of $ \mathbb{S}^3 $, of dimension $ \operatorname{dim}( \mathbb{S}^3)- \operatorname{dim}( \mathbb{S}^2) = 1,  $ and its tangent space (vertical space of the submersion) $ T_q \mathbb{S}^1_q $ is $ \operatorname{Ker}(d\pi_q),  $ and any complementary subspace (with respect to $ T \mathbb{S}^3 $)  to this tangent space would be a connection. Now, if $ \mathbb{S}^3 $ is endowed with the standard riemannian structure, there is only one connection compatible with the metric, and is given by $ \mathcal{H}_q = \operatorname{Ker}(d\pi_q)^\perp. $ The vector that determines $ \operatorname{Ker}(d\pi_q)  $ can be found using the action if we consider the tangent vector of the curve $ \gamma: (-\epsilon, \epsilon) \rightarrow \mathbb{S}^3, $ $ t\mapsto \gamma(z_1,z_2, e^{it})=(z_1e^{it},z_2e^{it}) $ at $ t=0 $, where $ q=(z_1,z_2). $ With this, $ \operatorname{Ker}(d\pi_q) = \langle(iz_1, iz_2)\rangle,  $ and the connection at $ q\in \mathbb{S}^3 $,  $ \mathcal{H}_q $, will be the orthogonal complement (with respect to $ \mathbb{R}^4 $ provided with the usual norm) of the vector space $ \langle(iz_1,iz_2), (z_1,z_2)\rangle  {= \langle(x_1,y_1,x_2,y_2), (-y_1,x_1,-y_2,x_2)\rangle}$, that is, $ \mathcal{H}_q = \langle(x_2,-y_2,-x_1,y_1),(y_2,x_2,-y_1,-x_1)\rangle, $ where $ q=(x_1+iy_1, x_2+iy_2). $   
 
 	This principal $ \mathbb{S}^1$-bundle has connection because the kernel of $ d(\pi\circ \alpha_g)_q $ is the same of $ d\pi_q, $ as $ d\alpha_g $ is an isomorphism. Therefore, $ d(\alpha_g)_q ( \mathcal{H}_q) = \mathcal{H}_{q\cdot g}, $ and the $ \mathbb{S}^1 $-action preserves $ \mathcal{H}. $ By proposition \ref{prop:comp_bundle}, this connection $ \mathcal{H} $ is complete.  
  
@@ -730,6 +731,10 @@ Over an arbitrary manifold $ M $, we can construct a symplectic manifold using t
 	The cotangent bundle $ T^*M $ has a natural symplectic structure given in coordinates by $\omega = dq^i\wedge dp_i.$
 \end{thm}
 
+\begin{proof}
+	Let $ \xi\in T_p \left( T^*M \right)  $ be a vector tangent to the cotangent bundle at $ p\in T^*_x M. $ If $ \pi:T^*M \rightarrow M $ is the natural projection, the derivative $ d\pi : T \left( T^*M \right) \rightarrow TM $ takes $ \xi $ to $ d\pi(\xi)=(\pi(p), d\pi_p(\xi))=(x,d\pi_p(\xi)), $ which is a vector tangent to $ M $ at $ x. $ We define a 1-form $ \theta $ on $ T^*M $ by the relation $ \theta(\xi)=p(d\pi_p(\xi)). $ In local coordinates this form is $ \theta= p_i dq^i, $ and the form $ \omega = d\theta $ is non-degenerate. 
+\end{proof}
+
 Given that $ (T^*M, \omega = dq^i\wedge dp_i) $ is a symplectic manifold, for a Hamiltonian $ H: T^*M \rightarrow \mathbb{R}, $ there is a vector field $ X_H \in \mathfrak{X}(T^*M) $ such that $ dH = \omega (X_H,\cdot) $. Writing $ X_H $ in coordinates, $ X_H = X_i \partial q^i + X^i \partial p_i, $ and evaluating $ \partial q^j $ and $ \partial p_j $ in $ dH $ gives  
 
 $$ dH(\partial q^j) = \frac{\partial H}{\partial q^j} = \omega(X_H, \partial q^j) = -\omega(\partial q^j, X_H) = -X^j, \text{ and}  $$ 
@@ -737,7 +742,7 @@ $$ dH(\partial p_j) = \frac{\partial H}{\partial p_j} =\omega(X_H, \partial p_j)
 
 so that $ X_H = (\partial H/\partial p_j)\partial q^j - (\partial H / \partial q^j)\partial p_j $, and its integral curves are defined by the following system of differential equations:
 $$ \dot{q^i} = \frac{\partial H}{\partial p_i}, \quad \dot{p_i} =- \frac{\partial H}{\partial q^i}.   $$ 
-This system of differential equations receives the name of \textit{Hamilton's equations for $ H $.} 
+This system of differential equations receives the name of \textit{Hamilton equations for $ H $.} Despite this formulation on the cotangent bundle came centuries after Hamilton, these equations are known by its name because of the similarities of their form with the ones that are obtained using the generalized momentums instead of the classical velocity and position variables in classical mechanics. Moreover, this method turns out to be a generalization of Hamiltonian mechanics to arbitrary spaces and energy functions.
 
 \begin{thm}\label{thm:constantCurves}
 The Hamiltonian $ H: T^*M \rightarrow \mathbb{R} $ is constant along the integral curves of the vector field $ X_H. $ 	
@@ -764,20 +769,20 @@ The Hamiltonian $ H: T^*M \rightarrow \mathbb{R} $ is constant along the integra
 	In the other hand, if we take the Hamiltonian $ H(p,q)=p_i, $ we get that $ X_H=\partial q^i. $ 
 \end{ex}
 
-In local coordinates, $ P_\xi = p_i \xi_q^i. $ Computing its Hamilton's equations gives
+In local coordinates, $ P_\xi = p_i \xi_q^i. $ Computing its Hamilton equations gives
 $$ \dot{q^i} = \xi_q^i,\quad \dot{p_i} = -p_j \frac{\partial \xi_q^j}{\partial q^i}.  $$ 
-The first Hamilton's equation says that the flow of the Hamiltonian vector field $ X_{P_\xi} $ on $ T^*M $ projects onto the flow of the original vector field $ \xi $ on $ M $ (\cite{montgomery2002tour}, page 278). To understand the second Hamilton's equation, recall that the \textit{cotangent lift} $ \Phi_{T^*}: T^*M \rightarrow T^*M $ of any diffeomorphism $ \Phi : M \rightarrow M $ is given in coordinates by 
-$$ \Phi_{T^*}(q,p) = (\Phi(q), (\Phi^{-1})^*_{\Phi(q)}(p)), $$ 
+The first Hamilton equation says that the flow of the Hamiltonian vector field $ X_{P_\xi} $ on $ T^*M $ projects onto the flow of the original vector field $ \xi $ on $ M $ (\cite{montgomery2002tour}, page 278). To understand the second Hamilton equation, recall that the \textit{cotangent lift} $ \Phi_{T^*}: T^*M \rightarrow T^*M $ of any diffeomorphism $ \Phi : M \rightarrow M $ is given by 
+$$ \Phi_{T^*}(q,p) = (\Phi(q), (\Phi^{-1})^*_{\Phi(q)}(p)),\ p\in T^*_qM,$$ 
 where $ (\Phi^{-1})^* $ is the pullback of $ \Phi^{-1} $, that is,
 $$ (\Phi^{-1})^*_{\Phi(q)}(p)(\eta) = p_q \left( d\Phi^{-1}_{\Phi(q)}(\eta) \right) $$ 
 for every $ \eta\in T_{\Phi(q)}M. $ If $ \Phi_t: M \rightarrow M $ is the flow of the vector field $ \xi, $ then the flow of $ X_{P_\xi} $ is $ (\Phi_t)_{T^*}, $ as
 $$ (\Phi_t)_{T^*}(q,p) = \left( \Phi_t(q), p_q \left( d(\Phi_{-t})_{\Phi(q)}(\cdot) \right) \right), $$ 
-and the first component represents the flow of $ \xi, $ while the second component is in coordinates $ p_i (\partial (\Phi_{-t})^i/\partial q^j)dq^j, $ so differentiating this expression with respect to $ t $ at $ t=0 $ gives $ -p_i (\partial \xi_q^i/\partial q^j)dq^j, $ which is the 1-form whose coordinates are equal to the coordinates on $ p $ of $ X_{P_\xi} $. Therefore, the second Hamilton's equation for $ P_\xi $ asserts that the Hamiltonian flow is the cotangent lift of this flow on the configuration space $ M $ (\cite{montgomery2002tour}, page 278). Summarizing, we have the formula 
+and the first component represents the flow of $ \xi, $ while the second component is in coordinates $ p_i (\partial (\Phi_{-t})^i/\partial q^j)dq^j, $ so differentiating this expression with respect to $ t $ at $ t=0 $ gives $ -p_i (\partial \xi_q^i/\partial q^j)dq^j, $ which is the 1-form whose coordinates are equal to the coordinates on $ p $ of $ X_{P_\xi} $. Therefore, the second Hamilton equation for $ P_\xi $ asserts that the Hamiltonian flow is the cotangent lift of this flow on the configuration space $ M $ (\cite{montgomery2002tour}, page 278). Summarizing, we have the formula 
 $$ X_{P_\xi} = \frac{d(\Phi_t)_{T^*}}{dt} \Big|_{t=0}.  $$ 
 
 \begin{df}
-	Let $ f,g: T^*M \rightarrow \mathbb{R} $ be two Hamiltonians. We define the \textit{Poisson bracket of $ f $ and $ g $ } as 
-	$$ \left\{ f,g \right\} X_g(f),$$ 
+	Let $ f,g: T^*M \rightarrow \mathbb{R} $ be two observables. We define the \textit{Poisson bracket of $ f $ and $ g $ } as 
+	$$ \left\{ f,g \right\}= X_g(f),$$ 
 	where $ X_g  $ is the Hamiltonian vector field associated with $ g. $ 
 \end{df}
 The Poisson bracket is in coordinates
@@ -792,24 +797,39 @@ $$ \left\{ f,g \right\} = df(X_g)=\omega (X_f,X_g). $$
 		\item $ \left\{ f, \left\{ g,h \right\}  \right\} +\left\{ h, \left\{ f,g \right\}  \right\} + \left\{ g, \left\{ h,f \right\}  \right\} =0, $  
 		\item $ \left\{ f,gh \right\} =g \left\{ f,h \right\} + \left\{ f,g \right\} h,$ 
 	\end{enumerate}
-	where $ f,g,h: T^*M \rightarrow \mathbb{R} $ are Hamiltonians, and $ a,b\in \mathbb{R}. $ 
+	where $ f,g,h: T^*M \rightarrow \mathbb{R} $ are observables, and $ a,b\in \mathbb{R}. $ 
 \end{prop}
+\begin{proof}
+	(\cite{poisson}, proof of proposition 1.3) Properties 1,2,3 and 4 are trivial. The third property, known as the \textit{Jacobi identity},  is equivalent to the fact that $ \omega $ is a closed form ($ d\omega =0 $), as will be shown next. Recall that $$ d\chi(X,Y,Z)=X\chi(Y,Z)-Y\chi(X,Z)+Z\chi(X,Y)-\chi([X,Y],Z)+\chi([X,Z],Y)-\chi([Y,Z],X) $$ 
+	for any 2-form $ \chi $ and $ X,Y,Z\in \mathfrak{X}(T^*M). $ Therefore, 
+	
+
+$\begin{aligned}
+	d \omega\left(X_{f}, X_{g}, X_{h}\right) &=X_{f}\{g, h\}-X_{g}\{f, h\}+X_{h}\{f, g\}+\left[X_{f}, X_{g}\right] h-\left[X_{f}, X_{h}\right] g+\left[X_{g}, X_{h}\right] f \\
+&=\{f,\{g, h\}\}-\{g,\{f, h\}\}+\{h,\{f, g\}\}+\{f,\{g, h\}\}-\{g,\{f, h\}\} \\
+&-\{f,\{h, g\}\}+\{h,\{f, g\}\}+\{g,\{h, f\}\}-\{h,\{g, f\}\} \\
+&=3 \left( \left\{ f, \left\{ g,h \right\}  \right\} +\left\{ h, \left\{ f,g \right\}  \right\} + \left\{ g, \left\{ h,f \right\}  \right\}\right).  
+\end{aligned}$
+
+From the last expression it is clear that $ d\omega=0 $ is equivalent to the Jacobi identity.
+\end{proof}
 The first three properties of last proposition guarantee that $ \left( C^\infty(T^*M), \left\{ \cdot,\cdot \right\}  \right) $ is a Lie algebra. The last property ia known as Leibniz identity, because due to it the operator $ f\mapsto \left\{ f,H \right\}  $, with $ H $ a Hamiltonian, is a derivation on $ C^\infty(T^*M): $ 
 
 $$ \left\{ fg,H \right\} =f \left\{ g,H \right\} +g \left\{ f,H \right\} . $$ 
 Therefore, $ f\mapsto \left\{ f,H \right\}  $ is a vector field on $T^*M$: the Hamiltonian vector field of $ H, \ X_H $ (\cite{montgomery2002tour}, page 279).
 
-\begin{prop}[Hamilton's equations in bracket form]
-	If $ c(t) $ is an integral curve for $ X_H $ and $ f\in C^\infty(T^*M) $ is a Hamiltonian, then
+\begin{prop}[Hamilton equations in bracket form]
+	If $ c(t) $ is an integral curve for $ X_H $ and $ f\in C^\infty(T^*M) $ is an observable, then
 	\begin{equation}\label{eq:HamEq}
 		\frac{d}{dt} \left( f\circ c \right)(t) = \left\{ f,H \right\} (c(t)).
 	\end{equation}
 \end{prop}
 \begin{proof}
-	Identical to the proof of theorem \ref{thm:constantCurves}.
+	Following the steps of the proof of theorem \ref{thm:constantCurves}, we obtain that
+	$$ \frac{d}{dt} \left( f\circ c \right) (t)=\omega(X_f, X_H)= \left\{ f,H \right\}(c(t)).  $$ 
 \end{proof}
 
-We write $ \dot{f}= \left\{ f,H \right\} $ to refer to the expression \eqref{eq:HamEq}, valid for any Hamiltonian $ f. $ Equation \eqref{eq:HamEq} also receives the name of Hamilton's equations, and when $ f $ runs over the canonical coordinates $ q^i,p_i, $ we get the Hamilton's equations previously stated.
+We write $ \dot{f}= \left\{ f,H \right\} $ to refer to the expression \eqref{eq:HamEq}, valid for any observable $ f. $ Equation \eqref{eq:HamEq} also receives the name of Hamilton equations, and when $ f $ runs over the canonical coordinates $ q^i,p_i, $ we get the Hamilton equations previously stated.
 
 \begin{prop}[Poisson bracket of momentum functions]
 	For any two vector fields $ \xi,\eta \in \mathfrak{X}(M) $ with momentum functions $ P_\xi, P_\eta: T^*M \rightarrow \mathbb{R}, $ we have that
@@ -821,21 +841,28 @@ We write $ \dot{f}= \left\{ f,H \right\} $ to refer to the expression \eqref{eq:
 \end{proof}
 If $ (M,g) $ is a riemannian manifold, we define the \textit{riemannian Hamiltonian} $ H_R: T^*M \rightarrow \mathbb{R} $ as
 $$ H_R(q,p)=\frac{1}{2} g_q(p,p).$$
-In local coordinates, $  H_R(q,p)= g^{ij}(q)p_ip_j/2. $ This Hamiltonian has the following Hamilton's equations:
+In local coordinates, $  H_R(q,p)= g^{ij}(q)p_ip_j/2. $ This Hamiltonian has the following Hamilton equations:
 $$ \dot{q^i} = \frac{\partial H_R}{\partial p_i} = g^{ij}p_j, \quad \dot{p_i} = - \frac{\partial H}{\partial q^i} = - \frac{1}{2} \frac{\partial g^{jk}(q)}{\partial q^i} p_jp_k. $$ 
 From the first Hamilton equation we deduce that $ p_i = g_{ij}\dot{q^j}, $ and substituting this expression in the second Hamilton equation gives $$ \dot{p_i} = \frac{1}{2} \frac{\partial g_{ml}}{\partial q^i}\dot{q^m}\dot{q^l} ,$$ so that 
 $$ \ddot{q^i} = \frac{\partial g^{ij}(q)}{\partial q^k} \dot{q^k}p_j+ g^{ij}\dot{p_j}= \frac{1}{2} g^{ij} \left( \frac{\partial g_{kl}}{\partial q^j}-2 \frac{\partial g_{jl}}{q^k}   \right)\dot{q^k}\dot{q^l} = -\Gamma_{kl}^i \dot{q^k}\dot{q^l},$$ 
-and $ q $ satisfies the geodesic equation, from where we deduce that the integral curves of $ X_{H_R} $ are geodesics. Moreover, any geodesic $ q(t) $ satisfies Hamilton's equations, given that $ p_i = g_{ij}\dot{q^j}. $ From this discussion we derive the following proposition.
+and $ q $ satisfies the geodesic equation, from where we deduce that the integral curves of $ X_{H_R} $ are geodesics. Moreover, any geodesic $ q(t) $ satisfies Hamilton equations, given that $ p_i = g_{ij}\dot{q^j}. $ From this discussion we derive the following proposition.
 
 \begin{prop}
 	If $ (M,g) $ is a riemannian manifold, and $ H_R: T^*M \rightarrow \mathbb{R} $ is its riemannian Hamiltonian, $ q(t) $ is a geodesic if and only if $ (q^i(t), g_{ij}(q(t))\dot{q^j}(t)) $ is an integral curve of $ X_{H_R}. $ 
 \end{prop}
 
+Recall that given a riemannian manifold $ (M,g), $ we can construct a metric $ g^*_q $  over every cotangent fiber $ T^*_q M, $ using the identification
+$$ g^*_q(v^*,w^*):=g_q(v,w), $$ 
+where $ v^*,w^*\in T^*_qM, $ and $ v,w\in T_qM $ are the preimages of $ v^*,w^* $ via the isomorphism $ T^*_qM\cong T_qM $ induced by the metric $ g $, that is, $ v^*=g_q(v,\cdot) $ and $ w^*=g_q(w,\cdot) $. In coordinates, if $ g_q=g_{ij}(q) $, then $ g^*_q=g^{ij}(q), $ that is, the representation in coordinates of the metric in the cotangent fiber is equivalent to the inverse matrix of the representation in coordinates of the metric in the tangent fiber.   
+
+Now, if $ M $ is a manifold with a subriemannian structure $ \left( \mathcal{H}, \langle \cdot,\cdot \rangle \right)  $ over it, we can define a \textit{cometric}, that is just a metric over the fibers of the cotangent bundle as follows. Given that $ \langle \cdot,\cdot \rangle_q $ is a metric for $ \mathcal{H}_q, $ for any $ v^*\in T^*_qM $ there exists a single $ V\in \mathcal{H}_q $ such that $ v^*|_{\mathcal{H}_q} = \langle V,\cdot \rangle_q $. With this property, we can define the cometric $ (\cdot,\cdot)\in \mathfrak{X}_2^0(M) $ as a bilinear form (in general it is not a metric) over the fibers of the cotangent space as follows:
+$$ (v^*,w^*)_q= \langle V,W \rangle_q, $$ 
+where $ v^*,w^*\in T^*_qM $, and $ V,W\in \mathcal{H}_q $ are such that $ v^*|_{\mathcal{H}_q}= \langle V,\cdot \rangle_q, $ $ w^*|_{\mathcal{H}_q}= \langle W,\cdot \rangle_q. $ 
 \begin{df}[\cite{montgomery2002tour}, definition 1.5.2]
-	If $ M $ is a manifold, and $ \left( \mathcal{H}, <\cdot,\cdot> \right) $ is a subriemannian structure over it, we define the subriemannian Hamiltonian $ H_{sR}: T^*Q \rightarrow \mathbb{R} $ as $$ H_{sR}(p,q)= \frac{1}{2} (p,p)_q, $$   	
-	where $ (\cdot,\cdot) $ is the cometric induced by $ <\cdot,\cdot>. $ 
+	If $ M $ is a manifold, and $ \left( \mathcal{H}, \langle\cdot,\cdot\rangle \right) $ is a subriemannian structure over it, we define the subriemannian Hamiltonian $ H_{sR}: T^*M \rightarrow \mathbb{R} $ as $$ H_{sR}(p,q)= \frac{1}{2} (p,p)_q, $$   	
+	where $ (\cdot,\cdot) $ is the cometric induced by $ \langle\cdot,\cdot\rangle. $ 
 \end{df}
-If $ \pi: Q \rightarrow M $ is a submersion, and $ (M,g) $ is a riemannian metric, we know that the submersion induces a subriemannian structure on $ Q, $ $ (\mathcal{H},<\cdot,\cdot>) $, where $ \mathcal{H} $ is the Ehresmann connection associated with $ \pi $, and $ <\cdot,\cdot> $ is defined by the isomorphism $ d\pi_q|_{\mathcal{H}_q}: \mathcal{H}_q \rightarrow T_{\pi(q)}M $ and the metric $ g $ on $ M. $ 
+If $ \pi: Q \rightarrow M $ is a submersion, and $ (M,g) $ is a riemannian metric, we know that the submersion induces a subriemannian structure on $ Q, $ $ (\mathcal{H},\langle\cdot,\cdot\rangle) $, where $ \mathcal{H} $ is the Ehresmann connection associated with $ \pi $, and $ \langle\cdot,\cdot\rangle $ is defined by the isomorphism $ d\pi_q|_{\mathcal{H}_q}: \mathcal{H}_q \rightarrow T_{\pi(q)}M $ and the metric $ g $ on $ M. $ 
 
 The subriemannian Hamiltonian $ H_{sR}: T^*Q \rightarrow \mathbb{R}$ can be written in terms of the riemannian Hamiltonian $ H_R: T^*M \rightarrow \mathbb{R} $ in the following way: given the splitting $ TQ= \mathcal{H}\oplus V, $ we have that $ T^*Q = \mathcal{H}^* \oplus V^*, $ and so we have the canonical projection $ \operatorname{pr}_1: T^*Q \rightarrow \mathcal{H}^*. $ Now, we define a second projection $ \operatorname{pr}_2: \mathcal{H}^* \rightarrow T^*M $ by the formula $ \operatorname{pr}_2(\alpha)(v)=\alpha(h_q v), $ where $ \alpha\in \mathcal{H}^*_q, $ $ v\in T_{\pi(q)}M, $ and $h_qv$ is the horizontal lift of $ v $ into $ \mathcal{H}_q $ (well-defined and unique, because $ \mathcal{H} $ is an Ehresmann connection).
 \begin{prop}[\cite{montgomery2002tour}, proposition 11.1.5]
@@ -843,12 +870,12 @@ The subriemannian Hamiltonian $ H_{sR}: T^*Q \rightarrow \mathbb{R}$ can be writ
 \end{prop}
 
 \begin{df}
-	Let $ (M,g) $ be a riemannian manifold, and $G $ a Lie group that acts on $ M $ via the application $ \alpha: M\times G \rightarrow M, $ $ \alpha/m,h)= m\cdot h. $ We say that \textit{the metric $ g $ is $ G $-invariant} if  
+	Let $ (M,g) $ be a riemannian manifold, and $G $ a Lie group that acts on $ M $ via the application $ \alpha: M\times G \rightarrow M, $ $ \alpha(m,h)= m\cdot h. $ We say that \textit{the metric $ g $ is $ G $-invariant} if  
 	$$ g_{m\cdot h}((d\alpha_h)_m(v),(d\alpha_h)_m(w))=g_m(v,w), $$ 
 	for all $ m\in M, $ $ v,w\in T_mM $ and $ h\in G. $ 
 \end{df}
 
-Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}. $ If $ (\mathcal{H},<\cdot,\cdot>) $ is a metric of bundle type, we say that a metric $ h $ on $ Q $ is a \textit{compatible riemannian metric} if $ h $ is $ G $-invariant and compatible (see definition \ref{df:compatible}). From this definition, it is clear that $ h|_{G_q}: TG_q \oplus TG_q \rightarrow \mathbb{R} $ is a right-invariant metric, and we can use it to define a metric on $ G $ as follows:
+Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}. $ If $ (\mathcal{H},\langle\cdot,\cdot\rangle) $ is a metric of bundle type, we say that a metric $ h $ on $ Q $ is a \textit{compatible riemannian metric} if $ h $ is $ G $-invariant and compatible (see definition \ref{df:compatible}). From this definition, it is clear that $ h|_{G_q}: TG_q \oplus TG_q \rightarrow \mathbb{R} $ is a right-invariant metric, and we can use it to define a metric on $ G $ as follows:
 
 Let $ \mathfrak{g}= \operatorname{Lie}(G)=T_eG, $ and $ \operatorname{exp} : \mathfrak{g}\rightarrow G $ be the exponential application. \textit{The infinitesimal generator map for the group action $ \sigma_q: \mathfrak{g}\rightarrow T_qQ $ } is defined as
 $$ \sigma_q(v) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} \left( q\cdot \operatorname{exp} (\epsilon v) \right).$$ 
