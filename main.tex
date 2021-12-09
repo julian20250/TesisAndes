@@ -885,6 +885,47 @@ $$ \sigma_q(v) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} \left( q\cdot \operatorn
 	$$ \mathbb{I}_q(v,w) = h_q(\sigma_q v, \sigma_q w) $$ 
 	is called the \textit{moment of inertia tensor at $ q. $ } 
 \end{df}
+
+Recall that for a Lie Group $ G $, the map $ \operatorname{ad}_g: G \rightarrow G  $ given by $ h\mapsto ghg^{-1} $ is a diffeomorphism, and its differential at identity, $ d( \operatorname{ad}_g )_e $,  is denoted as $ \operatorname{Ad}_g: \mathfrak{g}\rightarrow \mathfrak{g} $. 
+
+\begin{prop}
+	The family of maps $ \left\{ \sigma_q \right\}_{q\in Q} $ satisfies the following property:
+	$$ \sigma_{q\cdot g} = d(\alpha_g)_q\circ \sigma_q \circ \operatorname{Ad}_g,$$ 
+	where $ \alpha: Q\times G \rightarrow Q $ is the action of $ G $ on $ Q. $ 
+\end{prop}
+\begin{proof}
+	Let $ \gamma:(-\epsilon,\epsilon) \rightarrow G $ be the one parameter group such that $ \gamma(0)=e, $ $ \dot{\gamma}(0)=\xi\in \mathfrak{g}. $ Then, $ \operatorname{Ad}_g \left( \xi \right) = d/dt|_{t=0}(g\gamma(t)g^{-1}), $ and evaluating this on $ \sigma_q $ gives
+
+	$$ \sigma_q \left( \frac{d}{dt} \Big|_{t=0} \left( g\gamma(t)g^{-1} \right)  \right) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} q\cdot \operatorname{exp} \left( \epsilon \frac{d}{dt} \Big|_{t=0} g\gamma(t)g^{-1} \right) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} q\cdot g\gamma(\epsilon)g^{-1}. $$ 
+	Finally, if we evaluate this on $ d(\alpha_g)_q, $ we get that
+	\begin{dmath*}
+	d(\alpha_g)_q \left( \frac{d}{d\epsilon} \Big|_{\epsilon=0} q\cdot g\gamma(\epsilon)g^{-1} \right) = \frac{d}{d\epsilon} \Big|_{\epsilon=0}  q \cdot g\gamma(\epsilon)= \frac{d}{d\epsilon} \Big|_{\epsilon=0} q\cdot g \operatorname{exp} \left( \epsilon\xi \right) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} (q\cdot g) \cdot \operatorname{exp} (\epsilon\xi)= \sigma_{q\cdot g}(\xi). 
+	\end{dmath*}
+\end{proof}
+
+Thanks to the last proposition and the fact that $ h $ is $ G $-invariant, we have that
+\begin{dmath*}
+	\mathbb{I}_{q\cdot g}(v,w)= h_{q\cdot g} \left( d(\alpha_g)_q\circ \sigma_q \circ \operatorname{Ad}_g(v),d(\alpha_g)_q\circ \sigma_q \circ \operatorname{Ad}_g(w) \right) = h_q \left( \sigma_q \left( \operatorname{Ad}_g \left( v \right)   \right),\left( \operatorname{Ad}_g \left( w \right)   \right)  \right) = \mathbb{I}_q \left( \operatorname{Ad}_g(v), \operatorname{Ad}_g(w) \right).
+\end{dmath*}
+
+\begin{df}
+	Let $ G $ be a Lie group. A bilinear form $ \beta \in \mathfrak{X}^2_0(\mathfrak{g}) $ is called \textit{bi-invariant} or \textit{adjoint invariant} if
+	$$ \beta \left( \operatorname{Ad}_g v, \operatorname{Ad}_g w \right) = \beta(v,w) \text{ for all }g\in G,\ v,w\in \mathfrak{g}. $$ 
+\end{df}
+
+Any bilinear form $ \beta\in \mathfrak{X}^2_0( \mathfrak{g}) $ can be extended to all $ TG $ using left or right translations $ L_g: G \rightarrow G, h \mapsto gh, $ $ R_g: G \rightarrow G, h \mapsto hg $ in the following way:
+$$ \beta_g (v,w) = \beta \left( d (L_{g^{-1}})_g(v),d (L_{g^{-1}})_g(w) \right), \text{ or}  $$ 
+$$ \beta_g (v,w) = \beta \left( d (R_{g^{-1}})_g(v),d (R_{g^{-1}})_g(w) \right),  $$ 
+for all $ g\in G $, $ v,w\in T_g G. $ If $ \beta $ is bi-invariant, both extensions coincide, because
+\begin{dmath*}
+	\beta \left( d (R_{g^{-1}})_g(v),d (R_{g^{-1}})_g(w) \right) =    \beta \left( d (R_{g^{-1}})_g\circ d(L_g)_e\circ d(L_{g^{-1}})_g(v),d (R_{g^{-1}})_g\circ d(L_g)_e\circ d(L_{g^{-1}})_g(w) \right) = \beta \left( \operatorname{Ad}_g\circ d(L_g^{-1})_g(v),\operatorname{Ad}_g\circ d(L_g^{-1})_g(w) \right) = \beta \left( d (L_{g^{-1}})_g(v),d (L_{g^{-1}})_g(w) \right). 
+\end{dmath*}
+Therefore, an adjoint invariant bilinear form on the Lie algebra defines a \textit{bi-invariant riemannian metric on $ G $,} provided that this form is positive definite.
+
+\begin{df}
+	[\cite{montgomery2002tour}, definition 11.2.4] The $ G $-invariant riemannian metric (or pseudometric) $ h $ on $ Q $ is said to be of \textit{constant bi-invariant type} if its inertia tensor $ \mathbb{I}_q $ equals the same bi-invariant bilinear form on $ \mathfrak{g}, $ for all $ g\in G. $ 
+\end{df}
+% ===============================================================
 \bibliographystyle{unsrt}
 \nocite{*}
 \bibliography{mybibliography}
