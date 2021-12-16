@@ -800,7 +800,7 @@ $$ \left\{ f,g \right\} = df(X_g)=\omega (X_f,X_g). $$
 	where $ f,g,h: T^*M \rightarrow \mathbb{R} $ are observables, and $ a,b\in \mathbb{R}. $ 
 \end{prop}
 \begin{proof}
-	(\cite{poisson}, proof of proposition 1.3) Properties 1,2,3 and 4 are trivial. The third property, known as the \textit{Jacobi identity},  is equivalent to the fact that $ \omega $ is a closed form ($ d\omega =0 $), as will be shown next. Recall that $$ d\chi(X,Y,Z)=X\chi(Y,Z)-Y\chi(X,Z)+Z\chi(X,Y)-\chi([X,Y],Z)+\chi([X,Z],Y)-\chi([Y,Z],X) $$ 
+	(\cite{poisson}, proof of proposition 1.3) Properties 1,2 and 4 are trivial. The third property, known as the \textit{Jacobi identity},  is equivalent to the fact that $ \omega $ is a closed form ($ d\omega =0 $), as will be shown next. Recall that $$ d\chi(X,Y,Z)=X\chi(Y,Z)-Y\chi(X,Z)+Z\chi(X,Y)-\chi([X,Y],Z)+\chi([X,Z],Y)-\chi([Y,Z],X) $$ 
 	for any 2-form $ \chi $ and $ X,Y,Z\in \mathfrak{X}(T^*M). $ Therefore, 
 	
 
@@ -818,7 +818,7 @@ The first three properties of last proposition guarantee that $ \left( C^\infty(
 $$ \left\{ fg,H \right\} =f \left\{ g,H \right\} +g \left\{ f,H \right\} . $$ 
 Therefore, $ f\mapsto \left\{ f,H \right\}  $ is a vector field on $T^*M$: the Hamiltonian vector field of $ H, \ X_H $ (\cite{montgomery2002tour}, page 279).
 
-\begin{prop}[Hamilton equations in bracket form]
+\begin{prop}[Hamilton equations in bracket form]\label{prop:HEBF}
 	If $ c(t) $ is an integral curve for $ X_H $ and $ f\in C^\infty(T^*M) $ is an observable, then
 	\begin{equation}\label{eq:HamEq}
 		\frac{d}{dt} \left( f\circ c \right)(t) = \left\{ f,H \right\} (c(t)).
@@ -844,10 +844,10 @@ $$ H_R(q,p)=\frac{1}{2} g_q(p,p).$$
 In local coordinates, $  H_R(q,p)= g^{ij}(q)p_ip_j/2. $ This Hamiltonian has the following Hamilton equations:
 $$ \dot{q^i} = \frac{\partial H_R}{\partial p_i} = g^{ij}p_j, \quad \dot{p_i} = - \frac{\partial H}{\partial q^i} = - \frac{1}{2} \frac{\partial g^{jk}(q)}{\partial q^i} p_jp_k. $$ 
 From the first Hamilton equation we deduce that $ p_i = g_{ij}\dot{q^j}, $ and substituting this expression in the second Hamilton equation gives $$ \dot{p_i} = \frac{1}{2} \frac{\partial g_{ml}}{\partial q^i}\dot{q^m}\dot{q^l} ,$$ so that 
-$$ \ddot{q^i} = \frac{\partial g^{ij}(q)}{\partial q^k} \dot{q^k}p_j+ g^{ij}\dot{p_j}= \frac{1}{2} g^{ij} \left( \frac{\partial g_{kl}}{\partial q^j}-2 \frac{\partial g_{jl}}{q^k}   \right)\dot{q^k}\dot{q^l} = -\Gamma_{kl}^i \dot{q^k}\dot{q^l},$$ 
+$$ \ddot{q^i} = \frac{\partial g^{ij}(q)}{\partial q^k} \dot{q^k}p_j+ g^{ij}\dot{p_j}= \frac{1}{2} g^{ij} \left( \frac{\partial g_{kl}}{\partial q^j}-2 \frac{\partial g_{jl}}{\partial q^k}   \right)\dot{q^k}\dot{q^l} = -\Gamma_{kl}^i \dot{q^k}\dot{q^l},$$ 
 and $ q $ satisfies the geodesic equation, from where we deduce that the integral curves of $ X_{H_R} $ are geodesics. Moreover, any geodesic $ q(t) $ satisfies Hamilton equations, given that $ p_i = g_{ij}\dot{q^j}. $ From this discussion we derive the following proposition.
 
-\begin{prop}
+\begin{prop}\label{prop:geo}
 	If $ (M,g) $ is a riemannian manifold, and $ H_R: T^*M \rightarrow \mathbb{R} $ is its riemannian Hamiltonian, $ q(t) $ is a geodesic if and only if $ (q^i(t), g_{ij}(q(t))\dot{q^j}(t)) $ is an integral curve of $ X_{H_R}. $ 
 \end{prop}
 
@@ -862,7 +862,7 @@ where $ v^*,w^*\in T^*_qM $, and $ V,W\in \mathcal{H}_q $ are such that $ v^*|_{
 	If $ M $ is a manifold, and $ \left( \mathcal{H}, \langle\cdot,\cdot\rangle \right) $ is a subriemannian structure over it, we define the subriemannian Hamiltonian $ H_{sR}: T^*M \rightarrow \mathbb{R} $ as $$ H_{sR}(p,q)= \frac{1}{2} (p,p)_q, $$   	
 	where $ (\cdot,\cdot) $ is the cometric induced by $ \langle\cdot,\cdot\rangle. $ 
 \end{df}
-If $ \pi: Q \rightarrow M $ is a submersion, and $ (M,g) $ is a riemannian metric, we know that the submersion induces a subriemannian structure on $ Q, $ $ (\mathcal{H},\langle\cdot,\cdot\rangle) $, where $ \mathcal{H} $ is the Ehresmann connection associated with $ \pi $, and $ \langle\cdot,\cdot\rangle $ is defined by the isomorphism $ d\pi_q|_{\mathcal{H}_q}: \mathcal{H}_q \rightarrow T_{\pi(q)}M $ and the metric $ g $ on $ M. $ 
+If $ \pi: Q \rightarrow M $ is a submersion, and $ (M,g) $ is a riemannian manifold, we know that the submersion induces a subriemannian structure on $ Q, $ $ (\mathcal{H},\langle\cdot,\cdot\rangle) $, where $ \mathcal{H} $ is the Ehresmann connection associated with $ \pi $, and $ \langle\cdot,\cdot\rangle $ is defined by the isomorphism $ d\pi_q|_{\mathcal{H}_q}: \mathcal{H}_q \rightarrow T_{\pi(q)}M $ and the metric $ g $ on $ M. $ 
 
 The subriemannian Hamiltonian $ H_{sR}: T^*Q \rightarrow \mathbb{R}$ can be written in terms of the riemannian Hamiltonian $ H_R: T^*M \rightarrow \mathbb{R} $ in the following way: given the splitting $ TQ= \mathcal{H}\oplus V, $ we have that $ T^*Q = \mathcal{H}^* \oplus V^*, $ and so we have the canonical projection $ \operatorname{pr}_1: T^*Q \rightarrow \mathcal{H}^*. $ Now, we define a second projection $ \operatorname{pr}_2: \mathcal{H}^* \rightarrow T^*M $ by the formula $ \operatorname{pr}_2(\alpha)(v)=\alpha(h_q v), $ where $ \alpha\in \mathcal{H}^*_q, $ $ v\in T_{\pi(q)}M, $ and $h_qv$ is the horizontal lift of $ v $ into $ \mathcal{H}_q $ (well-defined and unique, because $ \mathcal{H} $ is an Ehresmann connection).
 \begin{prop}[\cite{montgomery2002tour}, proposition 11.1.5]
@@ -877,35 +877,35 @@ The subriemannian Hamiltonian $ H_{sR}: T^*Q \rightarrow \mathbb{R}$ can be writ
 
 Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}. $ If $ (\mathcal{H},\langle\cdot,\cdot\rangle) $ is a metric of bundle type, we say that a metric $ h $ on $ Q $ is a \textit{compatible riemannian metric} if $ h $ is $ G $-invariant and compatible (see definition \ref{df:compatible}). From this definition, it is clear that $ h|_{G_q}: TG_q \oplus TG_q \rightarrow \mathbb{R} $ is a right-invariant metric, and we can use it to define a metric on $ G $ as follows:
 
-Let $ \mathfrak{g}= \operatorname{Lie}(G)=T_eG, $ and $ \operatorname{exp} : \mathfrak{g}\rightarrow G $ be the exponential application. \textit{The infinitesimal generator map for the group action $ \sigma_q: \mathfrak{g}\rightarrow T_qQ $ } is defined as
-$$ \sigma_q(v) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} \left( q\cdot \operatorname{exp} (\epsilon v) \right).$$ 
+Let $ \mathfrak{g}= \operatorname{Lie}(G)=T_eG, $ and $ \operatorname{exp} : \mathfrak{g}\rightarrow G $ be the exponential application. \textit{The infinitesimal generator map for the group action $ \sigma_v: Q\rightarrow T_qQ $ }, for $ v \in \mathfrak{g} $,  is defined as
+$$ \sigma_v(q) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} \left( q\cdot \operatorname{exp} (\epsilon v) \right).$$ 
 
 \begin{df}[\cite{montgomery2002tour}, definition 11.2.3]
 	For a given $ q\in Q, $ the bilinear form on $ \mathfrak{g}, $ $ \mathbb{I}_q: \mathfrak{g}\times \mathfrak{g}\rightarrow \mathbb{R}, $ given by
-	$$ \mathbb{I}_q(v,w) = h_q(\sigma_q v, \sigma_q w) $$ 
+	$$ \mathbb{I}_q(v,w) = h_q(\sigma_v q, \sigma_w q) $$ 
 	is called the \textit{moment of inertia tensor at $ q. $ } 
 \end{df}
 
 Recall that for a Lie Group $ G $, the map $ \operatorname{ad}_g: G \rightarrow G  $ given by $ h\mapsto ghg^{-1} $ is a diffeomorphism, and its differential at identity, $ d( \operatorname{ad}_g )_e $,  is denoted as $ \operatorname{Ad}_g: \mathfrak{g}\rightarrow \mathfrak{g} $. 
 
 \begin{prop}
-	The family of maps $ \left\{ \sigma_q \right\}_{q\in Q} $ satisfies the following property:
-	$$ \sigma_{q\cdot g} = d(\alpha_g)_q\circ \sigma_q \circ \operatorname{Ad}_g,$$ 
+	The family of vector fields $ \left\{ \sigma_v \right\}_{v\in \mathfrak{g}} $ satisfies the following property:
+	$$ \sigma_v(q\cdot g) = d(\alpha_g)_q\left(\sigma_{\operatorname{Ad}_g(v)}(q)\right) ,$$ 
 	where $ \alpha: Q\times G \rightarrow Q $ is the action of $ G $ on $ Q. $ 
 \end{prop}
 \begin{proof}
-	Let $ \gamma:(-\epsilon,\epsilon) \rightarrow G $ be the one parameter group such that $ \gamma(0)=e, $ $ \dot{\gamma}(0)=\xi\in \mathfrak{g}. $ Then, $ \operatorname{Ad}_g \left( \xi \right) = d/dt|_{t=0}(g\gamma(t)g^{-1}), $ and evaluating this on $ \sigma_q $ gives
+	Let $ \gamma:(-\epsilon,\epsilon) \rightarrow G $ be the one parameter subgroup such that $ \gamma(0)=e, $ $ \dot{\gamma}(0)=\xi\in \mathfrak{g}. $ Then, $ \operatorname{Ad}_g \left( \xi \right) = d/dt|_{t=0}(g\gamma(t)g^{-1}), $ and evaluating this on $ \sigma_q $ gives
 
-	$$ \sigma_q \left( \frac{d}{dt} \Big|_{t=0} \left( g\gamma(t)g^{-1} \right)  \right) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} q\cdot \operatorname{exp} \left( \epsilon \frac{d}{dt} \Big|_{t=0} g\gamma(t)g^{-1} \right) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} q\cdot g\gamma(\epsilon)g^{-1}. $$ 
+	$$ \sigma_{\xi}(q) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} q\cdot \operatorname{exp} \left( \epsilon \frac{d}{dt} \Big|_{t=0} g\gamma(t)g^{-1} \right) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} q\cdot g\gamma(\epsilon)g^{-1}. $$ 
 	Finally, if we evaluate this on $ d(\alpha_g)_q, $ we get that
 	\begin{dmath*}
-	d(\alpha_g)_q \left( \frac{d}{d\epsilon} \Big|_{\epsilon=0} q\cdot g\gamma(\epsilon)g^{-1} \right) = \frac{d}{d\epsilon} \Big|_{\epsilon=0}  q \cdot g\gamma(\epsilon)= \frac{d}{d\epsilon} \Big|_{\epsilon=0} q\cdot g \operatorname{exp} \left( \epsilon\xi \right) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} (q\cdot g) \cdot \operatorname{exp} (\epsilon\xi)= \sigma_{q\cdot g}(\xi). 
+		d(\alpha_g)_q \left( \frac{d}{d\epsilon} \Big|_{\epsilon=0} q\cdot g\gamma(\epsilon)g^{-1} \right) = \frac{d}{d\epsilon} \Big|_{\epsilon=0}  q \cdot g\gamma(\epsilon)= \frac{d}{d\epsilon} \Big|_{\epsilon=0} q\cdot g \operatorname{exp} \left( \epsilon\xi \right) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} (q\cdot g) \cdot \operatorname{exp} (\epsilon\xi)= \sigma_\xi(q\cdot g). 
 	\end{dmath*}
 \end{proof}
 
 Thanks to the last proposition and the fact that $ h $ is $ G $-invariant, we have that
 \begin{dmath*}
-	\mathbb{I}_{q\cdot g}(v,w)= h_{q\cdot g} \left( d(\alpha_g)_q\circ \sigma_q \circ \operatorname{Ad}_g(v),d(\alpha_g)_q\circ \sigma_q \circ \operatorname{Ad}_g(w) \right) = h_q \left( \sigma_q \left( \operatorname{Ad}_g \left( v \right)   \right),\left( \operatorname{Ad}_g \left( w \right)   \right)  \right) = \mathbb{I}_q \left( \operatorname{Ad}_g(v), \operatorname{Ad}_g(w) \right).
+	\mathbb{I}_{q\cdot g}(v,w)= h_{q\cdot g} \left( d(\alpha_g)_q\left(\sigma_{\operatorname{Ad}_g(v)}(q)\right), d(\alpha_g)_q\left(\sigma_{\operatorname{Ad}_g(w)}(q)\right)\right) = h_q \left( \sigma_{\operatorname{Ad}_g(v)}(q),\sigma_{\operatorname{Ad}_g(w)}(q)\right) = \mathbb{I}_q \left( \operatorname{Ad}_g(v), \operatorname{Ad}_g(w) \right).
 \end{dmath*}
 
 \begin{df}
@@ -923,8 +923,45 @@ for all $ g\in G $, $ v,w\in T_g G. $ If $ \beta $ is bi-invariant, both extensi
 Therefore, an adjoint invariant bilinear form on the Lie algebra defines a \textit{bi-invariant riemannian metric on $ G $,} provided that this form is positive definite.
 
 \begin{df}
-	[\cite{montgomery2002tour}, definition 11.2.4] The $ G $-invariant riemannian metric (or pseudometric) $ h $ on $ Q $ is said to be of \textit{constant bi-invariant type} if its inertia tensor $ \mathbb{I}_q $ equals the same bi-invariant bilinear form on $ \mathfrak{g}, $ for all $ g\in G. $ 
+	[\cite{montgomery2002tour}, definition 11.2.4] The $ G $-invariant riemannian metric (or pseudometric) $ h $ on $ Q $ is said to be of \textit{constant bi-invariant type} if its inertia tensor $ \mathbb{I}_q $ equals the same bi-invariant bilinear form on $ \mathfrak{g}, $ for all $q\in Q. $ 
 \end{df}
+
+Note that if $ G $ is a Lie group acting on itself via the multiplication map $ \alpha: G\times G \rightarrow G,\ (k,h) \mapsto kh $, $ \alpha_h = R_h, $ and if $ g $ is a $ G $-invariant metric on $ G $ we have that 
+$$ g_{kh} \left( d(R_h)_k(v), d(R_h)_k(w) \right) = g_k(v,w) $$ 
+for all $ k,h\in G,\ v,w\in T_kG. $ Therefore, a metric on $ G $ is $ G $-invariant under the canonical action of $ G $ on itself if and only if this metric is right invariant. Moreover, $ g $ is of constant bi-invariant type if and only if it is bi-invariant, because for any $ v,w\in T_kG, $  there exist $ \xi,\eta\in \mathfrak{g} $ such that $ d(L_k)_e\xi=v, d(L_k)_e\eta=w, $ and
+
+$$\mathbb{I}_k(\xi,\eta)= g_k(v,w)= \mathbb{I}_{hk}(\xi,\eta)= g_{hk} \left( d(L_h)_kv, d(L_h)_k w \right) $$
+as $ \sigma_\chi(k) = d(L_k)_e\chi $ for all $ k\in G, \ \chi\in \mathfrak{g}. $ 
+
+\begin{prop}
+	If $ g $ is a bi-invariant metric on a Lie group $ G, $ its geodesics through the identity coincide with its one-parameter subgroups.
+\end{prop}
+\begin{proof}
+	If $ m: G\times G \rightarrow G $ is the multiplication map, let $ h,k\in G $, and $ \gamma,\eta: \left( -\epsilon,\epsilon \right) \rightarrow G $ be two curves such that $ \gamma(0)=h, \dot{\gamma}(0)=v \in T_hG,\eta(0)=k,\dot{\eta}(0)=w\in T_kG. $ The differential $ dm_{(h,k)}: T_{(h,k)}G\times G\cong T_hG\oplus T_kG \rightarrow T_{hk} G $ is bilinear, so that if $ l,s: \left( -\epsilon,\epsilon \right) \rightarrow H $ are constant maps with $ l(t)=h,s(t)=k, $ then
+
+	$$ dm_{(h,k)}(v,0)= \frac{d}{dt} \Big|_{t=0} \left( \gamma(t) k \right) = d(R_k)_h(v), $$ 
+	and
+	$$ dm_{(h,k)}(0,w) = \frac{d}{dt} \Big|_{t=0}\left( h\eta(t) \right) = d(L_h)_k(w). $$ 
+	Therefore, $ dm_{(h,k)}(v,w) = d(R_k)_h(v)+ d(L_h)_k(w)  $ by linearity.  Using this result, if $ \gamma: \left( -\epsilon,\epsilon \right)  $ is a curve such that $ \gamma(0)=0, \dot{\gamma}(0)=v\in T_hG, $ differentiating the expression $ \gamma(t) \left[ \gamma(t) \right]^{-1}=e $ gives
+	$$ 0 = d(R_{h^{-1}})_h(v)+d(L_h)_{h^{-1}} \left( d\iota_h(v) \right),  $$ 
+	where $ \iota: G \rightarrow G $ is the inversion map $ h \mapsto h^{-1}. $ From last expression we get that $ d\iota_h(v)=-d(L_{h^{-1}})_e\circ d(R_{h^{-1}})_h(v) $. As $ g $ is a bi-invariant metric, $ g_{h^{-1}}(d\iota_h(v),d\iota_h(w)) = g_h(v,w), $ and as $ \iota: G \rightarrow G $ is a diffeomorphism, it is an isometry. 
+
+	Now, if $ \gamma: \left( -\epsilon,\epsilon \right) \rightarrow G $ is a geodesic with $ \gamma(0)=e,\dot{\gamma}(0)=v\in T_eG, $ as $ \iota $ is an isometry, $ \iota\circ\gamma(t)= \left[ \gamma(t) \right]^{-1} $ is also a geodesic. Moreover, $ d\iota_e(v)=-v, $ so that $ \gamma(t) $ and $ \left[ \gamma(t) \right]^{-1} $ are the same geodesic, with $ \left[ \gamma(t) \right]^{-1} = \gamma(-t).  $ For small $ t_0\in \mathbb{R} $ (sufficiently small in order to have that $ \operatorname{Im} \gamma|_{[0,t_0]}\subset U,  $ where $ U $ is a totally normal neighborhood of $ e $), consider the curve $ \eta:(-t_0,0) \rightarrow G $, $ t \mapsto  \gamma(t_0)\gamma(t)= L_{\gamma(t_0)}(\gamma(t)) $. This curve is a geodesic because $ g $ is bi-invariant, with $ \gamma(0)=\gamma(t_0), \eta(-t_0)=e. $ Due to the uniqueness of minimizing geodesics in a totally normal neighborhood, $ \eta(t)=\gamma(t_0+t), $ that is, $ \gamma(t_0)\gamma(t)= \gamma(t_0+t), $ for $ t\in (-t_0,0). $  Using the relation $ \gamma(s+t)=\gamma(s)\gamma(t) $  and the local uniqueness of minimizing geodesics we can extend this property over all the domain of the geodesic $ \gamma. $ With this, $ \gamma $ is a one-parameter subgroup, and
+
+	$$ \operatorname{exp} (v)=\gamma(1)= (\operatorname{exp}_R)_e(v),  $$ 
+	where $ (\operatorname{exp}_R)_e : T_eG \rightarrow G  $ is the riemannian exponential.
+\end{proof}
+
+\begin{prop}
+	If $ G $ is a lie group endowed with a bi-invariant metric $ g, $ the riemannian Hamiltonian $ H_R : T^*G \rightarrow \mathbb{R}, (q,p) \mapsto g_q(p,p)/2$ commutes with every right or left invariant observable $ f\in C^\infty ( T^*G). $ 
+\end{prop}
+\begin{proof}
+	From proposition \ref{prop:HEBF}, if $ f: T^*G \rightarrow G $ is an observable, then $ d/dt \left( f\circ c \right) (t)= \left\{ f, H_R \right\}(c(t)),  $ where $ c(t) $ is an integral curve of the Hamiltonian vector field associated to $ H_R. $ By proposition \ref{prop:geo}, $ c(t)=(q(t), g_{q(t)}(\cdot, \dot{q}(t))) $, where $ q(t) $ is a geodesic. As $ G $ is complete (because $ g $ is bi-invariant), there is a geodesic that connects $ e $ with every $ h\in G, $ and by last proposition, this geodesic is a one-parameter subgroup, which implies that $ d/dt(f\circ c)(t)=0, $ because the quantity $ f\circ c(t) $ is constant since $ f $ is left or right invariant.	
+\end{proof}
+
+\begin{thm}[\cite{montgomery2002tour}, theorem 11.2.5]
+	Let $ Q $ be the total space of a principal $G $-bundle $ \pi: Q \rightarrow M $, endowed with a subriemannian metric of bundle type. Consider an extension of this metric to a compatible riemannian or pseudo-riemannian metric whose associated vertical metric has constant bi-invariant type. Take any geodesic for the extended metric and project it to the base space $ M. $ Horizontally lift the result back to $ Q. $ The result is a normal subriemannian geodesic. All normal subriemannian geodesics can be obtained in this manner. The projected curve is a geodesic in the base $ M $ if and only if the original curve is a horizontal geodesic in the total space $ Q. $ 
+\end{thm}
 % ===============================================================
 \bibliographystyle{unsrt}
 \nocite{*}
