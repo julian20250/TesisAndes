@@ -564,16 +564,22 @@ The collection of vertical spaces is a distribution $ V \subset TQ $ that assign
 	$$ V_q \oplus \mathcal{H}_q = T_q Q,\ \text{for all } q\in Q. $$ 
 \end{df}
 
-The restriction of $ d\pi_q $ to $ \mathcal{H}_q $ is a linear isomorphism because $ d\pi_q $ is surjective, and $ T_q Q / \operatorname{Ker}(d\pi_q) = T_q Q / V_q \cong \mathcal{H}_q \cong T_m M. $ If $ M $ is endowed with a metric, we can use this linear isomorphism to pull the inner product back to the horizontal distribution $ \mathcal{H}. $ This construction varies smoothly with $ q\in Q $ (\cite{montgomery2002tour}, page 194). With this, we obtain a subriemannian metric whose underlying distribution is the connection for the submersion.
+The restriction of $ d\pi_q $ to $ \mathcal{H}_q $ is a linear isomorphism between $ \mathcal{H}_q $ and $ T_{\pi(q)} M $  because $ d\pi_q $ is surjective, and by the isomorphism theorem we have that $ \mathcal{H}_q\cong T_{\pi(q)} M $. 
 
+\begin{df}\label{df:ind_sub_struc}
+If $ M $ is endowed with a metric $ g $, we can use the previous linear isomorphism to pull the inner product back to the horizontal distribution $ \mathcal{H}$: the subriemannian structure $ (\mathcal{H},\langle \cdot, \cdot\rangle) $ induced by the riemannian structure $ (M,g) $ is given by
+$$ \langle v,w \rangle_q = g_{\pi(q)} \left( d\pi_q(v), d\pi_q(w) \right), \text{ for all }q\in Q \text{ and } v,w\in \mathcal{H}_q.   $$ 
+This subriemannian metric varies smoothly with $ q\in Q $ (\cite{montgomery2002tour}, page 194), and is referred as the \textit{induced subriemannian structure} over $ Q $ by the submersion $ \pi: Q \rightarrow M $ and the riemannian metric over $ M. $ 
+\end{df}
 \begin{df}
-	The subriemannian structure on $ Q $ induced by the connection $ \mathcal{H} $ for the submersion $ \pi:Q \rightarrow {M} $, the linear isomorphism $ \mathcal{H}_q \cong T_m M $ and the riemannian metric over $ M $ is called the \textit{induced subriemannian structure}. 
+	The \textit{horizontal lift} of a curve $ c: I \rightarrow {M} $ starting at $ m\in M $ is defined as the unique curve $ \gamma : I \rightarrow {Q} $ that is tangent to $ \mathcal{H}, $ starts at $ q\in Q_m, $ and projects to $c$, that is, $ \pi\circ\gamma = c. $ 
 \end{df}
 
-\begin{df}
-	The \textit{horizontal lift} of a curve $ c: I \rightarrow {M} $ starting at $ m\in M $ is defined (if exists) as the unique curve $ \gamma : I \rightarrow {Q} $ that is tangent to $ \mathcal{H}, $ starts at $ q\in Q_m, $ and projects to $c$, that is, $ \pi\circ\gamma = c. $ 
-\end{df}
-
+The uniqueness of the horizontal lift follows from the fact that $ \gamma: I \rightarrow Q $ is solution of the initial value problem
+$$ \frac{d\gamma(t)}{dt} = d\pi^{-1}_{c(t)} \left( \frac{dc(t)}{dt}  \right),\quad \gamma(0)=q.  $$ 
+\begin{ex}[Canonical projection from $ \mathbb{R}^{m+n} $ to $ \mathbb{R}^m $  ]\label{ex:can_proj}
+	\sloppy	Consider the canonical projection $ \pi: \mathbb{R}^{m+n} \rightarrow \mathbb{R}^m $ that maps the first $ m $-coordinates of a point in $ \mathbb{R}^{m+n} $  to $ \mathbb{R}^m. $ This map is a submersion, and its vertical space at a point $ q\in \mathbb{R}^{m+n} $ is $ V_q = \left\{ (0,\dots,0,v_1,\dots,v_n) : v_1,\dots,v_n\in \mathbb{R}  \right\} \cong \mathbb{R}^n. $ A connection for this submersion is $ \mathcal{H}_q = \left\{ (v_1,\dots,v_m, 0,\dots, 0): v_1,\dots,v_m\in \mathbb{R} \right\}\cong \mathbb{R}^m.  $ Given an arbitrary curve $ c: I \rightarrow \mathbb{R}^m, $ starting at $ \boldsymbol{p}= (p_1,\dots,p_m), $ its horizontal lift at a point $ (p_1,\dots,p_m,q_1,\dots,q_n)\in \pi^{-1}( \boldsymbol{p} ) $ is the curve $ \gamma: I \rightarrow \mathbb{R}^{m+n} $, $ t\mapsto (c(t),q_1,\dots,q_n). $   
+\end{ex}
 \begin{rem}
 	The connection $ \mathcal{H} $ is called \textit{complete} or is referred as an \textit{Ehresmann connection}  if every smooth curve $ c: I \rightarrow {M} $ has a horizontal lift.
 \end{rem}
@@ -606,13 +612,17 @@ The restriction of $ d\pi_q $ to $ \mathcal{H}_q $ is a linear isomorphism becau
 	A riemannian metric on $ Q $ is said to be \textit{compatible} with the induced subriemannian metric if the algebraic splitting $ TQ = V \oplus \mathcal{H} $ is an orthogonal decomposition with respect to the riemannian metric on $ Q$.  
 \end{df}
 
+\begin{rem}
 Thanks to the orthogonal algebraic splitting, a compatible riemannian metric is determined by its restriction to $ V, $ and the induced subriemannian structure restricted to $ \mathcal{H} $. This fact can be turned around in the following sense. Take a riemannian metric $ g_Q $ on $ Q. $ Let $ V_q^\perp $ be the orthogonal complement of the vertical space $ V_q $ in $ q\in Q $ with respect to the riemannian metric, and set $ \mathcal{H}_q=V_q^\perp. $ The riemannian metric defines inner products in $ V_q^\perp $  and $ T_mM, $ being defined in the first as the restriction of the riemannian metric, and in the second is given by the metric and the isomorphism $ \mathcal{H}_q\cong T_mM. $ Nevertheless, this inner product on $ T_mM $ can depend on the point $ q\in Q_m $, as the metric could vary with the point of the fiber. If that is the case, we cannot construct a riemannian metric on $ M, $ as there is no consistent way to choose which $ q\in Q_m $ is going to be used to define the inner product (\cite{montgomery2002tour}, page 195).
+\end{rem}
 
 \begin{df}
 	Given a riemannian manifold $ (Q, g_Q), \pi: Q \rightarrow {M}
 	$ a submersion, we say that the pair $ (\pi, g_Q) $ is a \textit{riemannian submersion} if for every $ m\in M $ and $ q\in Q_m $,  the isomorphism $ d\pi_q |_{\mathcal{H}_q} $ is an isometry between $ \mathcal{H}_q $ and $ T_m M$. 
 \end{df}
-
+\begin{ex}
+	Note that the canonical projection $ \pi : \mathbb{R}^{m+n} \rightarrow \mathbb{R}^m $ given in example \ref{ex:can_proj} is a riemannian submersion if $ \mathbb{R}^{m+n} $ is endowed with the cartesian metric.
+\end{ex}
 \subsection{Metrics on Principal Bundles}%
 \label{sub:metrics_on_principal_bundles}
 
@@ -626,30 +636,35 @@ $ with the property that for each $ x\in M $ there is a neighborhood $ U $ of $ 
                                                   & U &                                              
 \end{tikzcd}
  \end{center}
- $ Q $ is called the \textit{total space of the bundle}, $ M $ is the \textit{base} and $ \pi $ the \textit{projection}.   
+ $ Q $ is called the \textit{total space of the bundle}, $ M $ is the \textit{base}, $ G $ is the \textit{standard fiber}  and $ \pi $ the \textit{projection}.   
 \end{df}
 
-The following definition will require some definitions related to group actions over manifolds, that we will cover next. First of all, recall that for a Lie group $ G $ and a manifold $ Q, $ a \textit{group action} is a smooth application $ \alpha:  Q\times G \rightarrow Q $, denoted by $ \alpha(q,g) = q \cdot g, $ such that:
+The following definition will require some definitions related to group actions over manifolds, that we will cover next. 
 
-\begin{itemize}
+\begin{df}
+For a Lie group $ G $ and a manifold $ Q, $ a \textit{group action} is a smooth application $ \alpha:  Q\times G \rightarrow Q $, denoted by $ \alpha(q,g) = q \cdot g, $ such that:
+
+\begin{enumerate}
 	\item For all $ q\in Q, $ $ q\cdot e = q $, where $ e $ is the identity element of $ G. $   
 	\item For all $ g,h\in G $ and $ q\in Q $, $ (q\cdot g) \cdot h =q\cdot(gh). $ 
-\end{itemize}
+\end{enumerate}
 
+\end{df}
 If this action exists, we say that $ G $ acts on $ Q $ through $ \alpha. $ As a consequence of that definition, we can see that the map $ \alpha_g: Q \rightarrow Q: \ q\mapsto q\cdot g$ is a diffeomorphism for all $ g\in G $, as it is smooth and its inverse is $ \alpha_{g^{-1}}. $
 
 We say that the action $ \alpha $ \textit{is free (or that $ G $ acts freely on $ Q $)} if for all $ q\in Q $, $ q\dot g =q$   implies that $ g=e. $ The \textit{orbit $ G_q $ of the action}  for a point $ q\in Q $  is defined as the image of the restriction $\alpha|_{\{q\}\times G},$  that is, $ G_q := \left\{q\cdot g \ | \ g\in G \right\}. $ We can construct an equivalence relation over $ Q $ in the following way: $ q\sim p $ if and only if $ G_p = G_q, $ that is, if both points belong to the same orbit, or written explicitly, if there is an element $ g\in G $ such that $ q = p\cdot g. $ The set of all equivalence classes is denoted as $ Q/G $, and is known as the \textit{orbit space of the action}.     
 
+\begin{rem}
 The orbit space of an action is not, in general, a manifold, but because of the \textit{quotient manifold theorem} (see \cite{lee2003introduction}, theorem 21.10), it is sufficient to have a free, proper and smooth action in order to guarantee that $ Q/G $ is a topological manifold.
-
+\end{rem}
 \begin{df}
 	The submersion $ \pi: Q \rightarrow M$  is called a \textit{principal $ G $-bundle} if its is a fiber bundle whose fiber $ G $ is a Lie group, and this group acts on $ Q $ in such a way that the following properties hold:
-	\begin{itemize}
+	\begin{enumerate}
 		\item $ G $ acts freely on $ Q $.
 		\item The action orbits are the fibers of $ \pi:Q \rightarrow {M} $, that is, for all $ m\in M, $ $ \pi^{-1}(m) = G_q, $ with $ q\in Q_m. $ 
 		\item The local trivializations of the fiber bundle are equivariant with respect to the action, that is, for every local trivialization $ \phi: U \times G \rightarrow \pi^{-1}(U) $, the following property holds: $$ \phi(q, g\cdot h) = \phi(q,g)\cdot h,$$  
 			for every $ q\in U, $ and $ g,h\in G. $ 
-	\end{itemize}
+	\end{enumerate}
 \end{df}
 
 From this we can conclude that if $ \pi: Q \rightarrow M $ is a principal $ G- $bundle, then $Q/G  $ is a topological manifold, and $M $ is homeomorphic to $ Q/G $. This homeomorphism $ \phi: M \rightarrow {Q/G}$  is given by $ \phi(m)=[q], $ with $ \pi(q)=m. $ 
@@ -659,21 +674,22 @@ From this we can conclude that if $ \pi: Q \rightarrow M $ is a principal $ G- $
 
 \end{df}
 
+\begin{rem}
 An extremely useful property that any principal $ G $-bundle with connection is that its connection is an Ehresmann connection, \textit{i.e.}, it is complete, as it is stated in the following result. 
-
+\end{rem}
 \begin{prop}[\cite{kobayashi1963foundations}, proposition 3.1]\label{prop:comp_bundle}
 	Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection and $ c: I \rightarrow M $ a smooth curve. For an arbitrary $ q\in Q_{c(0)}= G_q $, there is a unique horizontal lift $ \gamma: I \rightarrow Q $ of $ c $ ($\pi\circ\gamma =c$, $ \dot{\gamma}(t)\in \mathcal{H}_{\gamma(t)} $ for all $ t\in I $) that starts from $ q $.    	
 \end{prop}
 
 \begin{df}[\cite{montgomery2002tour}, definition 11.2.1]
-	A subriemannian metric $ (\mathcal{H}, \langle\cdot,\cdot\rangle) $ on the total space of the principal $ G $-bundle $ \pi: Q \rightarrow {M}
-	 $ is called a \textit{metric of bundle type} if the inner product $ \langle\cdot,\cdot\rangle $ on $ \mathcal{H}$ is induced from a riemannian metric on $ M. $ 
+	A subriemannian structure $ (\mathcal{H}, \langle\cdot,\cdot\rangle) $ on the total space of the principal $ G $-bundle $ \pi: Q \rightarrow {M}
+	$ is called a \textit{metric of bundle type} if it is an induced subriemannian structure with respect to the submersion $ \pi $ and the metric on $ M $  (see definition \ref{df:ind_sub_struc}).
 \end{df}
 
 \subsection{Examples of principal $ G $-bundles}%
 \label{sub:examples_of_principal_g_bundles}
 
-\subsubsection{Projection of cartesian product of manifolds}%
+\subsubsection{Trivial bundle}%
 \label{ssub:projection_of_cartesian_product_of_manifolds}
 
 Let $ M$ be a manifold and $ G $ a Lie group. Define the projection onto the first factor $ \pi: M\times G \rightarrow M. $ It is clear that this map is surjective and a submersion. Moreover, it is a fiber bundle, whose local (global) trivialization is the identity map $ \iota : M\times G \rightarrow M\times G $.   
@@ -682,9 +698,9 @@ If we define the action $ \alpha: (M\times G) \times G \rightarrow M\times G $ a
 \subsubsection{Hopf Fibration}%
 \label{ssub:hopf_fibration}
 
-All rotations in $ \mathbb{R}^3 $ can be expressed compactly with help of quaternions. The set of quaternions is denoted as $ \mathbb{H} := \{ a+bi+cj+dj$  $|$  $a,b,c,d\in \mathbb{R} \}, $ and in it we can define sum and product operations. The sum of two quaternions $ a_1+b_1 i +c_1 j  + d_1k $, $ a_2+b_2 i +c_2 j  + d_2k $ is $ (a_1+a_2)+(b_1+b_2)i+(c_1+c_2)j+(d_1+d_2)k. $ The product is defined in order to satisfy the distributive property with respect to the sum, and it also satisfies the following rules: 
+All rotations in $ \mathbb{R}^3 $ can be expressed using quaternions. The set of quaternions is denoted as $ \mathbb{H} := \{ a+bi+cj+dj$  $|$  $a,b,c,d\in \mathbb{R} \}, $ and in it we can define sum and product operations. The sum of two quaternions $ a_1+b_1 i +c_1 j  + d_1k $, $ a_2+b_2 i +c_2 j  + d_2k $ is $ (a_1+a_2)+(b_1+b_2)i+(c_1+c_2)j+(d_1+d_2)k. $ The product is defined in order to satisfy the distributive property with respect to the sum, and it also satisfies the following rules: 
 $$ i^2=j^2=k^2=-1, \quad ij=-ji=k, jk=-kj=i, ki = -ik=j.  $$ 
-In analogy with the complex plane and its isomorphism with $\mathbb{R}^4$, we define the norm of $ z= a+bi+cj+dk $ as $ |z|=\sqrt{a^2+b^2+c^2+d^2}, $ and the conjugate of $ z $ as $ z^* = a-bi-cj-dk. $ Moreover, every quaternion $ z\neq 0 $ has a multiplicative inverse, given by $ z^{-1} = z^*/|z|^2. $ Every rotation around an axis given by a vector $ \vec{v}=(b,c,d) $ and an angle $ \theta $ can be identified with an unitary quaternion $r = a+bi+cj+dk$ ($|z|=1$),  where $ \theta = 2\arccos(a) $ (see \cite{lyons2003elementary}, page 6). This rotation $ R_r: \mathbb{R}^3 \rightarrow\mathbb{R}^3 $ is given by $ x\mapsto rxr^{-1}= rxr^*$, and $ x $ identified as a pure quaternion, that is, $ x=x_1i+x_2j+x_3k. $ To show explicitly that this map is the desired rotation, one can first show that this linear map preserves norm and the vector $ bi+cj+dk $, that is, it is an eigenvector with eigenvalue 1, so it must be a rotation with respect the axis given by $ (b,c,d) $. The idea of the proof that the rotation angle is $ 2\arccos(a) $ can be found in \cite{lyons2003elementary}, page 6, investigation step 3. 
+In analogy with the complex plane and its isomorphism with $\mathbb{R}^4$, we define the norm of $ z= a+bi+cj+dk $ as $ |z|=\sqrt{a^2+b^2+c^2+d^2}, $ and the conjugate of $ z $ as $ z^* = a-bi-cj-dk. $ Moreover, every quaternion $ z\neq 0 $ has a multiplicative inverse, given by $ z^{-1} = z^*/|z|^2. $ One remarkable property of quaternions is the relation $ |z_1 z_2| = |z_1||z_2|. $  Every rotation around an axis given by a vector $ \vec{v}=(b,c,d) $ and an angle $ \theta $ can be identified with an unitary quaternion $r = a+bi+cj+dk$ ($|z|=1$),  where $ \theta = 2\arccos(a) $ (see \cite{lyons2003elementary}, page 6). This rotation $ R_r: \mathbb{R}^3 \rightarrow\mathbb{R}^3 $ is given by $ x\mapsto rxr^{-1}= rxr^*$, and $ x $ identified as a pure quaternion, that is, $ x=x_1i+x_2j+x_3k. $ To show explicitly that this map is the desired rotation, one can first show that this linear map preserves norm and the vector $ bi+cj+dk $, that is, it is an eigenvector with eigenvalue 1, so it must be a rotation with respect the axis given by $ (b,c,d) $. The idea of the proof that the rotation angle is $ 2\arccos(a) $ can be found in \cite{lyons2003elementary}, page 6, investigation step 3. 
 
 The set of all unitary quaternions is $ \mathbb{S}^3 $, so that $ \mathbb{S}^3 $ acts on $ \mathbb{R}^3 $ via rotations. The Hopf projection is defined as the map $ \pi: \mathbb{S}^3 \rightarrow \mathbb{S}^2 $ that sends the point $ (1,0,0) $ (identified as the quaternion $ i $)   to its respective image after rotating $ \mathbb{R}^3 $ with the associated quaternion, as an element of $ \mathbb{S}^3 $. That is, $ \pi(a,b,c,d) = R_r(1,0,0), $ where $ r=a+bi+cj+dk. $  The function $ \pi $ previously defined is surjective, as every point $ x\in\mathbb{S}^2 $ can be reached from $ (1,0,0) $ through an adequate rotation. Explicitly, it suffices to take a normal vector to both $ (1,0,0), x $ as the axis of rotation, and the angle of rotation is the angle between both vectors. 
 
@@ -695,15 +711,19 @@ The set of all unitary quaternions is $ \mathbb{S}^3 $, so that $ \mathbb{S}^3 $
 	With this, $ \mathbb{S}^3 $ can be seen as the disjoint union of these circles, and endowing this disjoint union with the standard manifold structure of $ \mathbb{S}^3 $, we identify $ \mathbb{S}^2 = \mathbb{C}P^1$, and take the open sets $ U_i= \left\{ \left[ z_0 : z_1 \right]\ | \ z_i\neq 0 \right\}$, with $ i=0,1. $ The local trivializations are (see \cite{luke2013vector}, page 68) $ \varphi_i: U_i \times \mathbb{S}^1 \rightarrow \pi^{-1}(U_i), $ $$ \varphi_i([z_0:z_1], \lambda) = \left( \frac{\lambda}{\sqrt{1+|\omega_i|^2}}, \frac{\lambda\omega_i}{\sqrt{1+|\omega_i|^2}}   \right), $$ with $ \omega_0=z_1/z_0 $ and $ \omega_1 = z_0/z_1. $ Now, we define an action $ \alpha: \mathbb{S}^3\times \mathbb{S}^1 \rightarrow { \mathbb{S}^3}
 	$, given by $ \alpha(z_1,z_2,\lambda) = (z_1\lambda, z_2\lambda), $ where $ (z_1,z_2)\in \mathbb{S}^3\subset \mathbb{C}^2 $ and $ \lambda\in \mathbb{S}^1 \subset \mathbb{C}. $ This action acts freely on $ \mathbb{S}^3, $ and its orbits coincide with the fibers of $ \pi, $ so that $ \mathbb{S}^3/ \mathbb{S}^1 \cong \mathbb{S}^2. $ From this point it is clear that the Hopf bundle is a fiber bundle, and its local trivializations are equivariant with respect to the action, as $ \varphi_i([z_0:z_1], \lambda_1\lambda_2) = \varphi_i([z_0:z_1], \lambda_1)\lambda_2. $ Therefore, $ \pi: \mathbb{S}^3 \rightarrow { \mathbb{S}^2} $ is a principal $ \mathbb{S}^1$-bundle.
 
-	To find a connection for this submersion, we recall that, by the preimage of regular value theorem, $ \pi^{-1}(m) = \mathbb{S}^1_q $ is a submanifold of $ \mathbb{S}^3 $, of dimension $ \operatorname{dim}( \mathbb{S}^3)- \operatorname{dim}( \mathbb{S}^2) = 1,  $ and its tangent space (vertical space of the submersion) $ T_q \mathbb{S}^1_q $ is $ \operatorname{Ker}(d\pi_q),  $ and any complementary subspace (with respect to $ T \mathbb{S}^3 $)  to this tangent space would be a connection. Now, if $ \mathbb{S}^3 $ is endowed with the standard riemannian structure, there is only one connection compatible with the metric, and is given by $ \mathcal{H}_q = \operatorname{Ker}(d\pi_q)^\perp. $ The vector that determines $ \operatorname{Ker}(d\pi_q)  $ can be found using the action if we consider the tangent vector of the curve $ \gamma: (-\epsilon, \epsilon) \rightarrow \mathbb{S}^3, $ $ t\mapsto \gamma(z_1,z_2, e^{it})=(z_1e^{it},z_2e^{it}) $ at $ t=0 $, where $ q=(z_1,z_2). $ With this, $ \operatorname{Ker}(d\pi_q) = \langle(iz_1, iz_2)\rangle,  $ and the connection at $ q\in \mathbb{S}^3 $,  $ \mathcal{H}_q $, will be the orthogonal complement (with respect to $ \mathbb{R}^4 $ provided with the usual norm) of the vector space $ \langle(iz_1,iz_2), (z_1,z_2)\rangle  {= \langle(x_1,y_1,x_2,y_2), (-y_1,x_1,-y_2,x_2)\rangle}$, that is, $ \mathcal{H}_q = \langle(x_2,-y_2,-x_1,y_1),(y_2,x_2,-y_1,-x_1)\rangle, $ where $ q=(x_1+iy_1, x_2+iy_2). $   
+	To find a connection for this submersion, we recall that, by the preimage of regular value theorem, $ \pi^{-1}(m) = \mathbb{S}^1_q $ is a submanifold of $ \mathbb{S}^3 $, of dimension $ \operatorname{dim}( \mathbb{S}^3)- \operatorname{dim}( \mathbb{S}^2) = 1,  $ and its tangent space (vertical space of the submersion) $ T_q \mathbb{S}^1_q $ is $ \operatorname{Ker}(d\pi_q)  $. Now, if $ \mathbb{S}^3 $ is endowed with the standard riemannian structure, there is only one connection compatible with the metric, and is given by $ \mathcal{H}_q = \operatorname{Ker}(d\pi_q)^\perp. $ The vector that determines $ \operatorname{Ker}(d\pi_q)  $ can be found using the action if we consider the tangent vector of the curve $ \gamma: (-\epsilon, \epsilon) \rightarrow \mathbb{S}^3, $ $ t\mapsto \gamma(z_1,z_2, e^{it})=(z_1e^{it},z_2e^{it}) $ at $ t=0 $, where $ q=(z_1,z_2). $ With this, $ \operatorname{Ker}(d\pi_q) = \langle(iz_1, iz_2)\rangle,  $ and the connection at $ q\in \mathbb{S}^3 $,  $ \mathcal{H}_q $, will be the orthogonal complement (with respect to $ \mathbb{R}^4 $ provided with the usual norm) of the vector space $ \langle(iz_1,iz_2), (z_1,z_2)\rangle  {= \langle(x_1,y_1,x_2,y_2), (-y_1,x_1,-y_2,x_2)\rangle}$, that is, $ \mathcal{H}_q = \langle(x_2,-y_2,-x_1,y_1),(y_2,x_2,-y_1,-x_1)\rangle, $ where $ q=(x_1+iy_1, x_2+iy_2). $   
 
 	This principal $ \mathbb{S}^1$-bundle has connection because the kernel of $ d(\pi\circ \alpha_g)_q $ is the same of $ d\pi_q, $ as $ d\alpha_g $ is an isomorphism. Therefore, $ d(\alpha_g)_q ( \mathcal{H}_q) = \mathcal{H}_{q\cdot g}, $ and the $ \mathbb{S}^1 $-action preserves $ \mathcal{H}. $ By proposition \ref{prop:comp_bundle}, this connection $ \mathcal{H} $ is complete.  
  
 \subsection{The main theorem}
-Before proceeding with one of the principal results on subriemannian geometry and metrics on bundles, we need to recall some definitions and important results of symplectic geometry. Therefore, this subsection is dedicated to the study of these prerequisites and to the statement and proof of the \say{main theorem}. To start, we consider what is a symplectic structure, and we develop this idea with help of the cotangent bundle.
+Before proceeding with one of the principal results on subriemannian geometry and metrics on bundles, we need to recall some definitions and important results of symplectic geometry. Therefore, this subsection is dedicated to the study of these prerequisites and to the statement and proof of the \say{main theorem}. To start, we consider what is a symplectic structure, and follow to the ideas of cotangent bundle and Hamilton's equations.
 \begin{df}[\cite{arnol2013mathematical}, section 8A]
 	Let $ M $ be an even-dimensional manifold. A \textit{symplectic structure on $ M $ } is a closed non-degenerate differential 2-form $ \omega $ on $ M $, that is, 
-	$$ d\omega=0 \text{ and } \forall \xi \neq 0: \ \omega_x(\xi,\cdot)\neq0 \ (\xi\in T_x M).$$ 
+	\begin{enumerate}
+		\item $ d\omega=0 $ and,
+		\item $\forall \xi \neq 0: \ \omega_x(\xi,\cdot)\neq0 \ (\xi\in T_x M)$, respectively. 
+	  
+	\end{enumerate}
 	The non-degeneracy condition is equivalent to say that $ \operatorname{det}(\omega)\neq0 $. The pair $ (M,\omega) $ is called a \textit{symplectic manifold}. 
 \end{df}
 
@@ -712,7 +732,7 @@ Before proceeding with one of the principal results on subriemannian geometry an
 \end{ex}
 
 \begin{df}[\cite{montgomery2002tour}, definition A.4.1]
-	A \textit{Hamiltonian} is a smooth function $ H: M \rightarrow \mathbb{R}, $ where $ (M,\omega) $ is a symplectic manifold.
+	Given a symplectic manifold  $ (M,\omega) $, a \textit{Hamiltonian} is a smooth function $ H: M \rightarrow \mathbb{R}. $
 \end{df}
 
 \begin{df}[\cite{arnol2013mathematical}, page 203]
@@ -725,14 +745,14 @@ This last definition induces an isomorphism between $ T_mM $ and $ T^*_mM, $ giv
 	For a given Hamiltonian $ H: M \rightarrow \mathbb{R} $, the vector field $ X_H\in \mathfrak{X}(M) $ that satisfies $$ dH = \omega(X_H, \cdot) $$ is called \textit{Hamiltonian vector field} for $ H $, or \textit{symplectic gradient} of $ H. $ 
 \end{df}
 
-Over an arbitrary manifold $ M $, we can construct a symplectic manifold using the cotangent bundle. Suppose that $ M $ is an $ n$-dimensional manifold. $ T^*M= \bigsqcup_{p\in M} T^*_p M$ is then a $ 2n $-dimensional manifold. There is a canonical choice of coordinates for this space, namely, given $ x\in M, $ there is a coordinate chart $ (U_x,\phi) $ on $ M $ such that $ q=\phi(x)=(q_1,\dots,q_n)\in \mathbb{R}^n, $ and for a given 1-form $ \alpha\in T_xM,$ in these coordinates we have that $ \alpha=p_i dq^i; $ mixing these two coordinates we get the \textit{canonical coordinates of $ T^*M $}, where a given element $ \alpha\in T^*M $ can be represented locally as the pair of coordinates $ (q,p). $      
+Any manifold $ M $ has a symplectic manifold associated: the cotangent bundle. Suppose that $ M $ is an $ n$-dimensional manifold. $ T^*M= \bigsqcup_{p\in M} T^*_p M$ is then a $ 2n $-dimensional manifold. There is a canonical choice of coordinates for this space, namely, given $ x\in M, $ there is a coordinate chart $ (U_x,\phi) $ on $ M $ such that $ q=\phi(x)=(q_1,\dots,q_n)\in \mathbb{R}^n, $ and for a given 1-form $ \alpha\in T_x^*M,$ in these coordinates we have that $ \alpha=p_i dq^i; $ mixing these two coordinates we get the \textit{canonical coordinates of $ T^*M $}, where a given element $ \alpha\in T^*M $ can be represented locally as the pair of coordinates $ (q,p). $      
 
 \begin{thm}[\cite{arnol2013mathematical}, page 202]
 	The cotangent bundle $ T^*M $ has a natural symplectic structure given in coordinates by $\omega = dq^i\wedge dp_i.$
 \end{thm}
 
 \begin{proof}
-	Let $ \xi\in T_p \left( T^*M \right)  $ be a vector tangent to the cotangent bundle at $ p\in T^*_x M. $ If $ \pi:T^*M \rightarrow M $ is the natural projection, the derivative $ d\pi : T \left( T^*M \right) \rightarrow TM $ takes $ \xi $ to $ d\pi(\xi)=(\pi(p), d\pi_p(\xi))=(x,d\pi_p(\xi)), $ which is a vector tangent to $ M $ at $ x. $ We define a 1-form $ \theta $ on $ T^*M $ by the relation $ \theta(\xi)=p(d\pi_p(\xi)). $ In local coordinates this form is $ \theta= p_i dq^i, $ and the form $ \omega = d\theta $ is non-degenerate. 
+	Let $ v\in T_p \left( T^*M \right)  $ be a vector tangent to the cotangent bundle at $ \alpha\in T^*_x M. $ If $ \pi:T^*M \rightarrow M $ is the natural projection, the differential $ d\pi : T \left( T^*M \right) \rightarrow TM $ takes $ v $ to $ d\pi(v)=(\pi(\alpha), d\pi_\alpha(v))=(x,d\pi_\alpha(v)), $ which is a vector tangent to $ M $ at $ x. $ We define a 1-form $ \theta $ on $ T^*M $ by the relation $ \theta(v)=\alpha(d\pi_\alpha(v)). $ In local coordinates this form is $ \theta= p_i dq^i, $ and the form $ \omega = d\theta $ is non-degenerate. 
 \end{proof}
 
 Given that $ (T^*M, \omega = dq^i\wedge dp_i) $ is a symplectic manifold, for a Hamiltonian $ H: T^*M \rightarrow \mathbb{R}, $ there is a vector field $ X_H \in \mathfrak{X}(T^*M) $ such that $ dH = \omega (X_H,\cdot) $. Writing $ X_H $ in coordinates, $ X_H = X_i \partial q^i + X^i \partial p_i, $ and evaluating $ \partial q^j $ and $ \partial p_j $ in $ dH $ gives  
@@ -741,7 +761,9 @@ $$ dH(\partial q^j) = \frac{\partial H}{\partial q^j} = \omega(X_H, \partial q^j
 $$ dH(\partial p_j) = \frac{\partial H}{\partial p_j} =\omega(X_H, \partial p_j)=X_j, $$ 
 
 so that $ X_H = (\partial H/\partial p_j)\partial q^j - (\partial H / \partial q^j)\partial p_j $, and its integral curves are defined by the following system of differential equations:
-$$ \dot{q^i} = \frac{\partial H}{\partial p_i}, \quad \dot{p_i} =- \frac{\partial H}{\partial q^i}.   $$ 
+\begin{equation}\label{eq:hamilton_equations}
+ \dot{q^i} = \frac{\partial H}{\partial p_i}, \quad \dot{p_i} =- \frac{\partial H}{\partial q^i}.    
+\end{equation}
 This system of differential equations receives the name of \textit{Hamilton equations for $ H $.} Despite this formulation on the cotangent bundle came centuries after Hamilton, these equations are known by its name because of the similarities of their form with the ones that are obtained using the generalized momentums instead of the classical velocity and position variables in classical mechanics. Moreover, this method turns out to be a generalization of Hamiltonian mechanics to arbitrary spaces and energy functions.
 
 \begin{thm}\label{thm:constantCurves}
@@ -749,7 +771,7 @@ The Hamiltonian $ H: T^*M \rightarrow \mathbb{R} $ is constant along the integra
 \end{thm}
 
 \begin{proof}
-	Suppose that $ c:I\subseteq \mathbb{R} \rightarrow T^*M $ is an integral curve of $ X_H. $ Then, the composition $ (H\circ c) (t) $ can be differentiated with help of the transition maps on $ T^*M. $ Let $ t\in I, $ and $ (U_{c(t)}, \varphi) $ be a coordinate chart. Then, 
+	Suppose that $ c:I\subseteq \mathbb{R} \rightarrow T^*M $ is an integral curve of $ X_H. $ Then, the composition $ (H\circ c) (t) $ can be differentiated: let $ t\in I, $ and $ (U_{c(t)}, \varphi) $ be a coordinate chart, then, 
 	%\begin{multline}
 		
 	$$ \frac{d}{dt} (H\circ c)(t) = \frac{d}{dt} \left( \left( H\circ \varphi^{-1} \right)\circ \left( \varphi\circ c \right) \right)(t) = \frac{d(\varphi\circ c)^i}{dt}\cdot \frac{\partial (H\circ \varphi^{-1})}{\partial q^i}= X_H^i \partial_i H $$ $$= dH(X_H)=\omega(X_H, X_H)=0,$$    
@@ -769,7 +791,7 @@ The Hamiltonian $ H: T^*M \rightarrow \mathbb{R} $ is constant along the integra
 	In the other hand, if we take the Hamiltonian $ H(p,q)=p_i, $ we get that $ X_H=\partial q^i. $ 
 \end{ex}
 
-In local coordinates, $ P_\xi = p_i \xi_q^i. $ Computing its Hamilton equations gives
+In local coordinates, $ P_\xi = p_i \xi_q^i $, hence, computing its Hamilton equations gives
 $$ \dot{q^i} = \xi_q^i,\quad \dot{p_i} = -p_j \frac{\partial \xi_q^j}{\partial q^i}.  $$ 
 The first Hamilton equation says that the flow of the Hamiltonian vector field $ X_{P_\xi} $ on $ T^*M $ projects onto the flow of the original vector field $ \xi $ on $ M $ (\cite{montgomery2002tour}, page 278). To understand the second Hamilton equation, recall that the \textit{cotangent lift} $ \Phi_{T^*}: T^*M \rightarrow T^*M $ of any diffeomorphism $ \Phi : M \rightarrow M $ is given by 
 $$ \Phi_{T^*}(q,p) = (\Phi(q), (\Phi^{-1})^*_{\Phi(q)}(p)),\ p\in T^*_qM,$$ 
@@ -785,7 +807,7 @@ $$ X_{P_\xi} = \frac{d(\Phi_t)_{T^*}}{dt} \Big|_{t=0}.  $$
 	$$ \left\{ f,g \right\}= X_g(f),$$ 
 	where $ X_g  $ is the Hamiltonian vector field associated with $ g. $ 
 \end{df}
-The Poisson bracket is in coordinates
+In coordinates, the Poisson bracket is 
 $$ \left\{ f,g \right\} = \frac{\partial g}{\partial p_i}\frac{\partial f}{\partial q^i} - \frac{\partial g}{\partial q^i} \frac{\partial f}{\partial p_i}.   $$ 
 Another way to write the Poisson bracket of $ f $ and $ g $ using the symplectic form $ \omega $ of $ T^*M $ is the following:
 $$ \left\{ f,g \right\} = df(X_g)=\omega (X_f,X_g). $$ 
@@ -829,7 +851,7 @@ Therefore, $ f\mapsto \left\{ f,H \right\}  $ is a vector field on $T^*M$: the H
 	$$ \frac{d}{dt} \left( f\circ c \right) (t)=\omega(X_f, X_H)= \left\{ f,H \right\}(c(t)).  $$ 
 \end{proof}
 
-We write $ \dot{f}= \left\{ f,H \right\} $ to refer to the expression \eqref{eq:HamEq}, valid for any observable $ f. $ Equation \eqref{eq:HamEq} also receives the name of Hamilton equations, and when $ f $ runs over the canonical coordinates $ q^i,p_i, $ we get the Hamilton equations previously stated.
+We write $ \dot{f}= \left\{ f,H \right\} $ to refer to the expression \eqref{eq:HamEq}, valid for any observable $ f. $ Equation \eqref{eq:HamEq} also receives the name of Hamilton equations, and when $ f $ runs over the canonical coordinates $ q^i,p_i, $ we get the Hamilton equations previously stated in \eqref{eq:hamilton_equations}.
 
 \begin{prop}[Poisson bracket of momentum functions]
 	For any two vector fields $ \xi,\eta \in \mathfrak{X}(M) $ with momentum functions $ P_\xi, P_\eta: T^*M \rightarrow \mathbb{R}, $ we have that
@@ -862,13 +884,23 @@ where $ v^*,w^*\in T^*_qM $, and $ V,W\in \mathcal{H}_q $ are such that $ v^*|_{
 	If $ M $ is a manifold, and $ \left( \mathcal{H}, \langle\cdot,\cdot\rangle \right) $ is a subriemannian structure over it, we define the subriemannian Hamiltonian $ H_{sR}: T^*M \rightarrow \mathbb{R} $ as $$ H_{sR}(p,q)= \frac{1}{2} (p,p)_q, $$   	
 	where $ (\cdot,\cdot) $ is the cometric induced by $ \langle\cdot,\cdot\rangle. $ 
 \end{df}
-If $ \pi: Q \rightarrow M $ is a submersion, and $ (M,g) $ is a riemannian manifold, we know that the submersion induces a subriemannian structure on $ Q, $ $ (\mathcal{H},\langle\cdot,\cdot\rangle) $, where $ \mathcal{H} $ is the Ehresmann connection associated with $ \pi $, and $ \langle\cdot,\cdot\rangle $ is defined by the isomorphism $ d\pi_q|_{\mathcal{H}_q}: \mathcal{H}_q \rightarrow T_{\pi(q)}M $ and the metric $ g $ on $ M. $ 
+If $ \pi: Q \rightarrow M $ is a submersion endowed with a connection, and $ (M,g) $ is a riemannian manifold, we know that the submersion induces a subriemannian structure on $ Q, $ $ (\mathcal{H},\langle\cdot,\cdot\rangle) $, where $ \mathcal{H} $ is the Ehresmann connection associated with $ \pi $, and $ \langle\cdot,\cdot\rangle $ is defined by the isomorphism $ d\pi_q|_{\mathcal{H}_q}: \mathcal{H}_q \rightarrow T_{\pi(q)}M $ and the metric $ g $ on $ M. $ 
 
 The subriemannian Hamiltonian $ H_{sR}: T^*Q \rightarrow \mathbb{R}$ can be written in terms of the riemannian Hamiltonian $ H_R: T^*M \rightarrow \mathbb{R} $ in the following way: given the splitting $ TQ= \mathcal{H}\oplus V, $ we have that $ T^*Q = \mathcal{H}^* \oplus V^*, $ and so we have the canonical projection $ \operatorname{pr}_1: T^*Q \rightarrow \mathcal{H}^*. $ Now, we define a second projection $ \operatorname{pr}_2: \mathcal{H}^* \rightarrow T^*M $ by the formula $ \operatorname{pr}_2(\alpha)(v)=\alpha(h_q v), $ where $ \alpha\in \mathcal{H}^*_q, $ $ v\in T_{\pi(q)}M, $ and $h_qv$ is the horizontal lift of $ v $ into $ \mathcal{H}_q $ (well-defined and unique, because $ \mathcal{H} $ is an Ehresmann connection).
 \begin{prop}[\cite{montgomery2002tour}, proposition 11.1.5]
 	The induced subriemannian Hamiltonian is given by $H_{sR}= H_R \circ \operatorname{pr_2}\circ \operatorname{pr_1}. $ 
 \end{prop}
 
+\begin{proof}
+	We can horizontally lift any $ Y \in \mathfrak{X}(M) $ in a unique way to a vector field $ hY \in \mathfrak{X}(Q) $ that satisfies the following properties: $ (hY)_q \in \mathcal{H}_q $ and $ d\pi_q( (hY)_q) = Y_{\pi(q)}$ for all $ q\in Q. $  If $Y_a $ is an orthonormal frame for the riemannian structure on $ M, $ then $ hY_a $ is a horizontal orthonormal frame for the induced subriemannian structure on $ Q, $ and therefore
+	$$ H_R = \frac{1}{2} \sum^{}_{a} P_{Y_a}^2 \text{ and } H_{sR} = \frac{1}{2} \sum^{}_{a} P_{(hY)_a}^2, $$ 
+	where $ P_{Y_a} $ and $ P_{(hY)_a} $ are the momentum functions associated to $ Y_a $ and $ (hY)_a, $ respectively. Now, for any $ Y\in \mathfrak{X}(M) $, $ \operatorname{pr} ^* P_Y = P_{hY}$ because if $ \alpha: T^*Q \rightarrow \mathbb{R}, $ then
+	\begin{align*}
+	(\operatorname{pr}^*P_Y)(\alpha)=P_Y( \operatorname{pr} (\alpha)) = \operatorname{pr} (\alpha) (Y_{\pi(q)}) = \operatorname{pr} (\alpha) \left( d\pi_q((hY)_q) \right) \\= \operatorname{pr}_1(\alpha) \left( (hY)_q \right) =\alpha( (hY)_q ) =  P_{hY}(\alpha).  
+	\end{align*}
+	With this, 
+	$$ H_R \circ \operatorname{pr} = \frac{1}{2} \sum^{}_{a} (P_{Y_a}\circ \operatorname{pr} )^2 = \frac{1}{2} \sum^{}_{a} (\operatorname{pr}^* P_{Y_a})^2 = \frac{1}{2} \sum^{}_{a} P_{(hY)_a}^2=H_{sR}. $$ 
+\end{proof}
 \begin{df}
 	Let $ (M,g) $ be a riemannian manifold, and $G $ a Lie group that acts on $ M $ via the application $ \alpha: M\times G \rightarrow M, $ $ \alpha(m,h)= m\cdot h. $ We say that \textit{the metric $ g $ is $ G $-invariant} if  
 	$$ g_{m\cdot h}((d\alpha_h)_m(v),(d\alpha_h)_m(w))=g_m(v,w), $$ 
@@ -909,18 +941,18 @@ Thanks to the last proposition and the fact that $ h $ is $ G $-invariant, we ha
 \end{dmath*}
 
 \begin{df}
-	Let $ G $ be a Lie group. A bilinear form $ \beta \in \mathfrak{X}^2_0(\mathfrak{g}) $ is called \textit{bi-invariant} or \textit{adjoint invariant} if
+	Let $ G $ be a Lie group. A bilinear form $ \beta \in \Lambda^2(\mathfrak{g}) $ is called \textit{bi-invariant} or \textit{adjoint invariant} if
 	$$ \beta \left( \operatorname{Ad}_g v, \operatorname{Ad}_g w \right) = \beta(v,w) \text{ for all }g\in G,\ v,w\in \mathfrak{g}. $$ 
 \end{df}
 
-Any bilinear form $ \beta\in \mathfrak{X}^2_0( \mathfrak{g}) $ can be extended to all $ TG $ using left or right translations $ L_g: G \rightarrow G, h \mapsto gh, $ $ R_g: G \rightarrow G, h \mapsto hg $ in the following way:
+Any bilinear form $ \beta\in \Lambda^2( \mathfrak{g}) $ can be extended to all $ TG $ using left or right translations $ L_g: G \rightarrow G, h \mapsto gh, $ $ R_g: G \rightarrow G, h \mapsto hg $ in the following way:
 $$ \beta_g (v,w) = \beta \left( d (L_{g^{-1}})_g(v),d (L_{g^{-1}})_g(w) \right), \text{ or}  $$ 
 $$ \beta_g (v,w) = \beta \left( d (R_{g^{-1}})_g(v),d (R_{g^{-1}})_g(w) \right),  $$ 
 for all $ g\in G $, $ v,w\in T_g G. $ If $ \beta $ is bi-invariant, both extensions coincide, because
 \begin{dmath*}
 	\beta \left( d (R_{g^{-1}})_g(v),d (R_{g^{-1}})_g(w) \right) =    \beta \left( d (R_{g^{-1}})_g\circ d(L_g)_e\circ d(L_{g^{-1}})_g(v),d (R_{g^{-1}})_g\circ d(L_g)_e\circ d(L_{g^{-1}})_g(w) \right) = \beta \left( \operatorname{Ad}_g\circ d(L_g^{-1})_g(v),\operatorname{Ad}_g\circ d(L_g^{-1})_g(w) \right) = \beta \left( d (L_{g^{-1}})_g(v),d (L_{g^{-1}})_g(w) \right). 
 \end{dmath*}
-Therefore, an adjoint invariant bilinear form on the Lie algebra defines a \textit{bi-invariant riemannian metric on $ G $,} provided that this form is positive definite.
+Therefore, an adjoint invariant positive definite bilinear form on the Lie algebra defines a \textit{bi-invariant riemannian metric on $ G $.}
 
 \begin{df}
 	[\cite{montgomery2002tour}, definition 11.2.4] The $ G $-invariant riemannian metric (or pseudometric) $ h $ on $ Q $ is said to be of \textit{constant bi-invariant type} if its inertia tensor $ \mathbb{I}_q $ equals the same bi-invariant bilinear form on $ \mathfrak{g}, $ for all $q\in Q. $ 
