@@ -379,10 +379,10 @@ The next lemma (\cite{lee2003introduction}, Ch. 19, lemma 19.22) is going to be 
 With the global Frobenius theorem, one can answer the question at the start of this subsection: in general, for an given distribution there is no smooth horizontal curve that connects an arbitrary pair of points, because the points can be in different leaves of the foliation given by the distribution.
 
 
-\section{Subriemannian Geometry}%
+\section{SubRiemannian Geometry}%
 \label{sec:subriemannian_geometry}
 
-\subsection{Subriemannian Structure and Geodesics}%
+\subsection{SubRiemannian Structure and Geodesics}%
 \label{sub:subriemannian_structure_and_geodesics}
 \begin{df}
 	A \textit{subriemannian structure over a manifold} $ M $ is a pair $ (\mathcal{H}, \langle\cdot,\cdot\rangle)$, where $ \mathcal{H}\subset TM $ is a distribution and $ \langle\cdot,\cdot\rangle $ is a section of the bundle $ T^0_2 \mathcal{H} \xrightarrow[]{\pi} M, $ whose values are positive definite symmetric bilinear forms (see \cite{hatcher2003vector}, Ch. 1, page 12).
@@ -392,7 +392,7 @@ With the global Frobenius theorem, one can answer the question at the start of t
 
 Some examples of subriemannian structures are given below.
 \begin{ex}[Riemannian Structure]\label{ex:riem_geo2}
-	Every riemannian structure is in particular a subriemannian structure, where the distribution is the entire tangent bundle.
+	Every Riemannian structure is in particular a subriemannian structure, where the distribution is the entire tangent bundle.
 \end{ex}
 
 \begin{ex}[Heisenberg Group]\label{ex:heis_group2}
@@ -402,7 +402,7 @@ Some examples of subriemannian structures are given below.
 \begin{ex}[Vector Field over a Manifold]\label{ex:vect_field2}
 	As seen in example \ref{ex:vect_field}, any smooth vector field $ X: M \rightarrow TM$ that does not cancel out in any point determines a distribution.  The fiber inner-product $ \langle\cdot,\cdot\rangle: \mathcal{H}_p \times \mathcal{H}_p \rightarrow \mathbb{R} $ for $ p\in M $  is given by $\langle\lambda_1 X_p,\lambda_2 X_p\rangle=\lambda_1 \lambda_2.$
 \end{ex}
-In the particular case of the horizontal curves, one can define the \textit{length of a horizontal smooth curve} $ \gamma $ (denoted by $ \ell(\gamma) $) as in the case of riemannian geometry:
+In the particular case of the horizontal curves, one can define the \textit{length of a horizontal smooth curve} $ \gamma $ (denoted by $ \ell(\gamma) $) as in the case of Riemannian geometry:
 $$ \ell(\gamma) = \int ||\dot{\gamma}|| dt, $$ 
 since the tangent vectors of the curve at all points are in the fibers of the horizontal distribution, where there is a inner product defined, and $ ||\dot{\gamma}||= \sqrt[]{\langle\dot{\gamma}, \dot{\gamma}\rangle}.  $   
 
@@ -415,7 +415,7 @@ The distance between two points is said to be infinite if there is no horizontal
 The curves that are considered in the previous definition of distance are required to be absolutely continuous, that is a weaker condition of smoothness, and refers to a curve that is differentiable in almost all points of its domain. Nevertheless, the distance remains invariant if we consider instead the set of all smooth curves (see \cite{montgomery2002tour}, page 23), but the motivation to consider the bigger set of absolutely continuous curves is the fact that the curves that realize the distance between two points are not always smooth.
 
 \begin{df}
-	Given a subriemannian structure $ (\mathcal{H}, \langle\cdot,\cdot\rangle) $ over a manifold $ M $  (or riemannian structure, if $ \mathcal{H}=TM $), it is said that an absolutely continuous horizontal curve $ \gamma:  [a,b] \rightarrow M$, with $ \gamma(a)=p, \gamma(b)=q $ is a \textit{geodesic} if it realizes the distance between $ p $ and $ q $, that is,   
+	Given a subriemannian structure $ (\mathcal{H}, \langle\cdot,\cdot\rangle) $ over a manifold $ M $  (or Riemannian structure, if $ \mathcal{H}=TM $), it is said that an absolutely continuous horizontal curve $ \gamma:  [a,b] \rightarrow M$, with $ \gamma(a)=p, \gamma(b)=q $ is a \textit{geodesic} if it realizes the distance between $ p $ and $ q $, that is,   
 	$$ \ell(\gamma)= d(p,q). $$ 
 \end{df}
 
@@ -544,7 +544,7 @@ With the Ball-Box theorem, Chow's theorem can be derived easily.
 and $ T \mathbb{R}^3 = \operatorname{span}\{  \partial/\partial x + z \partial / \partial y, \partial/\partial z, \partial/\partial y\} $, Cartan's distribution is bracket generating, so by Chow's theorem any two points in $ \mathbb{R}^3 $ can be connected by a horizontal path. 
 \end{ex}
 
-\section{Subriemannian metrics on Bundles}%
+\section{SubRiemannian metrics on Bundles}%
 \label{sec:metrics_on_bundles}
 \subsection{Ehresmann connection}%
 \label{sub:ehresmann_connection}
@@ -567,9 +567,9 @@ The collection of vertical spaces is a distribution $ V \subset TQ $ that assign
 The restriction of $ d\pi_q $ to $ \mathcal{H}_q $ is a linear isomorphism between $ \mathcal{H}_q $ and $ T_{\pi(q)} M $  because $ d\pi_q $ is surjective, and by the isomorphism theorem we have that $ \mathcal{H}_q\cong T_{\pi(q)} M $. 
 
 \begin{df}\label{df:ind_sub_struc}
-If $ M $ is endowed with a metric $ g $, we can use the previous linear isomorphism to pull the inner product back to the horizontal distribution $ \mathcal{H}$: the subriemannian structure $ (\mathcal{H},\langle \cdot, \cdot\rangle) $ induced by the riemannian structure $ (M,g) $ is given by
+If $ M $ is endowed with a metric $ g $, we can use the previous linear isomorphism to pull the inner product back to the horizontal distribution $ \mathcal{H}$: the subriemannian structure $ (\mathcal{H},\langle \cdot, \cdot\rangle) $ induced by the Riemannian structure $ (M,g) $ is given by
 $$ \langle v,w \rangle_q = g_{\pi(q)} \left( d\pi_q(v), d\pi_q(w) \right), \text{ for all }q\in Q \text{ and } v,w\in \mathcal{H}_q.   $$ 
-This subriemannian metric varies smoothly with $ q\in Q $ (\cite{montgomery2002tour}, page 194), and is referred as the \textit{induced subriemannian structure} over $ Q $ by the submersion $ \pi: Q \rightarrow M $ and the riemannian metric over $ M. $ 
+This subriemannian metric varies smoothly with $ q\in Q $ (\cite{montgomery2002tour}, page 194), and is referred as the \textit{induced subriemannian structure} over $ Q $ by the submersion $ \pi: Q \rightarrow M $ and the Riemannian metric over $ M. $ 
 \end{df}
 \begin{df}
 	The \textit{horizontal lift} of a curve $ c: I \rightarrow {M} $ starting at $ m\in M $ is defined as the unique curve $ \gamma : I \rightarrow {Q} $ that is tangent to $ \mathcal{H}, $ starts at $ q\in Q_m, $ and projects to $c$, that is, $ \pi\circ\gamma = c. $ 
@@ -578,7 +578,7 @@ This subriemannian metric varies smoothly with $ q\in Q $ (\cite{montgomery2002t
 The uniqueness of the horizontal lift follows from the fact that $ \gamma: I \rightarrow Q $ is solution of the initial value problem
 $$ \frac{d\gamma(t)}{dt} = d\pi^{-1}_{c(t)} \left( \frac{dc(t)}{dt}  \right),\quad \gamma(0)=q.  $$ 
 \begin{ex}[Canonical projection from $ \mathbb{R}^{m+n} $ to $ \mathbb{R}^m $  ]\label{ex:can_proj}
-	\sloppy	Consider the canonical projection $ \pi: \mathbb{R}^{m+n} \rightarrow \mathbb{R}^m $ that maps the first $ m $-coordinates of a point in $ \mathbb{R}^{m+n} $  to $ \mathbb{R}^m. $ This map is a submersion, and its vertical space at a point $ q\in \mathbb{R}^{m+n} $ is $ V_q = \left\{ (0,\dots,0,v_1,\dots,v_n) : v_1,\dots,v_n\in \mathbb{R}  \right\} \cong \mathbb{R}^n. $ A connection for this submersion is $ \mathcal{H}_q = \left\{ (v_1,\dots,v_m, 0,\dots, 0): v_1,\dots,v_m\in \mathbb{R} \right\}\cong \mathbb{R}^m.  $ Given an arbitrary curve $ c: I \rightarrow \mathbb{R}^m, $ starting at $ \boldsymbol{p}= (p_1,\dots,p_m), $ its horizontal lift at a point $ (p_1,\dots,p_m,q_1,\dots,q_n)\in \pi^{-1}( \boldsymbol{p} ) $ is the curve $ \gamma: I \rightarrow \mathbb{R}^{m+n} $, $ t\mapsto (c(t),q_1,\dots,q_n). $   
+	\sloppy	Consider the canonical projection $ \pi: \mathbb{R}^{m+n} \rightarrow \mathbb{R}^m $ that maps the first $ m $-coordinates of a point in $ \mathbb{R}^{m+n} $  to $ \mathbb{R}^m. $ This map is a submersion, and its vertical space at a point $ q\in \mathbb{R}^{m+n} $ is $ V_q = \left\{ (0,\dots,0,v_1,\dots,v_n) : v_1,\dots,v_n\in \mathbb{R}  \right\} \cong \mathbb{R}^n. $ A connection for this submersion is $ \mathcal{H}_q = \left\{ (v_1,\dots,v_m, 0,\dots, 0): v_1,\dots,v_m\in \mathbb{R} \right\}\cong \mathbb{R}^m.  $ Given an arbitrary curve $ c: I \rightarrow \mathbb{R}^m, $ starting at $ \boldsymbol{p}= (p_1,\dots,p_m), $ its horizontal lift passing through the point $ (p_1,\dots,p_m,q_1,\dots,q_n)\in \pi^{-1}( \boldsymbol{p} ) $ is the curve $ \gamma: I \rightarrow \mathbb{R}^{m+n} $, $ t\mapsto (c(t),q_1,\dots,q_n). $   
 \end{ex}
 \begin{rem}
 	The connection $ \mathcal{H} $ is called \textit{complete} or is referred as an \textit{Ehresmann connection}  if every smooth curve $ c: I \rightarrow {M} $ has a horizontal lift.
@@ -587,8 +587,8 @@ $$ \frac{d\gamma(t)}{dt} = d\pi^{-1}_{c(t)} \left( \frac{dc(t)}{dt}  \right),\qu
 \begin{prop}
 	The induced subriemannian structure satisfies the following properties:
 	\begin{enumerate}
-		\item The subriemannian length of a horizontal path on $ Q $ equals the riemannian length of its projection to $ M. $ 
-		\item The horizontal lift of a riemannian geodesic in $ M $ is a subriemannian geodesic in $ Q. $ 
+		\item The subriemannian length of a horizontal path on $ Q $ equals the Riemannian length of its projection to $ M. $ 
+		\item The horizontal lift of a Riemannian geodesic in $ M $ is a subriemannian geodesic in $ Q. $ 
 		\item The projection $ \pi $ is distance decreasing, that is, $ d_M(\pi(q_1), \pi(q_2))\leq d_Q(q_1,q_2), $ for all $ q_1,q_2\in Q. $ 
 	\end{enumerate}
 \end{prop}
@@ -600,7 +600,7 @@ $$ \frac{d\gamma(t)}{dt} = d\pi^{-1}_{c(t)} \left( \frac{dc(t)}{dt}  \right),\qu
 
 		having in mind that $d\pi_{\gamma(t)}$ induces an isomorphism between $ \mathcal{H}_{\gamma(t)} $ and $ T_{\pi(\gamma(t))} M,$ and this isomorphism determines the induced subriemannian structure over $ Q. $ As $c=\pi\circ\gamma$ and $ d/dt(\pi\circ\gamma) = d\pi_{\gamma(t)}(\dot{\gamma}(t)) $, $ \ell_Q(\gamma)=\ell_M(c). $  
 
-		\item Suppose that $ c: I \rightarrow {M} $ is a riemannian geodesic, and let $ \gamma: I \rightarrow {Q} $ be its respective horizontal lift. Take any other horizontal curve $ \eta: I \rightarrow {Q} $ with the same endpoints than $ \gamma. $ Then, by the first affirmation of this proposition and the fact that $ c $ is a geodesic, we have
+		\item Suppose that $ c: I \rightarrow {M} $ is a Riemannian geodesic, and let $ \gamma: I \rightarrow {Q} $ be its respective horizontal lift. Take any other horizontal curve $ \eta: I \rightarrow {Q} $ with the same endpoints than $ \gamma. $ Then, by the first affirmation of this proposition and the fact that $ c $ is a geodesic, we have
 			$$ \ell_Q(\eta) = \ell_M(\pi\circ \eta) \geq \ell_M(c) = \ell_Q(\gamma),  $$ 
 		from where we get that $ \gamma: I \rightarrow {Q} $ is a subriemannian geodesic.
 
@@ -609,19 +609,19 @@ $$ \frac{d\gamma(t)}{dt} = d\pi^{-1}_{c(t)} \left( \frac{dc(t)}{dt}  \right),\qu
 \end{proof}
 
 \begin{df}\label{df:compatible}
-	A riemannian metric on $ Q $ is said to be \textit{compatible} with the induced subriemannian metric if the algebraic splitting $ TQ = V \oplus \mathcal{H} $ is an orthogonal decomposition with respect to the riemannian metric on $ Q$.  
+	A Riemannian metric on $ Q $ is said to be \textit{compatible} with the induced subriemannian metric if the algebraic splitting $ TQ = V \oplus \mathcal{H} $ is an orthogonal decomposition with respect to the Riemannian metric on $ Q$.  
 \end{df}
 
 \begin{rem}
-Thanks to the orthogonal algebraic splitting, a compatible riemannian metric is determined by its restriction to $ V, $ and the induced subriemannian structure restricted to $ \mathcal{H} $. This fact can be turned around in the following sense. Take a riemannian metric $ g_Q $ on $ Q. $ Let $ V_q^\perp $ be the orthogonal complement of the vertical space $ V_q $ in $ q\in Q $ with respect to the riemannian metric, and set $ \mathcal{H}_q=V_q^\perp. $ The riemannian metric defines inner products in $ V_q^\perp $  and $ T_mM, $ being defined in the first as the restriction of the riemannian metric, and in the second is given by the metric and the isomorphism $ \mathcal{H}_q\cong T_mM. $ Nevertheless, this inner product on $ T_mM $ can depend on the point $ q\in Q_m $, as the metric could vary with the point of the fiber. If that is the case, we cannot construct a riemannian metric on $ M, $ as there is no consistent way to choose which $ q\in Q_m $ is going to be used to define the inner product (\cite{montgomery2002tour}, page 195).
+Thanks to the orthogonal algebraic splitting, a compatible Riemannian metric is determined by its restriction to $ V, $ and the induced subriemannian structure restricted to $ \mathcal{H} $. This fact can be turned around in the following sense. Take a Riemannian metric $ g_Q $ on $ Q. $ Let $ V_q^\perp $ be the orthogonal complement of the vertical space $ V_q $ in $ q\in Q $ with respect to the Riemannian metric, and set $ \mathcal{H}_q=V_q^\perp. $ The Riemannian metric defines inner products in $ V_q^\perp $  and $ T_mM, $ being defined in the first as the restriction of the Riemannian metric, and in the second is given by the metric and the isomorphism $ \mathcal{H}_q\cong T_mM. $ Nevertheless, this inner product on $ T_mM $ can depend on the point $ q\in Q_m $, as the metric could vary with the point of the fiber. If that is the case, we cannot construct a Riemannian metric on $ M, $ as there is no consistent way to choose which $ q\in Q_m $ is going to be used to define the inner product (\cite{montgomery2002tour}, page 195).
 \end{rem}
 
 \begin{df}
-	Given a riemannian manifold $ (Q, g_Q), \pi: Q \rightarrow {M}
-	$ a submersion, we say that the pair $ (\pi, g_Q) $ is a \textit{riemannian submersion} if for every $ m\in M $ and $ q\in Q_m $,  the isomorphism $ d\pi_q |_{\mathcal{H}_q} $ is an isometry between $ \mathcal{H}_q $ and $ T_m M$. 
+	Given a Riemannian manifold $ (Q, g_Q), \pi: Q \rightarrow {M}
+	$ a submersion, we say that the pair $ (\pi, g_Q) $ is a \textit{Riemannian submersion} if for every $ m\in M $ and $ q\in Q_m $,  the isomorphism $ d\pi_q |_{\mathcal{H}_q} $ is an isometry between $ \mathcal{H}_q $ and $ T_m M$. 
 \end{df}
 \begin{ex}
-	Note that the canonical projection $ \pi : \mathbb{R}^{m+n} \rightarrow \mathbb{R}^m $ given in example \ref{ex:can_proj} is a riemannian submersion if $ \mathbb{R}^{m+n} $ is endowed with the cartesian metric.
+	Note that the canonical projection $ \pi : \mathbb{R}^{m+n} \rightarrow \mathbb{R}^m $ given in example \ref{ex:can_proj} is a Riemannian submersion if $ \mathbb{R}^{m+n} $ is endowed with the cartesian metric.
 \end{ex}
 \subsection{Metrics on Principal Bundles}%
 \label{sub:metrics_on_principal_bundles}
@@ -711,7 +711,7 @@ The set of all unitary quaternions is $ \mathbb{S}^3 $, so that $ \mathbb{S}^3 $
 	With this, $ \mathbb{S}^3 $ can be seen as the disjoint union of these circles, and endowing this disjoint union with the standard manifold structure of $ \mathbb{S}^3 $, we identify $ \mathbb{S}^2 = \mathbb{C}P^1$, and take the open sets $ U_i= \left\{ \left[ z_0 : z_1 \right]\ | \ z_i\neq 0 \right\}$, with $ i=0,1. $ The local trivializations are (see \cite{luke2013vector}, page 68) $ \varphi_i: U_i \times \mathbb{S}^1 \rightarrow \pi^{-1}(U_i), $ $$ \varphi_i([z_0:z_1], \lambda) = \left( \frac{\lambda}{\sqrt{1+|\omega_i|^2}}, \frac{\lambda\omega_i}{\sqrt{1+|\omega_i|^2}}   \right), $$ with $ \omega_0=z_1/z_0 $ and $ \omega_1 = z_0/z_1. $ Now, we define an action $ \alpha: \mathbb{S}^3\times \mathbb{S}^1 \rightarrow { \mathbb{S}^3}
 	$, given by $ \alpha(z_1,z_2,\lambda) = (z_1\lambda, z_2\lambda), $ where $ (z_1,z_2)\in \mathbb{S}^3\subset \mathbb{C}^2 $ and $ \lambda\in \mathbb{S}^1 \subset \mathbb{C}. $ This action acts freely on $ \mathbb{S}^3, $ and its orbits coincide with the fibers of $ \pi, $ so that $ \mathbb{S}^3/ \mathbb{S}^1 \cong \mathbb{S}^2. $ From this point it is clear that the Hopf bundle is a fiber bundle, and its local trivializations are equivariant with respect to the action, as $ \varphi_i([z_0:z_1], \lambda_1\lambda_2) = \varphi_i([z_0:z_1], \lambda_1)\lambda_2. $ Therefore, $ \pi: \mathbb{S}^3 \rightarrow { \mathbb{S}^2} $ is a principal $ \mathbb{S}^1$-bundle.
 
-	To find a connection for this submersion, we recall that, by the preimage of regular value theorem, $ \pi^{-1}(m) = \mathbb{S}^1_q $ is a submanifold of $ \mathbb{S}^3 $, of dimension $ \operatorname{dim}( \mathbb{S}^3)- \operatorname{dim}( \mathbb{S}^2) = 1,  $ and its tangent space (vertical space of the submersion) $ T_q \mathbb{S}^1_q $ is $ \operatorname{Ker}(d\pi_q)  $. Now, if $ \mathbb{S}^3 $ is endowed with the standard riemannian structure, there is only one connection compatible with the metric, and is given by $ \mathcal{H}_q = \operatorname{Ker}(d\pi_q)^\perp. $ The vector that determines $ \operatorname{Ker}(d\pi_q)  $ can be found using the action if we consider the tangent vector of the curve $ \gamma: (-\epsilon, \epsilon) \rightarrow \mathbb{S}^3, $ $ t\mapsto \gamma(z_1,z_2, e^{it})=(z_1e^{it},z_2e^{it}) $ at $ t=0 $, where $ q=(z_1,z_2). $ With this, $ \operatorname{Ker}(d\pi_q) = \langle(iz_1, iz_2)\rangle,  $ and the connection at $ q\in \mathbb{S}^3 $,  $ \mathcal{H}_q $, will be the orthogonal complement (with respect to $ \mathbb{R}^4 $ provided with the usual norm) of the vector space $ \langle(iz_1,iz_2), (z_1,z_2)\rangle  {= \langle(x_1,y_1,x_2,y_2), (-y_1,x_1,-y_2,x_2)\rangle}$, that is, $ \mathcal{H}_q = \langle(x_2,-y_2,-x_1,y_1),(y_2,x_2,-y_1,-x_1)\rangle, $ where $ q=(x_1+iy_1, x_2+iy_2). $   
+	To find a connection for this submersion, we recall that, by the preimage of regular value theorem, $ \pi^{-1}(m) = \mathbb{S}^1_q $ is a submanifold of $ \mathbb{S}^3 $, of dimension $ \operatorname{dim}( \mathbb{S}^3)- \operatorname{dim}( \mathbb{S}^2) = 1,  $ and its tangent space (vertical space of the submersion) $ T_q \mathbb{S}^1_q $ is $ \operatorname{Ker}(d\pi_q)  $. Now, if $ \mathbb{S}^3 $ is endowed with the standard Riemannian structure, there is only one connection compatible with the metric, and is given by $ \mathcal{H}_q = \operatorname{Ker}(d\pi_q)^\perp. $ The vector that determines $ \operatorname{Ker}(d\pi_q)  $ can be found using the action if we consider the tangent vector of the curve $ \gamma: (-\epsilon, \epsilon) \rightarrow \mathbb{S}^3, $ $ t\mapsto \gamma(z_1,z_2, e^{it})=(z_1e^{it},z_2e^{it}) $ at $ t=0 $, where $ q=(z_1,z_2). $ With this, $ \operatorname{Ker}(d\pi_q) = \langle(iz_1, iz_2)\rangle,  $ and the connection at $ q\in \mathbb{S}^3 $,  $ \mathcal{H}_q $, will be the orthogonal complement (with respect to $ \mathbb{R}^4 $ provided with the usual norm) of the vector space $ \langle(iz_1,iz_2), (z_1,z_2)\rangle  {= \langle(x_1,y_1,x_2,y_2), (-y_1,x_1,-y_2,x_2)\rangle}$, that is, $ \mathcal{H}_q = \langle(x_2,-y_2,-x_1,y_1),(y_2,x_2,-y_1,-x_1)\rangle, $ where $ q=(x_1+iy_1, x_2+iy_2). $   
 
 	This principal $ \mathbb{S}^1$-bundle has connection because the kernel of $ d(\pi\circ \alpha_g)_q $ is the same of $ d\pi_q, $ as $ d\alpha_g $ is an isomorphism. Therefore, $ d(\alpha_g)_q ( \mathcal{H}_q) = \mathcal{H}_{q\cdot g}, $ and the $ \mathbb{S}^1 $-action preserves $ \mathcal{H}. $ By proposition \ref{prop:comp_bundle}, this connection $ \mathcal{H} $ is complete.  
  
@@ -764,7 +764,7 @@ so that $ X_H = (\partial H/\partial p_j)\partial q^j - (\partial H / \partial q
 \begin{equation}\label{eq:hamilton_equations}
  \dot{q^i} = \frac{\partial H}{\partial p_i}, \quad \dot{p_i} =- \frac{\partial H}{\partial q^i}.    
 \end{equation}
-This system of differential equations receives the name of \textit{Hamilton equations for $ H $.} Despite this formulation on the cotangent bundle came centuries after Hamilton, these equations are known by its name because of the similarities of their form with the ones that are obtained using the generalized momentums instead of the classical velocity and position variables in classical mechanics. Moreover, this method turns out to be a generalization of Hamiltonian mechanics to arbitrary spaces and energy functions.
+This system of differential equations receives the name of \textit{Hamilton equations for $ H $.} Despite this formulation on the cotangent bundle came after Hamilton, these equations are known by its name because they are a generalization of the ones that are obtained using the generalized momentums instead of the classical velocity and position variables in classical mechanics. Moreover, this method turns out to be a generalization of Hamiltonian mechanics to symplectic manifolds.
 
 \begin{thm}\label{thm:constantCurves}
 The Hamiltonian $ H: T^*M \rightarrow \mathbb{R} $ is constant along the integral curves of the vector field $ X_H. $ 	
@@ -795,7 +795,7 @@ In local coordinates, $ P_\xi = p_i \xi_q^i $, hence, computing its Hamilton equ
 $$ \dot{q^i} = \xi_q^i,\quad \dot{p_i} = -p_j \frac{\partial \xi_q^j}{\partial q^i}.  $$ 
 The first Hamilton equation says that the flow of the Hamiltonian vector field $ X_{P_\xi} $ on $ T^*M $ projects onto the flow of the original vector field $ \xi $ on $ M $ (\cite{montgomery2002tour}, page 278). To understand the second Hamilton equation, recall that the \textit{cotangent lift} $ \Phi_{T^*}: T^*M \rightarrow T^*M $ of any diffeomorphism $ \Phi : M \rightarrow M $ is given by 
 $$ \Phi_{T^*}(q,p) = (\Phi(q), (\Phi^{-1})^*_{\Phi(q)}(p)),\ p\in T^*_qM,$$ 
-where $ (\Phi^{-1})^* $ is the pullback of $ \Phi^{-1} $, that is,
+where $ (\Phi^{-1})^* $ is 
 $$ (\Phi^{-1})^*_{\Phi(q)}(p)(\eta) = p_q \left( d\Phi^{-1}_{\Phi(q)}(\eta) \right) $$ 
 for every $ \eta\in T_{\Phi(q)}M. $ If $ \Phi_t: M \rightarrow M $ is the flow of the vector field $ \xi, $ then the flow of $ X_{P_\xi} $ is $ (\Phi_t)_{T^*}, $ as
 $$ (\Phi_t)_{T^*}(q,p) = \left( \Phi_t(q), p_q \left( d(\Phi_{-t})_{\Phi(q)}(\cdot) \right) \right), $$ 
@@ -835,10 +835,10 @@ $\begin{aligned}
 
 From the last expression it is clear that $ d\omega=0 $ is equivalent to the Jacobi identity.
 \end{proof}
-The first three properties of last proposition guarantee that $ \left( C^\infty(T^*M), \left\{ \cdot,\cdot \right\}  \right) $ is a Lie algebra. The last property ia known as Leibniz identity, because due to it the operator $ f\mapsto \left\{ f,H \right\}  $, with $ H $ a Hamiltonian, is a derivation on $ C^\infty(T^*M): $ 
+The first three properties of last proposition guarantee that $ \left( C^\infty(T^*M), \left\{ \cdot,\cdot \right\}  \right) $ is a Lie algebra. The last property is known as Leibniz identity, because due to it the operator $ f\mapsto \left\{ f,H \right\}  $, with $ H $ a Hamiltonian, is a derivation of $ C^\infty(T^*M): $ 
 
 $$ \left\{ fg,H \right\} =f \left\{ g,H \right\} +g \left\{ f,H \right\} . $$ 
-Therefore, $ f\mapsto \left\{ f,H \right\}  $ is a vector field on $T^*M$: the Hamiltonian vector field of $ H, \ X_H $ (\cite{montgomery2002tour}, page 279).
+Therefore, $ f\mapsto \left\{ f,H \right\}  $ determines a vector field over $T^*M$: the Hamiltonian vector field of $ H, \ X_H $ (\cite{montgomery2002tour}, page 279).
 
 \begin{prop}[Hamilton equations in bracket form]\label{prop:HEBF}
 	If $ c(t) $ is an integral curve for $ X_H $ and $ f\in C^\infty(T^*M) $ is an observable, then
@@ -861,7 +861,7 @@ We write $ \dot{f}= \left\{ f,H \right\} $ to refer to the expression \eqref{eq:
 \begin{proof}
 	Follows directly from calculus in coordinates.
 \end{proof}
-If $ (M,g) $ is a riemannian manifold, we define the \textit{riemannian Hamiltonian} $ H_R: T^*M \rightarrow \mathbb{R} $ as
+If $ (M,g) $ is a Riemannian manifold, we define the \textit{Riemannian Hamiltonian} $ H_R: T^*M \rightarrow \mathbb{R} $ as
 $$ H_R(q,p)=\frac{1}{2} g_q(p,p).$$
 In local coordinates, $  H_R(q,p)= g^{ij}(q)p_ip_j/2. $ This Hamiltonian has the following Hamilton equations:
 $$ \dot{q^i} = \frac{\partial H_R}{\partial p_i} = g^{ij}p_j, \quad \dot{p_i} = - \frac{\partial H}{\partial q^i} = - \frac{1}{2} \frac{\partial g^{jk}(q)}{\partial q^i} p_jp_k. $$ 
@@ -870,10 +870,10 @@ $$ \ddot{q^i} = \frac{\partial g^{ij}(q)}{\partial q^k} \dot{q^k}p_j+ g^{ij}\dot
 and $ q $ satisfies the geodesic equation, from where we deduce that the integral curves of $ X_{H_R} $ are geodesics. Moreover, any geodesic $ q(t) $ satisfies Hamilton equations, given that $ p_i = g_{ij}\dot{q^j}. $ From this discussion we derive the following proposition.
 
 \begin{prop}\label{prop:geo}
-	If $ (M,g) $ is a riemannian manifold, and $ H_R: T^*M \rightarrow \mathbb{R} $ is its riemannian Hamiltonian, $ q(t) $ is a geodesic if and only if $ (q^i(t), g_{ij}(q(t))\dot{q^j}(t)) $ is an integral curve of $ X_{H_R}. $ 
+	If $ (M,g) $ is a Riemannian manifold, and $ H_R: T^*M \rightarrow \mathbb{R} $ is its Riemannian Hamiltonian, $ q(t) $ is a geodesic if and only if $ (q^i(t), g_{ij}(q(t))\dot{q^j}(t)) $ is an integral curve of $ X_{H_R}. $ 
 \end{prop}
 
-Recall that given a riemannian manifold $ (M,g), $ we can construct a metric $ g^*_q $  over every cotangent fiber $ T^*_q M, $ using the identification
+Recall that given a Riemannian manifold $ (M,g), $ we can construct a metric $ g^*_q $  over every cotangent fiber $ T^*_q M, $ using the identification
 $$ g^*_q(v^*,w^*):=g_q(v,w), $$ 
 where $ v^*,w^*\in T^*_qM, $ and $ v,w\in T_qM $ are the preimages of $ v^*,w^* $ via the isomorphism $ T^*_qM\cong T_qM $ induced by the metric $ g $, that is, $ v^*=g_q(v,\cdot) $ and $ w^*=g_q(w,\cdot) $. In coordinates, if $ g_q=g_{ij}(q) $, then $ g^*_q=g^{ij}(q), $ that is, the representation in coordinates of the metric in the cotangent fiber is equivalent to the inverse matrix of the representation in coordinates of the metric in the tangent fiber.   
 
@@ -884,15 +884,15 @@ where $ v^*,w^*\in T^*_qM $, and $ V,W\in \mathcal{H}_q $ are such that $ v^*|_{
 	If $ M $ is a manifold, and $ \left( \mathcal{H}, \langle\cdot,\cdot\rangle \right) $ is a subriemannian structure over it, we define the subriemannian Hamiltonian $ H_{sR}: T^*M \rightarrow \mathbb{R} $ as $$ H_{sR}(p,q)= \frac{1}{2} (p,p)_q, $$   	
 	where $ (\cdot,\cdot) $ is the cometric induced by $ \langle\cdot,\cdot\rangle. $ 
 \end{df}
-If $ \pi: Q \rightarrow M $ is a submersion endowed with a connection, and $ (M,g) $ is a riemannian manifold, we know that the submersion induces a subriemannian structure on $ Q, $ $ (\mathcal{H},\langle\cdot,\cdot\rangle) $, where $ \mathcal{H} $ is the Ehresmann connection associated with $ \pi $, and $ \langle\cdot,\cdot\rangle $ is defined by the isomorphism $ d\pi_q|_{\mathcal{H}_q}: \mathcal{H}_q \rightarrow T_{\pi(q)}M $ and the metric $ g $ on $ M. $ 
+If $ \pi: Q \rightarrow M $ is a submersion endowed with a connection, and $ (M,g) $ is a Riemannian manifold, we know that the submersion induces a subriemannian structure on $ Q, $ $ (\mathcal{H},\langle\cdot,\cdot\rangle) $, where $ \mathcal{H} $ is the Ehresmann connection associated with $ \pi $, and $ \langle\cdot,\cdot\rangle $ is defined by the isomorphism $ d\pi_q|_{\mathcal{H}_q}: \mathcal{H}_q \rightarrow T_{\pi(q)}M $ and the metric $ g $ on $ M. $ 
 
-The subriemannian Hamiltonian $ H_{sR}: T^*Q \rightarrow \mathbb{R}$ can be written in terms of the riemannian Hamiltonian $ H_R: T^*M \rightarrow \mathbb{R} $ in the following way: given the splitting $ TQ= \mathcal{H}\oplus V, $ we have that $ T^*Q = \mathcal{H}^* \oplus V^*, $ and so we have the canonical projection $ \operatorname{pr}_1: T^*Q \rightarrow \mathcal{H}^*. $ Now, we define a second projection $ \operatorname{pr}_2: \mathcal{H}^* \rightarrow T^*M $ by the formula $ \operatorname{pr}_2(\alpha)(v)=\alpha(h_q v), $ where $ \alpha\in \mathcal{H}^*_q, $ $ v\in T_{\pi(q)}M, $ and $h_qv$ is the horizontal lift of $ v $ into $ \mathcal{H}_q $ (well-defined and unique, because $ \mathcal{H} $ is an Ehresmann connection).
+The subriemannian Hamiltonian $ H_{sR}: T^*Q \rightarrow \mathbb{R}$ can be written in terms of the Riemannian Hamiltonian $ H_R: T^*M \rightarrow \mathbb{R} $ in the following way: given the splitting $ TQ= \mathcal{H}\oplus V, $ we have that $ T^*Q = \mathcal{H}^* \oplus V^*, $ and so we have the canonical projection $ \operatorname{pr}_1: T^*Q \rightarrow \mathcal{H}^*. $ Now, we define a second projection $ \operatorname{pr}_2: \mathcal{H}^* \rightarrow T^*M $ by the formula $ \operatorname{pr}_2(\alpha)(v)=\alpha(h_q v), $ where $ \alpha\in \mathcal{H}^*_q, $ $ v\in T_{\pi(q)}M, $ and $h_qv$ is the horizontal lift of $ v $ into $ \mathcal{H}_q $ (well-defined and unique, because $ \mathcal{H} $ is an Ehresmann connection).
 \begin{prop}[\cite{montgomery2002tour}, proposition 11.1.5]
 	The induced subriemannian Hamiltonian is given by $H_{sR}= H_R \circ \operatorname{pr_2}\circ \operatorname{pr_1}. $ 
 \end{prop}
 
 \begin{proof}
-	We can horizontally lift any $ Y \in \mathfrak{X}(M) $ in a unique way to a vector field $ hY \in \mathfrak{X}(Q) $ that satisfies the following properties: $ (hY)_q \in \mathcal{H}_q $ and $ d\pi_q( (hY)_q) = Y_{\pi(q)}$ for all $ q\in Q. $  If $Y_a $ is an orthonormal frame for the riemannian structure on $ M, $ then $ hY_a $ is a horizontal orthonormal frame for the induced subriemannian structure on $ Q, $ and therefore
+	We can horizontally lift any $ Y \in \mathfrak{X}(M) $ in a unique way to a vector field $ hY \in \mathfrak{X}(Q) $ that satisfies the following properties: $ (hY)_q \in \mathcal{H}_q $ and $ d\pi_q( (hY)_q) = Y_{\pi(q)}$ for all $ q\in Q. $  If $Y_a $ is an orthonormal frame for the Riemannian structure on $ M, $ then $ hY_a $ is a horizontal orthonormal frame for the induced subriemannian structure on $ Q, $ and therefore
 	$$ H_R = \frac{1}{2} \sum^{}_{a} P_{Y_a}^2 \text{ and } H_{sR} = \frac{1}{2} \sum^{}_{a} P_{(hY)_a}^2, $$ 
 	where $ P_{Y_a} $ and $ P_{(hY)_a} $ are the momentum functions associated to $ Y_a $ and $ (hY)_a, $ respectively. Now, for any $ Y\in \mathfrak{X}(M) $, $ \operatorname{pr} ^* P_Y = P_{hY}$ because if $ \alpha: T^*Q \rightarrow \mathbb{R}, $ then
 	\begin{align*}
@@ -902,12 +902,12 @@ The subriemannian Hamiltonian $ H_{sR}: T^*Q \rightarrow \mathbb{R}$ can be writ
 	$$ H_R \circ \operatorname{pr} = \frac{1}{2} \sum^{}_{a} (P_{Y_a}\circ \operatorname{pr} )^2 = \frac{1}{2} \sum^{}_{a} (\operatorname{pr}^* P_{Y_a})^2 = \frac{1}{2} \sum^{}_{a} P_{(hY)_a}^2=H_{sR}. $$ 
 \end{proof}
 \begin{df}
-	Let $ (M,g) $ be a riemannian manifold, and $G $ a Lie group that acts on $ M $ via the application $ \alpha: M\times G \rightarrow M, $ $ \alpha(m,h)= m\cdot h. $ We say that \textit{the metric $ g $ is $ G $-invariant} if  
+	Let $ (M,g) $ be a Riemannian manifold, and $G $ a Lie group that acts on $ M $ via the application $ \alpha: M\times G \rightarrow M, $ $ \alpha(m,h)= m\cdot h. $ We say that \textit{the metric $ g $ is $ G $-invariant} if  
 	$$ g_{m\cdot h}((d\alpha_h)_m(v),(d\alpha_h)_m(w))=g_m(v,w), $$ 
 	for all $ m\in M, $ $ v,w\in T_mM $ and $ h\in G. $ 
 \end{df}
 
-Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}. $ If $ (\mathcal{H},\langle\cdot,\cdot\rangle) $ is a metric of bundle type, we say that a metric $ h $ on $ Q $ is a \textit{compatible riemannian metric} if $ h $ is $ G $-invariant and compatible (see definition \ref{df:compatible}). From this definition, it is clear that $ h|_{G_q}: TG_q \oplus TG_q \rightarrow \mathbb{R} $ is a right-invariant metric, and we can use it to define a metric on $ G $ as follows:
+Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}. $ If $ (\mathcal{H},\langle\cdot,\cdot\rangle) $ is a metric of bundle type, we say that a metric $ h $ on $ Q $ is a \textit{compatible Riemannian metric} if $ h $ is $ G $-invariant and compatible (see definition \ref{df:compatible}). From this definition, it is clear that $ h|_{G_q}: TG_q \oplus TG_q \rightarrow \mathbb{R} $ is a right-invariant metric, and we can use it to define a metric on $ G $ as follows:
 
 Let $ \mathfrak{g}= \operatorname{Lie}(G)=T_eG, $ and $ \operatorname{exp} : \mathfrak{g}\rightarrow G $ be the exponential application. \textit{The infinitesimal generator map for the group action $ \sigma_v: Q\rightarrow T_qQ $ }, for $ v \in \mathfrak{g} $,  is defined as
 $$ \sigma_v(q) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} \left( q\cdot \operatorname{exp} (\epsilon v) \right).$$ 
@@ -952,10 +952,10 @@ for all $ g\in G $, $ v,w\in T_g G. $ If $ \beta $ is bi-invariant, both extensi
 \begin{dmath*}
 	\beta \left( d (R_{g^{-1}})_g(v),d (R_{g^{-1}})_g(w) \right) =    \beta \left( d (R_{g^{-1}})_g\circ d(L_g)_e\circ d(L_{g^{-1}})_g(v),d (R_{g^{-1}})_g\circ d(L_g)_e\circ d(L_{g^{-1}})_g(w) \right) = \beta \left( \operatorname{Ad}_g\circ d(L_g^{-1})_g(v),\operatorname{Ad}_g\circ d(L_g^{-1})_g(w) \right) = \beta \left( d (L_{g^{-1}})_g(v),d (L_{g^{-1}})_g(w) \right). 
 \end{dmath*}
-Therefore, an adjoint invariant positive definite bilinear form on the Lie algebra defines a \textit{bi-invariant riemannian metric on $ G $.}
+Therefore, an adjoint invariant positive definite bilinear form on the Lie algebra defines a \textit{bi-invariant Riemannian metric on $ G $.}
 
 \begin{df}
-	[\cite{montgomery2002tour}, definition 11.2.4] The $ G $-invariant riemannian metric (or pseudometric) $ h $ on $ Q $ is said to be of \textit{constant bi-invariant type} if its inertia tensor $ \mathbb{I}_q $ equals the same bi-invariant bilinear form on $ \mathfrak{g}, $ for all $q\in Q. $ 
+	[\cite{montgomery2002tour}, definition 11.2.4] The $ G $-invariant Riemannian metric (or pseudometric) $ h $ on $ Q $ is said to be of \textit{constant bi-invariant type} if its inertia tensor $ \mathbb{I}_q $ equals the same bi-invariant bilinear form on $ \mathfrak{g}, $ for all $q\in Q. $ 
 \end{df}
 
 Note that if $ G $ is a Lie group acting on itself via the multiplication map $ \alpha: G\times G \rightarrow G,\ (k,h) \mapsto kh $, $ \alpha_h = R_h, $ and if $ g $ is a $ G $-invariant metric on $ G $ we have that 
@@ -965,7 +965,7 @@ for all $ k,h\in G,\ v,w\in T_kG. $ Therefore, a metric on $ G $ is $ G $-invari
 $$\mathbb{I}_k(\xi,\eta)= g_k(v,w)= \mathbb{I}_{hk}(\xi,\eta)= g_{hk} \left( d(L_h)_kv, d(L_h)_k w \right) $$
 as $ \sigma_\chi(k) = d(L_k)_e\chi $ for all $ k\in G, \ \chi\in \mathfrak{g}. $ 
 
-\begin{prop}
+\begin{prop}\label{prop:essential_fact1}
 	If $ g $ is a bi-invariant metric on a Lie group $ G, $ its geodesics through the identity coincide with its one-parameter subgroups.
 \end{prop}
 \begin{proof}
@@ -981,19 +981,62 @@ as $ \sigma_\chi(k) = d(L_k)_e\chi $ for all $ k\in G, \ \chi\in \mathfrak{g}. $
 	Now, if $ \gamma: \left( -\epsilon,\epsilon \right) \rightarrow G $ is a geodesic with $ \gamma(0)=e,\dot{\gamma}(0)=v\in T_eG, $ as $ \iota $ is an isometry, $ \iota\circ\gamma(t)= \left[ \gamma(t) \right]^{-1} $ is also a geodesic. Moreover, $ d\iota_e(v)=-v, $ so that $ \gamma(t) $ and $ \left[ \gamma(t) \right]^{-1} $ are the same geodesic, with $ \left[ \gamma(t) \right]^{-1} = \gamma(-t).  $ For small $ t_0\in \mathbb{R} $ (sufficiently small in order to have that $ \operatorname{Im} \gamma|_{[0,t_0]}\subset U,  $ where $ U $ is a totally normal neighborhood of $ e $), consider the curve $ \eta:(-t_0,0) \rightarrow G $, $ t \mapsto  \gamma(t_0)\gamma(t)= L_{\gamma(t_0)}(\gamma(t)) $. This curve is a geodesic because $ g $ is bi-invariant, with $ \gamma(0)=\gamma(t_0), \eta(-t_0)=e. $ Due to the uniqueness of minimizing geodesics in a totally normal neighborhood, $ \eta(t)=\gamma(t_0+t), $ that is, $ \gamma(t_0)\gamma(t)= \gamma(t_0+t), $ for $ t\in (-t_0,0). $  Using the relation $ \gamma(s+t)=\gamma(s)\gamma(t) $  and the local uniqueness of minimizing geodesics we can extend this property over all the domain of the geodesic $ \gamma. $ With this, $ \gamma $ is a one-parameter subgroup, and
 
 	$$ \operatorname{exp} (v)=\gamma(1)= (\operatorname{exp}_R)_e(v),  $$ 
-	where $ (\operatorname{exp}_R)_e : T_eG \rightarrow G  $ is the riemannian exponential.
+	where $ (\operatorname{exp}_R)_e : T_eG \rightarrow G  $ is the Riemannian exponential.
 \end{proof}
 
-\begin{prop}
-	If $ G $ is a lie group endowed with a bi-invariant metric $ g, $ the riemannian Hamiltonian $ H_R : T^*G \rightarrow \mathbb{R}, (q,p) \mapsto g_q(p,p)/2$ commutes with every right or left invariant observable $ f\in C^\infty ( T^*G). $ 
+\begin{prop}\label{prop:essential_fact2}
+	If $ G $ is a Lie group endowed with a bi-invariant metric $ g, $ the Riemannian Hamiltonian $ H_R : T^*G \rightarrow \mathbb{R}, (q,p) \mapsto g_q(p,p)/2$ commutes with every right or left invariant observable $ f\in C^\infty ( T^*G). $ 
 \end{prop}
 \begin{proof}
 	From proposition \ref{prop:HEBF}, if $ f: T^*G \rightarrow G $ is an observable, then $ d/dt \left( f\circ c \right) (t)= \left\{ f, H_R \right\}(c(t)),  $ where $ c(t) $ is an integral curve of the Hamiltonian vector field associated to $ H_R. $ By proposition \ref{prop:geo}, $ c(t)=(q(t), g_{q(t)}(\cdot, \dot{q}(t))) $, where $ q(t) $ is a geodesic. As $ G $ is complete (because $ g $ is bi-invariant), there is a geodesic that connects $ e $ with every $ h\in G, $ and by last proposition, this geodesic is a one-parameter subgroup, which implies that $ d/dt(f\circ c)(t)=0, $ because the quantity $ f\circ c(t) $ is constant since $ f $ is left or right invariant.	
 \end{proof}
 
-\begin{thm}[\cite{montgomery2002tour}, theorem 11.2.5]
-	Let $ Q $ be the total space of a principal $G $-bundle $ \pi: Q \rightarrow M $, endowed with a subriemannian metric of bundle type. Consider an extension of this metric to a compatible riemannian or pseudo-riemannian metric whose associated vertical metric has constant bi-invariant type. Take any geodesic for the extended metric and project it to the base space $ M. $ Horizontally lift the result back to $ Q. $ The result is a normal subriemannian geodesic. All normal subriemannian geodesics can be obtained in this manner. The projected curve is a geodesic in the base $ M $ if and only if the original curve is a horizontal geodesic in the total space $ Q. $ 
+\begin{thm}[Theorem on normal geodesics of bundle type subriemannian metrics, \cite{montgomery2002tour}, theorem 11.2.5]
+	%kk
+	Let $ Q $ be the total space of a principal $G $-bundle $ \pi: Q \rightarrow M $, endowed with a subriemannian metric of bundle type. Consider an extension of this metric to a compatible Riemannian or pseudo-Riemannian metric whose associated vertical metric has constant bi-invariant type. Take any geodesic for the extended metric and project it to the base space $ M. $ Horizontally lift the result back to $ Q. $ The result is a normal subriemannian geodesic. All normal subriemannian geodesics can be obtained in this manner. The projected curve is a geodesic in the base $ M $ if and only if the original curve is a horizontal geodesic in the total space $ Q. $ 
 \end{thm}
+
+\begin{proof}
+	Let $ H_R $ be the Riemannian Hamiltonian of $ Q, $ $ H_{sR} $ its subriemannian Hamiltonian, and let $ H_G$ be the vertical part of the Riemannian Hamiltonian, that is, $ H_R = H_{sR}+H_G. $  We will need the following two claims for this proof:
+	\begin{enumerate}
+		\item $ H_{sR} $ and $ H_G $ Poisson-commute, that is, $ \left\{ H_{sR}, H_G \right\} =0. $ 
+		\item The projection to $ Q $ of any integral curve in $ T^*Q $ for the Hamiltonian vector field defined by $ H_G $ is of the form $ q \operatorname{exp}(tv),  $ for some fixed $ v\in \mathfrak{g}, $ which depends of the initial conditions of the integral curve.
+	\end{enumerate}
+	\begin{proof}
+		[Proof of the claims] It suffices to show that the claims hold over any locally trivialized neighborhood $ \pi^{-1}(U) $ in $ Q. $ Let $ \phi_U: \pi^{-1}(U) \rightarrow U\times G $ be the corresponding local trivialization, which induces a diffeomorphism $ T^*Q \cong T^*U\times T^*G,$ that takes the Poisson bracket to the product Poisson bracket. 
+
+		Let $ (x,p)\in T^* U $ and $ (g,\mu)\in T^*G $, being $ \mu\in \mathfrak{g}^*. $ Then, we have that
+		\begin{equation}\label{eq:ham1}
+			H_G(x,p,g,\mu) = \beta^*(\mu)
+		\end{equation}
+		and
+		\begin{equation}\label{eq:ham2}
+			H_{sR}(x,p,g,\mu)= f(x,p,\mu).	
+		\end{equation}
+		Equations \eqref{eq:ham1} and \eqref{eq:ham2} come from the fact that the metric is of constant bi-invariant type and $ G $-invariant. Using these equations, the Poisson bracket of $ H_{sR} $ and $ H_{G} $ is
+
+		$$ \left\{ f,\beta^* \right\} = \underbrace{\left\{ f,\beta^* \right\}_U}_0 + \left\{ f,\beta^* \right\}_G = \sum^{}_{a} \frac{\partial f}{\partial g^a} \frac{\partial \beta^*}{\partial \mu_a} = \sum^{}_{a} \frac{\partial f}{\partial \mu_a} \frac{\partial \mu_a}{\partial g^a} \frac{\partial \beta^*}{\partial \mu_a}  = \sum^{}_{a} \frac{\partial f}{\partial \mu_a} \left\{ \mu_a, \beta^* \right\}_G, $$ 
+		using both the Leibniz rule and the product Poisson structure, $ \mu_a $ are coordinates on $ \mathfrak{g}^*, $ and $ g^a $ are coordinates on $ G. $ As the $ \mu_a $ are right-invariant functions on $ T^*G$, by proposition \ref{prop:essential_fact2}, $ \left\{ \mu_a,\beta^* \right\}_G =0 $, and this proves the first claim.
+
+		To prove the second claim, note that the flow of $ H_G $ is of the form $\Phi_G(t)(x,p,g,\mu)= (x,p; \Phi_\beta(t)(g,\mu))$, where $ \Phi_\beta(t): T^*G \rightarrow T^*G$ is the flow associated with $ \beta^*, $ that is, $ \Phi_\beta(t)(g,\mu)=( \operatorname{exp}_g(tv), \mathfrak{v}_{ \operatorname{exp}_g(tv) }(\cdot, d/dt \operatorname{exp}_g(tv) ) ) $, where $ \mathfrak{v} $ is the vertical metric, and $ v \in \mathfrak{g} $ satisfies $ \mu = \mathfrak{v}_g(\cdot,v). $ With this, the projection to $ Q $ of $ \Phi_G(t)(x,p,g,\mu) $ is $ x \operatorname{exp}_g(tv). $  
+	\end{proof}
+	With the claims proved, we proceed with the proof of the theorem. The Riemannian exponential map is the composition of four maps:
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRABUB9ARwEUQAvqXSZc+QigCM5KrUYs27fkJHY8BIgCYZ1es1aIOAPQBUy4SAxrxRAMw65+xafOqxGlABYHehYeWyMFAA5vBEoABmAE4QALZIZCA4EEjSIAx0AEYwDAAKouoS6TAROCC68gYgADrV+Dh0ghbRcanUyUjaIHAAFlilCSogLfGIXR2I9o5+NdW5fZwASgAUkgCUTZExo1MT3tNVtRBoMFF0yVFgdLEwwGgxAFYCghQCQA
+\begin{tikzcd}
+T_qQ \arrow[r, "\iota"] & TQ \arrow[r] & T^*Q \arrow[r, "\Phi_R(1)"] & T^*Q \arrow[r, "\operatorname{proj}"] & Q,
+\end{tikzcd}
+	\end{center}
+	where the first map $ \iota $ is the inclusion, the second map is the metric induced identification, $ \Phi_R(1) $ is the time 1-flow of $ H_R, $ and $ \operatorname{proj}  $ is the canonical projection. The Riemannian geodesics are obtained by the same sequence of compositions, changing $ \Phi_R(1) $ to $ \Phi_R(t). $ Since $ H_{sR} = H_R - H_G, $ and the flows for $ H_R, $ $ H_{sR} $ and $ H_R $ all commute according to claim (1), we have that $ \Phi_{sR}(t)= \Phi_R(t)\circ \Phi_G(-t). $  Applying the projection $ \operatorname{proj} :T^*Q \rightarrow Q $ to this formula, and considering the claim (2), we find that the normal subriemannian geodesics all have the form 
+	\begin{equation}\label{eq:normal_geodesic_form}
+		\operatorname{exp}_R(tv)  \operatorname{exp}_G(-tw).
+	\end{equation}
+	These subriemannian geodesics must be horizontal, which leads to $ w=A(v)\in \mathfrak{g}, $ where $A\in \Omega^1(Q, \mathfrak{g})$ is the connection one-form annihilating the horizontal space.
+
+	As the flow $ \Phi_G $ is purely vertical ($\pi(qg)=\pi(q)$ for any $ g\in G $), \eqref{eq:normal_geodesic_form} projects to $ \pi( \operatorname{exp}_R(tv)) $ in the quotient $ M=Q/G, $ and its horizontal lift will be \eqref{eq:normal_geodesic_form}. This proves that the lifting of any projected geodesic for the extended metric is a normal subriemannian geodesic.
+
+	Now, to show that the projected curve is a geodesic in the base $ M $ if and only if the original curve is a horizontal geodesic in the total space $ Q $, we use the fact that the distance between points in $ M $ is the distance between fibers in $ Q, $ so that $ \pi(\gamma(t) ) $ is a geodesic if and only if $\gamma(t)$ minimizes distances between fibers, but this implies that this curve is normal to the fibers (due to the first variation of arc length), and therefore it is a subriemannian geodesic.  
+\end{proof}
 % ===============================================================
 \bibliographystyle{unsrt}
 \nocite{*}
