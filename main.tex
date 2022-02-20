@@ -616,7 +616,7 @@ $$ \frac{d\gamma(t)}{dt} = d\pi^{-1}_{c(t)} \left( \frac{dc(t)}{dt}  \right),\qu
 Thanks to the orthogonal algebraic splitting, a compatible Riemannian metric is determined by its restriction to $ V, $ and the induced subriemannian structure restricted to $ \mathcal{H} $. This fact can be turned around in the following sense. Take a Riemannian metric $ g_Q $ on $ Q. $ Let $ V_q^\perp $ be the orthogonal complement of the vertical space $ V_q $ in $ q\in Q $ with respect to the Riemannian metric, and set $ \mathcal{H}_q=V_q^\perp. $ The Riemannian metric defines inner products in $ V_q^\perp $  and $ T_mM, $ being defined in the first as the restriction of the Riemannian metric, and in the second is given by the metric and the isomorphism $ \mathcal{H}_q\cong T_mM. $ Nevertheless, this inner product on $ T_mM $ can depend on the point $ q\in Q_m $, as the metric could vary with the point of the fiber. If that is the case, we cannot construct a Riemannian metric on $ M, $ as there is no consistent way to choose which $ q\in Q_m $ is going to be used to define the inner product (\cite{montgomery2002tour}, page 195).
 \end{rem}
 
-\begin{df}
+\begin{df}\label{def:riemannian_submersion}
 	Given a Riemannian manifold $ (Q, g_Q), \pi: Q \rightarrow {M}
 	$ a submersion, we say that the pair $ (\pi, g_Q) $ is a \textit{Riemannian submersion} if for every $ m\in M $ and $ q\in Q_m $,  the isomorphism $ d\pi_q |_{\mathcal{H}_q} $ is an isometry between $ \mathcal{H}_q $ and $ T_m M$. 
 \end{df}
@@ -715,8 +715,8 @@ The set of all unitary quaternions is $ \mathbb{S}^3 $, so that $ \mathbb{S}^3 $
 
 	This principal $ \mathbb{S}^1$-bundle has connection because the kernel of $ d(\pi\circ \alpha_g)_q $ is the same of $ d\pi_q, $ as $ d\alpha_g $ is an isomorphism. Therefore, $ d(\alpha_g)_q ( \mathcal{H}_q) = \mathcal{H}_{q\cdot g}, $ and the $ \mathbb{S}^1 $-action preserves $ \mathcal{H}. $ By proposition \ref{prop:comp_bundle}, this connection $ \mathcal{H} $ is complete.  
  
-\subsection{The main theorem}
-Before proceeding with one of the principal results on subriemannian geometry and metrics on bundles, we need to recall some definitions and important results of symplectic geometry. Therefore, this subsection is dedicated to the study of these prerequisites and to the statement and proof of the \say{main theorem}. To start, we consider what is a symplectic structure, and follow to the ideas of cotangent bundle and Hamilton's equations.
+\subsection{Theorem on normal geodesics of bundle type subriemannian metrics}
+Before proceeding with one of the principal results on subriemannian geometry and metrics on bundles, we need to recall some definitions and important results of symplectic geometry. Therefore, this subsection is dedicated to the study of these prerequisites and to the statement and proof of the theorem on normal geodesics of bundle type subriemannian metrics. To start, we consider what is a symplectic structure, and follow to the ideas of cotangent bundle and Hamilton's equations.
 \begin{df}[\cite{arnol2013mathematical}, section 8A]
 	Let $ M $ be an even-dimensional manifold. A \textit{symplectic structure on $ M $ } is a closed non-degenerate differential 2-form $ \omega $ on $ M $, that is, 
 	\begin{enumerate}
@@ -755,12 +755,12 @@ Any manifold $ M $ has a symplectic manifold associated: the cotangent bundle. S
 	Let $ v\in T_p \left( T^*M \right)  $ be a vector tangent to the cotangent bundle at $ \alpha\in T^*_x M. $ If $ \pi:T^*M \rightarrow M $ is the natural projection, the differential $ d\pi : T \left( T^*M \right) \rightarrow TM $ takes $ v $ to $ d\pi(v)=(\pi(\alpha), d\pi_\alpha(v))=(x,d\pi_\alpha(v)), $ which is a vector tangent to $ M $ at $ x. $ We define a 1-form $ \theta $ on $ T^*M $ by the relation $ \theta(v)=\alpha(d\pi_\alpha(v)). $ In local coordinates this form is $ \theta= p_i dq^i, $ and the form $ \omega = d\theta $ is non-degenerate. 
 \end{proof}
 
-Given that $ (T^*M, \omega = dq^i\wedge dp_i) $ is a symplectic manifold, for a Hamiltonian $ H: T^*M \rightarrow \mathbb{R}, $ there is a vector field $ X_H \in \mathfrak{X}(T^*M) $ such that $ dH = \omega (X_H,\cdot) $. Writing $ X_H $ in coordinates, $ X_H = X_i \partial q^i + X^i \partial p_i, $ and evaluating $ \partial q^j $ and $ \partial p_j $ in $ dH $ gives  
+Given that $ (T^*M, \omega = dq^i\wedge dp_i) $ is a symplectic manifold, for a Hamiltonian $ H: T^*M \rightarrow \mathbb{R}, $ there is a vector field $ X_H \in \mathfrak{X}(T^*M) $ such that $ dH = \omega (X_H,\cdot) $. Writing $ X_H $ in coordinates, $ X_H = X_i \partial/\partial q^i + X^i \partial/\partial p_i, $ and evaluating $ \partial/\partial q^j $ and $ \partial/\partial p_j $ in $ dH $ gives  
 
-$$ dH(\partial q^j) = \frac{\partial H}{\partial q^j} = \omega(X_H, \partial q^j) = -\omega(\partial q^j, X_H) = -X^j, \text{ and}  $$ 
-$$ dH(\partial p_j) = \frac{\partial H}{\partial p_j} =\omega(X_H, \partial p_j)=X_j, $$ 
+$$ dH(\partial/\partial q^j) = \frac{\partial H}{\partial q^j} = \omega(X_H, \partial/\partial q^j) = -\omega(\partial/\partial q^j, X_H) = -X^j, \text{ and}  $$ 
+$$ dH(\partial/\partial p_j) = \frac{\partial H}{\partial p_j} =\omega(X_H, \partial/\partial p_j)=X_j, $$ 
 
-so that $ X_H = (\partial H/\partial p_j)\partial q^j - (\partial H / \partial q^j)\partial p_j $, and its integral curves are defined by the following system of differential equations:
+so that $ X_H = (\partial H/\partial p_j)\partial/\partial q^j - (\partial H / \partial q^j)\partial/\partial p_j $, and its integral curves are defined by the following system of differential equations:
 \begin{equation}\label{eq:hamilton_equations}
  \dot{q^i} = \frac{\partial H}{\partial p_i}, \quad \dot{p_i} =- \frac{\partial H}{\partial q^i}.    
 \end{equation}
@@ -786,9 +786,9 @@ The Hamiltonian $ H: T^*M \rightarrow \mathbb{R} $ is constant along the integra
 \end{df}
 
 \begin{ex}[\cite{montgomery2002tour}, example 1, section A.4]
-	If $ \xi=\partial q^i\in \mathfrak{X}( \mathbb{R}^n), $ its momentum function will be	
-	$$ P_{\partial q^i}(q,p)=p(\partial q_i) = p_i. $$ 
-	In the other hand, if we take the Hamiltonian $ H(p,q)=p_i, $ we get that $ X_H=\partial q^i. $ 
+	If $ \xi=\partial/\partial q^i\in \mathfrak{X}( \mathbb{R}^n), $ its momentum function will be	
+	$$ P_{\partial/\partial q^i}(q,p)=p(\partial/\partial q^i) = p_i. $$ 
+	In the other hand, if we take the Hamiltonian $ H(p,q)=p_i, $ we get that $ X_H=\partial /\partial q^i. $ 
 \end{ex}
 
 In local coordinates, $ P_\xi = p_i \xi_q^i $, hence, computing its Hamilton equations gives
@@ -993,9 +993,12 @@ as $ \sigma_\chi(k) = d(L_k)_e\chi $ for all $ k\in G, \ \chi\in \mathfrak{g}. $
 
 \begin{thm}[Theorem on normal geodesics of bundle type subriemannian metrics, \cite{montgomery2002tour}, theorem 11.2.5]
 	%kk
-	Let $ Q $ be the total space of a principal $G $-bundle $ \pi: Q \rightarrow M $, endowed with a subriemannian metric of bundle type. Consider an extension of this metric to a compatible Riemannian or pseudo-Riemannian metric whose associated vertical metric has constant bi-invariant type. Take any geodesic for the extended metric and project it to the base space $ M. $ Horizontally lift the result back to $ Q. $ The result is a normal subriemannian geodesic. All normal subriemannian geodesics can be obtained in this manner. The projected curve is a geodesic in the base $ M $ if and only if the original curve is a horizontal geodesic in the total space $ Q. $ 
+	Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}. $ Suppose that $ Q $ is a Riemannian manifold such that its metric is a Riemannian submersion (see definition \ref{def:riemannian_submersion}), compatible with $ \mathcal{H}, $ $ G $-invariant, and its associated vertical metric has constant bi-invariant type. Therefore, given any geodesic $\gamma: I \rightarrow Q, $ the horizontal lift of $ \pi\circ\gamma $ is a subriemannian geodesic. All subriemannian geodesics can be obtained in this manner. Moreover, the projected curve $ \pi\circ\gamma$ is a geodesic in the base space $ M $ if and only if $ \gamma $ is a horizontal geodesic in $ (Q, \mathcal{H}). $ 
 \end{thm}
 
+\begin{rem}
+The assumptions of this theorem are equivalent to suppose that $ \pi: Q \rightarrow  M $ is a principal $ G $-bundle endowed with a subriemannian metric of bundle type, and that this metric can be extended to a compatible Riemannian metric whose associated vertical metric has constant bi-invariant type.	
+\end{rem}
 \begin{proof}
 	Let $ H_R $ be the Riemannian Hamiltonian of $ Q, $ $ H_{sR} $ its subriemannian Hamiltonian, and let $ H_G$ be the vertical part of the Riemannian Hamiltonian, that is, $ H_R = H_{sR}+H_G. $  We will need the following two claims for this proof:
 	\begin{enumerate}
@@ -1003,7 +1006,7 @@ as $ \sigma_\chi(k) = d(L_k)_e\chi $ for all $ k\in G, \ \chi\in \mathfrak{g}. $
 		\item The projection to $ Q $ of any integral curve in $ T^*Q $ for the Hamiltonian vector field defined by $ H_G $ is of the form $ q \operatorname{exp}(tv),  $ for some fixed $ v\in \mathfrak{g}, $ which depends of the initial conditions of the integral curve.
 	\end{enumerate}
 	\begin{proof}
-		[Proof of the claims] It suffices to show that the claims hold over any locally trivialized neighborhood $ \pi^{-1}(U) $ in $ Q. $ Let $ \phi_U: \pi^{-1}(U) \rightarrow U\times G $ be the corresponding local trivialization, which induces a diffeomorphism $ T^*Q \cong T^*U\times T^*G,$ that takes the Poisson bracket to the product Poisson bracket. 
+		[Proof of the claims] It suffices to show that the claims hold over any locally trivialized neighborhood $ \pi^{-1}(U) $ in $ Q. $ Let $ \phi_U: \pi^{-1}(U) \rightarrow U\times G $ be the corresponding local trivialization, which induces a diffeomorphism $ T^*Q \cong T^*U\times T^*G.$
 
 		Let $ (x,p)\in T^* U $ and $ (g,\mu)\in T^*G $, being $ \mu\in \mathfrak{g}^*. $ Then, we have that
 		\begin{equation}\label{eq:ham1}
@@ -1035,7 +1038,7 @@ T_qQ \arrow[r, "\iota"] & TQ \arrow[r] & T^*Q \arrow[r, "\Phi_R(1)"] & T^*Q \arr
 
 	As the flow $ \Phi_G $ is purely vertical ($\pi(qg)=\pi(q)$ for any $ g\in G $), \eqref{eq:normal_geodesic_form} projects to $ \pi( \operatorname{exp}_R(tv)) $ in the quotient $ M=Q/G, $ and its horizontal lift will be \eqref{eq:normal_geodesic_form}. This proves that the lifting of any projected geodesic for the extended metric is a normal subriemannian geodesic.
 
-	Now, to show that the projected curve is a geodesic in the base $ M $ if and only if the original curve is a horizontal geodesic in the total space $ Q $, we use the fact that the distance between points in $ M $ is the distance between fibers in $ Q, $ so that $ \pi(\gamma(t) ) $ is a geodesic if and only if $\gamma(t)$ minimizes distances between fibers, but this implies that this curve is normal to the fibers (due to the first variation of arc length), and therefore it is a subriemannian geodesic.  
+	Finally, observe that if $ \gamma: I \rightarrow Q $ is a horizontal geodesic, its projection $ \pi\circ\gamma $ is a geodesic in $ M. $ Reciprocally, if $ \pi\circ\gamma $ is a geodesic, as the distance between points in $ M $ is the distance between fibers in $ Q, $ $ \pi(\gamma(t) ) $ is a geodesic if and only if $\gamma(t)$ minimizes distances between fibers, but this implies that this curve is normal to the fibers (if it were not normal, we could construct a shorter curve, leading to a contradiction), and therefore it is a subriemannian geodesic.  
 \end{proof}
 % ===============================================================
 \bibliographystyle{unsrt}
