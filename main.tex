@@ -544,7 +544,7 @@ With the Ball-Box theorem, Chow's theorem can be derived easily.
 and $ T \mathbb{R}^3 = \operatorname{span}\{  \partial/\partial x + z \partial / \partial y, \partial/\partial z, \partial/\partial y\} $, Cartan's distribution is bracket generating, so by Chow's theorem any two points in $ \mathbb{R}^3 $ can be connected by a horizontal path. 
 \end{ex}
 
-\section{SubRiemannian metrics on Bundles}%
+\section{Subriemannian metrics on Bundles}%
 \label{sec:metrics_on_bundles}
 \subsection{Ehresmann connection}%
 \label{sub:ehresmann_connection}
@@ -991,7 +991,7 @@ as $ \sigma_\chi(k) = d(L_k)_e\chi $ for all $ k\in G, \ \chi\in \mathfrak{g}. $
 	From proposition \ref{prop:HEBF}, if $ f: T^*G \rightarrow G $ is an observable, then $ d/dt \left( f\circ c \right) (t)= \left\{ f, H_R \right\}(c(t)),  $ where $ c(t) $ is an integral curve of the Hamiltonian vector field associated to $ H_R. $ By proposition \ref{prop:geo}, $ c(t)=(q(t), g_{q(t)}(\cdot, \dot{q}(t))) $, where $ q(t) $ is a geodesic. As $ G $ is complete (because $ g $ is bi-invariant), there is a geodesic that connects $ e $ with every $ h\in G, $ and by last proposition, this geodesic is a one-parameter subgroup, which implies that $ d/dt(f\circ c)(t)=0, $ because the quantity $ f\circ c(t) $ is constant since $ f $ is left or right invariant.	
 \end{proof}
 
-\begin{thm}[Theorem on normal geodesics of bundle type subriemannian metrics, \cite{montgomery2002tour}, theorem 11.2.5]
+\begin{thm}[Theorem on normal geodesics of bundle type subriemannian metrics, \cite{montgomery2002tour}, theorem 11.2.5]\label{thm:normal_geodesics}
 	%kk
 	Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}. $ Suppose that $ Q $ is a Riemannian manifold such that its metric is a Riemannian submersion (see definition \ref{def:riemannian_submersion}), compatible with $ \mathcal{H}, $ $ G $-invariant, and its associated vertical metric has constant bi-invariant type. Therefore, given any geodesic $\gamma: I \rightarrow Q, $ the horizontal lift of $ \pi\circ\gamma $ is a subriemannian geodesic. All subriemannian geodesics can be obtained in this manner. Moreover, the projected curve $ \pi\circ\gamma$ is a geodesic in the base space $ M $ if and only if $ \gamma $ is a horizontal geodesic in $ (Q, \mathcal{H}). $ 
 \end{thm}
@@ -1040,6 +1040,39 @@ T_qQ \arrow[r, "\iota"] & TQ \arrow[r] & T^*Q \arrow[r, "\Phi_R(1)"] & T^*Q \arr
 
 	Finally, observe that if $ \gamma: I \rightarrow Q $ is a horizontal geodesic, its projection $ \pi\circ\gamma $ is a geodesic in $ M. $ Reciprocally, if $ \pi\circ\gamma $ is a geodesic, as the distance between points in $ M $ is the distance between fibers in $ Q, $ $ \pi(\gamma(t) ) $ is a geodesic if and only if $\gamma(t)$ minimizes distances between fibers, but this implies that this curve is normal to the fibers (if it were not normal, we could construct a shorter curve, leading to a contradiction), and therefore it is a subriemannian geodesic.  
 \end{proof}
+
+\subsection{Classical particles in Yang-Mills Fields}%
+\label{sub:classical_particles_in_yang_mills_fields}
+What we aim to show in this section is that, given a principal $ G $-bundle $ \pi:Q \rightarrow M, $ there is a family of differential equations that describe the projected normal geodesics $ \pi\circ\gamma. $ When the fiber is a circle, these projected equations are the \textit{Lorentz equations of electromagnetism.} When the fiber is a general Lie group $ G, $ these equations are the \textit{nonabelian Lorentz equations,} also known as \textit{Wong's equations} (\cite{montgomery2002tour}, p. 209). Moreover, the results of this section are useful to find the subriemannian geodesics in cases where Theorem \ref{thm:normal_geodesics} can not be applied.
+
+The subriemannian geodesic equations are ordinary differential equations on $ T^*Q. $ For metrics of bundle type, the Hamiltonian $ H: T^*Q \rightarrow  \mathbb{R} $ is $ G $-invariant, and hence the action of $ G $ on $ T^*Q $ takes subriemannian geodesics to subriemannian geodesics. Therefore, we should be able to write the subriemannian geodesic equations on $ T^*Q/G, $ and this is going to be the objective of this dissertation. We start with some definitions.
+
+\begin{df}
+	Let $ G $ be a Lie group. A \textit{representation of $ G $ on a vector space $ E $} is a Lie group homomorphism $ \rho: G \rightarrow \operatorname{GL} (E). $ 
+\end{df}
+
+\begin{df}[\cite{montgomery2002tour}, p. 210]
+	Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle, and $ \rho: G \rightarrow \operatorname{GL}(E) $ be a representation of $ G $ on a vector space $ E. $ Consider the right action on $ Q\times E $ given by $ (q,v)\cdot g = (q\cdot g, \rho(g^{-1})v). $  The orbit space associated to this action is denoted as $ (Q\times E)/G $, $ Q\times_\rho E $ or $ \rho(Q). $  A point of $ \rho(Q) $ corresponding to the orbit of $ (q,v) $ is written as $ [q,v] $ or $ qv. $  
+
+	\textit{The associated bundle of $ \pi:Q \rightarrow M $ } is the vector bundle $ \phi: \rho(Q) \rightarrow M $ with fiber $ E, $ where $ \phi(qv)=\pi(q). $ The sum between two elements $ qv,qw$ in the same fiber is $ q(v+w). $  
+\end{df}
+
+\begin{ex}[\cite{montgomery2002tour}, p. 210]
+	\sloppy Let $ \xi: R \rightarrow M $ be a $n$-real vector bundle, and $ \pi: Q \rightarrow M $ is the principal $ \operatorname{GL}(n, \mathbb{R})  $-bundle whose fibers are $ \pi^{-1}(m) = \left\{ q: \mathbb{R}^n \rightarrow \xi^{-1}(m) \ | \ q\in \operatorname{Isom}( \mathbb{R}^n, \xi^{-1}(m)) \right\}  $, that is, each fiber consists of all frames for $ \xi^{-1}(m), $ and each element $ q\in Q_m $ is a linear isomorphism between $ \mathbb{R}^n $ and $ R_m, $ with the given basis being the image of the standard basis of $ \mathbb{R}^n. $ The principal $ \operatorname{GL} (n, \mathbb{R}) $-bundle $ \pi $ receives the name of \textit{frame bundle.} 
+
+	The action of $ \operatorname{GL} (n, \mathbb{R})$ on $ Q_m $ is given by $ q\mapsto qg:=q\circ g, $ and $ \operatorname{GL} (n, \mathbb{R}) $ acts on $ \mathbb{R}^n $ in the standard way. Now, let us show that the associated bundle of $ \pi: Q \rightarrow M $ is $ \xi: R \rightarrow M. $ We consider the trivial representation of $ \operatorname{GL} (n, \mathbb{R}), $ that is, the identity map $ \rho: \operatorname{GL} (n, \mathbb{R}) \rightarrow \operatorname{GL} (n, \mathbb{R}) $, so that the action on $ Q \times \mathbb{R}^n$ is given by $ (q,v)\cdot g = (q\circ g, g^{1}(v)),$ where $ q\in Q, $ $ v\in \mathbb{R}^n $ and $ g\in \operatorname{GL} (n, \mathbb{R}). $ Now, the orbit space associated to this action, $ \rho(Q), $ is diffeomorphic to $ R $ through the maps
+	$$ \psi: \rho(Q) \rightarrow R, \ qv\mapsto q(v), \quad \psi^{-1}: R \rightarrow \rho(Q), \ r \mapsto [q,q^{-1}(r)], \text{ where }q\in \pi^{-1}(\xi(r)), $$ 
+	and the following diagram commutes because $ \xi\circ \psi(qv)=\xi(q(v))=\pi(q)=\phi(qv).$ Explicitly, $ \xi(q(v))=\pi(q) $ because $ q\in\pi^{-1}(m) $ and $ q(v)\in \xi^{-1}(m) $ for a given $ m\in M, $ so that $ \xi(q(v))=m=\pi(q). $ Therefore, the associated bundle of the frame bundle $ \pi: Q \rightarrow M $ is $ \xi : R \rightarrow M. $ 
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12AnACwgAoAigEoQAX1LpMufIRQBGclVqMWbAErjJIDNjwEiZecvrNWiEAFktUvbKKLj1U2ovWxymFADm8IqAAzLggAWyQyEBwIJEUQBjoAIxgGAAVpfTk4mACcEGdVcw52NGwbECDQ8OoopAAmfLM2TjQeLDy4xOS0uwMLLixvHlyJQOCwxHrI6MQAZmp4pNT0+z6BofaXQvkAfXdtCvHYmtmG1yKADzaPMSA
+\begin{tikzcd}
+\rho(Q) \arrow[r, "\psi"] \arrow[d, "\phi"'] & R \arrow[d, "\xi"] \\
+M \arrow[r, "1_M"']                          & M                 
+\end{tikzcd}
+	\end{center}
+
+	This example can be extended to vector bundles endowed with additional structure. For example, for complex vector bundles we take $ Q_m $ as the space of complex linear maps $ \mathbb{C}^n \rightarrow  R_m; $ for a vector bundle $ \xi $ with a fiber metric we take $ Q_m $ to be the space of linear isometries $ \mathbb{R}^n \rightarrow R_m; $ and if $ \xi $ is complex with a fiber-Hermitian structure we take $ Q_m $ to consist of the unitary maps $ \mathbb{C}^n \rightarrow R_m. $ 
+\end{ex}
 % ===============================================================
 \bibliographystyle{unsrt}
 \nocite{*}
