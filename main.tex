@@ -716,15 +716,15 @@ The set of all unitary quaternions is $ \mathbb{S}^3 $, so that $ \mathbb{S}^3 $
 	This principal $ \mathbb{S}^1$-bundle has connection because the kernel of $ d(\pi\circ \alpha_g)_q $ is the same of $ d\pi_q, $ as $ d\alpha_g $ is an isomorphism. Therefore, $ d(\alpha_g)_q ( \mathcal{H}_q) = \mathcal{H}_{q\cdot g}, $ and the $ \mathbb{S}^1 $-action preserves $ \mathcal{H}. $ By proposition \ref{prop:comp_bundle}, this connection $ \mathcal{H} $ is complete.  
  
 \subsection{Theorem on normal geodesics of bundle type subriemannian metrics}
-Before proceeding with one of the principal results on subriemannian geometry and metrics on bundles, we need to recall some definitions and important results of symplectic geometry. Therefore, this subsection is dedicated to the study of these prerequisites and to the statement and proof of the theorem on normal geodesics of bundle type subriemannian metrics. To start, we consider what is a symplectic structure, and follow to the ideas of cotangent bundle and Hamilton's equations.
+Before proceeding with one of the principal results on subriemannian geometry and metrics on bundles, we need to recall some definitions and important results of symplectic geometry. Therefore, this subsection is dedicated to the study of these prerequisites and to the statement and proof of the theorem on normal geodesics of bundle type subriemannian metrics. To start with, we define the concept of symplectic structure, and continue to explain the ideas of cotangent bundle and Hamilton's equations.
 \begin{df}[\cite{arnol2013mathematical}, section 8A]
 	Let $ M $ be an even-dimensional manifold. A \textit{symplectic structure on $ M $ } is a closed non-degenerate differential 2-form $ \omega $ on $ M $, that is, 
 	\begin{enumerate}
-		\item $ d\omega=0 $ and,
-		\item $\forall \xi \neq 0: \ \omega_x(\xi,\cdot)\neq0 \ (\xi\in T_x M)$, respectively. 
+		\item $ d\omega=0 $,
+		\item $\forall \xi \neq 0: \ \omega_m(\xi,\cdot)\neq0 \ (\xi\in T_m M)$, $ \forall m \in M. $  
 	  
 	\end{enumerate}
-	The non-degeneracy condition is equivalent to say that $ \operatorname{det}(\omega)\neq0 $. The pair $ (M,\omega) $ is called a \textit{symplectic manifold}. 
+	The non-degeneracy condition is equivalent to $ \operatorname{det} \omega_m\neq 0, \forall m\in M $. The pair $ (M,\omega) $ is called a \textit{symplectic manifold}. 
 \end{df}
 
 \begin{ex}[Canonical symplectic structure on $ \mathbb{R}^{2n}$]
@@ -732,8 +732,10 @@ Before proceeding with one of the principal results on subriemannian geometry an
 \end{ex}
 
 \begin{df}[\cite{montgomery2002tour}, definition A.4.1]
-	Given a symplectic manifold  $ (M,\omega) $, a \textit{Hamiltonian} is a smooth function $ H: M \rightarrow \mathbb{R}. $
+	Given a symplectic manifold  $ (M,\omega) $, an \textit{observable} is a smooth function $ H: M \rightarrow \mathbb{R}. $ Depending of the context, a given observable can induce some structure on the symplectic manifold, and in these cases the observable will be referred as \textit{Hamiltonian.} 
 \end{df}
+
+Historically, the definition of a function over a symplectic manifold receives the name of observable because the physical space has been modeled through history as a manifold, and the dual tangent space of this manifold represents the position and momentum space, which is a symplectic manifold (as will be discussed below). In principle, all observables in a physical phenomena can be calculated with the variables of the dual tangent space of the manifold that represents physical space, and they are functions of the position and momentum. From this fact, a real function over the symplectic space receives the name of observable. Over all the physical observables, one of the most important is the Hamiltonian, as it describes the evolution of the system through Hamilton's equations as a function of time. Thus, a real function over the symplectic manifold that is important in the sense of giving additional structure to the manifold is called Hamiltonian.
 
 \begin{df}[\cite{arnol2013mathematical}, page 203]
 	For each vector $ \xi\in T_mM  $ tangent to a symplectic manifold $ (M,\omega), $ we associate a 1-form $ \omega_\xi\in T^*_mM $ by the formula $$ \omega_\xi(\eta)=\omega(\xi,\eta). $$  
@@ -745,26 +747,26 @@ This last definition induces an isomorphism between $ T_mM $ and $ T^*_mM, $ giv
 	For a given Hamiltonian $ H: M \rightarrow \mathbb{R} $, the vector field $ X_H\in \mathfrak{X}(M) $ that satisfies $$ dH = \omega(X_H, \cdot) $$ is called \textit{Hamiltonian vector field} for $ H $, or \textit{symplectic gradient} of $ H. $ 
 \end{df}
 
-Any manifold $ M $ has a symplectic manifold associated: the cotangent bundle. Suppose that $ M $ is an $ n$-dimensional manifold. $ T^*M= \bigsqcup_{p\in M} T^*_p M$ is then a $ 2n $-dimensional manifold. There is a canonical choice of coordinates for this space, namely, given $ x\in M, $ there is a coordinate chart $ (U_x,\phi) $ on $ M $ such that $ q=\phi(x)=(q_1,\dots,q_n)\in \mathbb{R}^n, $ and for a given 1-form $ \alpha\in T_x^*M,$ in these coordinates we have that $ \alpha=p_i dq^i; $ mixing these two coordinates we get the \textit{canonical coordinates of $ T^*M $}, where a given element $ \alpha\in T^*M $ can be represented locally as the pair of coordinates $ (q,p). $      
+From any manifold $ M $ we can construct a symplectic structure: the cotangent bundle. Suppose that $ M $ is an $ n$-dimensional manifold. $ T^*M= \bigsqcup_{p\in M} T^*_p M$ is then a $ 2n $-dimensional manifold. There is a canonical choice of coordinates for this space, namely, given $ m\in M, $ there is a coordinate chart $ (U_m,\phi) $ on $ M $ such that $ q=\phi(m)=(q_1,\dots,q_n)\in \mathbb{R}^n, $ and for a given 1-form $ \alpha\in T_m^*M,$ in these coordinates we have that $ \alpha=p_i dq^i; $ the cross product of these two coordinates in a suitable neighborhood of an element $ \alpha_m\in T^*M $ gives the \textit{canonical coordinates of $ T^*M $}, where the element $ \alpha_m\in T^*M $ can be represented locally as the pair of coordinates $ (q,p). $      
 
 \begin{thm}[\cite{arnol2013mathematical}, page 202]
 	The cotangent bundle $ T^*M $ has a natural symplectic structure given in coordinates by $\omega = dq^i\wedge dp_i.$
 \end{thm}
 
 \begin{proof}
-	Let $ v\in T_p \left( T^*M \right)  $ be a vector tangent to the cotangent bundle at $ \alpha\in T^*_x M. $ If $ \pi:T^*M \rightarrow M $ is the natural projection, the differential $ d\pi : T \left( T^*M \right) \rightarrow TM $ takes $ v $ to $ d\pi(v)=(\pi(\alpha), d\pi_\alpha(v))=(x,d\pi_\alpha(v)), $ which is a vector tangent to $ M $ at $ x. $ We define a 1-form $ \theta $ on $ T^*M $ by the relation $ \theta(v)=\alpha(d\pi_\alpha(v)). $ In local coordinates this form is $ \theta= p_i dq^i, $ and the form $ \omega = d\theta $ is non-degenerate. 
+	Let $ v\in T_\alpha \left( T^*M \right)  $ be a vector tangent to the cotangent bundle at $ \alpha\in T^*_m M. $ If $ \pi:T^*M \rightarrow M $ is the natural projection, the differential $ d\pi : T \left( T^*M \right) \rightarrow TM $ takes $ v $ to $ d\pi(v)=d\pi_\alpha(v), $ which is a vector tangent to $ M $ at $ m. $ We define a 1-form $ \theta $ on $ T^*M $ by the relation $ \theta_\alpha(v)=\alpha(d\pi_\alpha(v)). $ In local coordinates this form is $ \theta= p_i dq^i, $ and the form $ \omega = d\theta $ is non-degenerate. 
 \end{proof}
 
-Given that $ (T^*M, \omega = dq^i\wedge dp_i) $ is a symplectic manifold, for a Hamiltonian $ H: T^*M \rightarrow \mathbb{R}, $ there is a vector field $ X_H \in \mathfrak{X}(T^*M) $ such that $ dH = \omega (X_H,\cdot) $. Writing $ X_H $ in coordinates, $ X_H = X_i \partial/\partial q^i + X^i \partial/\partial p_i, $ and evaluating $ \partial/\partial q^j $ and $ \partial/\partial p_j $ in $ dH $ gives  
+Given the symplectic structure $ (T^*M, \omega = dq^i\wedge dp_i) $, for a Hamiltonian $ H: T^*M \rightarrow \mathbb{R}, $ there is a vector field $ X_H \in \mathfrak{X}(T^*M) $ such that $ dH = \omega (X_H,\cdot) $. Writing $ X_H $ in coordinates, $ X_H = X_i \partial/\partial q^i + X^i \partial/\partial p_i, $ and evaluating $ \partial/\partial q^j $ and $ \partial/\partial p_j $ in $ dH $ gives  
 
-$$ dH(\partial/\partial q^j) = \frac{\partial H}{\partial q^j} = \omega(X_H, \partial/\partial q^j) = -\omega(\partial/\partial q^j, X_H) = -X^j, \text{ and}  $$ 
-$$ dH(\partial/\partial p_j) = \frac{\partial H}{\partial p_j} =\omega(X_H, \partial/\partial p_j)=X_j, $$ 
+$$ dH(\partial/\partial q^j) = \frac{\partial H}{\partial q^j} = \omega(X_H, \partial/\partial q^j) = -\omega(\partial/\partial q^j, X_H) = -X^j,$$ 
+$$\text{and } dH(\partial/\partial p_j) = \frac{\partial H}{\partial p_j} =\omega(X_H, \partial/\partial p_j)=X_j, $$ 
 
 so that $ X_H = (\partial H/\partial p_j)\partial/\partial q^j - (\partial H / \partial q^j)\partial/\partial p_j $, and its integral curves are defined by the following system of differential equations:
 \begin{equation}\label{eq:hamilton_equations}
  \dot{q^i} = \frac{\partial H}{\partial p_i}, \quad \dot{p_i} =- \frac{\partial H}{\partial q^i}.    
 \end{equation}
-This system of differential equations receives the name of \textit{Hamilton equations for $ H $.} Despite this formulation on the cotangent bundle came after Hamilton, these equations are known by its name because they are a generalization of the ones that are obtained using the generalized momentums instead of the classical velocity and position variables in classical mechanics. Moreover, this method turns out to be a generalization of Hamiltonian mechanics to symplectic manifolds.
+This system of differential equations is called the \textit{Hamilton equations for $ H $.} Despite this formulation on the cotangent bundle came after Hamilton, this method turns out to be a generalization of Hamiltonian mechanics to symplectic manifolds, as one obtains the classical Hamiltonian equations of the classical mechanics using $ M= \mathbb{R}^n, $ and taking the Hamiltonian as the energy of the system. That is the reason why they are referred as Hamilton equations.
 
 \begin{thm}\label{thm:constantCurves}
 The Hamiltonian $ H: T^*M \rightarrow \mathbb{R} $ is constant along the integral curves of the vector field $ X_H. $ 	
@@ -782,23 +784,23 @@ The Hamiltonian $ H: T^*M \rightarrow \mathbb{R} $ is constant along the integra
 
 \begin{df}[\cite{montgomery2002tour}, example 2, section A.4]
 	For any vector field $ \xi\in \mathfrak{X}(M), $ we define its \textit{ momentum function $ P_\xi:T^*M \rightarrow \mathbb{R} $} by
-	$$ P_\xi(q,p)= p(\xi_q). $$ 
+	$$ P_\xi(p_q)= p(\xi_q). $$ 
 \end{df}
 
 \begin{ex}[\cite{montgomery2002tour}, example 1, section A.4]
-	If $ \xi=\partial/\partial q^i\in \mathfrak{X}( \mathbb{R}^n), $ its momentum function will be	
-	$$ P_{\partial/\partial q^i}(q,p)=p(\partial/\partial q^i) = p_i. $$ 
-	In the other hand, if we take the Hamiltonian $ H(p,q)=p_i, $ we get that $ X_H=\partial /\partial q^i. $ 
+	If $ \xi=\partial/\partial q^i\in \mathfrak{X}( \mathbb{R}^n), $ its momentum function is
+	$$ P_{\partial/\partial q^i}(p_q)=p(\partial/\partial q^i) = p_i. $$ 
+	On the other hand, if we take the Hamiltonian $ H(p,q)=p_i, $ we get that $ X_H=\partial /\partial q^i. $ 
 \end{ex}
 
 In local coordinates, $ P_\xi = p_i \xi_q^i $, hence, computing its Hamilton equations gives
 $$ \dot{q^i} = \xi_q^i,\quad \dot{p_i} = -p_j \frac{\partial \xi_q^j}{\partial q^i}.  $$ 
 The first Hamilton equation says that the flow of the Hamiltonian vector field $ X_{P_\xi} $ on $ T^*M $ projects onto the flow of the original vector field $ \xi $ on $ M $ (\cite{montgomery2002tour}, page 278). To understand the second Hamilton equation, recall that the \textit{cotangent lift} $ \Phi_{T^*}: T^*M \rightarrow T^*M $ of any diffeomorphism $ \Phi : M \rightarrow M $ is given by 
-$$ \Phi_{T^*}(q,p) = (\Phi(q), (\Phi^{-1})^*_{\Phi(q)}(p)),\ p\in T^*_qM,$$ 
+$$ \Phi_{T^*}(p) = (\Phi(q), (\Phi^{-1})^*_{\Phi(q)}(p)),\ p\in T^*_qM,$$ 
 where $ (\Phi^{-1})^* $ is 
-$$ (\Phi^{-1})^*_{\Phi(q)}(p)(\eta) = p_q \left( d\Phi^{-1}_{\Phi(q)}(\eta) \right) $$ 
+$$ (\Phi^{-1})^*_{\Phi(q)}(p)(\eta) = p \left( d\Phi^{-1}_{\Phi(q)}(\eta) \right) $$ 
 for every $ \eta\in T_{\Phi(q)}M. $ If $ \Phi_t: M \rightarrow M $ is the flow of the vector field $ \xi, $ then the flow of $ X_{P_\xi} $ is $ (\Phi_t)_{T^*}, $ as
-$$ (\Phi_t)_{T^*}(q,p) = \left( \Phi_t(q), p_q \left( d(\Phi_{-t})_{\Phi(q)}(\cdot) \right) \right), $$ 
+$$ (\Phi_t)_{T^*}(p) = \left( \Phi_t(q), p \left( d(\Phi_{-t})_{\Phi(q)}(\cdot) \right) \right), $$ 
 and the first component represents the flow of $ \xi, $ while the second component is in coordinates $ p_i (\partial (\Phi_{-t})^i/\partial q^j)dq^j, $ so differentiating this expression with respect to $ t $ at $ t=0 $ gives $ -p_i (\partial \xi_q^i/\partial q^j)dq^j, $ which is the 1-form whose coordinates are equal to the coordinates on $ p $ of $ X_{P_\xi} $. Therefore, the second Hamilton equation for $ P_\xi $ asserts that the Hamiltonian flow is the cotangent lift of this flow on the configuration space $ M $ (\cite{montgomery2002tour}, page 278). Summarizing, we have the formula 
 $$ X_{P_\xi} = \frac{d(\Phi_t)_{T^*}}{dt} \Big|_{t=0}.  $$ 
 
@@ -822,7 +824,7 @@ $$ \left\{ f,g \right\} = df(X_g)=\omega (X_f,X_g). $$
 	where $ f,g,h: T^*M \rightarrow \mathbb{R} $ are observables, and $ a,b\in \mathbb{R}. $ 
 \end{prop}
 \begin{proof}
-	(\cite{poisson}, proof of proposition 1.3) Properties 1,2 and 4 are trivial. The third property, known as the \textit{Jacobi identity},  is equivalent to the fact that $ \omega $ is a closed form ($ d\omega =0 $), as will be shown next. Recall that $$ d\chi(X,Y,Z)=X\chi(Y,Z)-Y\chi(X,Z)+Z\chi(X,Y)-\chi([X,Y],Z)+\chi([X,Z],Y)-\chi([Y,Z],X) $$ 
+	(\cite{poisson}, proof of proposition 1.3) Properties 1,2 and 4 are trivial. The third property, known as the \textit{Jacobi identity},  is equivalent to the fact that $ \omega $ is a closed form, as will be shown next. Recall that $$ d\chi(X,Y,Z)=X\chi(Y,Z)-Y\chi(X,Z)+Z\chi(X,Y)-\chi([X,Y],Z)+\chi([X,Z],Y)-\chi([Y,Z],X) $$ 
 	for any 2-form $ \chi $ and $ X,Y,Z\in \mathfrak{X}(T^*M). $ Therefore, 
 	
 
