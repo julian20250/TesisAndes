@@ -1098,6 +1098,34 @@ M \arrow[r, "1_M"']                          & M
 
 	This example can be extended to vector bundles endowed with additional structure. For example, for complex vector bundles we take $ Q_m $ as the space of complex linear maps $ \mathbb{C}^n \rightarrow  R_m; $ for a vector bundle $ \xi $ with a fiber metric we take $ Q_m $ to be the space of linear isometries $ \mathbb{R}^n \rightarrow R_m; $ and if $ \xi $ is complex with a fiber-Hermitian structure we take $ Q_m $ to consist of the unitary maps $ \mathbb{C}^n \rightarrow R_m. $ 
 \end{ex}
+The adjoint representation of a Lie group $ G $ on its Lie algebra $ \mathfrak{g} $ is given by the adjoint map $ \operatorname{Ad} : G \rightarrow \operatorname{Aut}(G),  $ where $ \operatorname{Ad} (g)= \operatorname{Ad}_g= d( \operatorname{ad}_g )_e : \mathfrak{g}\rightarrow \mathfrak{g}. $ Its dual representation is $ \operatorname{Ad}^*: G \rightarrow \operatorname{Aut} ( \operatorname{g}^* ), $ $ \operatorname{Ad}^*(g)= \operatorname{Ad} (g^{-1})^T, $ defined on the dual Lie algebra $ \operatorname{g}^*. $ From these representations, given a principal $ G $-bundle $ \pi: Q \rightarrow M, $ we can construct the associated bundles $ \operatorname{Ad}(Q) $ and $ \operatorname{Ad}^*(Q), $ called \textit{adjoint and co-adjoint bundles over $ M $, } respectively. These two bundles are \textit{dual vector bundles,} which means that fibers of $  \operatorname{Ad}^*(Q)$ are the dual spaces to the fibers of $ \operatorname{Ad} (Q). $ 
+
+\begin{ex}[\cite{montgomery2002tour}, p. 211]
+	If $ \pi:Q \rightarrow M $ is the frame bundle of some vector bundle $ \xi: R \rightarrow M, $ then $ \operatorname{Ad}(Q) $ is identified with the bundle whose fiber over $ m\in M $ is the space of linear maps on $ \xi_m, $ that is, $ \operatorname{Ad} (Q)_m \cong \operatorname{Hom}(\xi_m,\xi_m),  $ because $ \operatorname{Ad}(Q)_m\cong \mathfrak{gl}(n, \mathbb{R}).  $ 
+\end{ex}
+\begin{df}
+	Let $ Q $ be a manifold, $ G $ a Lie group that acts on $ Q $ and $ E $ a vector space. We say that $ F: Q \rightarrow E $ is \textit{$G$-equivariant} if $ F(q\cdot g) = \rho(g^{-1})F(Q). $ The set of all $ G $-equivariant maps will be denoted as $ C_G(Q,E). $  
+\end{df}
+If $ \pi: Q \rightarrow M $ is a principal $ G $-bundle and $ \rho: G \rightarrow \operatorname{GL} (E) $ is a representation  of $ G, $ the module of sections of $ \rho(Q) \rightarrow M $ is in one-to-one correspondence with $ C_G(Q,E). $ To see this, assign to each $ F\in C_G(Q,E) $ the section $s $ defined by $s(m)=[q, F(q)]\in \rho(Q)_m $ whenever $ \pi(q)=m\in M. $  This is well-defined because if $ h= q\cdot g, $ $ [h,F(h)]=[q\cdot g, \rho(g^{-1})F(q)]=[q,F(q)]$.  
+
+\begin{ex}[\cite{montgomery2002tour}, p. 211]
+	A function $ \xi: Q \rightarrow \mathfrak{g}  $ which is $ \operatorname{Ad}  $-invariant, meaning that $ \xi(q\cdot g)= \operatorname{Ad}_{g^{-1}}\xi(q) $ defines a section of the adjoint bundle. 
+\end{ex}
+
+This relation between bundles and sections extends to forms, as will be seen next.
+
+\begin{df}
+	A \textit{$ k $- form $ \omega $ with values in the associated bundle $ \rho(Q) $} is a multilinear totally skew assignment, taking $ v_1,\dots, v_k\in T_mM $ to a vector $ \omega_m(v_1,\dots,v_k)\in \rho(Q)_m. $  We denote as $ \Omega^k(M, \rho(Q)) $ the space of these forms.
+\end{df}
+
+Any $ k $-form $ \omega\in \Omega^k(M,\rho(Q)) $ is \textit{horizontal} if it annihilates any vertical vector, that is, $ \omega_m(V,\cdot,\dots)=0 $ whenever $ V $ is a vertical vector in $ Q. $ For such a form, $ \omega_m(X_1+V_1,\dots,X_k+V_k)=\omega_m(X_1,\dots, X_k) $ for $ V_i $ vertical.
+
+\begin{prop}
+	The space of $ k $-forms on $ Q $ with values in $ E $ which are $ G $-equivariant and horizontal (denoted as $ \Omega^k_G(Q,E) $) is isomorphic to $ \Omega^k(M,\rho(Q)). $ 
+\end{prop}
+\begin{proof}
+	For a given $ \tilde \omega\in\Omega^k_G(Q,E), $ we assign to it the form $ \omega\in\Omega^k(M, \rho(Q)) $ given by $ \omega_m(v_1,\dots,v_k) = [q,\tilde\omega(z_1,\dots,z_k)],  $  $v_i\in T_mM, $ where the $ z_i $ are any $ k $ vectors in $ T_qQ $ projecting onto the $ v_i, $ that is, $ d\pi_q(z_i)=v_i. $  
+\end{proof}
 % ===============================================================
 \bibliographystyle{unsrt}
 \nocite{*}
