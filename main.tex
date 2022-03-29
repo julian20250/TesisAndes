@@ -1134,8 +1134,8 @@ $$ \eta_{q\cdot g}\circ \operatorname{Ad}_{g^{-1}} = d\alpha_g  \circ \eta_q $$
 thanks to Proposition \ref{prop:equiv_infinitesimal}. Thinking $ \sigma $ as a map from $ Q\times \mathfrak{g} $ to $ V, $ $ \sigma:Q\times \mathfrak{g}\rightarrow V, $ $ \sigma(q,v)= \sigma_v(q), $ we have that it is an \textit{equivariant bundle map} over $ Q, $ that is, it is a fiber bundle such that $ G $ acts on the total and base spaces, and the following equivariant property holds:
 $$ \sigma \left( (q,v)\cdot g \right) = \sigma(q,v) \cdot g. $$ 
 
-\begin{prop}
-	The map $ \sigma: \operatorname{Ad} (Q) = Q\times \mathfrak{g} \rightarrow V/G $ is an isomorphism between bundles over $ M. $ 
+\begin{prop}\label{prop:isomorphism_vb}
+	The map $ \sigma: \operatorname{Ad} (Q) = (Q\times \mathfrak{g})/G \rightarrow V/G $ is an isomorphism between bundles over $ M. $ 
 \end{prop}
 \begin{proof}
 	The group $ G $ acts on $ V = \bigsqcup_{q\in Q}V_q $ through the assignment $$ w_q\cdot g = (d\alpha_g)_q(w_q), $$ 
@@ -1168,14 +1168,74 @@ M \arrow[r, "1_M"] \arrow[u, "\tilde\pi^{-1}"] & M
 \textcolor{green}{The Lie algebra of the gauge group is the space of equivariant vector fields}. Therefore, sections of the adjoint bundle form the Lie algebra of the gauge group via the isomorphism $ \sigma: \Gamma( \operatorname{Ad} (Q)) \rightarrow  \Gamma(V)_G. $ 
 
 \begin{df}[\cite{montgomery2002tour}, p. 212]
-	Let $ \pi:Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}, $ that is, $ (dR_g)_q( \mathcal{H}_q) = \mathcal{H}_{q\cdot g}. $ \textit{The connection one-form on $ Q $}, denoted as $ A, $ is a Lie-algebra-valued one-form on $ Q $ that satisfies the following conditions:
+	Let $ \pi:Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}, $ that is, $ (d\alpha_g)_q( \mathcal{H}_q) = \mathcal{H}_{q\cdot g}. $ \textit{The connection one-form on $ Q $}, denoted as $ A, $ is a Lie-algebra-valued one-form on $ Q $, that is, $ A_q: T_qQ \rightarrow \mathfrak{g} $,  which satisfies the following conditions:
 
 	\begin{enumerate}
 		\item $ \operatorname{Ker} A_q = \mathcal{H}_q, \ \forall q\in Q. $ 
 		\item $ A_q \circ \eta_q = 1_{ \mathfrak{g}}, \ \forall q\in Q. $ 
 	\end{enumerate}
 \end{df}
-The second condition of previous definition is a normalization condition: as the image of $ \eta_q $ is $ V_q, $ when restricting to the vertical $ A_q $ is the canonical identification between $ V_q $ and $ \mathfrak{g} $. Both conditions guarantee that the connection one-form is unique. 
+The second condition of previous definition is a normalization condition: as the image of $ \eta_q $ is $ V_q, $ when restricting to the vertical $ A_q $ is the canonical identification between $ V_q $ and $ \mathfrak{g} $. Both conditions guarantee that the connection one-form is unique, and that it satisfies the following equivariance condition:
+$$ \operatorname{Ad}_{g^{-1}}\circ A_q = A_{q\cdot g}\circ (d\alpha_g)_q\circ \eta_q\circ A_q. $$ 
+As seen in Proposition \ref{prop:isomorphism_vb}, differentiating the group action on $ Q $ yields the infinitesimal generator map $ \sigma: \operatorname{Ad}(Q) \rightarrow (TQ)/G,  $ whose image is $ V/G. $ $ (TQ)/G \rightarrow M $ is a vector bundle over $ M, $ with projection $ [q,w] \mapsto \pi(q). $ Similarly, $ d\pi: TQ \rightarrow TM $ is equivariant with respect to the $ G $-action, where $ G $ acts trivially on $ M, $ which means that $ d\pi: (TQ)/G \rightarrow M $ is well-defined. As $ \operatorname{Ker} d\pi = \operatorname{Im} \sigma,   $ these maps fit together in the following exact sequence
+\begin{center}
+	%https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12I0YAnOnBF5g6AWxjAAglAC+ACgCKAShAzS6TLnyEUARnJVajFmzkAVZQHoA4qvUgM2PASIAmA9XrNWiEGYCyqoYwUADm8ESgAGa8EKJIZCCCSPpG3myc2KGidHbRsfGIqcmI7mkmvlCcaFhBMkA
+	\begin{tikzcd}
+\operatorname{Ad}(Q) \arrow[r, "\sigma"] & (TQ)/G \arrow[r, "d\pi"] & TM
+\end{tikzcd}
+\end{center}
+of vector bundles over $ M. $ This sequence is called the \textit{Atiyah sequence.}  
+
+A connection one-form is a splitting of this exact sequence:
+\begin{center}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12I0YAnOnBF5g6AWxjAAglAC+ACgCKAShAzS6TLnyEUARnJVajFmzkAVZQHoA4qvUgM2PASIAmA9XrNWiEGYCyqoYwUADm8ESgAGa8EKJI7iCCSPpG3mwAFiDUDHQARjAMAAqazjogvFihGTh20bHxiKnJiGRpJr6S2SC5BcWl2myV1bUyFDJAA
+\begin{tikzcd}
+\operatorname{Ad}(Q) & (TQ)/G \arrow[l, "A"'] & TM, \arrow[l, "h"']
+\end{tikzcd}
+\end{center}
+where $ h $ is the collection of horizontal lifts $ h_q: T_mM \rightarrow T_qQ $ composed with the canonical map $ TQ \rightarrow (TQ)/G, $ and $ A $ results when we consider the connection one form $ A: TQ \rightarrow Q\times \mathfrak{g}, $ $ w_q \mapsto (q, A_q(v)) $, and take its quotient by the $ G $-action. These maps satisfy the following algebraic relations:
+\begin{align*}
+\operatorname{Im} h_q = \mathcal{H}_q = \operatorname{Ker} A_q,\\
+\operatorname{Im} \eta_q = V_q = \operatorname{Ker} d\pi_q,\\
+A_q\circ\eta_q = 1_{ \mathfrak{g}}, \quad d\pi_q\circ h_q = 1_{T_mM}.
+\end{align*}
+
+\begin{prop}\label{prop:splitting}
+	The vector bundles $ (TQ)/G $ and $ TM\oplus \operatorname{Ad} (Q) $ are isomorphic.
+\end{prop}
+\begin{proof}
+	Take an element $ v\oplus[q,w]\in T_mM\oplus \operatorname{Ad} (Q)  $ to $ [h_q(v)+\sigma_w(q)]\in (TQ)/G. $ The inverse sends $ [w_q]\in (TQ)/G $ to $ d\pi_q(w_q)\oplus [q, A_q(w_q)] $. The proof that these maps are inverses relies on the algebraic relations stated above, and the commutativity of the diagram 
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRABUBZAHW4jWZxe-GACc6OCKLB0AtjGABBKAF8AFAEUAlCBWl0mXPkIoATOSq1GLNl2ECmQvmjESpM+UtWadeg9jwCIgBGC2p6ZlZEEDV2bQB6AHFdfRAMAOMQ0mDLCJtozl1LGCgAc3giUAAzUQhZJDIQSSQAZj8QGrqkcyaIVvbO+sRQ3v7UwYbqZsRTAdqhnunglQoVIA
+\begin{tikzcd}
+TM\oplus\operatorname{Ad}(Q) \arrow[rd] \arrow[r] & (TQ)/G \arrow[d] \arrow[r] & TM\oplus\operatorname{Ad}(Q) \arrow[ld] \\
+                                                  & M                          &                                        
+\end{tikzcd}
+	\end{center}
+	is immediate from the definition.
+\end{proof}
+
+\begin{df}[\cite{montgomery2002tour}, definition 4.1.1]
+	\textit{The curvature of a distribution $ \mathcal{H} $ } is the linear bundle map $ F: \Lambda^2 \mathcal{H} \rightarrow TQ/\mathcal{H} $ defined by $ F(X,Y) = -[X,Y] \operatorname{mod} \mathcal{H}.  $ 	
+\end{df}
+The connection one-form $ A $ provides an identification $ (TQ)/ \mathcal{H} \rightarrow \mathfrak{g}, $ given that the kernel of $ A_q $ is precisely $ \mathcal{H}_q. $ 
+
+\begin{df}[\cite{montgomery2002tour}, p. 214]
+	\textit{The curvature form} is a $ G $-equivariant horizontal two-form $ \Omega $ defined by the assignment $ \Omega(X,Y) = -A([X,Y]), $ if $ X,Y $ are horizontal, and $ \Omega(X,Y)=0 $ if $ X $ or $ Y$ are vertical vectors.  
+\end{df}
+
+\begin{df}[\cite{montgomery2002tour}, p. 214]
+	Let $ \rho(Q) $ be an associated bundle of $ \pi: Q \rightarrow M. $ If $ \psi: M \rightarrow \rho(Q) $ is a section of this bundle, and if $ X\in \mathfrak{X}(M), $ we define the \textit{covariant derivative $ D_X\psi $ of $ \psi $ in the direction of $ X $} as follows. The section $ \psi $ corresponds to an equivariant map $ F: Q \rightarrow E $, and $ hX $ is a $ G $-equivariant horizontal vector field on $ Q, $ so that $ dF(hX) $ is an equivariant map $ Q \rightarrow E, $ which corresponds to a section of $ \rho(Q), $ $ D_X\psi. $ 
+\end{df}
+\begin{df}[\cite{montgomery2002tour}, p. 214]
+	Let $ c:I \rightarrow M $ be a curve. A curve $ \psi: \operatorname{Im} (c) \rightarrow \rho(Q) $ lying over $ c $ is said to be \textit{covariantly constant} if $ D_{\dot{c}}\psi=0. $  	
+\end{df}
+The $ G $-invariant vector fields on $ Q $ can be identified with sections of $ (TQ)/G, $ and thanks to Proposition \ref{prop:splitting} we can split them up into horizontal and vertical vector fields, according to $ (TQ)/G = TM \oplus \operatorname{Ad} (Q). $ Then, if $ X\in \mathfrak{X}(M) $ and $ \xi: M \rightarrow \rho(Q), $ we have the following relations:
+\begin{align}
+ [hX, hY] = h([X,Y])\oplus -\eta(\Omega(X,Y)), \tag{horizontal-horizontal}\\
+ [\sigma\xi, \sigma\chi] = -\sigma([\xi,\chi]), \tag{vertical-vertical} \\
+ [hX,\sigma \xi] = \eta(D_X\xi). \tag{horizontal-vertical} 
+\end{align}
 % ===============================================================
 \bibliographystyle{unsrt}
 \nocite{*}
