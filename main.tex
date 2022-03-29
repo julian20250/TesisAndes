@@ -1051,24 +1051,6 @@ What we aim to show in this section is that, given a principal $ G $-bundle $ \p
 
 The subriemannian geodesic equations are ordinary differential equations on $ T^*Q. $ For metrics of bundle type, the Hamiltonian $ H: T^*Q \rightarrow  \mathbb{R} $ is $ G $-invariant, and hence the action of $ G $ on $ T^*Q $ takes subriemannian geodesics to subriemannian geodesics. Therefore, we should be able to write the subriemannian geodesic equations on $ T^*Q/G, $ and this is going to be the objective of this dissertation.
 
-\subsection{Construction of a vector bundle through its transition maps}%
-\label{sub:construction_of_a_vector_bundle_through_its_transition_maps}
-The first step in our dissertation to write the subriemannian geodesic equations in the quotient space is to build the associated bundle of a given bundle. To achieve this we will introduce how to construct a vector bundle using its transition maps. The main reference of this section is \cite{luke2013vector}, chapter 1.1. 
-
-For a vector bundle $ \pi: Q \rightarrow M $ with fiber $ E,  $ we know that for all $ m\in M $ there is a neighborhood $ U\subset M $ such that $ U\times E $ is diffeomorphic to $ \pi^{-1}(U) $ through the map $ \varphi: U\times R \rightarrow \pi^{-1}(U) $ that satisfies $ \pi\circ\varphi(x,v)=x, $ for all $ x\in U. $ According to this, we can cover the base space $ M $ with a family of open sets $ \left\{ U_\alpha \right\}_\alpha $, such that $ \pi^{-1}(U_\alpha) $ is diffeomorphic to $ U_\alpha\times E $ through the diffeomorphism $ \varphi_\alpha : U_\alpha\times E \rightarrow \pi^{-1}(U_\alpha) $. This gives a coordinate chart $ \left\{(U_\alpha, \varphi_\alpha: U_\alpha\times E \rightarrow \pi^{-1}(U_\alpha) )\right\}_\alpha  $ for the vector bundle. Given two coordinates  $ \varphi_\alpha: U_\alpha\times E \rightarrow \pi^{-1}(U_\alpha) $, $ \varphi_\beta: U_\beta\times E \rightarrow \pi^{-1}(U_\beta) $, the restricted maps $ \varphi_\alpha: (U_\alpha\cap U_\beta)\times E \rightarrow \pi^{-1}(U_\alpha\cap U_\beta) $, $ \varphi_\beta: (U_\alpha\cap U_\beta)\times E \rightarrow \pi^{-1}(U_\alpha\cap U_\beta) $ are fiberwise ($\pi\circ\varphi_i(x,v)=x$) diffeomorphisms. We denote the as $ \varphi_{\beta\alpha}:=\varphi_\beta\circ\varphi_\alpha^{-1}:(U_\alpha\cap U_\beta)\times E \rightarrow (U_\alpha\cap U_\beta)\times E $ the diffeomorphism that maps $ (U_\alpha\cap U_\beta)\times E $ onto itself, and we call them \textit{transition functions} of the coordinate chart $ \left\{ (U_\alpha,\varphi_\alpha) \right\}_\alpha  $ of the vector bundle.
-
-For any three indices $ \alpha,\beta,\gamma, $ the family of transition maps satisfies the following properties:
-
-\begin{equation}\label{eq:fvb}
-	\varphi_{\alpha\alpha} = 1_{U_\alpha\times E}
-\end{equation}
-\begin{equation}\label{eq:svb}
-	\varphi_{\alpha\gamma}\circ\varphi_{\gamma\beta}\circ\varphi_{\beta\alpha} = 1_{(U_\alpha\cap U_\beta\cap U_\gamma)\times E}.
-\end{equation}
-These conditions are sufficient for a vector bundle to be reconstructed from the base $ M, $ fiber $ E $, open cover $ \left\{ U_\alpha \right\}_\alpha  $ of $ M $ and transition functions $ \varphi_{\beta\alpha}. $ To see this, let $ S'=\sqcup_\alpha (U_\alpha\times E) $, and introduce the following equivalence relation over it:
-$$ U_\alpha\times E\ni(x,v)\sim (y,w)\in U_\beta\times E \iff x=y\in U_\alpha\cap U_\beta \text{ and } (y,w)=\varphi_{\beta\alpha}(x,v). $$ 
-
-Conditions \eqref{eq:fvb} and \eqref{eq:svb} guarantee that this is an equivalence relation. Let $ S=S'/\sim, $ and define the map $ \pi: S \rightarrow M $ as $ \pi([x,v])=x. $ Now, we define the maps $ \varphi_\alpha = \phi|_{U_\alpha\times E}: U_\alpha\times E \rightarrow S $, where $ \phi: S' \rightarrow S $ is the canonical projection, that maps each element of $ S' $ to its equivalence class. As each class in $ \pi^{-1}(U_\alpha) $ has a unique representative on $ U_\alpha\times E, $ $ \varphi_\alpha $ is injective, and $ \varphi_\alpha : U_\alpha\times E \rightarrow \pi^{-1}(U_\alpha) $ is a fiberwise diffeomorphism. Therefore, $ \pi: S \rightarrow M $ is a vector bundle with coordinate chart $ \left\{ (U_\alpha, \phi|_{U_\alpha\times E}) \right\}_\alpha.  $ 
  \subsection{Associated bundles}%
  \label{sub:associated_bundles}
 
