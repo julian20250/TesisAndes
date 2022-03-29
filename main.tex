@@ -922,7 +922,7 @@ $$ \sigma_v(q) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} \left( q\cdot \operatorn
 
 Recall that for a Lie Group $ G $, the map $ \operatorname{ad}_g: G \rightarrow G  $ given by $ h\mapsto ghg^{-1} $ is a diffeomorphism, and its differential at identity, $ d( \operatorname{ad}_g )_e $,  is denoted as $ \operatorname{Ad}_g: \mathfrak{g}\rightarrow \mathfrak{g} $. 
 
-\begin{prop}
+\begin{prop}\label{prop:equiv_infinitesimal}
 	The family of vector fields $ \left\{ \sigma_v \right\}_{v\in \mathfrak{g}} $ satisfies the following property:
 	$$ \sigma_v(q\cdot g) = d(\alpha_g)_q\left(\sigma_{\operatorname{Ad}_g(v)}(q)\right) ,$$ 
 	where $ \alpha: Q\times G \rightarrow Q $ is the action of $ G $ on $ Q. $ 
@@ -1103,7 +1103,7 @@ The adjoint representation of a Lie group $ G $ on its Lie algebra $ \mathfrak{g
 \begin{ex}[\cite{montgomery2002tour}, p. 211]
 	If $ \pi:Q \rightarrow M $ is the frame bundle of some vector bundle $ \xi: R \rightarrow M, $ then $ \operatorname{Ad}(Q) $ is identified with the bundle whose fiber over $ m\in M $ is the space of linear maps on $ \xi_m, $ that is, $ \operatorname{Ad} (Q)_m \cong \operatorname{Hom}(\xi_m,\xi_m),  $ because $ \operatorname{Ad}(Q)_m\cong \mathfrak{gl}(n, \mathbb{R}).  $ 
 \end{ex}
-\begin{df}
+\begin{df}\label{df:equivariant}
 	Let $ Q $ be a manifold, $ G $ a Lie group that acts on $ Q $ and $ E $ a vector space. We say that $ F: Q \rightarrow E $ is \textit{$G$-equivariant} if $ F(q\cdot g) = \rho(g^{-1})F(Q). $ The set of all $ G $-equivariant maps will be denoted as $ C_G(Q,E). $  
 \end{df}
 If $ \pi: Q \rightarrow M $ is a principal $ G $-bundle and $ \rho: G \rightarrow \operatorname{GL} (E) $ is a representation  of $ G, $ the module of sections of $ \rho(Q) \rightarrow M $ is in one-to-one correspondence with $ C_G(Q,E). $ To see this, assign to each $ F\in C_G(Q,E) $ the section $s $ defined by $s(m)=[q, F(q)]\in \rho(Q)_m $ whenever $ \pi(q)=m\in M. $  This is well-defined because if $ h= q\cdot g, $ $ [h,F(h)]=[q\cdot g, \rho(g^{-1})F(q)]=[q,F(q)]$.  
@@ -1126,6 +1126,56 @@ Any $ k $-form $ \omega\in \Omega^k(M,\rho(Q)) $ is \textit{horizontal} if it an
 \begin{proof}
 	For a given $ \tilde \omega\in\Omega^k_G(Q,E), $ we assign to it the form $ \omega\in\Omega^k(M, \rho(Q)) $ given by $ \omega_m(v_1,\dots,v_k) = [q,\tilde\omega(z_1,\dots,z_k)],  $  $v_i\in T_mM, $ where the $ z_i $ are any $ k $ vectors in $ T_qQ $ projecting onto the $ v_i, $ that is, $ d\pi_q(z_i)=v_i. $  
 \end{proof}
+
+Given a projection $ \pi: Q \rightarrow M $ and a Lie group G acting on the total space $ Q, $ the infinitesimal generators of the $ G $-action $ \sigma_v: Q \rightarrow T_qQ, $ $ v\in \mathfrak{g,} $ 
+$$ \sigma_v(q) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} q\cdot \operatorname{exp} (\epsilon v),$$
+satisfy $ V_q = \operatorname{Ker}d\pi_q = \left\{ \sigma_v(q): v\in \mathfrak{g} \right\} .  $ From this, $ \sigma_\cdot(q) $ is a linear isomorphism from $ \mathfrak{g} $ to $ V_q. $ Moreover, the map $ \eta_q(v)  = \sigma_v(q) $ is equivariant (see definition \ref{df:equivariant})
+$$ \eta_{q\cdot g}\circ \operatorname{Ad}_{g^{-1}} = d\alpha_g  \circ \eta_q $$ 
+thanks to Proposition \ref{prop:equiv_infinitesimal}. Thinking $ \sigma $ as a map from $ Q\times \mathfrak{g} $ to $ V, $ $ \sigma:Q\times \mathfrak{g}\rightarrow V, $ $ \sigma(q,v)= \sigma_v(q), $ we have that it is an \textit{equivariant bundle map} over $ Q, $ that is, it is a fiber bundle such that $ G $ acts on the total and base spaces, and the following equivariant property holds:
+$$ \sigma \left( (q,v)\cdot g \right) = \sigma(q,v) \cdot g. $$ 
+
+\begin{prop}
+	The map $ \sigma: \operatorname{Ad} (Q) = Q\times \mathfrak{g} \rightarrow V/G $ is an isomorphism between bundles over $ M. $ 
+\end{prop}
+\begin{proof}
+	The group $ G $ acts on $ V = \bigsqcup_{q\in Q}V_q $ through the assignment $$ w_q\cdot g = (d\alpha_g)_q(w_q), $$ 
+	where $ w_q\in V_q. $ From this, we can consider the equivalence classes of this action, denoted by $ V/G:= \left\{ [w_q]: w_q\in V \right\}.  $ The map $ \sigma \operatorname{Ad} (Q) \rightarrow V/G $ sends an element $ [q,v]\in \operatorname{Ad} (Q) $ to $ [\sigma_v(q)]\in V/G. $ From the equivariant property of $ \sigma, $ this map is well defines. The inverse map $ \sigma^{-1} : V/G \rightarrow \operatorname{Ad}(Q) $ is $ \sigma^{-1}[w_q] = [q,\sigma^{-1}_{w_q}], $ given that $ \sigma_\cdot(q): \mathfrak{g}\rightarrow V_q $ is a linear isomorphism. To conclude this proof, we need to show that the following diagram is commutative,
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12I0YAnOnBF5g6AWxjAAglAC+ACgCKAShAzS6TLnyEUARnJVajFmwBqAegDiq9SAzY8BIgCYD1es1aIOXHv0HCYhLS8so2Gg7aRPq6hh4m3gCyqoYwUADm8ESgAGa8EKJIZCCCSADM1Ax0AEYwDAAKmo46ILxY6QAWOCDuxl4+aFgA+sCc3HwCQiLiUrKKSjLhIHkFSPolEOW9nmycgyMWlouVNXWNkU7eWGDYsEsrhYiuG1tGO957w6O+EwHTwXNlIs1Ll8o9iqVEOt4v1ONh0qI6PcwWtqJDnjDdux4YiAHrAAC0umBFBkQA
+\begin{tikzcd}
+\operatorname{Ad}(Q) \arrow[rd, "\pi_{\operatorname{Ad}(Q)}"'] \arrow[r, "\sigma"] & V/G \arrow[d, "\pi_{V/G}" description] \arrow[r, "\sigma^{-1}"] & \operatorname{Ad}(Q) \arrow[ld, "\pi_{\operatorname{Ad}(Q)}"] \\
+                                                                                   & M                                                               &                                                              
+\end{tikzcd}
+	\end{center}
+	but this is immediate, since $ \pi_{Ad(Q)}[q,v]=\pi_{V/G}[w_q]=\pi(q). $ 
+\end{proof}
+Under the isomorphism of this Proposition, given the one-to-one correspondence between sections of $ \operatorname{Ad} (Q)\rightarrow M $ and $ G $-equivariant maps $ C_G(Q, \mathfrak{g}), $ sections of the adjoint bundle correspond to $ G $-invariant vertical vector fields. This is because such a vector defines and is uniquely defined by a section of $ V(G \rightarrow M. $ To see this, let $ X: Q \rightarrow V $ be a $ G $-invariant vertical vector field, that is, $ (d\alpha_g)_q(X_q) = X_{q\cdot g}, $ and $ X_q\in V_q $ for all $ q\in Q. $ The map $ \phi: M \rightarrow V/G $, $ \phi(m)= [X_q], $ where $ q\in \pi^{-1}(m) $ is well defined because of the $ G $-invariant property of $ X. $ Now, if $ \phi: M \rightarrow V/G $ is a section of $ V/G \rightarrow M, $ we can construct the $ G $-invariant vertical vector field $ X: Q \rightarrow V, $ $ X_q=w_q, $ where $ \phi(m)=[w_q]. $ 
+
+The isomorphism between sections of $ \operatorname{Ad} (Q) $ and $ V/G $ will be denoted as $ \sigma: \Gamma( \operatorname{Ad} (Q)) \rightarrow \Gamma(V)_G, $ $ \xi \mapsto \sigma\xi, $ where $ \Gamma $ denotes the space of sections.
+
+\begin{df}[\cite{montgomery2002tour}, p. 212]
+	\textit{The gauge group} of $ \pi: Q \rightarrow M $ consists of all the $ G $-maps $ \Phi: Q \rightarrow  Q$ which induce the identity on $ M. $ That is, $ \Phi $ is a diffeomorphism that makes the following diagram commutative,
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEUB6AcRAF9S6TLnyEUARnJVajFmy68BQ7HgJEy46fWatEIALL9BIDCtFFJm6trl7DfaTCgBzeEVAAzAE4QAtkjIQHAgkSRAGOgAjGAYABWFVMXCYDxwQa1ldEAAdbLwGWFzYgAssI08ff0Qw4KQAZmoI6LiE8z0GFLSMnTZc-MLstDKlEG8-JAAmalrEBpkevXEAfXtjMaqpoJDEQJssvqwCmFyhgD1gAFpxPn4KPiA
+\begin{tikzcd}
+Q/G \arrow[r, "\tilde\Phi"]                    & Q/G \arrow[d, "\tilde\pi"] \\
+M \arrow[r, "1_M"] \arrow[u, "\tilde\pi^{-1}"] & M                         
+\end{tikzcd}
+	\end{center}
+
+	where $ \tilde\pi: Q/G \rightarrow M $ is given by $ [q] \mapsto \pi(q), $ and $ \tilde\Phi: Q/G \rightarrow Q/G $, $ [q] \mapsto [\Phi(q)]  $ is well defined because $ \Phi $ is a $ G $-map ($\Phi(q\cdot g) = \Phi(q)$).    
+\end{df}
+\textcolor{green}{The Lie algebra of the gauge group is the space of equivariant vector fields}. Therefore, sections of the adjoint bundle form the Lie algebra of the gauge group via the isomorphism $ \sigma: \Gamma( \operatorname{Ad} (Q)) \rightarrow  \Gamma(V)_G. $ 
+
+\begin{df}[\cite{montgomery2002tour}, p. 212]
+	Let $ \pi:Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}, $ that is, $ (dR_g)_q( \mathcal{H}_q) = \mathcal{H}_{q\cdot g}. $ \textit{The connection one-form on $ Q $}, denoted as $ A, $ is a Lie-algebra-valued one-form on $ Q $ that satisfies the following conditions:
+
+	\begin{enumerate}
+		\item $ \operatorname{Ker} A_q = \mathcal{H}_q, \ \forall q\in Q. $ 
+		\item $ A_q \circ \eta_q = 1_{ \mathfrak{g}}, \ \forall q\in Q. $ 
+	\end{enumerate}
+\end{df}
+The second condition of previous definition is a normalization condition: as the image of $ \eta_q $ is $ V_q, $ when restricting to the vertical $ A_q $ is the canonical identification between $ V_q $ and $ \mathfrak{g} $. Both conditions guarantee that the connection one-form is unique. 
 % ===============================================================
 \bibliographystyle{unsrt}
 \nocite{*}
