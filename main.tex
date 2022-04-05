@@ -1047,9 +1047,9 @@ T_qQ \arrow[r, "\iota"] & TQ \arrow[r] & T^*Q \arrow[r, "\Phi_R(1)"] & T^*Q \arr
 \label{sec:classical_particles_in_yang_mills_fields}
 
 
-What we aim to show in this section is that, given a principal $ G $-bundle $ \pi:Q \rightarrow M, $ there is a system of differential equations that describe the projected normal geodesics $ \pi\circ\gamma. $ When the fiber is a circle, these projected equations are the \textit{Lorentz equations of electromagnetism.} When the fiber is a general Lie group $ G, $ these equations are the \textit{nonabelian Lorentz equations,} also known as \textit{Wong's equations} (\cite{montgomery2002tour}, p. 209). Moreover, the results of this section are useful to find the subriemannian geodesics in cases where Theorem \ref{thm:normal_geodesics} can not be applied.
+What we aim to show in this section is that, given a principal $ G $-bundle $ \pi:Q \rightarrow M $ with connection $ \mathcal{H} $, where $ Q $ is a Riemannian manifold with its metric being a Riemannian submersion,   there is a system of differential equations that describe the projected normal geodesics $ \pi\circ\gamma. $ When the fiber is a circle, these projected equations are the \textit{Lorentz equations of electromagnetism.} When the fiber is a general Lie group $ G, $ these equations are the \textit{nonabelian Lorentz equations,} also known as \textit{Wong's equations} (\cite{montgomery2002tour}, p. 209). Moreover, the results of this section are useful to find the subriemannian geodesics in cases where Theorem \ref{thm:normal_geodesics} can not be applied.
 
-The subriemannian geodesic equations are ordinary differential equations on $ T^*Q. $ For metrics of bundle type, the Hamiltonian $ H: T^*Q \rightarrow  \mathbb{R} $ is $ G $-invariant, and \textbf{hence the action of $ G $ on $ T^*Q $ takes subriemannian geodesics to subriemannian geodesics}. Therefore, we should be able to write the subriemannian geodesic equations on $ T^*Q/G, $ and this is going to be the objective of this section.
+The subriemannian geodesic equations are ordinary differential equations on $ T^*Q. $ For metrics of bundle type, the Hamiltonian $ H: T^*Q \rightarrow  \mathbb{R} $ is $ G $-invariant, and hence the action of $ G $ on $ T^*Q $ takes subriemannian geodesics to subriemannian geodesics. Therefore, we should be able to write the subriemannian geodesic equations on $ T^*Q/G, $ and this is going to be the objective of this section.
 
  \subsection{Associated bundles}%
  \label{sub:associated_bundles}
@@ -1086,9 +1086,15 @@ The adjoint representation of a Lie group $ G $ on its Lie algebra $ \mathfrak{g
 	If $ \pi:Q \rightarrow M $ is the frame bundle of some vector bundle $ \xi: R \rightarrow M, $ then $ \operatorname{Ad}(Q) $ is identified with the bundle whose fiber over $ m\in M $ is the space of linear maps on $ \xi_m, $ that is, $ \operatorname{Ad} (Q)_m \cong \operatorname{Hom}(\xi_m,\xi_m),  $ because $ \operatorname{Ad}(Q)_m\cong \mathfrak{gl}(n, \mathbb{R}).  $ 
 \end{ex}
 \begin{df}\label{df:equivariant}
-	Let $ Q $ be a manifold, $ G $ a Lie group that acts on $ Q $ and $ E $ a vector space. We say that $ F: Q \rightarrow E $ is \textit{$G$-equivariant} if $ F(q\cdot g) = \rho(g^{-1})F(Q). $ The set of all $ G $-equivariant maps will be denoted as $ C_G(Q,E). $  
+	Let $ Q $ be a manifold, $ G $ a Lie group that acts on $ Q $ and $ E $ a vector space. We say that $ F: Q \rightarrow E $ is \textit{$G$-equivariant} if $ F(q\cdot g) = \rho(g^{-1})F(q). $ The set of all $ G $-equivariant maps will be denoted as $ C_G(Q,E). $  
 \end{df}
-If $ \pi: Q \rightarrow M $ is a principal $ G $-bundle and $ \rho: G \rightarrow \operatorname{GL} (E) $ is a representation  of $ G, $ the module of sections of $ \rho(Q) \rightarrow M $ is in one-to-one correspondence with $ C_G(Q,E). $ To see this, assign to each $ F\in C_G(Q,E) $ the section $s $ defined by $s(m)=[q, F(q)]\in \rho(Q)_m $ whenever $ \pi(q)=m\in M. $  This is well-defined because if $ h= q\cdot g, $ $ [h,F(h)]=[q\cdot g, \rho(g^{-1})F(q)]=[q,F(q)]$.  
+\begin{prop}
+	
+If $ \pi: Q \rightarrow M $ is a principal $ G $-bundle and $ \rho: G \rightarrow \operatorname{GL} (E) $ is a representation  of $ G, $ the module of sections of $ \rho(Q) \rightarrow M $ is in one-to-one correspondence with $ C_G(Q,E). $
+\end{prop}
+\begin{proof}
+	Assign to each $ F\in C_G(Q,E) $ the section $s $ defined by $s(m)=[q, F(q)]\in \rho(Q)_m $ whenever $ \pi(q)=m\in M. $  This is well-defined because if $ h= q\cdot g, $ $ [h,F(h)]=[q\cdot g, \rho(g^{-1})F(q)]=[q,F(q)]$. On the other hand, if $s: M \rightarrow \rho(Q),$ $s(m)=[s_1(m), s_2(m)]$ is a section, we assign to it the corresponding $G$-equivariant function as $F(q):= \rho(g^{-1})s_2(m),$ where $ \pi(q)=m $ and $ q=s_1(m)\cdot g $. This map is $ G $-equivariant because $$F((s_1(m)\cdot g_1)\cdot g_2) = \rho(g_2^{-1} g_1^{-1})s_2(m) = \rho(g_2^{-1})F(s_1(m)\cdot g_1).$$ We can check that these assignations are one-to-one because the corresponding section of $F(q)= \rho(g^{-1})s_2(m)$ is $s(m)=[q,\rho(g^{-1}) s_2(m)]=[q\cdot g^{-1}, s_2(m)]=[s_1(m), s_2(m)],$ while the corresponding $ G $-equivariant map of $ s(m)=[q, F(q)] $  is $ \rho(e) F(q)=F(q). $ 
+\end{proof}
 
 \begin{ex}[\cite{montgomery2002tour}, p. 211]
 	A function $ \xi: Q \rightarrow \mathfrak{g}  $ which is $ \operatorname{Ad}  $-invariant, meaning that $ \xi(q\cdot g)= \operatorname{Ad}_{g^{-1}}\xi(q) $ defines a section of the adjoint bundle. 
@@ -1136,18 +1142,17 @@ Under the isomorphism of this Proposition, given the one-to-one correspondence b
 The isomorphism between sections of $ \operatorname{Ad} (Q) $ and $ V/G $ will be denoted as $ \sigma: \Gamma( \operatorname{Ad} (Q)) \rightarrow \Gamma(V)_G, $ $ \xi \mapsto \sigma\xi, $ where $ \Gamma $ denotes the space of sections.
 
 \begin{df}[\cite{montgomery2002tour}, p. 212]
-	\textit{The gauge group} of $ \pi: Q \rightarrow M $ consists of all the $ G $-maps $ \Phi: Q \rightarrow  Q$ which induce the identity on $ M. $ That is, $ \Phi $ is a diffeomorphism that makes the following diagram commutative,
+	\textit{The gauge group} of $ \pi: Q \rightarrow M $ consists of all the $ G $-maps $ \Phi: Q \rightarrow  Q$ which induce the identity on $ M. $ That is, $ \Phi $ is a diffeomorphism that satisfies $ \Phi(q\cdot g) =\Phi(q)\cdot g, $ and it makes the following diagram commutative.
 	\begin{center}
-		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEUB6AcRAF9S6TLnyEUARnJVajFmy68BQ7HgJEy46fWatEIALL9BIDCtFFJm6trl7DfaTCgBzeEVAAzAE4QAtkjIQHAgkSRAGOgAjGAYABWFVMXCYDxwQa1ldEAAdbLwGWFzYgAssI08ff0Qw4KQAZmoI6LiE8z0GFLSMnTZc-MLstDKlEG8-JAAmalrEBpkevXEAfXtjMaqpoJDEQJssvqwCmFyhgD1gAFpxPn4KPiA
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEUQBfU9TXfIRQAmclVqMWbTjz7Y8BIgEZSS8fWatEIALLdxMKAHN4RUADMAThAC2SMiBwQkKiZrYAdDwAUAFlm5eECtbe2onJFE3KW0vNADqBjoAIxgGb34FIRBLLCNfHECLaztEVwjEKI0YkDiArgouIA
 \begin{tikzcd}
-Q/G \arrow[r, "\tilde\Phi"]                    & Q/G \arrow[d, "\tilde\pi"] \\
-M \arrow[r, "1_M"] \arrow[u, "\tilde\pi^{-1}"] & M                         
+Q \arrow[rr, "\Phi"] \arrow[rd, "\pi"'] &   & Q \arrow[ld, "\pi"] \\
+                                        & M &                    
 \end{tikzcd}
 	\end{center}
-
-	where $ \tilde\pi: Q/G \rightarrow M $ is given by $ [q] \mapsto \pi(q), $ and $ \tilde\Phi: Q/G \rightarrow Q/G $, $ [q] \mapsto [\Phi(q)]  $ is well defined because $ \Phi $ is a $ G $-map ($\Phi(q\cdot g) = \Phi(q)$).    
 \end{df}
-\textcolor{green}{The Lie algebra of the gauge group is the space of equivariant vector fields}. Therefore, sections of the adjoint bundle form the Lie algebra of the gauge group via the isomorphism $ \sigma: \Gamma( \operatorname{Ad} (Q)) \rightarrow  \Gamma(V)_G. $ 
+The Lie algebra of the gauge group is the space of equivariant vector fields: if $ \Phi_t: Q \rightarrow Q $ is a one-parameter subgroup of the gauge group, we can consider the vector field $$ X_q = \frac{d \Phi_t(q)}{dt} \Big|_{t=0}\in T_qQ. $$ This vector field is equivariant, because $$ (d\alpha_g)_q(X_q)=(d\alpha_g)_q \left( \frac{d \Phi_t(q)}{dt} \Big|_{t=0} \right)= d(\alpha_g \circ \Phi_t(q))_{t=0}= \frac{d\Phi_t(q\cdot g)}{dt} \Big|_{t=0}=X_{q\cdot g}  $$
+thanks to the fact that $ \Phi $ is a $ G $-map. Moreover, if $ X\in \mathfrak{X}(Q) $ is an equivariant vector field, its flow is an element of the gauge group. Therefore, sections of the adjoint bundle form the Lie algebra of the gauge group via the isomorphism $ \sigma: \Gamma( \operatorname{Ad} (Q)) \rightarrow  \Gamma(V)_G. $ 
 
 \begin{df}[\cite{montgomery2002tour}, p. 212]
 	Let $ \pi:Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H} $. \textit{The connection one-form on $ Q $}, denoted as $ A, $ is a Lie-algebra-valued one-form on $ Q $, that is, $ A_q: T_qQ \rightarrow \mathfrak{g} $,  which satisfies the following conditions:
