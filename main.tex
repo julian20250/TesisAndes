@@ -94,34 +94,62 @@
 \def\comment#1{{\par \tt #1}}
 
 %%%%%%%%% FOR DRAFT%%%%%%%%%%%%%
+
 %\renewcommand{\baselinestretch}{1.5}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%% PAPER DATA %%%%%%%%%%%%%%%%%%%
-\author{Julián Jiménez Cárdenas}
+\author{}
 \address{}
 
 
-\title[Elements of sub-Riemannian geometry and its applications]{Elements of sub-Riemannian geometry and its applications}
+\title{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+            
+        \Huge
+	\textbf{ELEMENTS OF SUB-RIEMANNIAN GEOMETRY AND ITS APPLICATIONS}
+        \vspace{0.5cm}
+        \LARGE
+            
+        \vspace{1.5cm}
+            
+        \textbf{Julián Jiménez Cárdenas}
+            
+        \vfill
+            
+        A thesis presented for the degree of\\
+        Master of Mathematics
+            
+        \vspace{0.8cm}
+            
+            
+        \Large
+        Departamento de Matemáticas\\
+        Universidad de los Andes\\
+        Bogotá, Colombia\\
+        \today
+            
+    \end{center}
+\end{titlepage}
 \maketitle
 \begin{abstract}
+	The goal of this work is to introduce the main theorems in subriemannian geometry, and for that we will cover first the topic of distributions, stating the Frobenius' theorem and introducing the idea of foliation. Later on, we focus on the subriemannian structure, and prove Chow's theorem, central in the study of connectivity between horizontal geodesics. The last part of this work focuses on $ G $-principal bundles endowed with compatible subriemannian structures. We use this construction with ideas of symplectic geometry to prove the Theorem on normal geodesics of bundle type subriemannian metrics and to study Wong's equations.
 \end{abstract}
 
 \section*{Introduction}
 \label{sec:0}
 
-
+Riemannian geometry was a intense field 
 \section{Distributions}
 \label{sec:1}
 
 \subsection{Distributions and Horizontal Curves}%
 \label{sub:distributions}
-
-
-A manifold without boundary $M$ of dimension $ m $  is said to be of class $ C^\infty $ if the differentiability class of the transition maps is $C^\infty.$ In this case, for every $ p\in M $ one can define the tangent space to $ M $ at $ p $, $ T_p M $, as the set of all derivations of the algebra of germs of smooth functions from $ M $ to $ \mathbb{R}  $,  based at $ p $. This definition of tangent space is equivalent (when the differentiability class of $ M $ is $ \infty $) to the equivalence class of germs of curves that passes through $ p $. If a manifold $ M $  is $C^r$, with $r< \infty$, the definition for tangent space is the latter, so we use that definition for the tangent space throughout this text, independently of the differentiability class.
 
 \begin{df}(\cite{luke2013vector}, section 1.3)\label{def:smooth_vector_bundle}
 	The triple $ (E, M, \pi: E \rightarrow {M}) $ is a \textit{smooth vector bundle} if $ E,M $ are smooth manifolds, $ \pi $ is a smooth surjection; the fibers $ \pi^{-1}(p) $ for $ p\in M $  have the structure of finite dimensional vector spaces; and for every point $ p\in M $, there is an open neighborhood $ U $ of $ p $, a natural number $ k $ and a diffeomorphism $ \phi: U\times \mathbb{R}^k \rightarrow  \pi^{-1}(U),$ such that for all $ q\in U $ the following propositions hold:  
