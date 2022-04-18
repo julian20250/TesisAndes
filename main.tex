@@ -867,7 +867,7 @@ The Hamiltonian $ H: T^*M \rightarrow \mathbb{R} $ is constant along the integra
 \begin{ex}[\cite{montgomery2002tour}, example 1, section A.4]
 	If $ \xi=\partial/\partial q^i\in \mathfrak{X}( \mathbb{R}^n), $ its momentum function is
 	$$ P_{\partial/\partial q^i}(\alpha)=\alpha(\partial/\partial q^i) = \alpha_i, $$ 
-	where $ \alpha$ is represented in canonical coordinates as $= \alpha_i dq^i $. On the other hand, if we take the Hamiltonian $ H(\alpha)=P_{\partial/\partial q^i}(\alpha), $ we get that $ X_H=\partial /\partial q^i. $ 
+	where $ \alpha$ is represented in canonical coordinates as $ \alpha_i dq^i $. On the other hand, if we take the Hamiltonian $ H(\alpha)=P_{\partial/\partial q^i}(\alpha), $ we get that $ X_H=\partial /\partial q^i. $ 
 \end{ex}
 
 In local coordinates, $ P_\xi = p_i \xi_q^i $, hence, computing its Hamilton equations gives
@@ -932,7 +932,7 @@ Therefore, $ f\mapsto \left\{ f,H \right\}  $ determines a vector field over $M$
 
 We write $ \dot{f}= \left\{ f,H \right\} $ to refer to the expression \eqref{eq:HamEq}, valid for any observable $ f. $ Equation \eqref{eq:HamEq} also receives the name of Hamilton equations, and when $ f $ runs over the canonical coordinates $ q^i,p_i, $ we get the Hamilton equations previously stated in \eqref{eq:hamilton_equations}.
 
-\begin{prop}[Poisson bracket of momentum functions]
+\begin{prop}[Poisson bracket of momentum functions]\label{prop:poisson_bracket_momentum}
 	For any two vector fields $ \xi,\eta \in \mathfrak{X}(M) $ with momentum functions $ P_\xi, P_\eta: T^*M \rightarrow \mathbb{R}, $ we have that
 	$$ \left\{ P_\xi,P_\eta \right\} = -P_{[\xi,\eta]}, $$ 
 	where $ [\xi,\eta] $ is the Lie bracket between $ \xi $ and $ \eta, $ and $ P_{[\xi,\eta]} $ is the momentum function of $ [\xi,\eta]\in \mathfrak{X}(M). $  
@@ -1170,14 +1170,14 @@ The adjoint representation of a Lie group $ G $ on its Lie algebra $ \mathfrak{g
 \begin{df}\label{df:equivariant}
 	Let $ Q $ be a manifold, $ G $ a Lie group that acts on $ Q $, $ E $ a vector space and $ \rho: G \rightarrow GL(E) $ a representation of $ G $ on $ E $. We say that $ F: Q \rightarrow E $ is \textit{$G$-equivariant} if $ F(q\cdot g) = \rho(g^{-1})F(q). $ The set of all $ G $-equivariant maps will be denoted as $ C_G(Q,E). $  
 \end{df}
-\begin{prop}
+\begin{prop}\label{prop:equiv_section_equivariant}
 	
 If $ \pi: Q \rightarrow M $ is a principal $ G $-bundle and $ \rho: G \rightarrow \operatorname{GL} (E) $ is a representation  of $ G, $ the module of sections of $ \rho(Q) \rightarrow M $ is in one-to-one correspondence with $ C_G(Q,E). $
 \end{prop}
 \begin{proof}
 	Assign to each $ F\in C_G(Q,E) $ the section $s $ defined by $s(m)=[q, F(q)]\in \rho(Q)_m $ whenever $ \pi(q)=m\in M. $  This map is well-defined because if $ h= q\cdot g, $ $ [h,F(h)]=[q\cdot g, \rho(g^{-1})F(q)]=[q,F(q)]$. It is a section, since $ \pi\circ s = 1_M, $ and it is smooth because it can be seen as the quotient with respect to the $ G $-action of the smooth application $ 1_Q\times F: Q \rightarrow Q\times E. $ 
 
-	On the other hand, if $s: M \rightarrow \rho(Q)$ is a section, we can construct a $ G $-equivariant map $ F $ in the following way: the map $ s\circ\pi: Q \rho(Q) $ sends an element $ q\in Q $ to the fiber $ \pi_{ \rho(Q)}^{-1}(\pi(q)), $ because $ s $ is a section; therefore, $ s\circ \pi(q)=[q\cdot g, v], $ for some $ g\in G $ and $ v\in E $ that depend on $ \pi(q). $ The element of this equivalence class whose first component is $ q $ is $ (q,\rho(g)v), $ because $ [q\cdot g, v] = [q,\rho(g)v]$. We set then $ F(q)=\rho(g)v, $ where $ 1_q\times(s\circ\pi)(q)=[q,\rho(g)v]. $ This map is $ G $-equivariant because $ F(q\cdot h) $ is determined by the same equivalence class of $ F(q), $ as $ s\circ\pi(q\cdot h)= s\circ \pi(q), $ but in this case $ [q\cdot g, v] = [(q\cdot g)\cdot(g^{-1}h), \rho(h^{-1}g)v] = [q\cdot h, \rho(h^{-1}g)v], $ so that $ F(q\cdot h) = \rho(h^{-1})F(q), $ as desired. This assignation is smooth because it is equivalent to to the smooth map $ \Psi\circ \phi: Q\times(G\times E) \rightarrow E,$ where $ \phi: Q \times(G\times E) \rightarrow Q\times \rho(Q), $ $ (q,(g,v)) \mapsto (q, [q\cdot g, v]) $, and $ \Psi: Q\times \rho(Q) \rightarrow E, $ $ (q,[q\cdot g, v])=\rho(g)v. $    
+	On the other hand, if $s: M \rightarrow \rho(Q)$ is a section, we can construct a $ G $-equivariant map $ F $ in the following way: the map $ s\circ\pi: Q \rightarrow  \rho(Q) $ sends an element $ q\in Q $ to the fiber $ \pi_{ \rho(Q)}^{-1}(\pi(q)), $ because $ s $ is a section; therefore, $ s\circ \pi(q)=[q\cdot g, v], $ for some $ g\in G $ and $ v\in E $ that depend on $ \pi(q). $ The element of this equivalence class whose first component is $ q $ is $ (q,\rho(g)v), $ because $ [q\cdot g, v] = [q,\rho(g)v]$. We set then $ F(q)=\rho(g)v, $ where $ 1_q\times(s\circ\pi)(q)=[q,\rho(g)v]. $ This map is $ G $-equivariant because $ F(q\cdot h) $ is determined by the same equivalence class of $ F(q), $ as $ s\circ\pi(q\cdot h)= s\circ \pi(q), $ but in this case $ [q\cdot g, v] = [(q\cdot g)\cdot(g^{-1}h), \rho(h^{-1}g)v] = [q\cdot h, \rho(h^{-1}g)v], $ so that $ F(q\cdot h) = \rho(h^{-1})F(q), $ as desired. This assignation is smooth because it is equivalent to the smooth map $ \Psi\circ \phi: Q\times(G\times E) \rightarrow E,$ where $ \phi: Q \times(G\times E) \rightarrow Q\times \rho(Q), $ $ (q,(g,v)) \mapsto (q, [q\cdot g, v]) $, and $ \Psi: Q\times \rho(Q) \rightarrow E, $ $ (q,[q\cdot g, v])=\rho(g)v. $    
 
 	Finally, to show that this is a one-to-one correspondence, observe that the associated $ G $-equivariant map of the section $ s(m)=[q, F(q)] $ is $ F, $  while the associated section of the $ G $-equivariant map $ F(q)=\rho(g) v $ is $ s(m)=[q,\rho(g)v]=[q\cdot g, v], $ as expected.
 \end{proof}
@@ -1213,7 +1213,7 @@ $$ \sigma \left( (q,v)\cdot g \right) = \sigma(q,v) \cdot g. $$
 \end{prop}
 \begin{proof}
 	The group $ G $ acts on $ V = \bigsqcup_{q\in Q}V_q $ through the assignment $$ w_q\cdot g = (d\alpha_g)_q(w_q), $$ 
-	where $ w_q\in V_q. $ From this, we can consider the equivalence classes of this action, denoted by $ V/G:= \left\{ [w_q]: w_q\in V \right\}.  $ The map $ \sigma \operatorname{Ad} (Q) \rightarrow V/G $ sends an element $ [q,v]\in \operatorname{Ad} (Q) $ to $ [\sigma_v(q)]\in V/G. $ From the equivariant property of $ \sigma, $ this map is well defines. The inverse map $ \sigma^{-1} : V/G \rightarrow \operatorname{Ad}(Q) $ is $ \sigma^{-1}[w_q] = [q,\sigma^{-1}_{w_q}], $ given that $ \sigma_\cdot(q): \mathfrak{g}\rightarrow V_q $ is a linear isomorphism. To conclude this proof, we need to show that the following diagram is commutative,
+	where $ w_q\in V_q. $ From this, we can consider the equivalence classes of this action, denoted by $ V/G:= \left\{ [w_q]: w_q\in V \right\}.  $ The map $ \sigma: \operatorname{Ad} (Q) \rightarrow V/G $ sends an element $ [q,v]\in \operatorname{Ad} (Q) $ to $ [\sigma_v(q)]\in V/G. $ From the equivariant property of $ \sigma, $ this map is well defines. The inverse map $ \sigma^{-1} : V/G \rightarrow \operatorname{Ad}(Q) $ is $ \sigma^{-1}[w_q] = [q,\sigma^{-1}_{w_q}], $ given that $ \sigma_\cdot(q): \mathfrak{g}\rightarrow V_q $ is a linear isomorphism. To conclude this proof, we need to show that the following diagram is commutative,
 	\begin{center}
 		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12I0YAnOnBF5g6AWxjAAglAC+ACgCKAShAzS6TLnyEUARnJVajFmwBqAegDiq9SAzY8BIgCYD1es1aIOXHv0HCYhLS8so2Gg7aRPq6hh4m3gCyqoYwUADm8ESgAGa8EKJIZCCCSADM1Ax0AEYwDAAKmo46ILxY6QAWOCDuxl4+aFgA+sCc3HwCQiLiUrKKSjLhIHkFSPolEOW9nmycgyMWlouVNXWNkU7eWGDYsEsrhYiuG1tGO957w6O+EwHTwXNlIs1Ll8o9iqVEOt4v1ONh0qI6PcwWtqJDnjDdux4YiAHrAAC0umBFBkQA
 \begin{tikzcd}
@@ -1307,17 +1307,116 @@ The connection one-form $ A $ provides an identification $ (TQ)/ \mathcal{H} \ri
 \end{df}
 
 \begin{df}[\cite{montgomery2002tour}, p. 214]
-	Let $ \rho(Q) $ be an associated bundle of $ \pi: Q \rightarrow M. $ If $ \psi: M \rightarrow \rho(Q) $ is a section of this bundle, and if $ X\in \mathfrak{X}(M), $ we define the \textit{covariant derivative $ D_X\psi $ of $ \psi $ in the direction of $ X $} as follows. The section $ \psi $ corresponds to an equivariant map $ F: Q \rightarrow E $, and $ hX $ is a $ G $-equivariant horizontal vector field on $ Q, $ so that $ dF(hX) $ is an equivariant map $ Q \rightarrow E, $ which corresponds to a section of $ \rho(Q), $ $ D_X\psi. $ 
+	Let $ \rho(Q) $ be an associated bundle of the principal $ G $-bundle $ \pi: Q \rightarrow M, $ and $ \rho:  G \rightarrow \operatorname{GL}(E) $ be a representation of $ G $ on a vector space $ E. $  If $ \psi: M \rightarrow \rho(Q) $ is a section of this bundle, and if $ X\in \mathfrak{X}(M), $ we define the \textit{covariant derivative $ D_X\psi $ of $ \psi $ in the direction of $ X $} as follows. The section $ \psi $ corresponds to an equivariant map $ F: Q \rightarrow E $, and $ hX $ is a $ G $-equivariant horizontal vector field on $ Q, $ so that $ dF(hX) $ is an equivariant map $ Q \rightarrow E, $ which corresponds to a section of $ \rho(Q), $ $ D_X\psi. $ 
 \end{df}
-\begin{df}[\cite{montgomery2002tour}, p. 214]
+\begin{df}[\cite{montgomery2002tour}, p. 214]\label{df:covariantly_constant}
 	Let $ c:I \rightarrow M $ be a curve. A curve $ \psi: \operatorname{Im} (c) \rightarrow \rho(Q) $ lying over $ c $ is said to be \textit{covariantly constant} if $ D_{\dot{c}}\psi=0. $  	
 \end{df}
 The $ G $-invariant vector fields on $ Q $ can be identified with sections of $ (TQ)/G, $ and thanks to Proposition \ref{prop:splitting} we can split them up into horizontal and vertical vector fields, according to $ (TQ)/G = TM \oplus \operatorname{Ad} (Q). $ Then, if $ X\in \mathfrak{X}(M) $ and $ \xi: M \rightarrow \rho(Q), $ we have the following relations:
 \begin{align}
- [hX, hY] = h([X,Y])\oplus -\eta(\Omega(X,Y)), \tag{horizontal-horizontal}\\
- [\sigma\xi, \sigma\chi] = -\sigma([\xi,\chi]), \tag{vertical-vertical} \\
- [hX,\sigma \xi] = \eta(D_X\xi). \tag{horizontal-vertical} 
+ [hX, hY] = h([X,Y])\oplus -\eta(\Omega(X,Y)), \label{eq:horizontal-horizontal}\\
+ [\sigma\xi, \sigma\chi] = -\sigma([\xi,\chi]), \label{eq:vertical-vertical} \\
+ [hX,\sigma \xi] = \eta(D_X\xi). \label{eq:horizontal-vertical} 
 \end{align}
+
+\subsection{Wong's equations}%
+\label{sub:wong_s_equations}
+Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}, $ and let $ \left( \mathcal{H}, \langle \cdot,\cdot \rangle \right)  $ be a metric of bundle type. The sub-Riemannian Hamiltonian $ H $ associated with the sub-Riemannian structure $ ( \mathcal{H}, \langle \cdot,\cdot \rangle) $ on $ Q $ is $ G $-invariant. We choose a local frame $ \left\{ X_i \right\}_{i=1}^n $ for the base space $ M $ to express $ H: $ write $ g_{ij}=g(X_i,X_j) $ for the corresponding inner products with respect to the Riemannian metric $ g $ on $ M $. We take the horizontal lifts $ \left\{ hX_i \right\}_{i=1}^n $ to obtain a local horizontal frame on $ Q. $ If $ P_i:= P_{hX_i} $ are the momentum functions, then
+\begin{equation}\label{eq:sub-RiemannianHamiltonian}
+	H(\alpha)= \frac{1}{2} g_{ij} \left( \pi(\pi_{T^*Q}(\alpha)) \right) P_i(\alpha) P_j(\alpha),	
+\end{equation}
+because 
+\begin{dmath*}
+	\frac{1}{2} (\alpha,\alpha)_{\pi_{T^*Q}(\alpha)} = \frac{1}{2} \langle P_i(\alpha) hX_i, P_j(\alpha)hX_j \rangle_{\pi_{T^*Q}(\alpha)} = \frac{1}{2}  P_i(\alpha)P_j(\alpha) \langle hX_i, hX_j \rangle_{\pi_{T^*Q(\alpha)}} = \frac{1}{2}  g_{ij}(\pi(\pi_{T^*Q}(\alpha))) P_i(\alpha)P_j(\alpha),
+\end{dmath*}
+where $ \alpha|_{ \mathcal{H}_{\pi_{T^*Q}(\alpha)}} = g_{\pi(\pi_{T^*Q}(\alpha))}(P_i(\alpha) hX_i, \cdot).$ 
+\begin{df}[\cite{montgomery2002tour}, p. 282]
+	Let $ Q $ be a manifold, and $ G $ a Lie group that acts on $ Q $. \textit{The momentum map $ J: T^*Q \rightarrow \mathfrak{g}^*$ } is defined by	
+	$$ J(\alpha) := \eta^*_q(\alpha), \ \pi_{T^*Q}(\alpha)=q, $$ 
+	where $ \eta_q: \mathfrak{g}\rightarrow T_qQ $ is given by $ \eta_q = \sigma_\cdot(q), $ and $ \eta_q^*: T_q^*Q \rightarrow \mathfrak{g}^* $ is the dual map, that is, $ \eta_q^*(\alpha)=\alpha\circ \eta_q. $ 
+\end{df}
+
+\begin{prop}[\cite{montgomery2002tour}, p. 282]\label{prop:momentum_map}
+	$ J: T^*Q \rightarrow \mathfrak{g}^* $ is constant along normal sub-Riemannian geodesics.
+\end{prop}
+The isomorphism between $ TQ/G $ and $ TM \oplus \operatorname{Ad} (Q) $ given in Proposition \ref{prop:splitting} can be dualized to obtain the isomorphism $ T^*Q/G \rightarrow T^*M \oplus \operatorname{Ad}^*(Q) $ given by
+$$ \left[ \alpha \right] \mapsto h^*_q\alpha \oplus \left[ q, \eta_q^*(\alpha)\right], \ q=\pi_{T^*Q}(\alpha). $$ 
+By Proposition \ref{prop:momentum_map}, if $ \alpha: I \rightarrow T^*Q $ is a sub-Riemannian geodesic, $ J(\alpha(t)) $ is constant. We denote as $ \lambda: I \rightarrow \operatorname{Ad}^*(Q) $ the curve that makes the following diagram commutative,
+\begin{center}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEkQBfU9TXfIRQBGclVqMWbACoA9AFQBFbrxAZseAkQBMY6vWatEIOUoD0AcRV8NgnaWHiDU46YCyAHQ8Q0zOAAIvHxgAJzocCBCwOgBbGGAAQSguBQAKRQBKazV+TSFkXW0nSSMQILRQ8MjouMTktMzucRgoAHN4IlAAMxCIGKQyEAikUQlDNi9GNAALOmyevpHqYcRtHm7e-tXliCQAZmoGLDBSqAgmACMGVmppmDooJDAmBgZluiwGNkgT+c39nZIAAs+hKE28FTCESisXiaF6ACsuAB9YDlSrQmrxJIpeTpDJcP6LRCDFYgsYuMoeBixC5QOaHOgXGAMAAKuTsxhCWFa0xwTS4QA
+\begin{tikzcd}
+I \arrow[r, "\alpha"] \arrow[rrdd, "\lambda"'] & T^*Q \arrow[r] & T^*Q/G \arrow[d, Rightarrow]                                                                \\
+                                               &                & T^*M\oplus \operatorname{Ad}^*(Q) \arrow[d, "\operatorname{proj}_{\operatorname{Ad}^*(Q)}"] \\
+                                               &                & \operatorname{Ad}^*(Q)                                                                     
+\end{tikzcd}
+\end{center}
+that is, $ \lambda(t) = \left[ \pi_{T^*Q}(\alpha(t)), \eta^*_{\pi_{T^*Q}(\alpha)}(\alpha(t)) \right]  $. 
+
+\begin{thm}
+	Suppose that $ \pi: Q \rightarrow M $  is a principal $ G $-bundle and $ \rho: G \rightarrow \operatorname{GL} (E) $ is a representation of $ G $ on a vector space $ E. $ Let $ c: I \rightarrow M $ be a curve on $ M. $ A curve $ \psi: I \rightarrow \rho(Q) $ lying over $ c $ is covariantly constant (see Definition \ref{df:covariantly_constant}) if and only if $ \psi(t)= [q(t), \psi_0] $, where $ \pi\circ q = c,  $ and $ \psi_0\in E $ is constant.
+\end{thm}
+\begin{proof}
+	Suppose that $ \psi(t)= [q(t), \psi_0] $ for a horizontal lift $ q: I \rightarrow Q $ of $ c: I \rightarrow M $, and $ \psi_0\in E $ constant. By Proposition \ref{prop:equiv_section_equivariant}, the section $ \phi: \operatorname{Im} (c)\subset M \rightarrow \rho(Q) $ given by $ \phi(c(t))=\psi(t) $ corresponds to the equivariant map $ F: \operatorname{Im} (q)  \subset Q \rightarrow E, $ $ F(\tilde q)= \rho(g)\psi_0, $ where $ g $ is determined by $ \phi\circ\pi(\tilde q) = [\tilde q \cdot g, \psi_0]. $ Nevertheless, as $ \phi_0\in E $ is constant, $ g=e, $ and $ F=\psi_0 $ becomes the constant map, so that $ dF(h\dot{c})=0 $ is the null equivariant map, which precisely corresponds to the section $ s: \operatorname{Im} (c) \subset M \rightarrow \rho(Q) $ given by $ s(c(t)) =[q(t), 0] $, and $ D_{\dot{c}}\psi=0. $ 
+
+	Now, if we suppose that $ D_{\dot{c}}\psi=0, $ we get that the equivariant map associated to the section $ \phi: \operatorname{Im} (c)\subset M \rightarrow \rho(Q) $ is constant, from where we obtain that $ \psi(t)=[q(t), \psi_0] $ for $ \psi_0\in E $ constant, and $ q $ must be a horizontal lift of $ c $ in order to satisfy $ \pi_{T^*Q}\circ\psi =c. $ 
+\end{proof}
+
+\begin{cor}[First Wong's equation]
+	$\alpha: I \rightarrow T^*Q$ is a normal sub-Riemannian geodesic if and only if $ \alpha $ is covariantly constant, that is, $$ D_{\dot{c}}\lambda =0, $$ where $ c=\pi\circ\pi_{T^*Q}\circ\alpha, $ and $ \lambda(t)=[ \pi_{T^*Q}\circ\alpha(t), J\circ\alpha(t)]. $ 
+\end{cor}
+Every $ G $-invariant vector field on $ Q $ can be split into their vertical and horizontal components, so that any of these vector fields is determined by lifted horizontal vector field $ hX, $ where $ X: M \rightarrow TM, $ and a $ G $-invariant vertical vector field $ \sigma\xi, $ where $ \xi: M \rightarrow \operatorname{Ad} (Q) $ is a section, and $ \sigma: \Gamma( \operatorname{Ad} (Q)) \rightarrow \Gamma(V)_G $ is the isomorphism between sections described below Proposition \ref{prop:isomorphism_vb}.
+
+We can identify $ \xi: M \rightarrow \operatorname{Ad} (Q) $ with a $ G $-equivariant map $ F: Q \rightarrow \mathfrak{g} $ using Proposition \ref{prop:equiv_section_equivariant}. In this case, the momentum function associated to $ \sigma\xi $ is
+$$ P_{\sigma\xi}(\alpha)= J(\alpha) \left( F(\pi_{T^*Q}(\alpha)) \right).  $$ 
+To see this, by Proposition \ref{prop:isomorphism_vb} we have that $ \sigma\circ \xi: M \rightarrow V/G $ is a section of $ V/G \rightarrow M, $ and the $ G $-invariant vertical vector field associated to it is $ \sigma\xi: Q \rightarrow V $, $ q \mapsto \sigma_v(q), $ where $ \xi(\pi(q))=[q,v] $ for a given $ v\in \mathfrak{g} $, and $ \sigma\circ\xi(\pi(q)) = \sigma([q,v])=[\sigma_v(q)] $. From this point, we can see that $ P_{\sigma\xi}(\alpha) = \alpha(\sigma\xi) = \alpha(\sigma_v(q)) = \alpha\circ \eta_q(v) = \eta_q^*(\alpha)(v) = J(\alpha)(v)= J(\alpha) \left( F(\pi_{T^*Q}(\alpha)) \right), $ as desired.    
+
+\begin{df}\label{df:lifted_configuration_function}
+	We say that a map $ f: T^*Q \rightarrow \mathbb{R} $ is a lifted configuration function if there exists a function $ \tilde f: M \rightarrow \mathbb{R} $ such that the following diagram commutes,
+	\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRABUA9AKgEUQAvqXSZc+QigCM5KrUYs2-ISOx4CRaZNn1mrRCACyg4SAyrxRMluo6F+gDr2AtnRwALAEYfgAJQGDZGCgAc3giUAAzACcIJyQyEBwIJABmG3k9EAiQagY6DxgGAAVRNQkQKKxgtxxjSJi4xASkpGk5XTZHNCwAfWAuPn9lLIbW6hbEACZ0jod7brqR2KRpxOTENPa7EC63LEXo5abx9dXbTK6sRwBjLCjry76B3n9c-MKS83V9LDBsWACAiAA
+\begin{tikzcd}
+T^*Q \arrow[d, "f"'] \arrow[r, "\pi_{T^*Q}"] \arrow[rd, "\pi\circ\pi_{T^*Q}" description] & Q \arrow[d, "\pi"]  \\
+\mathbb{R}                                                                                & M \arrow[l, "\tilde f"]
+\end{tikzcd}
+	\end{center}
+	which implies that $ f $ is constant along fibers of $ \pi\circ \pi_{T^*Q}. $ 
+\end{df}
+\begin{lm}[\cite{montgomery2002tour}, Lemma 12.3.1]
+	The vertical and horizontal momentum functions $ P_{\sigma\xi} $ and $ P_{hX}, $ and lifted configuration functions $ f,g: T^*Q \rightarrow \mathbb{R} $ satisfy the following Poisson bracket relations: 	
+	\begin{align}
+		\left\{ P_{hX}, P_{hY} \right\} = -P_{h[X,Y]}+P_{\sigma\Omega(X,Y)},\label{eq:lemma_1}\\ 
+	\left\{ P_{\sigma \xi}, P_{\sigma\chi} \right\} = P_{[\xi, \chi]},\\
+	\left\{ P_{hX}, P_{\sigma\xi} \right\} = -D_{\sigma(D_X\xi)},\\
+	\left\{ f, P_{hX} \right\} = d\tilde f(X),\\ \label{eq:lemma_4}
+	\left\{ f, P_{\sigma\xi} \right\} = \left\{ f,g \right\} =0,
+	\end{align}
+	where $\left[ \xi, \chi \right]$ 	represents the corresponding point-wise bracket of the associated $ G $-equivariant maps of $ Q \rightarrow \mathfrak{g} $ of $ \xi,\chi, $ while $ \tilde f : M \rightarrow \mathbb{R} $ is the function that makes the diagram of Definition \ref{df:lifted_configuration_function} commutative.
+\end{lm}
+\begin{proof}
+	These commutation relations follow from Proposition \ref{prop:poisson_bracket_momentum}, and from commutation relations between vertical and horizontal vector fields \eqref{eq:horizontal-horizontal}-\eqref{eq:horizontal-vertical}. The relations involving lifted configuration functions follow from calculation in canonical coordinates on $ T^*Q. $ 
+\end{proof}
+Returning to the Hamiltonian \eqref{eq:sub-RiemannianHamiltonian}, note that the metric function $ g_{ij} $ is a lifted configuration function, while by definition $ P_i=P_{hX_i} $ are horizontal momentum functions. If $ f: T^*Q \rightarrow \mathbb{R} $ is a function of $ Q $ alone, by equation \eqref{eq:lemma_4} we have that $ \left\{ f, P_i \right\} = d\tilde f(X), $ so that the Poisson bracket between $ f $ and the Hamiltonian \eqref{eq:sub-RiemannianHamiltonian} is 
+\begin{align*}
+	\dot{f} &= \left\{ f, H \right\} = \frac{1}{2} \left\{ f, g^{ij}P_iP_j \right\} = \frac{1}{2} g^{ij} \left\{ f, P_iP_j \right\} \\&= \frac{1}{2} \left( P_i \left\{ f,P_j \right\} +P_j \left\{ f,P_i \right\}  \right) = g^{ij}P_i \left\{ f,P_j \right\} = g^{ij} P_i d\tilde f( X_j). 
+\end{align*}
+If $ f= \varphi\circ\pi_{T^*Q}=:q $ becomes the coordinate chart for $ Q $, we get that 
+$$ \dot{q} = g^{ij}P_i \underbrace{hX_j(q)}_{\text{in coordinates}}, $$ 
+from where we conclude that $ q(t) $ is horizontal, and its tangent vector $ \dot{q} $ is a horizontal lift of the vector $ \dot{c} $ on $ M $ metrically dual to the covector with components $ P_i(q(t), p(t)). $ To compute how $ P_i $ evolves, let $ X_i=\partial/\partial x_i $ be a coordinate frame where the $ x^i $ are local coordinates on $ M. $  Therefore, $ [X_i,X_j]=0, $ and
+$$ \left\{ P_i,P_j \right\} = P_{[hX_i, hX_j]}= P_{\Omega(X_i, X_j)} = P_{\Omega_{ij}} = \lambda \Omega_{ij} $$ 
+by equation \eqref{eq:horizontal-horizontal}. From this discussion we derive the second Wong's equation.
+
+\begin{cor}
+	[Second Wong's equation] $ \alpha: I \rightarrow T^*Q $ is a normal sub-Riemannian geodesic if and only if it satisfies the equation
+	$$ \nabla_{\dot{c}}\dot{c} = -( \lambda(i_{\dot{c}}\Omega))^{\#}, $$ 
+	where $ c = \pi\circ\pi_{T^*Q}\circ\alpha, $ $\lambda = [\pi_{T^*Q}(\cdot), \eta^*_{\pi_{T^*Q}(\cdot)}(\cdot)], $ and $ \# $ represents lowering indices using the metric on $ M. $ In coordinates this equation is
+	$$ \frac{d}{dt} P_i = - \frac{1}{2} \frac{\partial }{\partial x^i} g^{kl}P_kP_l + g^{kl}P_k \lambda \Omega_{il}. $$ 
+\end{cor}
+\begin{proof}
+	Using the Leibniz property of the Poisson bracket and equation \eqref{eq:lemma_1}, we have that
+	\begin{align*}
+		\frac{d P_i}{dt} &= \frac{1}{2} \left\{ P_i, g^{kl} \right\} P_kP_l+ g^{kl} P_k \left\{ P_i, P_l \right\} \\&= \frac{1}{2} \frac{\partial }{\partial x^i} g^{kl} P_k P_l + g^{kl} P_k\lambda \Omega_{il}.
+	\end{align*}
+\end{proof}
 % ===============================================================
 \bibliographystyle{unsrt}
 \nocite{*}
