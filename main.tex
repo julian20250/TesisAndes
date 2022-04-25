@@ -107,6 +107,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+\pagenumbering{gobble}
 \begin{titlepage}
     \begin{center}
         \vspace*{1cm}
@@ -118,7 +119,8 @@
             
         \vspace{1.5cm}
             
-        \textbf{Julián Jiménez Cárdenas}
+        \textbf{Julián Jiménez Cárdenas}\\
+        \textbf{Directed by: Mikhail Malakhaltsev}
             
         \vfill
             
@@ -130,31 +132,36 @@
             
         \Large
         Departamento de Matemáticas\\
+        Facultad de Ciencias \\
         Universidad de los Andes\\
         Bogotá, Colombia\\
-        \today
+        April 29, 2022
             
     \end{center}
 \end{titlepage}
 \maketitle
+\newpage
+\pagenumbering{arabic}
 \begin{abstract}
-	The goal of this work is to introduce the main theorems in sub-Riemannian geometry, and for that we will cover first the topic of distributions, stating the Frobenius' theorem and introducing the idea of foliation. Later on, we focus on the sub-Riemannian structures, and prove Chow's theorem, central in the study of connectivity between horizontal geodesics. The last part of this work focuses on $ G $-principal bundles endowed with compatible sub-Riemannian structures. We use this construction with ideas of symplectic geometry to prove the Theorem on normal geodesics of bundle type sub-Riemannian metrics and to study Wong's equations.
+	The goal of this work is to introduce the main theorems of sub-Riemannian geometry, and for that we will cover first the topic of distributions, stating the Frobenius' theorem and introducing the idea of foliation. Later on, we focus on the sub-Riemannian structures, and prove Chow's theorem, central in the study of connectivity through horizontal geodesics. The last part of this work focuses on $ G $-principal bundles endowed with compatible sub-Riemannian structures. We use this construction with ideas of symplectic geometry to prove the Theorem on normal geodesics of bundle type sub-Riemannian metrics and to study Wong's equations. This review of sub-Riemannian topics is based mostly on \cite{montgomery2002tour}.
 \end{abstract}
 
 \section*{Introduction}
 \label{sec:0}
 
-Riemannian geometry is an intense field of study due to the fact that it is the generalization of the idea of metric and distance onto general geometric spaces. This characteristic makes Riemannian geometry one of the preferred formalisms to work in physics' topics like general relativity and quantum mechanics. In this field we start with a manifold, endowed with a metric, which is a section of the $ (0,2) $-tensor bundle which is symmetric and non-degenerate at all points of the manifold. The non-degeneracy condition can be relaxed, and in this case some important examples raise up, like the Lorentz/Minkowski metric, the most widely used metric in special relativity. In principle, all proofs that depend only on the invertibility of the metric tensor, such as existence and uniqueness of the Riemannian connection and geodesics, work fine in the pseudo-Riemannian setting, while proofs that use positivity in an essential way, such as those involving distance-minimizing properties of geodesics, do not \cite[p.~31]{lee2018introduction}. An extensive mathematical development of pseudo-Riemannian geometry can be found on \cite{o1983semi}.
+Riemannian geometry is an intense field of study due to the fact that it is the generalization of the idea of metric and distance onto general geometric spaces. This characteristic makes Riemannian geometry one of the preferred formalisms to work in physics' topics like general relativity and quantum mechanics. In this field we start with a manifold, endowed with a metric, which is a section of the $ (0,2) $-tensor bundle which is symmetric and non-degenerate at all points of the manifold. The non-degeneracy condition can be weakened, and this variation of the definition of Riemannian metric arises the field of study known as pseudo-Riemannian metric. In this case some important examples raise up, like the Lorentz/Minkowski geometry, the most widely used metric in special relativity. An extensive mathematical development of pseudo-Riemannian geometry can be found on \cite{o1983semi}.
 
-Another alternative formulation of Riemannian geometry arises when we consider a sub-bundle (called distribution) of the tangent bundle of a given manifold: in this case, the metric will be a section of the $ (0,2) $-tensor bundle of this sub-bundle, with the same properties than in the case of Riemannian geometry (non-degeneracy and symmetry). This formulation receives the name of sub-Riemannian geometry, and it will be the main focus of this text. Before introducing the concept of sub-Riemannian structure, we focus on explaining the idea of distribution, their different definitions and associated results. To do this, we define a distribution in terms of local frames and 1-forms, we explain when a distribution is involutive, integrable and completely integrable, and use the Frobenius's theorem to connect these three concepts, while discussing when the points of a given manifold are connected via horizontal curves, \textit{i.e.}, curves whose tangent vector is always contained in the distribution.
+Another variation of Riemannian metric arises when the condition of being a section of the $(0,2)$-tensor bundle is weakened to consider instead a continuous map $F: TM \rightarrow \mathbb{R}$, smooth on the set of nonzero vectors, whose restriction to each tangent space $T_pM$ is a norm \cite[p.~47]{lee2018introduction}. This definition is known as Finsler metric, and an approach to the consequences of this definition can be found on \cite{bao2012introduction}.
 
-Later on, we introduce the concept of sub-Riemannian structure, and define the horizontal distance as the infimum of the length of all horizontal curves that connect two given points in the manifold, in analogy with Riemannian distance. We then introduce the bracket-generating distributions as a special class of distribution such that there is a local frame that locally spans the tangent bundle through successive applications of Lie brackets, and we state and show the Chow's theorem, which states that a sufficient condition for all points to be connected through horizontal curves is that the distribution is bracket-generating. Therefore, the distance between two points in a sub-Riemannian structure is always well-defined when the subjacent distribution is bracket-generating. 
+The variation of Riemannian geometry that will be covered throughout this text arises when we consider a sub-bundle (called distribution) of the tangent bundle of a given manifold: in this case, the metric will be a section of the $ (0,2) $-tensor bundle of this sub-bundle, with the same properties than in the case of Riemannian geometry (non-degeneracy and symmetry). This formulation receives the name of sub-Riemannian geometry, and it will be the main focus of this text. Before introducing the concept of sub-Riemannian structure, we focus in Section \ref{sec:1} on explaining the idea of distribution, their different definitions and associated results. To do this, we define a distribution in terms of local frames and 1-forms, we explain when a distribution is involutive, integrable and completely integrable, and use the Frobenius's theorem to connect these three concepts, while discussing when the points of a given manifold are connected via horizontal curves, \textit{i.e.}, curves whose tangent vector is always contained in the distribution.
 
-In order to work with principal $ G $-bundles endowed with metric of bundle type, we start introducing what is a submersion, and we endow it with a sub-Riemannian structure in the total space (equivalently, a Riemannian structure in the base space). With these tools, we start the topic of metrics on principal bundles explaining aspects of Lie groups and their actions, and give some examples of principal $ G $-bundles. 
+Later on, in Section \ref{sec:sub-Riemannian_geometry} we introduce the concept of sub-Riemannian structure, and define the horizontal distance as the infimum of the length of all horizontal curves that connect two given points in the manifold, in analogy with Riemannian distance. We then introduce the bracket-generating distributions as a special class of distribution such that there is a local frame that locally spans the tangent bundle through successive applications of Lie brackets, and we state and show the Chow's theorem, which states that a sufficient condition for all points to be connected through horizontal curves is that the distribution is bracket-generating. Therefore, the distance between two points in a sub-Riemannian structure is always well-defined when the subjacent distribution is bracket-generating. 
 
-Following the steps of Riemannian geometry, we proceed studying the normal geodesics associated to sub-Riemannian structures, and in order to do that we make a brief introduction to symplectic geometry. This will allow to use the Hamiltonian formalism to characterize the horizontal geodesics as integral curves of the vector field associated to the sub-Riemannian Hamiltonian, which is defined in the same way than the Riemannian Hamiltonian, using the sub-Riemannian metric instead. With this formalism we proceed proving the Theorem on normal geodesics of bundle type sub-Riemannian metrics, which provides a way to identify normal (horizontal) geodesics in the (base) total space for a principal $ G $-bundle whose metric satisfies some special properties.
+In order to work with principal $ G $-bundles endowed with metric of bundle type, in Section \ref{sub:metrics_on_principal_bundles} we start introducing what is a submersion, and we endow it with a sub-Riemannian structure in the total space (equivalently, a Riemannian structure in the base space). With these tools, we start the topic of metrics on principal bundles explaining aspects of Lie groups and their actions, and we give some examples of principal $ G $-bundles in Section \ref{sub:examples_of_principal_g_bundles}. 
 
-In case that the conditions of the Theorem on normal geodesics of bundle type sub-Riemannian metrics do not apply, we can characterize the normal horizontal geodesics of a principal $ G $-bundle using the Wong's equations. These are a family of differential equations over the quotient of the cotangent space and the action of the Lie group $ G $ over it.
+Following the steps of Riemannian geometry, in Section \ref{sub:theorem_on_normal_geodesics} we proceed studying the normal geodesics associated to sub-Riemannian structures, and in order to do that we make a brief introduction to symplectic geometry. This will allow to use the Hamiltonian formalism to characterize the horizontal geodesics as integral curves of the vector field associated to the sub-Riemannian Hamiltonian, which is defined in the same way than the Riemannian Hamiltonian, using the sub-Riemannian metric instead. With this formalism we proceed proving the Theorem on normal geodesics of bundle type sub-Riemannian metrics, which provides a way to identify normal (horizontal) geodesics in the (base) total space for a principal $ G $-bundle whose metric satisfies some special properties.
+
+The cases where the conditions of the Theorem on normal geodesics of bundle type sub-Riemannian metrics do not apply are covered in Section \ref{sec:classical_particles_in_yang_mills_fields}, where we characterize the normal horizontal geodesics of a principal $ G $-bundle using the Wong's equations. These are a family of differential equations over the quotient of the cotangent space and the action of the Lie group $ G $ over it.
 \section{Distributions}
 \label{sec:1}
 
@@ -793,6 +800,7 @@ The set of all unitary quaternions is $ \mathbb{S}^3 $, so that $ \mathbb{S}^3 $
 	This principal $ \mathbb{S}^1$-bundle has connection because the kernel of $ d(\pi\circ \alpha_g)_q $ is the same of $ d\pi_q, $ as $ d\alpha_g $ is an isomorphism. Therefore, $ d(\alpha_g)_q ( \mathcal{H}_q) = \mathcal{H}_{q\cdot g}, $ and the $ \mathbb{S}^1 $-action preserves $ \mathcal{H}. $ By proposition \ref{prop:comp_bundle}, this connection $ \mathcal{H} $ is complete.  
  
 \subsection{Theorem on normal geodesics of bundle type sub-Riemannian metrics}
+\label{sub:theorem_on_normal_geodesics}
 Before proceeding with one of the principal results on sub-Riemannian geometry and metrics on bundles, we need to recall some definitions and important results of symplectic geometry. Therefore, this subsection is dedicated to the study of these prerequisites and to the statement and proof of the theorem on normal geodesics of bundle type sub-Riemannian metrics. To start with, we define the concept of symplectic structure, and continue to explain the ideas of cotangent bundle and Hamilton's equations.
 \begin{df}[\cite{arnol2013mathematical}, section 8A]
 	Let $ M $ be an even-dimensional manifold. A \textit{symplectic structure on $ M $ } is a closed non-degenerate differential 2-form $ \omega $ on $ M $, that is, 
@@ -1423,3 +1431,4 @@ by equation \eqref{eq:horizontal-horizontal}. From this discussion we derive the
 \bibliography{mybibliography}
 
 \end{document}
+
