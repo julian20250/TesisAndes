@@ -1369,7 +1369,7 @@ that is, $ \lambda(t) = \left[ \pi_{T^*Q}(\alpha(t)), \eta^*_{\pi_{T^*Q}(\alpha)
 	Now, if we suppose that $ D_{\dot{c}}\psi=0, $ we get that the equivariant map associated to the section $ \phi: \operatorname{Im} (c)\subset M \rightarrow \rho(Q) $ is constant, from where we obtain that $ \psi(t)=[q(t), \psi_0] $ for $ \psi_0\in E $ constant, and $ q $ must be a horizontal lift of $ c $ in order to satisfy $ \pi_{T^*Q}\circ\psi =c. $ 
 \end{proof}
 
-\begin{cor}[First Wong's equation]
+\begin{cor}[First Wong's equation]\label{cor:fwe}
 	$\alpha: I \rightarrow T^*Q$ is a normal sub-Riemannian geodesic if and only if $ \alpha $ is covariantly constant, that is, $$ D_{\dot{c}}\lambda =0, $$ where $ c=\pi\circ\pi_{T^*Q}\circ\alpha, $ and $ \lambda(t)=[ \pi_{T^*Q}\circ\alpha(t), J\circ\alpha(t)]. $ 
 \end{cor}
 Every $ G $-invariant vector field on $ Q $ can be split into their vertical and horizontal components, so that any of these vector fields is determined by lifted horizontal vector field $ hX, $ where $ X: M \rightarrow TM, $ and a $ G $-invariant vertical vector field $ \sigma\xi, $ where $ \xi: M \rightarrow \operatorname{Ad} (Q) $ is a section, and $ \sigma: \Gamma( \operatorname{Ad} (Q)) \rightarrow \Gamma(V)_G $ is the isomorphism between sections described below Proposition \ref{prop:isomorphism_vb}.
@@ -1413,8 +1413,8 @@ from where we conclude that $ q(t) $ is horizontal, and its tangent vector $ \do
 $$ \left\{ P_i,P_j \right\} = P_{[hX_i, hX_j]}= P_{\Omega(X_i, X_j)} = P_{\Omega_{ij}} = \lambda \Omega_{ij} $$ 
 by equation \eqref{eq:horizontal-horizontal}. From this discussion we derive the second Wong's equation.
 
-\begin{cor}
-	[Second Wong's equation] $ \alpha: I \rightarrow T^*Q $ is a normal sub-Riemannian geodesic if and only if it satisfies the equation
+\begin{cor}[Second Wong's equation]\label{cor:swe}
+	$ \alpha: I \rightarrow T^*Q $ is a normal sub-Riemannian geodesic if and only if it satisfies the equation
 	$$ \nabla_{\dot{c}}\dot{c} = -( \lambda(i_{\dot{c}}\Omega))^{\#}, $$ 
 	where $ c = \pi\circ\pi_{T^*Q}\circ\alpha, $ $\lambda = [\pi_{T^*Q}(\cdot), \eta^*_{\pi_{T^*Q}(\cdot)}(\cdot)], $ and $ \# $ represents lowering indices using the metric on $ M. $ In coordinates this equation is
 	$$ \frac{d}{dt} P_i = - \frac{1}{2} \frac{\partial }{\partial x^i} g^{kl}P_kP_l + g^{kl}P_k \lambda \Omega_{il}. $$ 
@@ -1425,7 +1425,34 @@ by equation \eqref{eq:horizontal-horizontal}. From this discussion we derive the
 		\frac{d P_i}{dt} &= \frac{1}{2} \left\{ P_i, g^{kl} \right\} P_kP_l+ g^{kl} P_k \left\{ P_i, P_l \right\} \\&= \frac{1}{2} \frac{\partial }{\partial x^i} g^{kl} P_k P_l + g^{kl} P_k\lambda \Omega_{il}.
 	\end{align*}
 \end{proof}
-% ===============================================================
+ 
+\subsection{Abelian case}%
+\label{sub:abelian_case}
+
+If the structure group $ G $ of the principal $ G $-bundle $ \pi: Q \rightarrow M $ is abelian, then the adjoint and co-adjoint bundles are the trivial bundles $ M\times \mathfrak{g}^{(*)} \rightarrow M, $ given that $ \operatorname{ad}^{(*)} : G \rightarrow \operatorname{Aut} ( \mathfrak{g}^{(*)}) $ satisfies $ \operatorname{ad^{(*)}} (g)= 1_{ \mathfrak{g}^{(*)}} $ for all $ g\in G. $ The sections of these bundles correspond to functions $ M \rightarrow \mathfrak{g}^{(*)} $, because sections are maps of the form $ 1_M\times f, $ where $ f: M \rightarrow \mathfrak{g}^{(*)}.$ 
+
+\begin{lm}\label{lm:minus_inverse}
+	If $ G $ is an abelian Lie group, its Lie algebra $ \mathfrak{g} $ is abelian, that is, $ [X,Y]=0 $ for all $ X,Y\in \mathfrak{g}. $ 
+\end{lm}
+\begin{proof}
+	As $ G $ is a Lie group, the inverse map $ i : G \rightarrow G $, $ g \mapsto g^{-1} $ is a Lie group homomorphism, and its differential at the identity, $di_e: \mathfrak{g} \rightarrow \mathfrak{g},  $ $ X \mapsto -X, $ is a Lie algebra homomorphism. Then, for any $ X,Y\in \mathfrak{g} $ 
+	$$ -[X,Y] = di_e([X,Y]) = [di_e(X), di_e(Y)] = [X,Y]=0. $$ 
+\end{proof}
+
+Assuming that $ G$ is abelian, by Lemma \ref{lm:minus_inverse}, the Lie algebra is abelian. The covariant derivative  of a section $ \psi: M \rightarrow M\times \mathfrak{g}^{(*)} $ with respect to a vector field $ X\in \mathfrak{X}(M) $ corresponds to the usual derivative of the function $f:= \operatorname{proj_{ \mathfrak{g}^{(*)}}}\circ \psi,$ because the equivariant map associated with the section $ \psi $ is precisely $ f\circ\pi, $ so that $ D_X\psi=d(f\circ\pi)(hX) = df(X). $ 
+
+From the fist Wong's equation (Corollary \ref{cor:fwe}), we get that $ D_{\dot{c}}\lambda = d( \operatorname{proj}_{ \mathfrak{g}^*}\circ \lambda\circ\pi(\dot{c}))=0, $ from where we get that $ \lambda $ remains constant along $ \dot{c} $ when projected to $ \mathfrak{g}^{*}. $ The curvature appearing in the second Wong's equation (Corollary \ref{cor:swe}) is a two-form on the base with values in the vector space $ \mathfrak{g} $ (\cite{montgomery2002tour}, p. 220).
+
+If the structure group $ G $ is one dimensional (either $ \mathbb{R} $ or $ \mathbb{S}^1), $ we have that $ \mathfrak{g}^*= \mathbb{R}, $ and $ \operatorname{proj}_{ \mathfrak{g}^*} \circ\lambda\circ\pi $ is the constant map from $ Q $ to a real value, while the curvature is a real-valued two-form.
+
+If $ M = \mathbb{R}^3$ is endowed with the Euclidean metric, $ \Omega = i_B(dx\wedge dy\wedge dz) $ and $ B\in \mathfrak{X}(M), $ the second Wong's equation is in coordinates 
+$$ \frac{d P_i}{dt} = \lambda g^{kl} P_k \Omega_{il} = \lambda (P\times B)_i, $$ 
+which resembles the standard Lorentz equations for a particle whose quotient between its electric charge and mass is $ \lambda, $ in a magnetic field $ B. $ The first Wong's equation states that the quotient $\lambda$ is preserved. Moreover, as
+\begin{dmath*}
+	d\Omega = di_B(dx\wedge dy\wedge dz) = L_B(dx\wedge dy\wedge dz) = -(\nabla\cdot B) dx\wedge dy\wedge dz,	
+\end{dmath*}
+we can conclude that $ d\Omega=0, $ given the Maxwell's equation $ \nabla\cdot B=0. $ 
+% =============================================================== 
 \bibliographystyle{unsrt}
 \nocite{*}
 \bibliography{mybibliography}
