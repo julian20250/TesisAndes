@@ -329,7 +329,7 @@ The case when every point $p\in M $ has a coordinate chart flat for $ \mathcal{H
 	A smooth distribution $ \mathcal{H}\subset TM $  is said to be \textit{completely integrable} if there exists a flat chart for $ \mathcal{H} $ in a neighborhood of each point of $ M. $ 
 \end{df}
 
-Therefore, if a distribution is completely integrable, is then integrable, since there exists an integral manifold for each point (that in particular is known as \textit{maximal integral manifold}, as the dimension of this manifold coincides with the rank of the distribution), given by the integral manifold that contains this point in the image of the coordinate chart flat for $ \mathcal{H}. $ In this way, \textit{ if a distribution is completely integrable, it is integrable, and therefore involutive.} In fact, these implications are actually equivalences, thanks to Frobenius's theorem.
+Therefore, if a distribution is completely integrable, is then integrable, since there exists an integral manifold for each point (that in particular is known as \textit{maximal integral manifold}, as the dimension of this manifold coincides with the rank of the distribution), given by the integral manifold that contains this point in the image of the coordinate chart flat for $ \mathcal{H}. $ In this way, \textit{ if a distribution is completely integrable, it is integrable, and therefore involutive.} In fact, these implications are actually equivalences, due to Frobenius's theorem.
 
 \begin{thm}[Frobenius]
 	Every involutive distribution is completely integrable.	
@@ -766,7 +766,7 @@ A connection for any principal $ G $-bundle is an Ehresmann connection, as it is
 \end{prop}
 
 \begin{df}[\cite{montgomery2002tour}, definition 11.2.1]
-	Let $ M $ be endowed with a Riemannian metric. A sub-Riemannian structure $ (\mathcal{H}, \langle\cdot,\cdot\rangle) $ on the total space of the principal $ G $-bundle $ \pi: Q \rightarrow {M}
+	Let $ M $ be endowed with a Riemannian metric. A sub-Riemannian metric $  \langle\cdot,\cdot\rangle $ defined on the sub-bundle $ \mathcal{H} $  of the tangent space of the total space of the principal $ G $-bundle $ \pi: Q \rightarrow {M}
 	$ is called a \textit{metric of bundle type} if it is an induced sub-Riemannian structure with respect to the submersion $ \pi $ and the metric on $ M $  (see Definition \ref{df:ind_sub_struc}).
 \end{df}
 
@@ -1213,7 +1213,7 @@ Given a projection $ \pi: Q \rightarrow M $ and a Lie group G acting on the tota
 $$ \sigma_v(q) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} q\cdot \operatorname{exp} (\epsilon v),$$
 satisfy $ V_q = \operatorname{Ker}d\pi_q = \left\{ \sigma_v(q): v\in \mathfrak{g} \right\} .  $ From this, $ \sigma_\cdot(q) $ is a linear isomorphism from $ \mathfrak{g} $ to $ V_q. $ Moreover, the map $ \eta_q(v)  = \sigma_v(q) $ is equivariant (see definition \ref{df:equivariant})
 $$ \eta_{q\cdot g}\circ \operatorname{Ad}_{g^{-1}} = d\alpha_g  \circ \eta_q $$ 
-thanks to Proposition \ref{prop:equiv_infinitesimal}. Thinking $ \sigma $ as a map from $ Q\times \mathfrak{g} $ to $ V, $ $ \sigma:Q\times \mathfrak{g}\rightarrow V, $ $ \sigma(q,v)= \sigma_v(q), $ we have that it is an \textit{equivariant bundle map} over $ Q, $ that is, it is a fiber bundle such that $ G $ acts on the total and base spaces, and the following equivariant property holds:
+due to Proposition \ref{prop:equiv_infinitesimal}. Thinking $ \sigma $ as a map from $ Q\times \mathfrak{g} $ to $ V, $ $ \sigma:Q\times \mathfrak{g}\rightarrow V, $ $ \sigma(q,v)= \sigma_v(q), $ we have that it is an \textit{equivariant bundle map} over $ Q, $ that is, it is a fiber bundle such that $ G $ acts on the total and base spaces, and the following equivariant property holds:
 $$ \sigma \left( (q,v)\cdot g \right) = \sigma(q,v) \cdot g. $$ 
 
 \begin{prop}\label{prop:isomorphism_vb}
@@ -1255,7 +1255,7 @@ Q \arrow[rr, "\Phi"] \arrow[rd, "\pi"'] &   & Q \arrow[ld, "\pi"] \\
 	\end{center}
 \end{df}
 Despite of not being a (finite dimensional) Lie group, we can associate to it a Lie algebra to it, and this algebra corresponds to the space of equivariant vector fields: if $ \Phi_t: Q \rightarrow Q $ is a one-parameter subgroup of the gauge group, we can consider the vector field $$ X_q = \frac{d \Phi_t(q)}{dt} \Big|_{t=0}\in T_qQ. $$ This vector field is equivariant, because $$ (d\alpha_g)_q(X_q)=(d\alpha_g)_q \left( \frac{d \Phi_t(q)}{dt} \Big|_{t=0} \right)= d(\alpha_g \circ \Phi_t(q))_{t=0}= \frac{d\Phi_t(q\cdot g)}{dt} \Big|_{t=0}=X_{q\cdot g}  $$
-thanks to the fact that $ \Phi $ is a $ G $-map. Moreover, if $ X\in \mathfrak{X}(Q) $ is an equivariant vector field, its flow is an element of the gauge group. Therefore, sections of the adjoint bundle form the Lie algebra of the gauge group via the isomorphism $ \sigma: \Gamma( \operatorname{Ad} (Q)) \rightarrow  \Gamma(V)_G. $ 
+due to the fact that $ \Phi $ is a $ G $-map. Moreover, if $ X\in \mathfrak{X}(Q) $ is an equivariant vector field, its flow is an element of the gauge group. Therefore, sections of the adjoint bundle form the Lie algebra of the gauge group via the isomorphism $ \sigma: \Gamma( \operatorname{Ad} (Q)) \rightarrow  \Gamma(V)_G. $ 
 
 \begin{df}[\cite{montgomery2002tour}, p. 212]
 	Let $ \pi:Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H} $. \textit{The connection one-form on $ Q $}, denoted as $ A, $ is a Lie-algebra-valued one-form on $ Q $, that is, $ A_q: T_qQ \rightarrow \mathfrak{g} $,  which satisfies the following conditions:
@@ -1315,21 +1315,21 @@ The connection one-form $ A $ provides an identification $ (TQ)/ \mathcal{H} \ri
 \end{df}
 
 \begin{df}[\cite{montgomery2002tour}, p. 214]
-	Let $ \rho(Q) $ be an associated bundle of the principal $ G $-bundle $ \pi: Q \rightarrow M, $ and $ \rho:  G \rightarrow \operatorname{GL}(E) $ be a representation of $ G $ on a vector space $ E. $  If $ \psi: M \rightarrow \rho(Q) $ is a section of this bundle, and if $ X\in \mathfrak{X}(M), $ we define the \textit{covariant derivative $ D_X\psi $ of $ \psi $ in the direction of $ X $} as follows. The section $ \psi $ corresponds to an equivariant map $ F: Q \rightarrow E $, and $ hX $ is a $ G $-equivariant horizontal vector field on $ Q, $ so that $ dF(hX) $ is an equivariant map $ Q \rightarrow E, $ which corresponds to a section of $ \rho(Q), $ $ D_X\psi. $ 
+	Let $ \rho(Q) $ be an associated bundle of the principal $ G $-bundle $ \pi: Q \rightarrow M $ with connection $ \mathcal{H}, $  and $ \rho:  G \rightarrow \operatorname{GL}(E) $ be a representation of $ G $ on a vector space $ E. $  If $ \psi: M \rightarrow \rho(Q) $ is a section of this bundle, and if $ X\in \mathfrak{X}(M), $ we define the \textit{covariant derivative $ D_X\psi $ of $ \psi $ in the direction of $ X $} as follows. The section $ \psi $ corresponds to an equivariant map $ F: Q \rightarrow E $, and $ hX $ is a $ G $-equivariant horizontal vector field on $ Q, $ so that $ dF(hX) $ is an equivariant map $ Q \rightarrow E, $ which corresponds to a section of $ \rho(Q), $ $ D_X\psi. $ 
 \end{df}
 \begin{df}[\cite{montgomery2002tour}, p. 214]\label{df:covariantly_constant}
-	Let $ c:I \rightarrow M $ be a curve. A curve $ \psi: \operatorname{Im} (c) \rightarrow \rho(Q) $ lying over $ c $ is said to be \textit{covariantly constant} if $ D_{\dot{c}}\psi=0. $  	
+	Let $ c:I \rightarrow M $ be a curve. A section $ \psi: M\rightarrow \rho(Q) $ is said to be \textit{covariantly constant over $ c $} if $ D_{\dot{c}}\psi=0. $  	
 \end{df}
-The $ G $-invariant vector fields on $ Q $ can be identified with sections of $ (TQ)/G, $ and thanks to Proposition \ref{prop:splitting} we can split them up into horizontal and vertical vector fields, according to $ (TQ)/G = TM \oplus \operatorname{Ad} (Q). $ Then, if $ X\in \mathfrak{X}(M) $ and $ \xi: M \rightarrow \rho(Q), $ we have the following relations:
+The $ G $-invariant vector fields on $ Q $ can be identified with sections of $ (TQ)/G, $ and due to Proposition \ref{prop:splitting} we can split them up into horizontal and vertical vector fields, according to $ (TQ)/G = TM \oplus \operatorname{Ad} (Q). $ Then, if $ X\in \mathfrak{X}(M) $ and $ \xi: M \rightarrow \rho(Q), $ we have the following relations:
 \begin{align}
- [hX, hY] = h([X,Y])\oplus -\eta(\Omega(X,Y)), \label{eq:horizontal-horizontal}\\
+ [hX, hY] = h([X,Y])\oplus -\eta(\Omega(hX,hY)), \label{eq:horizontal-horizontal}\\
  [\sigma\xi, \sigma\chi] = -\sigma([\xi,\chi]), \label{eq:vertical-vertical} \\
  [hX,\sigma \xi] = \eta(D_X\xi). \label{eq:horizontal-vertical} 
 \end{align}
 
 \subsection{Wong's equations}%
 \label{sub:wong_s_equations}
-Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}, $ and let $ \left( \mathcal{H}, \langle \cdot,\cdot \rangle \right)  $ be a metric of bundle type. The sub-Riemannian Hamiltonian $ H $ associated with the sub-Riemannian structure $ ( \mathcal{H}, \langle \cdot,\cdot \rangle) $ on $ Q $ is $ G $-invariant. We choose a local frame $ \left\{ X_i \right\}_{i=1}^n $ for the base space $ M $ to express $ H: $ write $ g_{ij}=g(X_i,X_j) $ for the corresponding inner products with respect to the Riemannian metric $ g $ on $ M $. We take the horizontal lifts $ \left\{ hX_i \right\}_{i=1}^n $ to obtain a local horizontal frame on $ Q. $ If $ P_i:= P_{hX_i} $ are the momentum functions, then
+Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}, $ and let $ \left( \mathcal{H}, \langle \cdot,\cdot \rangle \right)  $ be a metric of bundle type. The sub-Riemannian Hamiltonian $ H $ associated with the sub-Riemannian structure $ ( \mathcal{H}, \langle \cdot,\cdot \rangle) $ on $ Q $ is $ G $-invariant. We choose a local frame $ \left\{ X_i \right\}_{i=1}^n $ for the base space $ M $ to express $ H $: write $ g_{ij}=g(X_i,X_j) $ for the corresponding inner products with respect to the Riemannian metric $ g $ on $ M $. We take the horizontal lifts $ \left\{ hX_i \right\}_{i=1}^n $ to obtain a local horizontal frame on $ Q. $ If $ P_i:= P_{hX_i} $ are the momentum functions, then
 \begin{equation}\label{eq:sub-RiemannianHamiltonian}
 	H(\alpha)= \frac{1}{2} g_{ij} \left( \pi(\pi_{T^*Q}(\alpha)) \right) P_i(\alpha) P_j(\alpha),	
 \end{equation}
@@ -1361,7 +1361,7 @@ I \arrow[r, "\alpha"] \arrow[rrdd, "\lambda"'] & T^*Q \arrow[r] & T^*Q/G \arrow[
 that is, $ \lambda(t) = \left[ \pi_{T^*Q}(\alpha(t)), \eta^*_{\pi_{T^*Q}(\alpha)}(\alpha(t)) \right]  $. 
 
 \begin{thm}
-	Suppose that $ \pi: Q \rightarrow M $  is a principal $ G $-bundle and $ \rho: G \rightarrow \operatorname{GL} (E) $ is a representation of $ G $ on a vector space $ E. $ Let $ c: I \rightarrow M $ be a curve on $ M. $ A curve $ \psi: I \rightarrow \rho(Q) $ lying over $ c $ is covariantly constant (see Definition \ref{df:covariantly_constant}) if and only if $ \psi(t)= [q(t), \psi_0] $, where $ \pi\circ q = c,  $ and $ \psi_0\in E $ is constant.
+	Suppose that $ \pi: Q \rightarrow M $  is a principal $ G $-bundle with connection $ \mathcal{H} $ endowed with a sub-Riemannian metric of bundle type,  and $ \rho: G \rightarrow \operatorname{GL} (E) $ is a representation of $ G $ on a vector space $ E. $ Let $ c: I \rightarrow M $ be a curve on $ M. $ A section $ \psi: M \rightarrow \rho(Q) $   is covariantly constant (see Definition \ref{df:covariantly_constant}) over $ c $  if and only if $ \psi(t)= [q(t), \psi_0] $, where $ \pi\circ q = c,  $ and $ \psi_0\in E $ is constant.
 \end{thm}
 \begin{proof}
 	Suppose that $ \psi(t)= [q(t), \psi_0] $ for a horizontal lift $ q: I \rightarrow Q $ of $ c: I \rightarrow M $, and $ \psi_0\in E $ constant. By Proposition \ref{prop:equiv_section_equivariant}, the section $ \phi: \operatorname{Im} (c)\subset M \rightarrow \rho(Q) $ given by $ \phi(c(t))=\psi(t) $ corresponds to the equivariant map $ F: \operatorname{Im} (q)  \subset Q \rightarrow E, $ $ F(\tilde q)= \rho(g)\psi_0, $ where $ g $ is determined by $ \phi\circ\pi(\tilde q) = [\tilde q \cdot g, \psi_0]. $ Nevertheless, as $ \phi_0\in E $ is constant, $ g=e, $ and $ F=\psi_0 $ becomes the constant map, so that $ dF(h\dot{c})=0 $ is the null equivariant map, which precisely corresponds to the section $ s: \operatorname{Im} (c) \subset M \rightarrow \rho(Q) $ given by $ s(c(t)) =[q(t), 0] $, and $ D_{\dot{c}}\psi=0. $ 
@@ -1370,7 +1370,7 @@ that is, $ \lambda(t) = \left[ \pi_{T^*Q}(\alpha(t)), \eta^*_{\pi_{T^*Q}(\alpha)
 \end{proof}
 
 \begin{cor}[First Wong's equation]\label{cor:fwe}
-	$\alpha: I \rightarrow T^*Q$ is a normal sub-Riemannian geodesic if and only if $ \alpha $ is covariantly constant, that is, $$ D_{\dot{c}}\lambda =0, $$ where $ c=\pi\circ\pi_{T^*Q}\circ\alpha, $ and $ \lambda(t)=[ \pi_{T^*Q}\circ\alpha(t), J\circ\alpha(t)]. $ 
+	$\alpha: I \rightarrow T^*Q$ is a normal sub-Riemannian geodesic if and only if $ \lambda$ is covariantly constant, that is, $$ D_{\dot{c}}\lambda =0, $$ where $ c=\pi\circ\pi_{T^*Q}\circ\alpha, $ and $ \lambda(t)=[ \pi_{T^*Q}\circ\alpha(t), J\circ\alpha(t)]. $ 
 \end{cor}
 Every $ G $-invariant vector field on $ Q $ can be split into their vertical and horizontal components, so that any of these vector fields is determined by lifted horizontal vector field $ hX, $ where $ X: M \rightarrow TM, $ and a $ G $-invariant vertical vector field $ \sigma\xi, $ where $ \xi: M \rightarrow \operatorname{Ad} (Q) $ is a section, and $ \sigma: \Gamma( \operatorname{Ad} (Q)) \rightarrow \Gamma(V)_G $ is the isomorphism between sections described below Proposition \ref{prop:isomorphism_vb}.
 
