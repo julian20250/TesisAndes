@@ -57,7 +57,154 @@
 % using that command.
 %%%%%%%%%%%%%%%%%%
 
-\pdfsuppresswarningpagegroup=1
+\usepackage{etoolbox}
+
+% Modifications to amsart ToC-related macros...
+\makeatletter
+\let\old@tocline\@tocline
+\let\section@tocline\@tocline
+% Insert a dotted ToC-line for \subsection and \subsubsection only
+\newcommand{\subsection@dotsep}{4.5}
+\newcommand{\subsubsection@dotsep}{4.5}
+\patchcmd{\@tocline}
+  {\hfil}
+  {\nobreak
+     \leaders\hbox{$\m@th
+        \mkern \subsection@dotsep mu\hbox{.}\mkern \subsection@dotsep mu$}\hfill
+     \nobreak}{}{}
+\let\subsection@tocline\@tocline
+\let\@tocline\old@tocline
+
+\patchcmd{\@tocline}
+  {\hfil}
+  {\nobreak
+     \leaders\hbox{$\m@th
+        \mkern \subsubsection@dotsep mu\hbox{.}\mkern \subsubsection@dotsep mu$}\hfill
+     \nobreak}{}{}
+\let\subsubsection@tocline\@tocline
+\let\@tocline\old@tocline
+
+\let\old@l@subsection\l@subsection
+\let\old@l@subsubsection\l@subsubsection
+
+\def\@tocwriteb#1#2#3{%
+  \begingroup
+    \@xp\def\csname #2@tocline\endcsname##1##2##3##4##5##6{%
+      \ifnum##1>\c@tocdepth
+      \else \sbox\z@{##5\let\indentlabel\@tochangmeasure##6}\fi}%
+    \csname l@#2\endcsname{#1{\csname#2name\endcsname}{\@secnumber}{}}%
+  \endgroup
+  \addcontentsline{toc}{#2}%
+    {\protect#1{\csname#2name\endcsname}{\@secnumber}{#3}}}%
+
+% Handle section-specific indentation and number width of ToC-related entries
+\newlength{\@tocsectionindent}
+\newlength{\@tocsubsectionindent}
+\newlength{\@tocsubsubsectionindent}
+\newlength{\@tocsectionnumwidth}
+\newlength{\@tocsubsectionnumwidth}
+\newlength{\@tocsubsubsectionnumwidth}
+\newcommand{\settocsectionnumwidth}[1]{\setlength{\@tocsectionnumwidth}{#1}}
+\newcommand{\settocsubsectionnumwidth}[1]{\setlength{\@tocsubsectionnumwidth}{#1}}
+\newcommand{\settocsubsubsectionnumwidth}[1]{\setlength{\@tocsubsubsectionnumwidth}{#1}}
+\newcommand{\settocsectionindent}[1]{\setlength{\@tocsectionindent}{#1}}
+\newcommand{\settocsubsectionindent}[1]{\setlength{\@tocsubsectionindent}{#1}}
+\newcommand{\settocsubsubsectionindent}[1]{\setlength{\@tocsubsubsectionindent}{#1}}
+
+% Handle section-specific formatting and vertical skip of ToC-related entries
+% \@tocline{<level>}{<vspace>}{<indent>}{<numberwidth>}{<extra>}{<text>}{<pagenum>}
+\renewcommand{\l@section}{\section@tocline{1}{\@tocsectionvskip}{\@tocsectionindent}{}{\@tocsectionformat}}%
+\renewcommand{\l@subsection}{\subsection@tocline{2}{\@tocsubsectionvskip}{\@tocsubsectionindent}{}{\@tocsubsectionformat}}%
+\renewcommand{\l@subsubsection}{\subsubsection@tocline{3}{\@tocsubsubsectionvskip}{\@tocsubsubsectionindent}{}{\@tocsubsubsectionformat}}%
+\newcommand{\@tocsectionformat}{}
+\newcommand{\@tocsubsectionformat}{}
+\newcommand{\@tocsubsubsectionformat}{}
+\expandafter\def\csname toc@1format\endcsname{\@tocsectionformat}
+\expandafter\def\csname toc@2format\endcsname{\@tocsubsectionformat}
+\expandafter\def\csname toc@3format\endcsname{\@tocsubsubsectionformat}
+\newcommand{\settocsectionformat}[1]{\renewcommand{\@tocsectionformat}{#1}}
+\newcommand{\settocsubsectionformat}[1]{\renewcommand{\@tocsubsectionformat}{#1}}
+\newcommand{\settocsubsubsectionformat}[1]{\renewcommand{\@tocsubsubsectionformat}{#1}}
+\newlength{\@tocsectionvskip}
+\newcommand{\settocsectionvskip}[1]{\setlength{\@tocsectionvskip}{#1}}
+\newlength{\@tocsubsectionvskip}
+\newcommand{\settocsubsectionvskip}[1]{\setlength{\@tocsubsectionvskip}{#1}}
+\newlength{\@tocsubsubsectionvskip}
+\newcommand{\settocsubsubsectionvskip}[1]{\setlength{\@tocsubsubsectionvskip}{#1}}
+
+% Adjust section-specific ToC-related macros to have a fixed-width numbering framework
+\patchcmd{\tocsection}{\indentlabel}{\makebox[\@tocsectionnumwidth][l]}{}{}
+\patchcmd{\tocsubsection}{\indentlabel}{\makebox[\@tocsubsectionnumwidth][l]}{}{}
+\patchcmd{\tocsubsubsection}{\indentlabel}{\makebox[\@tocsubsubsectionnumwidth][l]}{}{}
+
+% Allow for section-specific page numbering format of ToC-related entries
+\newcommand{\@sectypepnumformat}{}
+\renewcommand{\contentsline}[1]{%
+  \expandafter\let\expandafter\@sectypepnumformat\csname @toc#1pnumformat\endcsname%
+  \csname l@#1\endcsname}
+\newcommand{\@tocsectionpnumformat}{}
+\newcommand{\@tocsubsectionpnumformat}{}
+\newcommand{\@tocsubsubsectionpnumformat}{}
+\newcommand{\setsectionpnumformat}[1]{\renewcommand{\@tocsectionpnumformat}{#1}}
+\newcommand{\setsubsectionpnumformat}[1]{\renewcommand{\@tocsubsectionpnumformat}{#1}}
+\newcommand{\setsubsubsectionpnumformat}[1]{\renewcommand{\@tocsubsubsectionpnumformat}{#1}}
+\renewcommand{\@tocpagenum}[1]{%
+  \hfill {\mdseries\@sectypepnumformat #1}}
+
+% Small correction to Appendix, since it's still a \section which should be handled differently
+\let\oldappendix\appendix
+\renewcommand{\appendix}{%
+  \leavevmode\oldappendix%
+  \addtocontents{toc}{%
+    \protect\settowidth{\protect\@tocsectionnumwidth}{\protect\@tocsectionformat\sectionname\space}%
+    \protect\addtolength{\protect\@tocsectionnumwidth}{2em}}%
+}
+\makeatother
+
+% #1 (default is as required)
+
+% #2
+
+% #3
+\makeatletter
+\settocsectionnumwidth{2em}
+\settocsubsectionnumwidth{2.5em}
+\settocsubsubsectionnumwidth{3em}
+\settocsectionindent{1pc}%
+\settocsubsectionindent{\dimexpr\@tocsectionindent+\@tocsectionnumwidth}%
+\settocsubsubsectionindent{\dimexpr\@tocsubsectionindent+\@tocsubsectionnumwidth}%
+\makeatother
+
+% #4 & #5
+\settocsectionvskip{10pt}
+\settocsubsectionvskip{0pt}
+\settocsubsubsectionvskip{0pt}
+    
+% #6 & #7
+% See #3
+
+% #8
+\renewcommand{\contentsnamefont}{\bfseries\Large}
+
+% #9
+\settocsectionformat{\bfseries}
+\settocsubsectionformat{\mdseries}
+\settocsubsubsectionformat{\mdseries}
+\setsectionpnumformat{\bfseries}
+\setsubsectionpnumformat{\mdseries}
+\setsubsubsectionpnumformat{\mdseries}
+
+% #10
+% Insert the following command inside your text where you want the ToC to have a page break
+\newcommand{\tocpagebreak}{\leavevmode\addtocontents{toc}{\protect\clearpage}}
+
+% #11
+\let\oldtableofcontents\tableofcontents
+\renewcommand{\tableofcontents}{%
+  \vspace*{-\linespacing}% Default gap to top of CONTENTS is \linespacing.
+  \oldtableofcontents}
+
+\setcounter{tocdepth}{3}
 
 %todonotes
 \usepackage[colorinlistoftodos,prependcaption,backgroundcolor=white,size=tiny,textwidth=50pt]{todonotes}
@@ -141,11 +288,13 @@
 \end{titlepage}
 \maketitle
 \newpage
-\pagenumbering{arabic}
+\tableofcontents
+\newpage
 \begin{abstract}
 	The goal of this work is to introduce the main theorems of sub-Riemannian geometry, and for that we will cover first the topic of distributions, stating the Frobenius' theorem and introducing the idea of foliation. Later on, we focus on the sub-Riemannian structures, and prove Chow's theorem, central in the study of connectivity through horizontal geodesics. The last part of this work focuses on $ G $-principal bundles endowed with compatible sub-Riemannian structures. We use this construction with ideas of symplectic geometry to prove the Theorem on normal geodesics of bundle type sub-Riemannian metrics and to study Wong's equations. This review of sub-Riemannian topics is based mostly on \cite{montgomery2002tour}.
 \end{abstract}
-
+\newpage
+\pagenumbering{arabic}
 \section*{Introduction}
 \label{sec:0}
 
@@ -1197,7 +1346,7 @@ If $ \pi: Q \rightarrow M $ is a principal $ G $-bundle and $ \rho: G \rightarro
 This relation between bundles and sections extends to forms, as will be seen next.
 
 \begin{df}
-	A \textit{$ k $- form $ \omega $ with values in the associated bundle $ \rho(Q) $} is a multilinear totally skew assignation, taking $ v_1,\dots, v_k\in T_mM $ to a vector $ \omega_m(v_1,\dots,v_k)\in \rho(Q)_m. $  We denote as $ \Omega^k(M, \rho(Q)) $ the space of these forms.
+	A \textit{$ k $-form $ \omega $ with values in the associated bundle $ \rho(Q) $} is a multilinear totally skew assignation, taking $ v_1,\dots, v_k\in T_mM $ to a vector $ \omega_m(v_1,\dots,v_k)\in \rho(Q)_m. $  We denote as $ \Omega^k(M, \rho(Q)) $ the space of these forms.
 \end{df}
 
 Any $ k $-form $ \omega\in \Omega^k(M,\rho(Q)) $ is \textit{horizontal} if it annihilates any vertical vector, that is, $ \omega_m(V,\cdot,\dots)=0 $ whenever $ V $ is a vertical vector in $ Q. $ For such a form, $ \omega_m(X_1+V_1,\dots,X_k+V_k)=\omega_m(X_1,\dots, X_k) $ for $ V_i $ vertical.
@@ -1453,6 +1602,7 @@ which resembles the standard Lorentz equations for a particle whose quotient bet
 \end{dmath*}
 we can conclude that $ d\Omega=0, $ given the Maxwell's equation $ \nabla\cdot B=0. $ 
 % =============================================================== 
+\newpage
 \bibliographystyle{unsrt}
 \nocite{*}
 \bibliography{mybibliography}
