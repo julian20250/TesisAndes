@@ -1469,10 +1469,12 @@ The connection one-form $ A $ provides an identification $ (TQ)/ \mathcal{H} \ri
 \begin{df}[\cite{montgomery2002tour}, p. 214]\label{df:covariantly_constant}
 	Let $ c:I \rightarrow M $ be a curve. A section $ \psi: M\rightarrow \rho(Q) $ is said to be \textit{covariantly constant over $ c $} if $ D_{\dot{c}}\psi=0. $  	
 \end{df}
-The $ G $-invariant vector fields on $ Q $ can be identified with sections of $ (TQ)/G, $ and due to Proposition \ref{prop:splitting} we can split them up into horizontal and vertical vector fields, according to $ (TQ)/G = TM \oplus \operatorname{Ad} (Q). $ The following Proposition will be useful to find the Poisson brackets of horizontal and vertical vector fields.
+The $ G $-invariant vector fields on $ Q $ can be identified with sections of $ (TQ)/G, $ and due to Proposition \ref{prop:splitting} we can split them up into horizontal and vertical vector fields, according to $ (TQ)/G = TM \oplus \operatorname{Ad} (Q). $ 
+
+Before proceeding, we will define a Lie bracket on the space of sections of $ \operatorname{Ad} (Q).$ Given two sections $ \xi,\chi: M \rightarrow \operatorname{Ad} (Q), $ we define its Lie bracket as the section $[\xi, \chi] : M \rightarrow \operatorname{Ad} (Q)$ defined by the application $ [\xi, \chi]_m= [\xi(m), \chi(m)]. $ The latter Lie bracket is the one defined on the Lie algebra $ \mathfrak{g}. $   The following Proposition will be useful to find the Poisson brackets of horizontal and vertical vector fields.
 
 \begin{prop}
-	Let $ X,Y\in \mathfrak{X}(M) $ and $ \xi,\chi: M \rightarrow \rho(Q). $ We have the following relations:
+	Let $ X,Y\in \mathfrak{X}(M) $ and $ \xi,\chi: M \rightarrow \operatorname{Ad} (Q). $ We have the following relations:
 \begin{align}
  [hX, hY] = h([X,Y])\oplus -\eta(\Omega(hX,hY)), \label{eq:horizontal-horizontal}\\
  [\sigma\xi, \sigma\chi] = \sigma([\xi,\chi]), \label{eq:vertical-vertical} \\
@@ -1486,7 +1488,7 @@ The $ G $-invariant vector fields on $ Q $ can be identified with sections of $ 
 	\begin{itemize}
 		\item To prove equation \eqref{eq:horizontal-horizontal}, we will find its horizontal and vertical components. The horizontal component can be found projecting the bracket $ [hX,hY] $ using $ d\pi, $ and as $ X $ ($ Y $) and $ hX $ ($hY$)   are $ \pi $-related, $ d\pi[hX, hY]=[X,Y], $ so that the horizontal component of $ [hX,hY] $ is $ h([X,Y]) $. Now, to find the vertical component of $ [hX,hY], $ we evaluate the curvature form on $ hX $ and $ hY $ to get the identification of the vertical component of $ [hX,hY] $ in $ \mathfrak{g}, $ and to obtain the vertical component we use the isomorphism $ \eta $ between $ \mathfrak{g} $ and the vertical space. The minus sign comes from the definition of the curvature form.
 
-		\item As $ \sigma \xi $ and $ \sigma\chi $ are both vertical vectors, their horizontal components are zero, so that both are $ \pi $-related with the zero vector field, which implies that the horizontal component of $ [\sigma\xi, \sigma\chi] $ is zero. To show the equality \eqref{eq:vertical-vertical} we have to prove that $ \sigma $ is a Lie algebra homomorphism, and this can be done noticing that $ [\xi,\chi]_m = [\xi_m, \chi_m]\in \mathfrak{g},$ where $ \xi_m,\chi_m\in \mathfrak{g} $ are given by the identification between fibers of $ Ad(Q) $ and $ \mathfrak{g}. $ With this, $ \sigma[\xi, \chi]_q = \sigma_{[\xi,\chi]_{\pi(q)}}(q), $  while $ [\sigma\xi,\sigma\chi]_q = [\sigma_{\xi_{\pi(q)}}, \sigma_{\chi_{\pi(q)}}] $  is identified with $ [\xi_m,\chi_m] $, so that it is equal to $ \sigma_{[\xi, \chi]_{\pi(q)}}(q), $ from where we obtain the desired equality.
+		\item As $ \sigma \xi $ and $ \sigma\chi $ are both vertical vector fields, their horizontal components are zero, so that both are $ \pi $-related with the zero vector field, which implies that the horizontal component of $ [\sigma\xi, \sigma\chi] $ is zero. To show the equality \eqref{eq:vertical-vertical} we have to prove that $ \sigma $ is a Lie algebra homomorphism. This can be done noticing that $ \sigma[\xi, \chi]_q = \sigma_{[\xi,\chi]_{\pi(q)}}(q), $  while $ [\sigma\xi,\sigma\chi]_q = [\sigma_{\xi_{\pi(q)}}, \sigma_{\chi_{\pi(q)}}] $  is identified with $ [\xi_m,\chi_m] $, so that it is equal to $ \sigma_{[\xi, \chi]_{\pi(q)}}(q), $ from where we obtain the desired equality.
 
 		\item For the same reason of the last proof, the horizontal component of $ [hX,\sigma \xi] $ is zero. On the other hand, note that $ [hX, \sigma \xi] = - \sigma\xi(hX),$ which is equivalent to $ -\sigma(D_X\xi) $.
 	\end{itemize}
