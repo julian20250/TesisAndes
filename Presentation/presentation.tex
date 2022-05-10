@@ -1,0 +1,122 @@
+\documentclass [xcolor=svgnames, t] {beamer} 
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs, comment} 
+\usepackage[absolute, overlay]{textpos} 
+\usepackage{pgfpages}
+\usepackage[font=footnotesize]{caption}
+\useoutertheme{infolines} 
+
+\definecolor{gold}{RGB}{254, 206, 0}
+
+\setbeamercolor{title in head/foot}{bg=gold, fg=black}
+\setbeamercolor{author in head/foot}{bg=myuniversity}
+\setbeamertemplate{page number in head/foot}{}
+\usepackage{csquotes}
+
+
+\usepackage{amsmath}
+\usepackage[makeroom]{cancel}
+\usepackage{tikz-cd}
+\usepackage{ragged2e}
+\renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0cm}
+\usepackage{textpos}
+\apptocmd{\frame}{}{\justifying}{} % Allow optional arguments after frame.
+\usetheme{Madrid}
+\definecolor{myuniversity}{RGB}{0, 85, 150}
+\usecolortheme[named=myuniversity]{structure}
+
+%%%%%%%% THEOREMS %%%%%%%%%%%%
+\theoremstyle{definition}
+%\newtheorem{df}{Definition}
+\newtheorem{df}{Definition}
+\theoremstyle{plain}
+\newtheorem{prop}{Proposition}
+%\newtheorem{prop}{Proposición}
+\newtheorem{thm}{Theorem}
+%\newtheorem{thm}{Teorema}
+\newtheorem{lm}{Lemma}
+%\newtheorem{lm}{Lema}
+\newtheorem{cor}{Corollary}
+%\newtheorem{cor}{Corolario}
+\theoremstyle{remark}
+\newtheorem{ex}{Example}
+%\newtheorem{ex}{Ejemplo}
+\newtheorem{rem}{Remark}
+%\newtheorem{rem}{Observación}
+
+
+\title[Sub-Riemannian Geometry]{Elements of Sub-Riemannian Geometry and its Applications}
+\institute[]{Departamento de Matemáticas \\ Universidad de los Andes}
+\titlegraphic{\includegraphics[height=2.5cm]{Uandes.jpg}}
+\author[Julián Jiménez Cárdenas]{
+Julián Jiménez Cárdenas}
+
+
+\institute[]{Departamento de Matemáticas \\ Universidad de los Andes}
+\date{June 01, 2022}
+
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+
+\begin{document}
+\begin{frame}
+\maketitle
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\logo{\includegraphics[scale=0.15]{Uandes.jpg}~%
+%}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents
+\end{frame}
+
+\section{Distributions}
+\subsection{Distributions and horizontal curves}%
+\label{sub:distributions_and_horizontal_curves}
+
+
+\begin{frame}[fragile]
+	\begin{block}{Vector Bundle}
+	Let $ E,M $ be two smooth manifolds. A map $ \pi: E \rightarrow M $ is said to be a \textit{smooth vector bundle} if it is a submersion, its fibers have the structure of finite dimensional vector spaces, and of every $ p\in M $ there is an open neighborhood $ U$ of $ p $  and a diffeomorphism $ \phi: U \times \mathbb{R}^k \rightarrow \pi^{-1}(U) $ such that the following diagram commutes 	
+	\begin{center}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFUAdTvAW3gAE3XnRwALAEYTgAJQC+APQDWIOaXSZc+QigBM5KrUYs23NFgXAAtAEY5ACnYBKVepAZseAkRukbh+mZWRA5VQxgoAHN4IlAAMwAnCF4kMhAcCCR9IyDTTgg0GATRCASwOn5gNCSAKzkAfXYQagY6CRgGAAVNLx0QBKxIsRxXeKSUxDSMpF8ckxCzMSxRkETkmeppxGzA+ZAzZbkKOSA
+\begin{tikzcd}
+U\times \mathbb{R}^k \arrow[rd, "\operatorname{proj}_U"'] \arrow[rr, "\phi"] &   & \pi^{-1}(U) \arrow[ld, "\pi"] \\
+                                                                             & U &                              
+\end{tikzcd}	
+	\end{center}
+	and the map $ v \mapsto \phi(p,v) $ is a linear isomorphism between $ \pi^{-1}(p) $ and $ \mathbb{R}^k. $ 
+	\end{block}
+	\begin{rem}
+		
+	\end{rem}
+\end{frame}
+\section{Literature Review}
+
+\section{Methodology}
+
+\section{Experiment}
+
+\section{Conclusion}
+    
+
+\begin{frame} [allowframebreaks]\frametitle{References}
+        \bibliographystyle{unsrt}
+	\nocite{*}
+        \bibliography{../mybibliography.bib}
+\end{frame}
+
+\end{document}
