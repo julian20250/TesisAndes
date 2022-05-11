@@ -15,13 +15,18 @@
 
 
 \usepackage{amsmath}
+\usepackage{import}
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{../figures/}{#2.pdf_tex}
+}
 \usepackage[makeroom]{cancel}
 \usepackage{tikz-cd}
 \usepackage{ragged2e}
 \renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0cm}
 \usepackage{textpos}
 \apptocmd{\frame}{}{\justifying}{} % Allow optional arguments after frame.
-\usetheme{Madrid}
+\usetheme{Darmstadt}
 \definecolor{myuniversity}{RGB}{0, 85, 150}
 \usecolortheme[named=myuniversity]{structure}
 
@@ -43,7 +48,6 @@
 %\newtheorem{ex}{Ejemplo}
 \newtheorem{rem}{Remark}
 %\newtheorem{rem}{Observación}
-
 
 \title[Sub-Riemannian Geometry]{Elements of Sub-Riemannian Geometry and its Applications}
 \institute[]{Departamento de Matemáticas \\ Universidad de los Andes}
@@ -89,7 +93,7 @@ Julián Jiménez Cárdenas}
 
 
 \begin{frame}[fragile]
-	\begin{block}{Vector Bundle}
+	\begin{df}[Vector bundle]
 	Let $ E,M $ be two smooth manifolds. A map $ \pi: E \rightarrow M $ is said to be a \textit{smooth vector bundle} if it is a submersion, its fibers have the structure of finite dimensional vector spaces, and of every $ p\in M $ there is an open neighborhood $ U$ of $ p $  and a diffeomorphism $ \phi: U \times \mathbb{R}^k \rightarrow \pi^{-1}(U) $ such that the following diagram commutes 	
 	\begin{center}
 	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFUAdTvAW3gAE3XnRwALAEYTgAJQC+APQDWIOaXSZc+QigBM5KrUYs23NFgXAAtAEY5ACnYBKVepAZseAkRukbh+mZWRA5VQxgoAHN4IlAAMwAnCF4kMhAcCCR9IyDTTgg0GATRCASwOn5gNCSAKzkAfXYQagY6CRgGAAVNLx0QBKxIsRxXeKSUxDSMpF8ckxCzMSxRkETkmeppxGzA+ZAzZbkKOSA
@@ -99,20 +103,221 @@ U\times \mathbb{R}^k \arrow[rd, "\operatorname{proj}_U"'] \arrow[rr, "\phi"] &  
 \end{tikzcd}	
 	\end{center}
 	and the map $ v \mapsto \phi(p,v) $ is a linear isomorphism between $ \pi^{-1}(p) $ and $ \mathbb{R}^k. $ 
-	\end{block}
+	\end{df}
 	\begin{rem}
-		
+		This work only focuses on constant rank vector bundles, \textit{i.e.}, $ k $ is constant (the dimensions of the fibers are the same).	
 	\end{rem}
 \end{frame}
-\section{Literature Review}
-
-\section{Methodology}
-
-\section{Experiment}
-
-\section{Conclusion}
     
+\begin{frame}[fragile]
+	\begin{df}[Vector sub-bundle]
+		A vector sub-bundle $ \pi': E' \rightarrow M $  of the bundle $ \pi: E \rightarrow M $ is a vector bundle with $ E'\subset E $ such that the inclusion map is a morphism of the category of bundle maps, that is, the following diagram commutes.
+		\begin{center}
+		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFEByEAX1PUy58hFACZyVWoxZt2vfiAzY8BIgEZSayfWatEIALK9JMKAHN4RUADMAThAC2SMiBwQk4qbrYAdH2ixuagY6ACMYBgAFQRUREFssMwALHHkbeydEDVd3RE8dGX0-ALSQO0dnajckbJw6LAY2JIgIAGtjHiA
+\begin{tikzcd}
+E' \arrow[rd, "\pi'"'] \arrow[rr, hook] &   & E \arrow[ld, "\pi"] \\
+                                        & M &                    
+\end{tikzcd}	
+		\end{center}
+	\end{df}
+	\begin{df}[Distribution]
+		A distribution $ \pi|_{ \mathcal{H}}:\mathcal{H} \rightarrow M $ over a manifold $ M $ is a vector sub-bundle of the tangent bundle $ \pi:TM \rightarrow M. $ 
+	\end{df}
+\end{frame}
 
+\begin{frame}[fragile]
+	
+\begin{prop}[Distribution (using 1-forms)]
+	Suppose that $ M $ is a smooth $ m- $dimensional manifold, and $ \mathcal{H} \subset TM$ is a distribution of rank $k$. Then $ \mathcal{H} $ is smooth if and only if for every point $ p\in M $ there is a neighborhood $ U $ of that point where exist $n-k$ smooth 1-forms $ \omega^1,\dots,\omega^{n-k}, $ such that for all $ q\in U $,
+
+	$$ \mathcal{H}_q = \operatorname{Ker} \omega^1|_q\cap \cdots \cap\operatorname{Ker} \omega^{n-k}|_q.  $$ 
+\end{prop}
+\begin{prop} [Distribution (using local frames)]
+	$ \mathcal{H}\subset TM $ is a smooth distribution over $M  $ if and only if  for each point $ p\in M $, there is an open neighborhood $ U $ of $ p $  and smooth vector fields $ X_1,\dots,X_n: U \rightarrow {TM} $ that at each point  $ q\in U $ form a base for $ \mathcal{H}_q. $ 
+\end{prop}
+\begin{df}[Horizontal vector field, horizontal curve]
+	A vector field $ X: M \rightarrow TM $ is said to be horizontal if it is a section of the distribution. A curve is called horizontal if its tangent vector at every point is an element of the distribution.	
+\end{df}
+\end{frame}
+\begin{frame}[fragile]
+\begin{ex}[Vector field over a manifold]\label{ex:vect_field}
+Any smooth vector field $ X: M \rightarrow {TM} $ which does not vanish  determines a distribution $ \mathcal{H}$ over the manifold $ M $ whose fiber at an arbitrary $ p\in M $ is the span of $ X_p. $ The horizontal curves of this distribution are the integral curves of the vector field.
+\end{ex}
+\begin{ex}[Heisenberg Group]\label{ex:heis_group}
+	Take $ \mathbb{R} ^3 $ as the manifold, and define over it the distribution $ \mathcal{H}\subset T \mathbb{R} ^3 $, whose fiber at an arbitrary $ (x,y,z)\in \mathbb{R}^3  $ is   
+	$$ \mathcal{H}_{(x,y,z)} = \operatorname{Ker} \omega|_{(x,y,z)},$$
+	where $ \omega = dz-(x dy-y dx)/2\in\Omega^1( \mathbb{R}^3).$ It is important to notice that $ \omega\neq 0 $ for all $ (x,y,z)\in \mathbb{R}^3. $ The horizontal curves of this distribution are liftings of the solutions of the isoperimetrical problem.
+\end{ex}
+\end{frame}
+% ====================================
+\subsection{Frobenius' theorem}
+\begin{frame}[fragile]
+	\begin{df}[Integral manifold]
+	Given a smooth distribution $ \mathcal{H} \subset TM$, we say that a nonempty immersed submanifold $ N\subseteq M $  is an \textit{integral manifold} of $\mathcal{H}$ if $ T_p N = \mathcal{H}_p $ for all $ p\in N $.
+\end{df}
+\begin{ex}[Orthogonal complement of a given vector field]
+Let $ \mathcal{H} $ be the distribution over $ \mathbb{R}^n $ determined by the radial vector field $ x^i \partial / \partial x^i $, and let $ \mathcal{H}^\perp $ be its perpendicular bundle, \textit{i.e.,} the distribution whose fibers are the orthogonal complement of the fibers of $ \mathcal{H}. $ $ \mathcal{H}^\perp $ is a distribution over $ \mathbb{R}^n  $, and the sphere centered at $0$, of radius $r>0$, is an integral submanifold of $ \mathcal{H}^\perp. $        
+\end{ex}
+
+\begin{rem}
+There are distributions without integral manifolds. See for example the distribution over $ \mathbb{R}^3 $ 	spanned by $$ X= \frac{\partial }{\partial x} +y \frac{\partial }{\partial z}, \quad Y= \frac{\partial }{\partial y} . $$ 
+\end{rem}
+\end{frame}
+
+\begin{frame}[fragile]
+	\begin{df}[Involutive distribution]
+A smooth distribution $ \mathcal{H} $ is said to be \textit{involutive} if given any pair of smooth vector fields $ X,Y $ defined on a open subset $ U $  of $ M $  that satisfy $X_p,Y_p\in \mathcal{H}_p $, $ p\in U, $ their Lie bracket also satisfies the same condition, \textit{i.e.}, it is tangent to the distribution in the given open subset. 
+\end{df}
+\begin{df}[Integrable distribution]
+	A smooth distribution $ \mathcal{H} $ over a manifold $ M $ is called \textit{integrable} if each point of $ M $ is contained in an integral manifold of $ \mathcal{H}. $  
+\end{df}
+\begin{rem}
+Every integrable distribution is involutive.	
+\end{rem}
+\end{frame}
+
+\begin{frame}[fragile]
+	\begin{df}[Flat chart]
+	Given a smooth distribution $ \mathcal{H}\subset TM $  of rank $ k, $ a smooth coordinate chart $ (U,\phi) $ of $ M $ is said to be \textit{flat for $ \mathcal{H} $ } if $ \phi(U) $ is a cube in $ \mathbb{R}^m  $ (being $ m $ the dimension of $ M $), and at points of $ U $, $ \mathcal{H} $ is spanned by the first $ k $ coordinate vector fields $ \partial/\partial x^1,\dots,\partial/\partial x^k $.
+\end{df}
+	
+\begin{figure}
+    \centering
+    \incfig[0.9]{fittogether}
+    \label{fig:fittogether}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+	\begin{df}[Completely integrable distribution]
+	A smooth distribution $ \mathcal{H}\subset TM $  is said to be \textit{completely integrable} if there exists a flat chart for $ \mathcal{H} $ in a neighborhood of each point of $ M. $ 
+\end{df}
+\begin{rem}
+	If a distribution is completely integrable, it is integrable and therefore involutive.
+\end{rem}
+\begin{thm}[Frobenius]
+	Every involutive distribution is completely integrable.	
+\end{thm}
+\end{frame}
+\begin{frame}[fragile]
+\begin{prop}[Local structure of integral manifolds]\label{prop:local_structure}
+	Let $ \mathcal{H} $ be an involutive distribution of rank $ k $ on a smooth manifold $ M $, and let $ (U,\varphi) $ be a flat chart for $ \mathcal{H} $. If $ N $ is any connected integral manifold of $ \mathcal{H}, $ then $ \varphi(U\cap N) $ is the union of countably many disjoint open subsets of parallel $ k $-dimensional slices of $ \varphi(U) $, whose preimages are open in $ N $ and embedded in $ M $.
+\end{prop}
+\begin{figure}
+    \centering
+    \incfig[0.8]{local_structure}
+    \caption{Local structure of an integral manifold.}
+    \label{fig:local_structure}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]
+	\begin{df}[Chart flat for a collection of submanifolds]
+	A smooth chart $ (U,\varphi) $ for $ M $ is called \textit{flat for a collection $ \mathcal{F} $ of $ k- $dimensional submanifolds of $ M $} if $ \varphi(U) $ is a cube in $ \mathbb{R}^m, $ and the image of each submanifold via $ \varphi $ intersects $ \varphi(U) $ in either the empty set or in a countable union of $ k- $dimensional slices of the form $ x^{k+1}=c^{k+1},\dots,x^m=c^m. $   
+\end{df}
+
+\begin{df}[Foliation]
+	A \textit{foliation of dimension $ k $ on a smooth manifold $ M $} is a collection $ \mathcal{F} $ of disjoint, connected, nonempty, immersed $ k $-dimensional submanifolds of $ M $ (called the \textit{leaves} of the foliation), whose union is $ M $, and such that in a neighborhood of each point $ p\in M $ there is a flat chart for $ \mathcal{F}. $  
+\end{df}
+\begin{ex}[Collection of affine subspaces]
+	The collection of all $ k $-dimensional affine subspaces of $ \mathbb{R}^m $ parallel to $ \mathbb{R}^k\times \left\{ 0 \right\} $ is a $ k $-dimensional foliation for $ \mathbb{R}^m. $ 
+\end{ex}
+
+\begin{ex}[Spheres centered at the origin]
+	The collection of all spheres centered at $ 0 $ is an $ (m-1) $-dimensional foliation of $ \mathbb{R}^m\setminus \left\{ 0 \right\} $. 
+\end{ex}
+
+\begin{ex}[Cartesian product of manifolds]\label{ex:product_foliation}
+	If $ M $ and $ N $ are connected smooth manifolds, the collection of subsets of the form $ M\times \left\{ q \right\}, $ with $ q\in N $, is a foliation of $ M\times N, $ each of whose leaves is diffeomorphic to $ M. $  	
+\end{ex}
+
+\begin{ex}[Foliations on a torus]
+	The torus $ T= \mathbb{S}^1\times \mathbb{S}^1 $ can be endowed with the distribution induced by the cartesian product of manifolds. In this case, the foliation is conformed by copies of $ \mathbb{S}^1. $ The horizontal curves are segments of this copies, and if two points lay in different copies, there is not a horizontal curve that connects them.
+\end{ex}
+
+\begin{rem}
+	If $ \mathcal{F} $ is a foliation on a smooth manifold $ M, $ the collection of tangent spaces to the leaves of $ \mathcal{F} $ forms an involutive distribution on $ M. $
+\end{rem}
+\begin{thm}[Global Frobenius theorem]
+	Let $ \mathcal{H} $ be an involutive distribution on a smooth manifold $ M. $ The collection of all maximal connected integral manifolds of $ \mathcal{H} $ forms a foliation of $ M. $ 
+\end{thm}
+\begin{rem}
+	In general, for an given distribution there is no smooth horizontal curve that connects an arbitrary pair of points, because the points can be in different leaves of the foliation given by the distribution.
+\end{rem}
+\end{frame}
+
+% ===============================================
+\section{Sub-Riemannian geometry}
+\subsection{Sub-Riemannian structure and geodesics}
+\begin{frame}[fragile, allowframebreaks]
+	\begin{df}[Sub-Riemannian structure]
+	A \textit{sub-Riemannian structure over a manifold} $ M $ is a pair $ (\mathcal{H}, \langle\cdot,\cdot\rangle)$, where $ \mathcal{H}\subset TM $ is a distribution and $ \langle\cdot,\cdot\rangle $ is a section of the bundle $ T^0_2 \mathcal{H} \xrightarrow[]{\pi} M, $ whose values are positive definite symmetric bilinear forms.
+\end{df}
+
+\begin{ex}[Heisenberg Group]\label{ex:heis_group2}
+	The distribution of the Heisenberg group is commented in example \ref{ex:heis_group}. The inner product over a fiber $ \mathcal{H}_{(x,y,z)} $, with $ (x,y,z)\in \mathbb{R}^3 $  is given by $\langle\cdot,\cdot\rangle:  \mathcal{H}_{(x,y,z)}\times\mathcal{H}_{(x,y,z)} \rightarrow { \mathbb{R} }:(v,w)\mapsto v_1w_1+v_2w_2,$ where $ v=(v_1,v_2,v_3) $ and $ w=(w_1,w_2,w_3). $  
+
+\end{ex}
+\begin{ex}[Riemannian Structure]\label{ex:riem_geo2}
+	Every Riemannian structure is in particular a sub-Riemannian structure, where the distribution is the entire tangent bundle.
+\end{ex}
+\begin{ex}[Vector Field over a Manifold]\label{ex:vect_field2}
+	As seen in example \ref{ex:vect_field}, any smooth vector field $ X: M \rightarrow TM$ that does not vanish determines a distribution.  The fiber inner-product $ \langle\cdot,\cdot\rangle: \mathcal{H}_p \times \mathcal{H}_p \rightarrow \mathbb{R} $ for $ p\in M $  is given by $\langle\lambda_1 X_p,\lambda_2 X_p\rangle=\lambda_1 \lambda_2.$
+\end{ex}
+
+\begin{df}[Length of a horizontal curve]
+	The length of a horizontal curve $ \gamma $ is	
+	$$ \ell(\gamma)= \int || \dot{\gamma}|| dt = \int \sqrt[]{ \langle \dot{\gamma},\dot{\gamma} \rangle}.  $$ 
+\end{df}
+\begin{df}[Distance]\label{df:horizontal_distance}
+	The \textit{distance between two points} $ p,q\in M $, denoted by $ d(p,q), $   is defined as the infimum of the lengths of all absolutely continuous horizontal curves that begin in $ p $ and end in $ q $, that is, 
+$$ d(p,q) = \operatorname{inf} \left\{ \ell(\gamma) \ |\ \gamma:[0,1] \rightarrow {M},\ \gamma(0)=p, \ \gamma(1)=q \right\}. $$ 
+The distance between two points is said to be infinite if there is no horizontal curve joining them.
+\end{df}
+\begin{df}[Geodesic]
+	Given a sub-Riemannian structure $ (\mathcal{H}, \langle\cdot,\cdot\rangle) $ over a manifold $ M $  (or Riemannian structure, if $ \mathcal{H}=TM $), it is said that an absolutely continuous horizontal curve $ \gamma:  [a,b] \rightarrow M$, with $ \gamma(a)=p, \gamma(b)=q $ is a \textit{geodesic} if it realizes the distance between $ p $ and $ q $, that is,   
+	$ \ell(\gamma)= d(p,q). $ 
+\end{df}
+\end{frame}
+\subsection{Chow's theorem}
+\begin{frame}[fragile, allowframebreaks]
+	\begin{df}[Bracket-generating distribution]
+	A distribution $ \mathcal{H}\subset TM $ is called \textit{bracket-generating} if for every $ p\in M $, there is a local frame $ X_1,\dots,X_k: U \rightarrow {TM} $ of $ \mathcal{H} $ such that 
+	$$ TU = \operatorname{span}\left\{ [X_{i_1},\dots,[X_{i_{j-1}},X_{i_j}]]\ : \ i_1,\dots,i_j=1,\dots,k;\ j\in \mathbb{N} \right\}.  $$ 
+\end{df}
+\begin{thm}[Chow's Theorem]
+	If $ \mathcal{H} $ is a bracket-generating distribution on a connected manifold $ M $, then any two points of $ M $ can be connected by a horizontal path.
+\end{thm}
+\begin{rem}
+	The converse of Chow's theorem is false in general. That is, if any two points in $ (M,\mathcal{H}) $ can be connected through horizontal curves, it is not true that $ \mathcal{H} $ is bracket-generating. 
+\end{rem}
+\begin{ex}[Cartan's Distribution]\label{ex:cartan_distribution}
+	Consider the distribution over $ \mathbb{R}^3 $ determined by the smooth vector fields $ \partial /\partial x + z \partial / \partial y, \partial/\partial z. $ As 
+	$$ \left[ \frac{\partial}{\partial z}, \frac{\partial}{\partial x}+z \frac{\partial}{\partial y}    \right] = \frac{\partial}{\partial y}  $$ 
+	and $ T \mathbb{R}^3 = \operatorname{span}\{  \partial/\partial x + z \partial / \partial y, \partial/\partial z, \partial/\partial y\} $, Cartan's distribution is bracket-generating, so by Chow's theorem any two points in $ \mathbb{R}^3 $ can be connected by a horizontal path.
+\end{ex}
+\begin{ex}[Martinet Distribution]
+	Consider the distribution on $ \mathbb{R}^3 $ determined by the smooth vector fields $ \partial/\partial x+y^2\partial/\partial z, \partial/\partial y $. The Lie bracket of the two vector fields that generate this distribution is  
+
+	$$ \left[ \frac{\partial }{\partial x} + y^2 \frac{\partial }{\partial z} , \frac{\partial }{\partial y}  \right] =-2y \frac{\partial }{\partial z}, $$ 
+	and 
+	$$ \left[\left[ \frac{\partial }{\partial x} + y^2 \frac{\partial }{\partial z} , \frac{\partial }{\partial y}  \right], \frac{\partial }{\partial y} \right] = -2 \frac{\partial }{\partial z}.  $$ 
+	Given that $ T \mathbb{R}^3 = \operatorname{span} \left\{ \partial/\partial x+ y^2\partial/\partial z, \partial/\partial y, -2\partial/\partial z \right\},  $ the distribution is bracket-generating, and by Chow's theorem any two points in $ \mathbb{R}^3 $ can be connected by a horizontal path. 
+\end{ex}
+\begin{ex}[Contact Distribution on $ \mathbb{R}^{2n+1} $]
+	The contact distribution on $ \mathbb{R}^{2n+1} $ generalizes the Cartan's distribution of example \ref{ex:cartan_distribution} when $ n=1 $. Let $ (x_1,\dots,x_n,y_1,\dots, y_n,z) $ be coordinates on $ \mathbb{R}^{2n+1} $. The contact distribution is generated by the 1-form $ \omega = dz+ x_i dy_i$, or equivalently by the vector fields $ \partial/ \partial y_i, \partial/ \partial x_i+ y_i \partial/\partial z, $ for $ i=1,\dots, n. $ The rank of this distribution is $ 2n, $ but as 
+	$$ \left[ \frac{\partial }{\partial y_i} , \frac{\partial }{\partial x_i} + y_i \frac{\partial }{\partial z}  \right] = \frac{\partial }{\partial z},  $$ 
+	this distribution is bracket-generating, and by Chow's theorem any pair of point in $ \mathbb{R}^{2n+1} $ can be connected through an horizontal curve.
+\end{ex}
+\end{frame}
+% =============================
+\section{Sub-Riemannian metrics on bundles}
+\subsection{Ehresmann connection}%
+\label{sub:ehresmann_connection}
+
+
+% =============================
+\section{References}
 \begin{frame} [allowframebreaks]\frametitle{References}
         \bibliographystyle{unsrt}
 	\nocite{*}
