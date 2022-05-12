@@ -159,9 +159,6 @@ Any smooth vector field $ X: M \rightarrow {TM} $ which does not vanish  determi
 Let $ \mathcal{H} $ be the distribution over $ \mathbb{R}^n $ determined by the radial vector field $ x^i \partial / \partial x^i $, and let $ \mathcal{H}^\perp $ be its perpendicular bundle, \textit{i.e.,} the distribution whose fibers are the orthogonal complement of the fibers of $ \mathcal{H}. $ $ \mathcal{H}^\perp $ is a distribution over $ \mathbb{R}^n  $, and the sphere centered at $0$, of radius $r>0$, is an integral submanifold of $ \mathcal{H}^\perp. $        
 \end{ex}
 
-\begin{rem}
-There are distributions without integral manifolds. See for example the distribution over $ \mathbb{R}^3 $ 	spanned by $$ X= \frac{\partial }{\partial x} +y \frac{\partial }{\partial z}, \quad Y= \frac{\partial }{\partial y} . $$ 
-\end{rem}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -314,6 +311,208 @@ The distance between two points is said to be infinite if there is no horizontal
 \section{Sub-Riemannian metrics on bundles}
 \subsection{Ehresmann connection}%
 \label{sub:ehresmann_connection}
+
+\begin{frame}[allowframebreaks]
+	\begin{df}[Vertical space]
+	Given a submersion $ \pi:Q \rightarrow {M}, $ the \textit{vertical space at $ q\in Q $}, denoted as $ V_q $, is the tangent space to the fiber $ Q_m, $ with $ m=\pi(q), $ that is,  
+	\end{df}
+	\begin{rem}
+The collection of vertical spaces is a distribution $ V \subset TQ $ that assigns to each $ q\in Q $ the space $ V_q. $ The distribution is by construction integrable, and its integral manifolds are the fibers $ Q_m, $ $ m\in \pi(Q). $ 
+	\end{rem}
+	\begin{df}[Connection for a submersion]
+	A \textit{connection for a submersion} $ \pi:Q \rightarrow {M} $ is a distribution that is everywhere transverse to the vertical one, that is,  
+	$$ V_q \oplus \mathcal{H}_q = T_q Q,\ \text{for all } q\in Q. $$ 
+	\end{df}
+	\begin{df}[Sub-Riemannian structure induced on the total space]
+	If $ M $ is endowed with a metric $ g $, the sub-Riemannian structure $ (\mathcal{H},\langle \cdot, \cdot\rangle) $ induced by the Riemannian structure $ (M,g) $ is given by
+$$ \langle v,w \rangle_q = g_{\pi(q)} \left( d\pi_q(v), d\pi_q(w) \right), \text{ for all }q\in Q \text{ and } v,w\in \mathcal{H}_q.   $$ 
+	\end{df}
+	\begin{df}[Horizontal lift]
+	The \textit{horizontal lift} of a curve $ c: I \rightarrow {M} $ starting at $ m\in M $ is defined as the unique curve $ \gamma : I \rightarrow {Q} $ that is tangent to $ \mathcal{H}, $ starts at $ q\in Q_m, $ and projects to $c$, that is, $ \pi\circ\gamma = c. $ 
+	\end{df}
+\begin{rem}
+	The connection $ \mathcal{H} $ is called \textit{complete} (or \textit{Ehresmann connection})  if every smooth curve $ c: I \rightarrow {M} $ has a horizontal lift.
+\end{rem}
+\begin{ex}[Canonical projection from $ \mathbb{R}^{m+n} $ to $ \mathbb{R}^m $  ]\label{ex:can_proj}
+	\sloppy	Consider the canonical projection $ \pi: \mathbb{R}^{m+n} \rightarrow \mathbb{R}^m $ that maps the first $ m $-coordinates of a point in $ \mathbb{R}^{m+n} $  to $ \mathbb{R}^m. $ This map is a submersion, and its vertical space at a point $ q\in \mathbb{R}^{m+n} $ is $ V_q = \left\{ (0,\dots,0,v_1,\dots,v_n) : v_1,\dots,v_n\in \mathbb{R}  \right\} \cong \mathbb{R}^n. $ For a connection for this submersion we can take $ \left\{ (v_1,\dots,v_m, 0,\dots, 0): v_1,\dots,v_m\in \mathbb{R} \right\}\cong \mathbb{R}^m.  $ Given an arbitrary curve $ c: I \rightarrow \mathbb{R}^m, $ starting at $ \boldsymbol{p}= (p_1,\dots,p_m), $ its horizontal lift passing through the point $ (p_1,\dots,p_m,q_1,\dots,q_n)\in \pi^{-1}( \boldsymbol{p} ) $ is the curve $ \gamma: I \rightarrow \mathbb{R}^{m+n} $, $ t\mapsto (c(t),q_1,\dots,q_n). $   
+\end{ex}
+\begin{prop}
+	The induced sub-Riemannian structure satisfies the following properties:
+	\begin{enumerate}
+		\item The sub-Riemannian length of a horizontal path on $ Q $ equals the Riemannian length of its projection to $ M. $ 
+		\item The horizontal lift of a Riemannian geodesic in $ M $ is a sub-Riemannian geodesic in $ Q. $ 
+		\item The projection $ \pi $ is distance decreasing, that is, $ d_M(\pi(q_1), \pi(q_2))\leq d_Q(q_1,q_2), $ for all $ q_1,q_2\in Q. $ 
+	\end{enumerate}
+\end{prop}
+\begin{df}[Compatible Riemannian metric]\label{df:compatible}
+	A Riemannian metric on $ Q $ is said to be \textit{compatible} with the induced sub-Riemannian metric if the algebraic splitting $ TQ = V \oplus \mathcal{H} $ is an orthogonal decomposition with respect to the Riemannian metric on $ Q$.  
+\end{df}
+\end{frame}
+\subsection{Metrics on principal bundles}%
+\label{sub:metrics_on_principal_bundles}
+
+\begin{frame}[fragile, allowframebreaks]
+	\begin{df}[Fiber bundle]
+	Let $ M, G, Q $ be manifolds. A \textit{(locally trivial) fiber bundle} over $ M $ with fiber $ G $ is a manifold $ Q, $ together with a smooth surjective map $ \pi: Q \rightarrow {M} $ with the property that for each $ x\in M $ there is a neighborhood $ U $ of $ x $ and a diffeomorphism $ \phi:\pi^{-1}(U) \rightarrow {U\times G,} $ called a local trivialization of $ Q $ over $ U, $ such that the following diagram commutes:
+ \begin{center}
+ 	\begin{tikzcd}[ampersand replacement=\&]
+\pi^{-1}(U) \arrow[rd, "\pi"'] \arrow[rr, "\phi"] \&   \& U\times G \arrow[ld, "\operatorname{proj}_U"] \\
+                                                  \& U \&           
+\end{tikzcd}
+ \end{center}
+ $ Q $ is called the \textit{total space of the bundle}, $ M $ the \textit{base}, $ G $ the \textit{standard fiber},  and $ \pi $ the \textit{projection}.   
+\end{df}	
+\begin{df}[Action of a Lie group over a manifold]
+For a Lie group $ G $ and a manifold $ Q, $ a \textit{group right action or an action on the right} is a smooth application $ \alpha:  Q\times G \rightarrow Q $, denoted by $ \alpha(q,g) = q \cdot g, $ such that:
+
+\begin{enumerate}
+	\item For all $ q\in Q, $ $ q\cdot e = q $, where $ e $ is the identity element of $ G. $   
+	\item For all $ g,h\in G $ and $ q\in Q $, $ (q\cdot g) \cdot h =q\cdot(gh). $ 
+\end{enumerate}
+
+We say that the action $ \alpha $ \textit{is free (or that $ G $ acts freely on $ Q $)} if for every $ q\in Q $, $ q\cdot g =q$   implies that $ g=e. $
+
+The \textit{orbit $ G_q $ of the action}  for a point $ q\in Q $  is defined as the image of the restriction $\alpha|_{\{q\}\times G},$  that is, $ G_q := \left\{q\cdot g \ | \ g\in G \right\}. $
+
+We can construct an equivalence relation over $ Q $ in the following way: $ q\sim p $ if and only if $ G_p = G_q $. The set of all equivalence classes is denoted as $ Q/G $, and is known as the \textit{orbit space of the action}.     
+\end{df}
+\begin{df}[Principal $ G $-bundle]\label{df:principalGbundle}
+	The submersion $ \pi: Q \rightarrow M$  is called a \textit{principal $ G $-bundle} if its is a fiber bundle whose fiber $ G $ is a Lie group, and this group acts on $ Q $ in such a way that the following properties hold:
+	\begin{enumerate}
+		\item $ G $ acts freely on $ Q $.
+		\item The action orbits are the fibers of $ \pi:Q \rightarrow {M} $, that is, for all $ m\in M, $ $ \pi^{-1}(m) = G_q, $ with $ q\in Q_m. $ 
+		\item For each point $ m\in M, $ there exists a neighborhood $ U\ni m $ and a local trivialization $ \varphi: U\times G \rightarrow \pi^{-1}(U)$ equivariant with the action, that is,
+			$$ \varphi(q, g\cdot h)=\varphi(q,g)\cdot h  $$ 
+			for every $ q\in U, $ $ g,h\in G. $ 
+	\end{enumerate}
+\end{df}
+\begin{df}[Connection for a principal $ G $-bundle]
+	Given a principal $ G $-bundle $ \pi: Q \rightarrow M, $ we say that a horizontal distribution $ \mathcal{H} $ is a \textit{connection for this principal $ G $-bundle} if it is a connection for $ \pi $, and the $ G $-action on $ Q $ preserves the horizontal distribution $ \mathcal{H} $ in the sense that $ \mathcal{H}_{q\cdot g} = d(\alpha_g)_q (\mathcal{H}_q), $ for all $ q\in Q, $ $ g\in G $. In this case, we say that the pair $ (\pi$, $ \mathcal{H}) $ is a \textit{principal $ G $-bundle with connection}. 
+
+\end{df}
+\begin{prop}
+	Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection and $ c: I \rightarrow M $ a smooth curve. For an arbitrary $ q\in Q_{c(0)}= G_q $, there is a unique horizontal lift $ \gamma: I \rightarrow Q $ of $ c $ ($\pi\circ\gamma =c$, $ \dot{\gamma}(t)\in \mathcal{H}_{\gamma(t)} $ for all $ t\in I $) that starts from $ q $.    	
+\end{prop}
+\begin{df}[Metric of bundle type]
+	Let $ M $ be endowed with a Riemannian metric. A sub-Riemannian metric $  \langle\cdot,\cdot\rangle $ defined on the sub-bundle $ \mathcal{H} $  of the tangent space of the total space of the principal $ G $-bundle $ \pi: Q \rightarrow {M}
+	$ is called a \textit{metric of bundle type} if it is an induced sub-Riemannian structure with respect to the submersion $ \pi $ and the metric on $ M $.
+\end{df}
+\begin{ex}[Trivial bundle]
+	Let $ M $ be a manifold and $ G $ a Lie group. The projection $ \pi: M \times G \rightarrow M $ is a principal $ G $-bundle with connection $ \mathcal{H}= \operatorname{Ker}(  d \operatorname{proj}_G), $ 	where $ \operatorname{proj}_G : M\times G \rightarrow G. $ 
+\end{ex}
+\begin{ex}[Hopf fibration]
+	The Hopf projection $ \pi: \mathbb{S}^3 \rightarrow \mathbb{S}^2 $ is a principal $ \mathbb{S}^1  $-bundle with connection $ \mathcal{H}_{q} = \langle(x_2,-y_2,-x_1,y_1),(y_2,x_2,-y_1,-x_1)\rangle,  $ where  	$ q=(x_1+iy_1, x_2+iy_2). $   
+\end{ex}
+\end{frame}
+\subsection{Theorem on normal geodesics of bundle type sub-Riemannian metrics}%
+\label{sub:theorem_on_normal_geodesics_of_bundle_type_sub_riemannian_metrics}
+\begin{frame}[allowframebreaks, fragile]
+	
+\begin{df}[Symplectic structure]
+	Let $ M $ be an even-dimensional manifold. A \textit{symplectic structure on $ M $ } is a closed non-degenerate differential 2-form $ \omega $ on $ M $, that is, 
+	\begin{enumerate}
+		\item $ d\omega=0 $,
+		\item $\forall \xi \neq 0: \ \omega_m(\xi,\cdot)\neq0 \ (\xi\in T_m M)$, $ \forall m \in M. $  
+	  
+	\end{enumerate}
+	The non-degeneracy condition is equivalent to $ \operatorname{det} \omega_m\neq 0, \forall m\in M $. The pair $ (M,\omega) $ is called a \textit{symplectic manifold}. 
+\end{df}
+\begin{rem}
+	The symplectic structure on $ M $ induces an isomorphism between $ T_mM $ and $ T_m^*M $ for all $ m\in M, $ because it is non-degenerate. 
+\end{rem}
+\begin{df}[Observable]
+	Given a symplectic manifold  $ (M,\omega) $, an \textit{observable (or Hamiltonian)} is a smooth function $ H: M \rightarrow \mathbb{R}. $
+\end{df}
+\begin{df}[Hamiltonian vector field]
+	For a given Hamiltonian $ H: M \rightarrow \mathbb{R} $, the vector field $ X_H\in \mathfrak{X}(M) $ that satisfies $$ dH = \omega(X_H, \cdot) $$ is called \textit{Hamiltonian vector field} for $ H $, or \textit{symplectic gradient} of $ H. $ 
+\end{df}
+\begin{thm}
+	For any manifold $ M, $ the cotangent bundle $ T^*M $ has a natural symplectic structure given in coordinates by $\omega = dq^i\wedge dp_i.$
+\end{thm}
+\begin{prop}
+	The integral curves of the Hamiltonian vector field $ X_H $ are solutions of the Hamilton equations:
+ $$\dot{q^i} = \frac{\partial H}{\partial p_i}, \quad \dot{p_i} =- \frac{\partial H}{\partial q^i}.    $$
+\end{prop}
+\begin{thm}
+The Hamiltonian $ H: T^*M \rightarrow \mathbb{R} $ is constant along the integral curves of the vector field $ X_H. $ 	
+\end{thm}
+\begin{df}[Momentum function]
+	For any vector field $ \xi\in \mathfrak{X}(M), $ we define its \textit{ momentum function $ P_\xi:T^*M \rightarrow \mathbb{R} $} by
+	$$ P_\xi(\alpha)= \alpha(\xi(\pi(\alpha))). $$ 
+\end{df}
+\begin{prop}
+	If $ Y\in \mathfrak{X}(M) $, and $ \Phi_t: M \rightarrow M $ is its flow, then the Hamiltonian vector field of its momentum function $ P_Y $ is 
+$$ X_{P_Y} = \frac{d(\Phi_t)_{T^*}}{dt} \Big|_{t=0},  $$ 
+where 
+$$ (\Phi^{-1})^*_{\Phi(q)}(p)(\eta) = p \left( d\Phi^{-1}_{\Phi(q)}(\eta) \right) $$ 
+is the cotangent lift of $ \Phi_t. $ 
+\end{prop}
+\begin{df}[Poisson bracket]
+	Let $ M $ be a symplectic manifold, and $ f,g: M \rightarrow \mathbb{R} $ be two observables. We define the \textit{Poisson bracket of $ f $ and $ g $} as 
+	$$ \left\{ f,g \right\}= X_g(f)=\omega(X_f,X_g),$$ 
+	where $ X_g  $ is the Hamiltonian vector field associated with $ g. $ 
+\end{df}
+	The Poisson bracket satisfies the following properties for $ f,g,h: M \rightarrow \mathbb{R},$ and $ a,b\in \mathbb{R} $:
+	\begin{enumerate}
+		\item $ \left\{ f,g \right\} = -\left\{ g,f \right\},$ 
+		\item $ \left\{ af+bg,h \right\} = a\left\{ f,g \right\}+ b \left\{ g,h \right\} ,   $ 
+		\item $ \left\{ f, \left\{ g,h \right\}  \right\} +\left\{ h, \left\{ f,g \right\}  \right\} + \left\{ g, \left\{ h,f \right\}  \right\} =0, $  
+		\item $ \left\{ f,gh \right\} =g \left\{ f,h \right\} + \left\{ f,g \right\} h,$ 
+	\end{enumerate}
+
+\begin{prop}[Hamilton equations in bracket form]\label{prop:HEBF}
+	If $ c(t) $ is an integral curve for $ X_H $ and $ f\in C^\infty(T^*M) $ is an observable, then
+	\begin{equation}\label{eq:HamEq}
+		\frac{d}{dt} \left( f\circ c \right)(t) = \left\{ f,H \right\} (c(t)).
+	\end{equation}
+\end{prop}
+\begin{prop}[Poisson bracket of momentum functions]\label{prop:poisson_bracket_momentum}
+	For any two vector fields $ \xi,\eta \in \mathfrak{X}(M) $ with momentum functions $ P_\xi, P_\eta: T^*M \rightarrow \mathbb{R}, $ we have that
+	$$ \left\{ P_\xi,P_\eta \right\} = -P_{[\xi,\eta]}, $$ 
+	where $ [\xi,\eta] $ is the Lie bracket between $ \xi $ and $ \eta, $ and $ P_{[\xi,\eta]} $ is the momentum function of $ [\xi,\eta]\in \mathfrak{X}(M). $  
+\end{prop}
+\begin{df}[Riemannian Hamiltonian]
+	If $ (M,g) $ is a (sub-)Riemannian structure, we define the (sub-)Riemannian Hamiltonian $ H_{(s)R}: T^*M \rightarrow \mathbb{R} $ as	
+	$$ H_{(s)R}(p) = \frac{1}{2} g_{\pi(p)}(p,p), $$ where $ \pi: T^*M \rightarrow M $ is the cotangent bundle.
+\end{df}
+\begin{prop}\label{prop:geo}
+	If $ (M,g) $ is a (sub-)Riemannian manifold, and $ H_{(s)R}: T^*M \rightarrow \mathbb{R} $ is its (sub-)Riemannian Hamiltonian, $ q(t) $ is a (normal) geodesic if and only if $ (q^i(t), g_{ij}(q(t))\dot{q^j}(t)) $ is an integral curve of $ X_{H_{(s)R}}. $ 
+\end{prop}
+\begin{prop}
+	If $ \pi: Q \rightarrow M $ is a submersion endowed with an Ehresmann connection $ \mathcal{H} $  and $ (M,g) $ is a Riemannian manifold, the induced sub-Riemannian Hamiltonian is given by $H_{sR}= H_R \circ \operatorname{pr},$ where $ \operatorname{pr}= \operatorname{pr_2}\circ \operatorname{pr_1}, $ $ \operatorname{pr_1} : T^*Q \rightarrow \mathcal{H}^*  $, $ \operatorname{pr_2} : \mathcal{H}^* \rightarrow T^*M, \ \operatorname{pr_2}(\alpha)(v)= \alpha(h_{\pi_{T^*Q}(\alpha)}v).  $  
+\end{prop}
+\begin{df}[$G$-invariant metric]
+	Let $ (M,g) $ be a Riemannian manifold, and $G $ a Lie group that acts on $ M $ via the application $ \alpha: M\times G \rightarrow M, $ $ \alpha(m,h)= m\cdot h. $ We say that \textit{the metric $ g $ is $ G $-invariant} if  
+	$$ g_{m\cdot h}((d\alpha_h)_m(v),(d\alpha_h)_m(w))=g_m(v,w), $$ 
+	for all $ m\in M, $ $ v,w\in T_mM $ and $ h\in G. $ 
+\end{df}
+\begin{df}[Infinitesimal generator map]
+Let $ \mathfrak{g}= \operatorname{Lie}(G)=T_eG, $ and $ \operatorname{exp} : \mathfrak{g}\rightarrow G $ be the exponential application. \textit{The infinitesimal generator map for the group action $ \sigma_v: Q\rightarrow T_qQ $ }, for $ v \in \mathfrak{g} $,  is defined as
+$$ \sigma_v(q) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} \left( q\cdot \operatorname{exp} (\epsilon v) \right).$$ 
+ \end{df}
+ \begin{df}[Moment of inertia tensor]
+	For a given $ q\in Q, $ the bilinear form on $ \mathfrak{g}, $ $ \mathbb{I}_q: \mathfrak{g}\times \mathfrak{g}\rightarrow \mathbb{R}, $ given by
+	$$ \mathbb{I}_q(v,w) = h_q(\sigma_v q, \sigma_w q) $$ 
+	is called the \textit{moment of inertia tensor at $ q. $ } 
+ \end{df}
+ \begin{df}[Adjoint invariant form]
+	Let $ G $ be a Lie group. A bilinear form $ \beta \in \Lambda^2(\mathfrak{g}) $ is called \textit{bi-invariant} or \textit{adjoint invariant} if
+	$$ \beta \left( \operatorname{Ad}_g v, \operatorname{Ad}_g w \right) = \beta(v,w) \text{ for all }g\in G,\ v,w\in \mathfrak{g}. $$ 
+\end{df}
+\begin{df}
+	[Metric of constant bi-invariant type] The $ G $-invariant Riemannian metric (or pseudometric) $ h $ on $ Q $ is said to be of \textit{constant bi-invariant type} if its inertia tensor $ \mathbb{I}_q $ equals the same bi-invariant bilinear form on $ \mathfrak{g}, $ for all $q\in Q. $ 
+\end{df}
+\begin{thm}[On normal geodesics of bundle type sub-Riemannian metrics]\label{thm:normal_geodesics}
+	%kk
+	Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}. $ Suppose that $ Q $ is a Riemannian manifold such that its metric is a Riemannian submersion, compatible with $ \mathcal{H}, $ $ G $-invariant, and its associated vertical metric has constant bi-invariant type. Therefore, given any geodesic $\gamma: I \rightarrow Q, $ the horizontal lift of $ \pi\circ\gamma $ is a sub-Riemannian geodesic. All sub-Riemannian geodesics can be obtained in this manner. Moreover, the projected curve $ \pi\circ\gamma$ is a geodesic in the base space $ M $ if and only if $ \gamma $ is a horizontal geodesic in $ (Q, \mathcal{H}). $ 
+\end{thm}
+\end{frame}
+% =============================
+\section[Yang-Mills]{Classical particles in Yang-Mills fields}%
+\label{sec:classical_particles_in_yang_mills_fields}
+\subsection{Associated bundles}%
+\label{sub:associated_bundles}
+
 
 
 % =============================
