@@ -513,7 +513,44 @@ $$ \sigma_v(q) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} \left( q\cdot \operatorn
 \subsection{Associated bundles}%
 \label{sub:associated_bundles}
 
+\begin{frame}[allowframebreaks]
+\begin{df}[Representation of a Lie group on a vector space]
+	Let $ G $ be a Lie group. A \textit{representation of $ G $ on a vector space $ E $} is a Lie group homomorphism $ \rho: G \rightarrow \operatorname{GL} (E). $ 
+\end{df}
+\begin{df}[Associated bundle]
+	Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle, and $ \rho: G \rightarrow \operatorname{GL}(E) $ be a representation of $ G $ on a vector space $ E. $ Consider the right action on $ Q\times E $ given by $ (q,v)\cdot g = (q\cdot g, \rho(g^{-1})v). $  The orbit space associated to this action is denoted as $ (Q\times E)/G $, $ Q\times_\rho E $ or $ \rho(Q). $  A point of $ \rho(Q) $ corresponding to the orbit of $ (q,v) $ is written as $ [q,v] $ or $ qv. $  
 
+	\textit{The associated bundle of $ \pi:Q \rightarrow M $ } is the vector bundle $ \pi_{ \rho(Q)}: \rho(Q) \rightarrow M $ with fiber $ E, $ where $ \pi_{\rho(Q)}(qv)=\pi(q). $ The sum between two elements $ qv,qw$ in the same fiber is $ q(v+w). $  
+\end{df}	
+\begin{ex}[Frame bundle]
+	Let $ \xi: R \rightarrow M $ be a real vector bundle of rank $ n $, and $ \pi: Q \rightarrow M $ the principal $ \operatorname{GL} (n, \mathbb{R}) $-bundle whose fibers are	
+$$ \pi^{-1}(m) = \left\{ q: \mathbb{R}^n \rightarrow \xi^{-1}(m) \ | \ q\in \operatorname{Isom}( \mathbb{R}^n, \xi^{-1}(m)) \right\}.  $$
+The associated bundle of the frame bundle $ \pi: Q \rightarrow M $ is $ \xi: R \rightarrow M. $ 
+\end{ex}
+\begin{ex}[Adjoint bundles]
+	Given a principal $ G $-bundle $ \pi: Q \rightarrow M $ and the adjoint representation $ \operatorname{Ad}^{(*)}: G \rightarrow \mathfrak{g}^{(*)}  $,  we can construct the associated bundles $ \operatorname{Ad}(Q) $ and $ \operatorname{Ad}^*(Q), $ called \textit{adjoint and co-adjoint bundles of $ \pi:Q \rightarrow M $, } respectively. These two bundles are \textit{dual vector bundles over $ M $,} which means that fibers of $  \operatorname{Ad}^*(Q)$ are the dual spaces to the fibers of $ \operatorname{Ad} (Q). $ 
+\end{ex}
+\begin{ex}
+	If $ \pi:Q \rightarrow M $ is the frame bundle of some vector bundle $ \xi: R \rightarrow M, $ then $ \operatorname{Ad}(Q) $ can be identified with the bundle whose fiber over $ m\in M $ is the space of linear maps on $ \xi_m $ in the sense that $ \operatorname{Ad} (Q)_m \cong \operatorname{Hom}(\xi_m,\xi_m),  $ because $ \operatorname{Ad}(Q)_m\cong \mathfrak{gl}(n, \mathbb{R}).  $ 
+\end{ex}
+\begin{df}[$G$-equavariant map]\label{df:equivariant}
+	Let $ Q $ be a manifold, $ G $ a Lie group that acts on $ Q $, $ E $ a vector space and $ \rho: G \rightarrow GL(E) $ a representation of $ G $ on $ E $. We say that $ F: Q \rightarrow E $ is \textit{$G$-equivariant} if $ F(q\cdot g) = \rho(g^{-1})F(q). $ The set of all $ G $-equivariant maps will be denoted as $ C_G(Q,E). $  
+\end{df}
+\begin{prop}\label{prop:equiv_section_equivariant}
+	
+If $ \pi: Q \rightarrow M $ is a principal $ G $-bundle and $ \rho: G \rightarrow \operatorname{GL} (E) $ is a representation  of $ G, $ the module of sections of $ \rho(Q) \rightarrow M $ is in one-to-one correspondence with $ C_G(Q,E). $
+\end{prop}
+
+\begin{ex}
+	A function $ \xi: Q \rightarrow \mathfrak{g}  $ which is $ \operatorname{Ad}  $-invariant, meaning that $ \xi(q\cdot g)= \operatorname{Ad}_{g^{-1}}\xi(q) $, defines a section of the adjoint bundle. 
+\end{ex}
+\begin{df}[$k$-form]
+	A \textit{$ k $-form $ \omega $ with values in the associated bundle $ \rho(Q) $} is a multilinear totally skew assignation, taking $ v_1,\dots, v_k\in T_mM $ to a vector $ \omega_m(v_1,\dots,v_k)\in \rho(Q)_m. $  We denote as $ \Omega^k(M, \rho(Q)) $ the space of these forms.
+\end{df}
+\begin{prop}\label{prop:isomorphism_vb}
+	The map $ \sigma: \operatorname{Ad} (Q) = (Q\times \mathfrak{g})/G \rightarrow V/G $, $ [q,v] \mapsto [\sigma_v(q)], $  is an isomorphism between vector bundles over $ M. $ 
+\end{prop}
+\end{frame}
 
 % =============================
 \section{References}
