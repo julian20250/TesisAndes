@@ -91,47 +91,31 @@ Julián Jiménez Cárdenas}
 \subsection{Distributions and horizontal curves}%
 \label{sub:distributions_and_horizontal_curves}
 
-
 \begin{frame}[fragile]
-	\begin{df}[Vector bundle]
-	Let $ E,M $ be two smooth manifolds. A map $ \pi: E \rightarrow M $ is said to be a \textit{smooth vector bundle} if it is a submersion, its fibers have the structure of finite dimensional vector spaces, and of every $ p\in M $ there is an open neighborhood $ U$ of $ p $  and a diffeomorphism $ \phi: U \times \mathbb{R}^k \rightarrow \pi^{-1}(U) $ such that the following diagram commutes 	
-	\begin{center}
-	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFUAdTvAW3gAE3XnRwALAEYTgAJQC+APQDWIOaXSZc+QigBM5KrUYs23NFgXAAtAEY5ACnYBKVepAZseAkRukbh+mZWRA5VQxgoAHN4IlAAMwAnCF4kMhAcCCR9IyDTTgg0GATRCASwOn5gNCSAKzkAfXYQagY6CRgGAAVNLx0QBKxIsRxXeKSUxDSMpF8ckxCzMSxRkETkmeppxGzA+ZAzZbkKOSA
-\begin{tikzcd}
-U\times \mathbb{R}^k \arrow[rd, "\operatorname{proj}_U"'] \arrow[rr, "\phi"] &   & \pi^{-1}(U) \arrow[ld, "\pi"] \\
-                                                                             & U &                              
-\end{tikzcd}	
-	\end{center}
-	and the map $ v \mapsto \phi(p,v) $ is a linear isomorphism between $ \pi^{-1}(p) $ and $ \mathbb{R}^k. $ 
-	\end{df}
-	\begin{rem}
-		This work only focuses on constant rank vector bundles, \textit{i.e.}, $ k $ is constant (the dimensions of the fibers are the same).	
-	\end{rem}
-\end{frame}
-    
-\begin{frame}[fragile]
-	\begin{df}[Vector sub-bundle]
-		A vector sub-bundle $ \pi': E' \rightarrow M $  of the bundle $ \pi: E \rightarrow M $ is a vector bundle with $ E'\subset E $ such that the inclusion map is a morphism of the category of bundle maps, that is, the following diagram commutes.
-		\begin{center}
-		% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFEByEAX1PUy58hFACZyVWoxZt2vfiAzY8BIgEZSayfWatEIALK9JMKAHN4RUADMAThAC2SMiBwQk4qbrYAdH2ixuagY6ACMYBgAFQRUREFssMwALHHkbeydEDVd3RE8dGX0-ALSQO0dnajckbJw6LAY2JIgIAGtjHiA
-\begin{tikzcd}
-E' \arrow[rd, "\pi'"'] \arrow[rr, hook] &   & E \arrow[ld, "\pi"] \\
-                                        & M &                    
-\end{tikzcd}	
-		\end{center}
-	\end{df}
 	\begin{df}[Distribution]
 		A distribution $ \pi|_{ \mathcal{H}}:\mathcal{H} \rightarrow M $ over a manifold $ M $ is a vector sub-bundle of the tangent bundle $ \pi:TM \rightarrow M. $ 
+		\begin{center}
+			% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwDGjYAAkAviDGl0mXPkIoAjKUVVajFmwCyk6SAzY8BIgCZya+s1aIQAFR1i1MKAHN4RUADMAThC5IyEBwIJEUpL19-RDMgkMQwvR8-AOpgpBicOiwGNj4ICABrSQoxIA
+\begin{tikzcd}
+\mathcal{H} \arrow[rd] \arrow[rr, hook] &   & TM \arrow[ld] \\
+                                        & M &              
+\end{tikzcd}
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB120sA9YAWgCMAXwAUAVQCUIYaXSZc+QigBM5KrUYs24zngC28AAQBRGXJAZseAkUGlBG+s1aIQu9nCYAjODBxGALIyGjBQAObwRKAAZgBOEPpIZCA4EEj2mi5snGgAFljmsQlJiClpSGpZ2m65hbLFiRnUFYhVzjUc7BBoMHF0aXFgdIbAaAkAVsIA+uIhwkA
+\begin{tikzcd}
+\pi^{-1}(U) \arrow[rr, "\phi"] \arrow[rd, "\pi"] &            & U\times E \arrow[ld, "\operatorname{proj}_U"] \\
+                                                 & U\subset M &                                              
+\end{tikzcd}
+		\end{center}
 	\end{df}
-\end{frame}
-
-\begin{frame}[fragile]
-	
 \begin{prop}[Distribution (using 1-forms)]
 	Suppose that $ M $ is a smooth $ m- $dimensional manifold, and $ \mathcal{H} \subset TM$ is a distribution of rank $k$. Then $ \mathcal{H} $ is smooth if and only if for every point $ p\in M $ there is a neighborhood $ U $ of that point where exist $n-k$ smooth 1-forms $ \omega^1,\dots,\omega^{n-k}, $ such that for all $ q\in U $,
 
 	$$ \mathcal{H}_q = \operatorname{Ker} \omega^1|_q\cap \cdots \cap\operatorname{Ker} \omega^{n-k}|_q.  $$ 
 \end{prop}
+\end{frame}
+
+\begin{frame}[fragile]
+	
 \begin{prop} [Distribution (using local frames)]
 	$ \mathcal{H}\subset TM $ is a smooth distribution over $M  $ if and only if  for each point $ p\in M $, there is an open neighborhood $ U $ of $ p $  and smooth vector fields $ X_1,\dots,X_n: U \rightarrow {TM} $ that at each point  $ q\in U $ form a base for $ \mathcal{H}_q. $ 
 \end{prop}
@@ -151,17 +135,10 @@ Any smooth vector field $ X: M \rightarrow {TM} $ which does not vanish  determi
 \end{frame}
 % ====================================
 \subsection{Frobenius' theorem}
-\begin{frame}[fragile]
+\begin{frame}[fragile, allowframebreaks]
 	\begin{df}[Integral manifold]
 	Given a smooth distribution $ \mathcal{H} \subset TM$, we say that a nonempty immersed submanifold $ N\subseteq M $  is an \textit{integral manifold} of $\mathcal{H}$ if $ T_p N = \mathcal{H}_p $ for all $ p\in N $.
 \end{df}
-\begin{ex}[Orthogonal complement of a given vector field]
-Let $ \mathcal{H} $ be the distribution over $ \mathbb{R}^n $ determined by the radial vector field $ x^i \partial / \partial x^i $, and let $ \mathcal{H}^\perp $ be its perpendicular bundle, \textit{i.e.,} the distribution whose fibers are the orthogonal complement of the fibers of $ \mathcal{H}. $ $ \mathcal{H}^\perp $ is a distribution over $ \mathbb{R}^n  $, and the sphere centered at $0$, of radius $r>0$, is an integral submanifold of $ \mathcal{H}^\perp. $        
-\end{ex}
-
-\end{frame}
-
-\begin{frame}[fragile]
 	\begin{df}[Involutive distribution]
 A smooth distribution $ \mathcal{H} $ is said to be \textit{involutive} if given any pair of smooth vector fields $ X,Y $ defined on a open subset $ U $  of $ M $  that satisfy $X_p,Y_p\in \mathcal{H}_p $, $ p\in U, $ their Lie bracket also satisfies the same condition, \textit{i.e.}, it is tangent to the distribution in the given open subset. 
 \end{df}
@@ -171,6 +148,11 @@ A smooth distribution $ \mathcal{H} $ is said to be \textit{involutive} if given
 \begin{rem}
 Every integrable distribution is involutive.	
 \end{rem}
+\begin{ex}[Orthogonal complement of a given vector field]
+Let $ \mathcal{H} $ be the distribution over $ \mathbb{R}^n $ determined by the radial vector field $ x^i \partial / \partial x^i $, and let $ \mathcal{H}^\perp $ be its perpendicular bundle, \textit{i.e.,} the distribution whose fibers are the orthogonal complement of the fibers of $ \mathcal{H}. $ $ \mathcal{H}^\perp $ is a distribution over $ \mathbb{R}^n  $, and the sphere centered at $0$, of radius $r>0$, is an integral submanifold of $ \mathcal{H}^\perp. $        
+\end{ex}
+
+
 \end{frame}
 
 \begin{frame}[fragile]
@@ -196,26 +178,17 @@ Every integrable distribution is involutive.
 	Every involutive distribution is completely integrable.	
 \end{thm}
 \end{frame}
-\begin{frame}[fragile]
-\begin{prop}[Local structure of integral manifolds]\label{prop:local_structure}
-	Let $ \mathcal{H} $ be an involutive distribution of rank $ k $ on a smooth manifold $ M $, and let $ (U,\varphi) $ be a flat chart for $ \mathcal{H} $. If $ N $ is any connected integral manifold of $ \mathcal{H}, $ then $ \varphi(U\cap N) $ is the union of countably many disjoint open subsets of parallel $ k $-dimensional slices of $ \varphi(U) $, whose preimages are open in $ N $ and embedded in $ M $.
-\end{prop}
-\begin{figure}
-    \centering
-    \incfig[0.8]{local_structure}
-    \caption{Local structure of an integral manifold.}
-    \label{fig:local_structure}
-\end{figure}
-\end{frame}
 
 \begin{frame}[fragile,allowframebreaks]
-	\begin{df}[Chart flat for a collection of submanifolds]
-	A smooth chart $ (U,\varphi) $ for $ M $ is called \textit{flat for a collection $ \mathcal{F} $ of $ k- $dimensional submanifolds of $ M $} if $ \varphi(U) $ is a cube in $ \mathbb{R}^m, $ and the image of each submanifold via $ \varphi $ intersects $ \varphi(U) $ in either the empty set or in a countable union of $ k- $dimensional slices of the form $ x^{k+1}=c^{k+1},\dots,x^m=c^m. $   
-\end{df}
-
 \begin{df}[Foliation]
 	A \textit{foliation of dimension $ k $ on a smooth manifold $ M $} is a collection $ \mathcal{F} $ of disjoint, connected, nonempty, immersed $ k $-dimensional submanifolds of $ M $ (called the \textit{leaves} of the foliation), whose union is $ M $, and such that in a neighborhood of each point $ p\in M $ there is a flat chart for $ \mathcal{F}. $  
 \end{df}
+\begin{rem}
+	If $ \mathcal{F} $ is a foliation on a smooth manifold $ M, $ the collection of tangent spaces to the leaves of $ \mathcal{F} $ forms an involutive distribution on $ M. $
+\end{rem}
+\begin{thm}[Global Frobenius theorem]
+	Let $ \mathcal{H} $ be an involutive distribution on a smooth manifold $ M. $ The collection of all maximal connected integral manifolds of $ \mathcal{H} $ forms a foliation of $ M. $ 
+\end{thm}
 \begin{ex}[Collection of affine subspaces]
 	The collection of all $ k $-dimensional affine subspaces of $ \mathbb{R}^m $ parallel to $ \mathbb{R}^k\times \left\{ 0 \right\} $ is a $ k $-dimensional foliation for $ \mathbb{R}^m. $ 
 \end{ex}
@@ -232,12 +205,6 @@ Every integrable distribution is involutive.
 	The torus $ T= \mathbb{S}^1\times \mathbb{S}^1 $ can be endowed with the distribution induced by the cartesian product of manifolds. In this case, the foliation is conformed by copies of $ \mathbb{S}^1. $ The horizontal curves are segments of this copies, and if two points lay in different copies, there is not a horizontal curve that connects them.
 \end{ex}
 
-\begin{rem}
-	If $ \mathcal{F} $ is a foliation on a smooth manifold $ M, $ the collection of tangent spaces to the leaves of $ \mathcal{F} $ forms an involutive distribution on $ M. $
-\end{rem}
-\begin{thm}[Global Frobenius theorem]
-	Let $ \mathcal{H} $ be an involutive distribution on a smooth manifold $ M. $ The collection of all maximal connected integral manifolds of $ \mathcal{H} $ forms a foliation of $ M. $ 
-\end{thm}
 \begin{rem}
 	In general, for an given distribution there is no smooth horizontal curve that connects an arbitrary pair of points, because the points can be in different leaves of the foliation given by the distribution.
 \end{rem}
@@ -264,7 +231,7 @@ Every integrable distribution is involutive.
 
 \begin{df}[Length of a horizontal curve]
 	The length of a horizontal curve $ \gamma $ is	
-	$$ \ell(\gamma)= \int || \dot{\gamma}|| dt = \int \sqrt[]{ \langle \dot{\gamma},\dot{\gamma} \rangle}.  $$ 
+	$$ \ell(\gamma)= \int || \dot{\gamma}|| dt = \int \sqrt[]{ \langle \dot{\gamma},\dot{\gamma} \rangle}dt.  $$ 
 \end{df}
 \begin{df}[Distance]\label{df:horizontal_distance}
 	The \textit{distance between two points} $ p,q\in M $, denoted by $ d(p,q), $   is defined as the infimum of the lengths of all absolutely continuous horizontal curves that begin in $ p $ and end in $ q $, that is, 
@@ -285,9 +252,6 @@ The distance between two points is said to be infinite if there is no horizontal
 \begin{thm}[Chow's Theorem]
 	If $ \mathcal{H} $ is a bracket-generating distribution on a connected manifold $ M $, then any two points of $ M $ can be connected by a horizontal path.
 \end{thm}
-\begin{rem}
-	The converse of Chow's theorem is false in general. That is, if any two points in $ (M,\mathcal{H}) $ can be connected through horizontal curves, it is not true that $ \mathcal{H} $ is bracket-generating. 
-\end{rem}
 \begin{ex}[Cartan's Distribution]\label{ex:cartan_distribution}
 	Consider the distribution over $ \mathbb{R}^3 $ determined by the smooth vector fields $ \partial /\partial x + z \partial / \partial y, \partial/\partial z. $ As 
 	$$ \left[ \frac{\partial}{\partial z}, \frac{\partial}{\partial x}+z \frac{\partial}{\partial y}    \right] = \frac{\partial}{\partial y}  $$ 
@@ -301,11 +265,6 @@ The distance between two points is said to be infinite if there is no horizontal
 	$$ \left[\left[ \frac{\partial }{\partial x} + y^2 \frac{\partial }{\partial z} , \frac{\partial }{\partial y}  \right], \frac{\partial }{\partial y} \right] = -2 \frac{\partial }{\partial z}.  $$ 
 	Given that $ T \mathbb{R}^3 = \operatorname{span} \left\{ \partial/\partial x+ y^2\partial/\partial z, \partial/\partial y, -2\partial/\partial z \right\},  $ the distribution is bracket-generating, and by Chow's theorem any two points in $ \mathbb{R}^3 $ can be connected by a horizontal path. 
 \end{ex}
-\begin{ex}[Contact Distribution on $ \mathbb{R}^{2n+1} $]
-	The contact distribution on $ \mathbb{R}^{2n+1} $ generalizes the Cartan's distribution of example \ref{ex:cartan_distribution} when $ n=1 $. Let $ (x_1,\dots,x_n,y_1,\dots, y_n,z) $ be coordinates on $ \mathbb{R}^{2n+1} $. The contact distribution is generated by the 1-form $ \omega = dz+ x_i dy_i$, or equivalently by the vector fields $ \partial/ \partial y_i, \partial/ \partial x_i+ y_i \partial/\partial z, $ for $ i=1,\dots, n. $ The rank of this distribution is $ 2n, $ but as 
-	$$ \left[ \frac{\partial }{\partial y_i} , \frac{\partial }{\partial x_i} + y_i \frac{\partial }{\partial z}  \right] = \frac{\partial }{\partial z},  $$ 
-	this distribution is bracket-generating, and by Chow's theorem any pair of point in $ \mathbb{R}^{2n+1} $ can be connected through an horizontal curve.
-\end{ex}
 \end{frame}
 % =============================
 \section{Sub-Riemannian metrics on bundles}
@@ -313,18 +272,8 @@ The distance between two points is said to be infinite if there is no horizontal
 \label{sub:ehresmann_connection}
 
 \begin{frame}[allowframebreaks]
-	\begin{df}[Vertical space]
-	Given a submersion $ \pi:Q \rightarrow {M}, $ the \textit{vertical space at $ q\in Q $}, denoted as $ V_q $, is the tangent space to the fiber $ Q_m, $ with $ m=\pi(q), $ that is,  
-	\end{df}
-	\begin{rem}
-The collection of vertical spaces is a distribution $ V \subset TQ $ that assigns to each $ q\in Q $ the space $ V_q. $ The distribution is by construction integrable, and its integral manifolds are the fibers $ Q_m, $ $ m\in \pi(Q). $ 
-	\end{rem}
-	\begin{df}[Connection for a submersion]
-	A \textit{connection for a submersion} $ \pi:Q \rightarrow {M} $ is a distribution that is everywhere transverse to the vertical one, that is,  
-	$$ V_q \oplus \mathcal{H}_q = T_q Q,\ \text{for all } q\in Q. $$ 
-	\end{df}
 	\begin{df}[Sub-Riemannian structure induced on the total space]
-	If $ M $ is endowed with a metric $ g $, the sub-Riemannian structure $ (\mathcal{H},\langle \cdot, \cdot\rangle) $ induced by the Riemannian structure $ (M,g) $ is given by
+	Given a submersion $ \pi: Q \rightarrow M $, if $ M $ is endowed with a metric $ g $, the sub-Riemannian structure $ (\mathcal{H},\langle \cdot, \cdot\rangle) $ induced over $ Q $  by the Riemannian structure $ (M,g) $ is given by
 $$ \langle v,w \rangle_q = g_{\pi(q)} \left( d\pi_q(v), d\pi_q(w) \right), \text{ for all }q\in Q \text{ and } v,w\in \mathcal{H}_q.   $$ 
 	\end{df}
 	\begin{df}[Horizontal lift]
@@ -352,31 +301,7 @@ $$ \langle v,w \rangle_q = g_{\pi(q)} \left( d\pi_q(v), d\pi_q(w) \right), \text
 \label{sub:metrics_on_principal_bundles}
 
 \begin{frame}[fragile, allowframebreaks]
-	\begin{df}[Fiber bundle]
-	Let $ M, G, Q $ be manifolds. A \textit{(locally trivial) fiber bundle} over $ M $ with fiber $ G $ is a manifold $ Q, $ together with a smooth surjective map $ \pi: Q \rightarrow {M} $ with the property that for each $ x\in M $ there is a neighborhood $ U $ of $ x $ and a diffeomorphism $ \phi:\pi^{-1}(U) \rightarrow {U\times G,} $ called a local trivialization of $ Q $ over $ U, $ such that the following diagram commutes:
- \begin{center}
- 	\begin{tikzcd}[ampersand replacement=\&]
-\pi^{-1}(U) \arrow[rd, "\pi"'] \arrow[rr, "\phi"] \&   \& U\times G \arrow[ld, "\operatorname{proj}_U"] \\
-                                                  \& U \&           
-\end{tikzcd}
- \end{center}
- $ Q $ is called the \textit{total space of the bundle}, $ M $ the \textit{base}, $ G $ the \textit{standard fiber},  and $ \pi $ the \textit{projection}.   
-\end{df}	
-\begin{df}[Action of a Lie group over a manifold]
-For a Lie group $ G $ and a manifold $ Q, $ a \textit{group right action or an action on the right} is a smooth application $ \alpha:  Q\times G \rightarrow Q $, denoted by $ \alpha(q,g) = q \cdot g, $ such that:
-
-\begin{enumerate}
-	\item For all $ q\in Q, $ $ q\cdot e = q $, where $ e $ is the identity element of $ G. $   
-	\item For all $ g,h\in G $ and $ q\in Q $, $ (q\cdot g) \cdot h =q\cdot(gh). $ 
-\end{enumerate}
-
-We say that the action $ \alpha $ \textit{is free (or that $ G $ acts freely on $ Q $)} if for every $ q\in Q $, $ q\cdot g =q$   implies that $ g=e. $
-
-The \textit{orbit $ G_q $ of the action}  for a point $ q\in Q $  is defined as the image of the restriction $\alpha|_{\{q\}\times G},$  that is, $ G_q := \left\{q\cdot g \ | \ g\in G \right\}. $
-
-We can construct an equivalence relation over $ Q $ in the following way: $ q\sim p $ if and only if $ G_p = G_q $. The set of all equivalence classes is denoted as $ Q/G $, and is known as the \textit{orbit space of the action}.     
-\end{df}
-\begin{df}[Principal $ G $-bundle]\label{df:principalGbundle}
+	\begin{df}[Principal $ G $-bundle]\label{df:principalGbundle}
 	The submersion $ \pi: Q \rightarrow M$  is called a \textit{principal $ G $-bundle} if its is a fiber bundle whose fiber $ G $ is a Lie group, and this group acts on $ Q $ in such a way that the following properties hold:
 	\begin{enumerate}
 		\item $ G $ acts freely on $ Q $.
@@ -393,10 +318,6 @@ We can construct an equivalence relation over $ Q $ in the following way: $ q\si
 \begin{prop}
 	Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection and $ c: I \rightarrow M $ a smooth curve. For an arbitrary $ q\in Q_{c(0)}= G_q $, there is a unique horizontal lift $ \gamma: I \rightarrow Q $ of $ c $ ($\pi\circ\gamma =c$, $ \dot{\gamma}(t)\in \mathcal{H}_{\gamma(t)} $ for all $ t\in I $) that starts from $ q $.    	
 \end{prop}
-\begin{df}[Metric of bundle type]
-	Let $ M $ be endowed with a Riemannian metric. A sub-Riemannian metric $  \langle\cdot,\cdot\rangle $ defined on the sub-bundle $ \mathcal{H} $  of the tangent space of the total space of the principal $ G $-bundle $ \pi: Q \rightarrow {M}
-	$ is called a \textit{metric of bundle type} if it is an induced sub-Riemannian structure with respect to the submersion $ \pi $ and the metric on $ M $.
-\end{df}
 \begin{ex}[Trivial bundle]
 	Let $ M $ be a manifold and $ G $ a Lie group. The projection $ \pi: M \times G \rightarrow M $ is a principal $ G $-bundle with connection $ \mathcal{H}= \operatorname{Ker}(  d \operatorname{proj}_G), $ 	where $ \operatorname{proj}_G : M\times G \rightarrow G. $ 
 \end{ex}
@@ -407,101 +328,6 @@ We can construct an equivalence relation over $ Q $ in the following way: $ q\si
 \subsection{Theorem on normal geodesics of bundle type sub-Riemannian metrics}%
 \label{sub:theorem_on_normal_geodesics_of_bundle_type_sub_riemannian_metrics}
 \begin{frame}[allowframebreaks, fragile]
-	
-\begin{df}[Symplectic structure]
-	Let $ M $ be an even-dimensional manifold. A \textit{symplectic structure on $ M $ } is a closed non-degenerate differential 2-form $ \omega $ on $ M $, that is, 
-	\begin{enumerate}
-		\item $ d\omega=0 $,
-		\item $\forall \xi \neq 0: \ \omega_m(\xi,\cdot)\neq0 \ (\xi\in T_m M)$, $ \forall m \in M. $  
-	  
-	\end{enumerate}
-	The non-degeneracy condition is equivalent to $ \operatorname{det} \omega_m\neq 0, \forall m\in M $. The pair $ (M,\omega) $ is called a \textit{symplectic manifold}. 
-\end{df}
-\begin{rem}
-	The symplectic structure on $ M $ induces an isomorphism between $ T_mM $ and $ T_m^*M $ for all $ m\in M, $ because it is non-degenerate. 
-\end{rem}
-\begin{df}[Observable]
-	Given a symplectic manifold  $ (M,\omega) $, an \textit{observable (or Hamiltonian)} is a smooth function $ H: M \rightarrow \mathbb{R}. $
-\end{df}
-\begin{df}[Hamiltonian vector field]
-	For a given Hamiltonian $ H: M \rightarrow \mathbb{R} $, the vector field $ X_H\in \mathfrak{X}(M) $ that satisfies $$ dH = \omega(X_H, \cdot) $$ is called \textit{Hamiltonian vector field} for $ H $, or \textit{symplectic gradient} of $ H. $ 
-\end{df}
-\begin{thm}
-	For any manifold $ M, $ the cotangent bundle $ T^*M $ has a natural symplectic structure given in coordinates by $\omega = dq^i\wedge dp_i.$
-\end{thm}
-\begin{prop}
-	The integral curves of the Hamiltonian vector field $ X_H $ are solutions of the Hamilton equations:
- $$\dot{q^i} = \frac{\partial H}{\partial p_i}, \quad \dot{p_i} =- \frac{\partial H}{\partial q^i}.    $$
-\end{prop}
-\begin{thm}
-The Hamiltonian $ H: T^*M \rightarrow \mathbb{R} $ is constant along the integral curves of the vector field $ X_H. $ 	
-\end{thm}
-\begin{df}[Momentum function]
-	For any vector field $ \xi\in \mathfrak{X}(M), $ we define its \textit{ momentum function $ P_\xi:T^*M \rightarrow \mathbb{R} $} by
-	$$ P_\xi(\alpha)= \alpha(\xi(\pi(\alpha))). $$ 
-\end{df}
-\begin{prop}
-	If $ Y\in \mathfrak{X}(M) $, and $ \Phi_t: M \rightarrow M $ is its flow, then the Hamiltonian vector field of its momentum function $ P_Y $ is 
-$$ X_{P_Y} = \frac{d(\Phi_t)_{T^*}}{dt} \Big|_{t=0},  $$ 
-where 
-$$ (\Phi^{-1})^*_{\Phi(q)}(p)(\eta) = p \left( d\Phi^{-1}_{\Phi(q)}(\eta) \right) $$ 
-is the cotangent lift of $ \Phi_t. $ 
-\end{prop}
-\begin{df}[Poisson bracket]
-	Let $ M $ be a symplectic manifold, and $ f,g: M \rightarrow \mathbb{R} $ be two observables. We define the \textit{Poisson bracket of $ f $ and $ g $} as 
-	$$ \left\{ f,g \right\}= X_g(f)=\omega(X_f,X_g),$$ 
-	where $ X_g  $ is the Hamiltonian vector field associated with $ g. $ 
-\end{df}
-	The Poisson bracket satisfies the following properties for $ f,g,h: M \rightarrow \mathbb{R},$ and $ a,b\in \mathbb{R} $:
-	\begin{enumerate}
-		\item $ \left\{ f,g \right\} = -\left\{ g,f \right\},$ 
-		\item $ \left\{ af+bg,h \right\} = a\left\{ f,g \right\}+ b \left\{ g,h \right\} ,   $ 
-		\item $ \left\{ f, \left\{ g,h \right\}  \right\} +\left\{ h, \left\{ f,g \right\}  \right\} + \left\{ g, \left\{ h,f \right\}  \right\} =0, $  
-		\item $ \left\{ f,gh \right\} =g \left\{ f,h \right\} + \left\{ f,g \right\} h,$ 
-	\end{enumerate}
-
-\begin{prop}[Hamilton equations in bracket form]\label{prop:HEBF}
-	If $ c(t) $ is an integral curve for $ X_H $ and $ f\in C^\infty(T^*M) $ is an observable, then
-	\begin{equation}\label{eq:HamEq}
-		\frac{d}{dt} \left( f\circ c \right)(t) = \left\{ f,H \right\} (c(t)).
-	\end{equation}
-\end{prop}
-\begin{prop}[Poisson bracket of momentum functions]\label{prop:poisson_bracket_momentum}
-	For any two vector fields $ \xi,\eta \in \mathfrak{X}(M) $ with momentum functions $ P_\xi, P_\eta: T^*M \rightarrow \mathbb{R}, $ we have that
-	$$ \left\{ P_\xi,P_\eta \right\} = -P_{[\xi,\eta]}, $$ 
-	where $ [\xi,\eta] $ is the Lie bracket between $ \xi $ and $ \eta, $ and $ P_{[\xi,\eta]} $ is the momentum function of $ [\xi,\eta]\in \mathfrak{X}(M). $  
-\end{prop}
-\begin{df}[Riemannian Hamiltonian]
-	If $ (M,g) $ is a (sub-)Riemannian structure, we define the (sub-)Riemannian Hamiltonian $ H_{(s)R}: T^*M \rightarrow \mathbb{R} $ as	
-	$$ H_{(s)R}(p) = \frac{1}{2} g_{\pi(p)}(p,p), $$ where $ \pi: T^*M \rightarrow M $ is the cotangent bundle.
-\end{df}
-\begin{prop}\label{prop:geo}
-	If $ (M,g) $ is a (sub-)Riemannian manifold, and $ H_{(s)R}: T^*M \rightarrow \mathbb{R} $ is its (sub-)Riemannian Hamiltonian, $ q(t) $ is a (normal) geodesic if and only if $ (q^i(t), g_{ij}(q(t))\dot{q^j}(t)) $ is an integral curve of $ X_{H_{(s)R}}. $ 
-\end{prop}
-\begin{prop}
-	If $ \pi: Q \rightarrow M $ is a submersion endowed with an Ehresmann connection $ \mathcal{H} $  and $ (M,g) $ is a Riemannian manifold, the induced sub-Riemannian Hamiltonian is given by $H_{sR}= H_R \circ \operatorname{pr},$ where $ \operatorname{pr}= \operatorname{pr_2}\circ \operatorname{pr_1}, $ $ \operatorname{pr_1} : T^*Q \rightarrow \mathcal{H}^*  $, $ \operatorname{pr_2} : \mathcal{H}^* \rightarrow T^*M, \ \operatorname{pr_2}(\alpha)(v)= \alpha(h_{\pi_{T^*Q}(\alpha)}v).  $  
-\end{prop}
-\begin{df}[$G$-invariant metric]
-	Let $ (M,g) $ be a Riemannian manifold, and $G $ a Lie group that acts on $ M $ via the application $ \alpha: M\times G \rightarrow M, $ $ \alpha(m,h)= m\cdot h. $ We say that \textit{the metric $ g $ is $ G $-invariant} if  
-	$$ g_{m\cdot h}((d\alpha_h)_m(v),(d\alpha_h)_m(w))=g_m(v,w), $$ 
-	for all $ m\in M, $ $ v,w\in T_mM $ and $ h\in G. $ 
-\end{df}
-\begin{df}[Infinitesimal generator map]
-Let $ \mathfrak{g}= \operatorname{Lie}(G)=T_eG, $ and $ \operatorname{exp} : \mathfrak{g}\rightarrow G $ be the exponential application. \textit{The infinitesimal generator map for the group action $ \sigma_v: Q\rightarrow T_qQ $ }, for $ v \in \mathfrak{g} $,  is defined as
-$$ \sigma_v(q) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} \left( q\cdot \operatorname{exp} (\epsilon v) \right).$$ 
- \end{df}
- \begin{df}[Moment of inertia tensor]
-	For a given $ q\in Q, $ the bilinear form on $ \mathfrak{g}, $ $ \mathbb{I}_q: \mathfrak{g}\times \mathfrak{g}\rightarrow \mathbb{R}, $ given by
-	$$ \mathbb{I}_q(v,w) = h_q(\sigma_v q, \sigma_w q) $$ 
-	is called the \textit{moment of inertia tensor at $ q. $ } 
- \end{df}
- \begin{df}[Adjoint invariant form]
-	Let $ G $ be a Lie group. A bilinear form $ \beta \in \Lambda^2(\mathfrak{g}) $ is called \textit{bi-invariant} or \textit{adjoint invariant} if
-	$$ \beta \left( \operatorname{Ad}_g v, \operatorname{Ad}_g w \right) = \beta(v,w) \text{ for all }g\in G,\ v,w\in \mathfrak{g}. $$ 
-\end{df}
-\begin{df}
-	[Metric of constant bi-invariant type] The $ G $-invariant Riemannian metric (or pseudometric) $ h $ on $ Q $ is said to be of \textit{constant bi-invariant type} if its inertia tensor $ \mathbb{I}_q $ equals the same bi-invariant bilinear form on $ \mathfrak{g}, $ for all $q\in Q. $ 
-\end{df}
 \begin{thm}[On normal geodesics of bundle type sub-Riemannian metrics]\label{thm:normal_geodesics}
 	%kk
 	Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}. $ Suppose that $ Q $ is a Riemannian manifold such that its metric is a Riemannian submersion, compatible with $ \mathcal{H}, $ $ G $-invariant, and its associated vertical metric has constant bi-invariant type. Therefore, given any geodesic $\gamma: I \rightarrow Q, $ the horizontal lift of $ \pi\circ\gamma $ is a sub-Riemannian geodesic. All sub-Riemannian geodesics can be obtained in this manner. Moreover, the projected curve $ \pi\circ\gamma$ is a geodesic in the base space $ M $ if and only if $ \gamma $ is a horizontal geodesic in $ (Q, \mathcal{H}). $ 
@@ -514,9 +340,6 @@ $$ \sigma_v(q) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} \left( q\cdot \operatorn
 \label{sub:associated_bundles}
 
 \begin{frame}[allowframebreaks]
-\begin{df}[Representation of a Lie group on a vector space]
-	Let $ G $ be a Lie group. A \textit{representation of $ G $ on a vector space $ E $} is a Lie group homomorphism $ \rho: G \rightarrow \operatorname{GL} (E). $ 
-\end{df}
 \begin{df}[Associated bundle]
 	Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle, and $ \rho: G \rightarrow \operatorname{GL}(E) $ be a representation of $ G $ on a vector space $ E. $ Consider the right action on $ Q\times E $ given by $ (q,v)\cdot g = (q\cdot g, \rho(g^{-1})v). $  The orbit space associated to this action is denoted as $ (Q\times E)/G $, $ Q\times_\rho E $ or $ \rho(Q). $  A point of $ \rho(Q) $ corresponding to the orbit of $ (q,v) $ is written as $ [q,v] $ or $ qv. $  
 
@@ -533,23 +356,19 @@ The associated bundle of the frame bundle $ \pi: Q \rightarrow M $ is $ \xi: R \
 \begin{ex}
 	If $ \pi:Q \rightarrow M $ is the frame bundle of some vector bundle $ \xi: R \rightarrow M, $ then $ \operatorname{Ad}(Q) $ can be identified with the bundle whose fiber over $ m\in M $ is the space of linear maps on $ \xi_m $ in the sense that $ \operatorname{Ad} (Q)_m \cong \operatorname{Hom}(\xi_m,\xi_m),  $ because $ \operatorname{Ad}(Q)_m\cong \mathfrak{gl}(n, \mathbb{R}).  $ 
 \end{ex}
-\begin{df}[$G$-equavariant map]\label{df:equivariant}
-	Let $ Q $ be a manifold, $ G $ a Lie group that acts on $ Q $, $ E $ a vector space and $ \rho: G \rightarrow GL(E) $ a representation of $ G $ on $ E $. We say that $ F: Q \rightarrow E $ is \textit{$G$-equivariant} if $ F(q\cdot g) = \rho(g^{-1})F(q). $ The set of all $ G $-equivariant maps will be denoted as $ C_G(Q,E). $  
-\end{df}
-\begin{prop}\label{prop:equiv_section_equivariant}
-	
-If $ \pi: Q \rightarrow M $ is a principal $ G $-bundle and $ \rho: G \rightarrow \operatorname{GL} (E) $ is a representation  of $ G, $ the module of sections of $ \rho(Q) \rightarrow M $ is in one-to-one correspondence with $ C_G(Q,E). $
+\begin{prop}[Wong's equations]
+	$ \alpha: I \rightarrow T^*Q $ is a geodesic if and only if it satisfies Wong's equations
+	\begin{align}
+		\nabla_{\dot{c}}\dot{c} =& -(\lambda(i_{\dot{c}}\Omega))^\#,\\
+		D_{\dot{c}}\lambda =& 0.
+	\end{align}
 \end{prop}
-
-\begin{ex}
-	A function $ \xi: Q \rightarrow \mathfrak{g}  $ which is $ \operatorname{Ad}  $-invariant, meaning that $ \xi(q\cdot g)= \operatorname{Ad}_{g^{-1}}\xi(q) $, defines a section of the adjoint bundle. 
+\begin{ex}[Abelian case]
+	If the structure group $ G $ of the principal $ G $-bundle $ \pi: Q \rightarrow M $ is abelian,
+	$$  D_{\dot{c}}\lambda = d( \operatorname{proj}_{ \mathfrak{g}^*}\circ \lambda\circ\pi(\dot{c}))=0. $$ 
+	If $ M = \mathbb{R}^3 $ is endowed with the Euclidean metric, $ \operatorname{dim} (G)=1 $, $ \Omega= i_B(dx\wedge dy\wedge dz) $ and $ B\in \mathfrak{X}(M), $ second Wong's equation is in coordinates 
+	$$ \frac{d P_i}{dt} =\lambda (P\times B)_i. $$ 
 \end{ex}
-\begin{df}[$k$-form]
-	A \textit{$ k $-form $ \omega $ with values in the associated bundle $ \rho(Q) $} is a multilinear totally skew assignation, taking $ v_1,\dots, v_k\in T_mM $ to a vector $ \omega_m(v_1,\dots,v_k)\in \rho(Q)_m. $  We denote as $ \Omega^k(M, \rho(Q)) $ the space of these forms.
-\end{df}
-\begin{prop}\label{prop:isomorphism_vb}
-	The map $ \sigma: \operatorname{Ad} (Q) = (Q\times \mathfrak{g})/G \rightarrow V/G $, $ [q,v] \mapsto [\sigma_v(q)], $  is an isomorphism between vector bundles over $ M. $ 
-\end{prop}
 \end{frame}
 
 % =============================
