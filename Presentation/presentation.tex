@@ -66,7 +66,7 @@ Julián Jiménez Cárdenas}
     \hspace{1em}%
     \insertframenumber/\inserttotalframenumber
 }
-
+\beamertemplatenavigationsymbolsempty
 \begin{document}
 \begin{frame}
 \maketitle
@@ -209,6 +209,29 @@ Let $ \mathcal{H} $ be the distribution over $ \mathbb{R}^n $ determined by the 
 	In general, for an given distribution there is no smooth horizontal curve that connects an arbitrary pair of points, because the points can be in different leaves of the foliation given by the distribution.
 \end{rem}
 \end{frame}
+\subsection{Chow's theorem}
+\begin{frame}[fragile, allowframebreaks]
+	\begin{df}[Bracket-generating distribution]
+	A distribution $ \mathcal{H}\subset TM $ is called \textit{bracket-generating} if for every $ p\in M $, there is a local frame $ X_1,\dots,X_k: U \rightarrow {TM} $ of $ \mathcal{H} $ such that 
+	$$ TU = \operatorname{span}\left\{ [X_{i_1},\dots,[X_{i_{j-1}},X_{i_j}]]\ : \ i_1,\dots,i_j=1,\dots,k;\ j\in \mathbb{N} \right\}.  $$ 
+\end{df}
+\begin{thm}[Chow's Theorem]
+	If $ \mathcal{H} $ is a bracket-generating distribution on a connected manifold $ M $, then any two points of $ M $ can be connected by a horizontal path.
+\end{thm}
+\begin{ex}[Cartan's Distribution]\label{ex:cartan_distribution}
+	Consider the distribution over $ \mathbb{R}^3 $ determined by the smooth vector fields $ \partial /\partial x + z \partial / \partial y, \partial/\partial z. $ As 
+	$$ \left[ \frac{\partial}{\partial z}, \frac{\partial}{\partial x}+z \frac{\partial}{\partial y}    \right] = \frac{\partial}{\partial y}  $$ 
+	and $ T \mathbb{R}^3 = \operatorname{span}\{  \partial/\partial x + z \partial / \partial y, \partial/\partial z, \partial/\partial y\} $, Cartan's distribution is bracket-generating, so by Chow's theorem any two points in $ \mathbb{R}^3 $ can be connected by a horizontal path.
+\end{ex}
+\begin{ex}[Martinet Distribution]
+	Consider the distribution on $ \mathbb{R}^3 $ determined by the smooth vector fields $ \partial/\partial x+y^2\partial/\partial z, \partial/\partial y $. The Lie bracket of the two vector fields that generate this distribution is  
+
+	$$ \left[ \frac{\partial }{\partial x} + y^2 \frac{\partial }{\partial z} , \frac{\partial }{\partial y}  \right] =-2y \frac{\partial }{\partial z}, $$ 
+	and 
+	$$ \left[\left[ \frac{\partial }{\partial x} + y^2 \frac{\partial }{\partial z} , \frac{\partial }{\partial y}  \right], \frac{\partial }{\partial y} \right] = -2 \frac{\partial }{\partial z}.  $$ 
+	Given that $ T \mathbb{R}^3 = \operatorname{span} \left\{ \partial/\partial x+ y^2\partial/\partial z, \partial/\partial y, -2\partial/\partial z \right\},  $ the distribution is bracket-generating, and by Chow's theorem any two points in $ \mathbb{R}^3 $ can be connected by a horizontal path. 
+\end{ex}
+\end{frame}
 
 % ===============================================
 \section{Sub-Riemannian geometry}
@@ -242,29 +265,6 @@ The distance between two points is said to be infinite if there is no horizontal
 	Given a sub-Riemannian structure $ (\mathcal{H}, \langle\cdot,\cdot\rangle) $ over a manifold $ M $  (or Riemannian structure, if $ \mathcal{H}=TM $), it is said that an absolutely continuous horizontal curve $ \gamma:  [a,b] \rightarrow M$, with $ \gamma(a)=p, \gamma(b)=q $ is a \textit{geodesic} if it realizes the distance between $ p $ and $ q $, that is,   
 	$ \ell(\gamma)= d(p,q). $ 
 \end{df}
-\end{frame}
-\subsection{Chow's theorem}
-\begin{frame}[fragile, allowframebreaks]
-	\begin{df}[Bracket-generating distribution]
-	A distribution $ \mathcal{H}\subset TM $ is called \textit{bracket-generating} if for every $ p\in M $, there is a local frame $ X_1,\dots,X_k: U \rightarrow {TM} $ of $ \mathcal{H} $ such that 
-	$$ TU = \operatorname{span}\left\{ [X_{i_1},\dots,[X_{i_{j-1}},X_{i_j}]]\ : \ i_1,\dots,i_j=1,\dots,k;\ j\in \mathbb{N} \right\}.  $$ 
-\end{df}
-\begin{thm}[Chow's Theorem]
-	If $ \mathcal{H} $ is a bracket-generating distribution on a connected manifold $ M $, then any two points of $ M $ can be connected by a horizontal path.
-\end{thm}
-\begin{ex}[Cartan's Distribution]\label{ex:cartan_distribution}
-	Consider the distribution over $ \mathbb{R}^3 $ determined by the smooth vector fields $ \partial /\partial x + z \partial / \partial y, \partial/\partial z. $ As 
-	$$ \left[ \frac{\partial}{\partial z}, \frac{\partial}{\partial x}+z \frac{\partial}{\partial y}    \right] = \frac{\partial}{\partial y}  $$ 
-	and $ T \mathbb{R}^3 = \operatorname{span}\{  \partial/\partial x + z \partial / \partial y, \partial/\partial z, \partial/\partial y\} $, Cartan's distribution is bracket-generating, so by Chow's theorem any two points in $ \mathbb{R}^3 $ can be connected by a horizontal path.
-\end{ex}
-\begin{ex}[Martinet Distribution]
-	Consider the distribution on $ \mathbb{R}^3 $ determined by the smooth vector fields $ \partial/\partial x+y^2\partial/\partial z, \partial/\partial y $. The Lie bracket of the two vector fields that generate this distribution is  
-
-	$$ \left[ \frac{\partial }{\partial x} + y^2 \frac{\partial }{\partial z} , \frac{\partial }{\partial y}  \right] =-2y \frac{\partial }{\partial z}, $$ 
-	and 
-	$$ \left[\left[ \frac{\partial }{\partial x} + y^2 \frac{\partial }{\partial z} , \frac{\partial }{\partial y}  \right], \frac{\partial }{\partial y} \right] = -2 \frac{\partial }{\partial z}.  $$ 
-	Given that $ T \mathbb{R}^3 = \operatorname{span} \left\{ \partial/\partial x+ y^2\partial/\partial z, \partial/\partial y, -2\partial/\partial z \right\},  $ the distribution is bracket-generating, and by Chow's theorem any two points in $ \mathbb{R}^3 $ can be connected by a horizontal path. 
-\end{ex}
 \end{frame}
 % =============================
 \section{Sub-Riemannian metrics on bundles}
@@ -318,11 +318,17 @@ $$ \langle v,w \rangle_q = g_{\pi(q)} \left( d\pi_q(v), d\pi_q(w) \right), \text
 \begin{prop}
 	Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection and $ c: I \rightarrow M $ a smooth curve. For an arbitrary $ q\in Q_{c(0)}= G_q $, there is a unique horizontal lift $ \gamma: I \rightarrow Q $ of $ c $ ($\pi\circ\gamma =c$, $ \dot{\gamma}(t)\in \mathcal{H}_{\gamma(t)} $ for all $ t\in I $) that starts from $ q $.    	
 \end{prop}
+\end{frame}
+\begin{frame}
 \begin{ex}[Trivial bundle]
 	Let $ M $ be a manifold and $ G $ a Lie group. The projection $ \pi: M \times G \rightarrow M $ is a principal $ G $-bundle with connection $ \mathcal{H}= \operatorname{Ker}(  d \operatorname{proj}_G), $ 	where $ \operatorname{proj}_G : M\times G \rightarrow G. $ 
 \end{ex}
 \begin{ex}[Hopf fibration]
-	The Hopf projection $ \pi: \mathbb{S}^3 \rightarrow \mathbb{S}^2 $ is a principal $ \mathbb{S}^1  $-bundle with connection $ \mathcal{H}_{q} = \langle(x_2,-y_2,-x_1,y_1),(y_2,x_2,-y_1,-x_1)\rangle,  $ where  	$ q=(x_1+iy_1, x_2+iy_2). $   
+	\begin{enumerate}
+		\item The Hopf projection $ \pi: \mathbb{S}^3 \rightarrow \mathbb{S}^2 $, $ r=a+bi+cj+dk \mapsto rir^* $  is a principal $ \mathbb{S}^1  $-bundle. 
+		\item $ \mathbb{S}^1 $ acts on $ \mathbb{S}^3 $ via the map $ \alpha: \mathbb{S}^3\times \mathbb{S}^1 \rightarrow \mathbb{S}^3, \ (z_1,z_2,e^{i\theta}) \mapsto (z_1e^{i\theta},z_2e^{i\theta}), $ so that the fibers are of the form $ \pi^{-1}(x)= \left\{ re^{i\theta}\ |\ \theta\in(0,2\pi] \right\},  $ with $ r\in \pi^{-1}(x). $
+		\item Hopf projection can be endowed with a connection finding the orthogonal complement of the tangent space to the fibers, which corresponds to $ \mathcal{H}_{q} = \langle(x_2,-y_2,-x_1,y_1),(y_2,x_2,-y_1,-x_1)\rangle,  $ where  	$ q=(x_1+iy_1, x_2+iy_2). $   
+	\end{enumerate}
 \end{ex}
 \end{frame}
 \subsection{Theorem on normal geodesics of bundle type sub-Riemannian metrics}%
@@ -335,27 +341,9 @@ $$ \langle v,w \rangle_q = g_{\pi(q)} \left( d\pi_q(v), d\pi_q(w) \right), \text
 \end{frame}
 % =============================
 \section[Yang-Mills]{Classical particles in Yang-Mills fields}%
-\label{sec:classical_particles_in_yang_mills_fields}
-\subsection{Associated bundles}%
-\label{sub:associated_bundles}
-
-\begin{frame}[allowframebreaks]
-\begin{df}[Associated bundle]
-	Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle, and $ \rho: G \rightarrow \operatorname{GL}(E) $ be a representation of $ G $ on a vector space $ E. $ Consider the right action on $ Q\times E $ given by $ (q,v)\cdot g = (q\cdot g, \rho(g^{-1})v). $  The orbit space associated to this action is denoted as $ (Q\times E)/G $, $ Q\times_\rho E $ or $ \rho(Q). $  A point of $ \rho(Q) $ corresponding to the orbit of $ (q,v) $ is written as $ [q,v] $ or $ qv. $  
-
-	\textit{The associated bundle of $ \pi:Q \rightarrow M $ } is the vector bundle $ \pi_{ \rho(Q)}: \rho(Q) \rightarrow M $ with fiber $ E, $ where $ \pi_{\rho(Q)}(qv)=\pi(q). $ The sum between two elements $ qv,qw$ in the same fiber is $ q(v+w). $  
-\end{df}	
-\begin{ex}[Frame bundle]
-	Let $ \xi: R \rightarrow M $ be a real vector bundle of rank $ n $, and $ \pi: Q \rightarrow M $ the principal $ \operatorname{GL} (n, \mathbb{R}) $-bundle whose fibers are	
-$$ \pi^{-1}(m) = \left\{ q: \mathbb{R}^n \rightarrow \xi^{-1}(m) \ | \ q\in \operatorname{Isom}( \mathbb{R}^n, \xi^{-1}(m)) \right\}.  $$
-The associated bundle of the frame bundle $ \pi: Q \rightarrow M $ is $ \xi: R \rightarrow M. $ 
-\end{ex}
-\begin{ex}[Adjoint bundles]
-	Given a principal $ G $-bundle $ \pi: Q \rightarrow M $ and the adjoint representation $ \operatorname{Ad}^{(*)}: G \rightarrow \mathfrak{g}^{(*)}  $,  we can construct the associated bundles $ \operatorname{Ad}(Q) $ and $ \operatorname{Ad}^*(Q), $ called \textit{adjoint and co-adjoint bundles of $ \pi:Q \rightarrow M $, } respectively. These two bundles are \textit{dual vector bundles over $ M $,} which means that fibers of $  \operatorname{Ad}^*(Q)$ are the dual spaces to the fibers of $ \operatorname{Ad} (Q). $ 
-\end{ex}
-\begin{ex}
-	If $ \pi:Q \rightarrow M $ is the frame bundle of some vector bundle $ \xi: R \rightarrow M, $ then $ \operatorname{Ad}(Q) $ can be identified with the bundle whose fiber over $ m\in M $ is the space of linear maps on $ \xi_m $ in the sense that $ \operatorname{Ad} (Q)_m \cong \operatorname{Hom}(\xi_m,\xi_m),  $ because $ \operatorname{Ad}(Q)_m\cong \mathfrak{gl}(n, \mathbb{R}).  $ 
-\end{ex}
+\subsection{Wong's equations}%
+\label{sub:wong_s_equations}
+\begin{frame}
 \begin{prop}[Wong's equations]
 	$ \alpha: I \rightarrow T^*Q $ is a geodesic if and only if it satisfies Wong's equations
 	\begin{align}
