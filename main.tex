@@ -282,7 +282,7 @@
         Facultad de Ciencias \\
         Universidad de los Andes\\
         Bogotá, Colombia\\
-        July 11, 2022
+        July 16, 2022
             
     \end{center}
 \end{titlepage}
@@ -291,27 +291,32 @@
 \tableofcontents
 \newpage
 \begin{abstract}
-	The goal of this work is to introduce the main theorems of sub-Riemannian geometry. We first cover the concept of distributions, stating the Frobenius theorem and introducing the idea of foliation. Later on, we focus on sub-Riemannian structures, and prove Chow theorem, central in the study of connectivity through horizontal geodesics. The last part of this thesis focuses on $ G $-principal bundles endowed with compatible sub-Riemannian structures. We use this construction with ideas of symplectic geometry to prove the Theorem on normal geodesics of bundle type sub-Riemannian metrics and to study Wong equations. This review of sub-Riemannian topics is based mostly on \cite{montgomery2002tour}.
+		The goal of this work is to explain the elements of sub-Riemannian geometry and present some of its applications. We start with the concept of distribution, then explain the Frobenius theorem. After that we focus on sub-Riemannian structures, and prove the Chow theorem, central in the study of connectivity through horizontal geodesics. In the last part of the thesis we consider the $ G $-principal bundles endowed with compatible sub-Riemannian structures, prove the theorem on normal geodesics of bundle type sub-Riemannian metrics, and study Wong's equations. Our exposition is based mostly on \cite{montgomery2002tour}.
 \end{abstract}
 \newpage
 \pagenumbering{arabic}
 \section*{Introduction}
 \label{sec:0}
 
-Riemannian geometry is an intense field of study due to the fact that it is the generalization of the idea of metric and distance from vector spaces onto manifolds. This characteristic makes Riemannian geometry one of the preferred formalisms to work in physics topics like general relativity and quantum mechanics. In this field we start with a manifold, endowed with a metric, which is a section of the $ (0,2) $-tensor bundle that is symmetric and non-degenerate at all points of the manifold. The non-degeneracy condition can be weakened, and this variation of the definition of Riemannian metric arises the field of study known as pseudo-Riemannian metric. Some important examples raise up in this alternative theory, like the Lorentz/Minkowski geometry, the most widely used metric in special relativity. An extensive mathematical development of pseudo-Riemannian geometry can be found on \cite{o1983semi}.
+Riemannian geometry is an intense field of study due to the fact that it provides a generalization of the idea of distance from euclidean space to manifolds. 
+This characteristic makes Riemannian geometry one of the preferred formalisms to work in physics topics like general relativity and quantum mechanics. 
+In Riemannian geometry we start with a manifold endowed with a \emph{a metric tensor field} $g$, where $g$ is a $(0,2)$-tensor field that is symmetric and positive definite at all points of the manifold. 
 
-Another variation of Riemannian metric arises when the condition of being a section of the $(0,2)$-tensor bundle is weakened to consider instead a continuous map $F: TM \rightarrow \mathbb{R}$, smooth on the set of nonzero vectors, whose restriction to each tangent space $T_pM$ is a norm \cite[p.~47]{lee2018introduction}. This definition is known as Finsler metric. An approach to the consequences of this definition can be found on \cite{bao2012introduction}.
+If we replace the condition "positive definite'' with the condition ``non-degenerate'' we arrive at the field of study known as pseudo-Riemannian geometry. Some important examples raise up in this alternative theory, like the Lorentz/Minkowski geometry used in special relativity. 
+An extensive mathematical development of pseudo-Riemannian geometry can be found on \cite{o1983semi}.
 
-The variation of  the Riemannian geometry theory that will be covered throughout this text arises when we consider a sub-bundle (called distribution) of the tangent bundle of a given manifold: in this case, the metric will be a section of the $ (0,2) $-tensor bundle of this sub-bundle, with the same properties as the ones used in Riemannian geometry (non-degeneracy and symmetry). This formulation receives the name of sub-Riemannian geometry, and it will be the main focus of this text. Before introducing the concept of sub-Riemannian structure, in Section \ref{sec:1} we focus on explaining the idea of distribution, their different definitions and associated results. To do this, we define a distribution in terms of local frames and 1-forms, we explain when a distribution is involutive, integrable and completely integrable, and use the Frobenius theorem to connect these three concepts, while discussing when the points of a given manifold are connected via horizontal curves, \textit{i.e.}, curves whose tangent vector is always contained in the distribution.
+Another variation of Riemannian metric arises when the condition of being a section of the $(0,2)$-tensor bundle is weakened to consider instead a continuous map $F: TM \rightarrow \mathbb{R}$, smooth on the set of nonzero vectors, whose restriction to each tangent space $T_pM$ is a norm \cite[p.~47]{lee2018introduction}. This Definition is known as Finsler metric (see e.\, g. \cite{bao2012introduction}).
 
-Later on, in Section \ref{sec:sub-Riemannian_geometry} we introduce the concept of sub-Riemannian structure, and define the horizontal distance as the infimum of the length of all horizontal curves that connect two given points in the manifold, in analogy with Riemannian distance. We then introduce the bracket-generating distributions as a special class of distribution such that there is a local frame that locally spans the tangent bundle through successive applications of Lie brackets, and we state and show the Chow theorem, which states that a sufficient condition for all points to be connected through horizontal curves is that the distribution is bracket-generating. Therefore, the distance between two points in a sub-Riemannian structure is always well-defined when the subjacent distribution is bracket-generating. 
+The variation of  the Riemannian geometry theory that will be covered throughout this text arises when we consider a sub-bundle (called distribution) of the tangent bundle of a given manifold: in this case, the metric tensor field will be a section of the $ (0,2) $-tensor bundle of this sub-bundle, with the same properties as the ones used in Riemannian geometry (non-degeneracy and symmetry). This formulation receives the name of sub-Riemannian geometry, and it will be the main focus of this text. Before introducing the concept of sub-Riemannian structure, in Section \ref{sec:1} we introduce the concept of distribution on manifold, describe distributions in terms of local frames and 1-forms, explain when a distribution is involutive, integrable and completely integrable, and use the Frobenius theorem to connect these three concepts, while discussing when the points of a given manifold are connected via horizontal curves, \textit{i.e.}, curves whose tangent vector is always contained in the distribution.
 
-In order to work with principal $ G $-bundles endowed with metric of bundle type, Section \ref{sub:metrics_on_principal_bundles} starts introducing what is a submersion, and explains how to endow it with a sub-Riemannian structure in the total space (equivalently, a Riemannian structure in the base space). With these tools, we start the topic of metrics on principal bundles explaining aspects of Lie groups and their actions, and we give some examples of principal $ G $-bundles in Section \ref{sub:examples_of_principal_g_bundles}. 
+In Section \ref{sec:sub-Riemannian_geometry} we introduce the concept of sub-Riemannian structure, and define the horizontal distance as the infimum of the length of all horizontal curves that connect two given points in the manifold, in analogy with Riemannian distance. We define the bracket-generating distributions characterized by the property that taking the span of the vector fields obtained by the successive application of the Lie bracket to the vector fields tangent to the distribution we get the tangent bundle, then we state and prove the Chow theorem, which states that a sufficient condition for all points to be connected through horizontal curves is that the distribution is bracket-generating. Therefore, the distance between two points in a sub-Riemannian structure is always well-defined when the corresponding distribution is bracket-generating. 
 
-Following the steps of Riemannian geometry, in Section \ref{sub:theorem_on_normal_geodesics} we proceed studying the normal geodesics associated to sub-Riemannian structures, and in order to do that we make a brief introduction to symplectic geometry. This will allow to use the Hamiltonian formalism to characterize the horizontal geodesics as integral curves of the vector field associated to the sub-Riemannian Hamiltonian, which is defined in the same way than the Riemannian Hamiltonian, using the sub-Riemannian metric instead. With this formalism we proceed proving the Theorem on normal geodesics of bundle type sub-Riemannian metrics, which provides a way to identify normal (horizontal) geodesics in the (base) total space for a principal $ G $-bundle whose metric satisfies some special properties.
+Section \ref{sub:metrics_on_principal_bundles} is devoted to the study of sub-Riemannian metrics on bundles.
+We start with Definition of a submersion, and explain how to endow it with a sub-Riemannian structure in the total space (equivalently, a Riemannian structure in the base space). With these tools, we study metrics on principal bundles in Subsection~\ref{sub:metrics_on_principal_bundles}, and give some examples of principal $ G $-bundles in Section \ref{sub:examples_of_principal_g_bundles}. 
 
-The cases where the conditions of the Theorem on normal geodesics of bundle type sub-Riemannian metrics do not apply are covered in Section \ref{sec:classical_particles_in_yang_mills_fields}, where we characterize the normal horizontal geodesics of a principal $ G $-bundle using the Wong equations. These are a family of differential equations over the quotient of the cotangent space and the action of the Lie group $ G $ over it.
-\section{Distributions}
+Following the steps of Riemannian geometry, in Section \ref{sub:theorem_on_normal_geodesics} we proceed studying the normal geodesics associated to sub-Riemannian structures, and in order to do that we make a brief introduction to symplectic geometry. This will allow to use the Hamiltonian formalism to characterize the horizontal geodesics as integral curves of the vector field associated to the sub-Riemannian Hamiltonian, which is defined in the same way than the Riemannian Hamiltonian, using the sub-Riemannian metric instead. With this formalism we proceed proving a theorem on normal geodesics of bundle type sub-Riemannian metrics, which provides a way to identify normal (horizontal) geodesics in the (base) total space for a principal $ G $-bundle whose metric satisfies some special properties.
+
+The cases where the conditions of the Theorem on normal geodesics of bundle type sub-Riemannian metrics do not apply are covered in Section \ref{sec:classical_particles_in_yang_mills_fields}, where we characterize the normal horizontal geodesics of a principal $ G $-bundle using the Wong equations, a system of differential equations on the quotient of the total space of the cotangent bundle with respect to the action of the Lie group $ G $ over it.\section{Distributions}
 \label{sec:1}
 
 \subsection{Distributions and Horizontal Curves}%
@@ -339,13 +344,13 @@ equipped with manifold structure given by that of $ M. $ It is called a bundle b
 
 
 
-There is another important class of smooth vector bundles, namely, the tensor bundles, that are defined following \cite{wendl2008lecture}, examples 2.4 and 2.5.
-\begin{df} 
+There is another important class of smooth vector bundles, namely, the tensor bundles, which will be covered next.
+\begin{df}[\cite{wendl2008lecture}, Example 2.4] 
 	If $ (E,M,\pi:E \rightarrow {M}) $ is a smooth vector bundle, the \textit{dual bundle} of this bundle is another smooth vector bundle $ (E^*,M,\pi^*:E^*\rightarrow {M}) $, whose fibers are the dual spaces to the fibers of $ E, $ that is,
 	$$ (\pi^{*})^{-1}(p)=(\pi^{-1}(p))^*, \text{ for all }p\in M,$$ 
 	and $$ E^* =\bigsqcup_{p\in M} (\pi^*)^{-1}(p). $$ 
 \end{df}
-\begin{df}
+\begin{df}[\cite{wendl2008lecture}, Example 2.5]
 	If $ (E,M,\pi:E \rightarrow {M}) $ is a smooth vector bundle, the \textit{$ (k,l)- $tensor bundle} associated to this bundle, with $ k,l\geq0 $, is defined as the smooth vector bundle $ (T^k_l E, M, \pi_{kl}: T^k_l E \rightarrow {M}) $, whose fibers are the vector spaces of $ (k,l) -$tensors of the fibers of $ E, $ that is,     
 	$$ \pi_{kl}^{-1}(p) = T^k_l \pi^{-1}(p)=\left( \bigotimes_{j=1}^l (\pi^{*})^{-1}(p)\right)\otimes \left( \bigotimes_{j=1}^k \pi^{-1}(p) \right), \text{ for all }p\in M, $$ 
 	and
@@ -375,7 +380,7 @@ are a morphism of vector bundles.
 	The fiber of $ \mathcal{H} $ at a point $ p\in M $ is denoted as $ \mathcal{H}_p. $ 
 \end{df}
 
-The concept of distribution can be defined in an alternative but equivalent  fashion using 1-forms (see \cite{lee2003introduction}, Ch. 19, lemma 19.5) with the help of the following proposition.
+The concept of distribution can be defined in an alternative but equivalent  fashion using 1-forms (see \cite{lee2003introduction}, Ch. 19, Lemma 19.5) with the help of the following Proposition.
 
 \begin{prop}[Distribution (using 1-forms)]
 	Suppose that $ M $ is a smooth $ m- $dimensional manifold, and $ \mathcal{H} \subset TM$ is a distribution of rank $k$. Then $ \mathcal{H} $ is smooth if and only if for every point $ p\in M $ there is a neighborhood $ U $ of that point where exist $n-k$ smooth 1-forms $ \omega^1,\dots,\omega^{n-k}, $ such that for all $ q\in U $,
@@ -383,7 +388,7 @@ The concept of distribution can be defined in an alternative but equivalent  fas
 	$$ \mathcal{H}_q = \operatorname{Ker} \omega^1|_q\cap \cdots \cap\operatorname{Ker} \omega^{n-k}|_q.  $$ 
 \end{prop}
 
-The following proposition gives an alternative way to represent a smooth distribution in terms of local frames (\cite{lee2003introduction}, Ch. 19, page 491).
+The next proposition gives an alternative way to represent a smooth distribution in terms of local frames (\cite{lee2003introduction}, Ch. 19, page 491).
 
 \begin{prop} [Distribution (using local frames)]
 	$ \mathcal{H}\subset TM $ is a smooth distribution over $M  $ if and only if  for each point $ p\in M $, there is an open neighborhood $ U $ of $ p $  and smooth vector fields $ X_1,\dots,X_n: U \rightarrow {TM} $ that at each point  $ q\in U $ form a base for $ \mathcal{H}_q. $ 
@@ -454,7 +459,7 @@ Let $ \Gamma(\mathcal{H}) $ be the set of all smooth vector fields globally defi
 \end{df}
 It is clear then that \textit{every integrable distribution is involutive}, because every pair of smooth vector fields tangent to $ \mathcal{H}, $ defined over an open set $ U\subset M $, satisfy that their Lie bracket is also tangent to $ \mathcal{H} $ in that open set. This can be seen noticing that there exists a integral manifold $ N $  of $ \mathcal{H} $ for every point of $ U $ such that the pair of smooth vector fields are tangent to $ N $, and in consequence, their Lie bracket is also tangent to $ N. $  
 
-In fact, the involutivity condition does not need to be checked for all smooth vector fields on $ \Gamma( \mathcal{H}), $ as it suffices to check if the Lie brackets of pairs of smooth vector fields of the local frame that determines the distribution are tangent to it (\cite{lee2003introduction}, lemma 19.4).
+In fact, the involutivity condition does not need to be checked for all smooth vector fields on $ \Gamma( \mathcal{H}), $ as it suffices to check if the Lie brackets of pairs of smooth vector fields of the local frame that determines the distribution are tangent to it (\cite{lee2003introduction}, Lemma 19.4).
 
 \begin{lm}[Local frame criterion for involutivity] 
 	Let $ \mathcal{H}\subset TM $ be a distribution. If for every point in $ M $ there is a neighborhood where there exists a local smooth frame $ (X_1,\dots, X_k) $ for $ \mathcal{H} $ such that $ [X_i,X_j] $ is a section of $ \mathcal{H} $ for each $ i,j, $ then $ \mathcal{H} $ is involutive.
@@ -537,13 +542,13 @@ The next proposition is one of the main consequences of Frobenius theorem, and i
     \label{fig:local_structure}
 \end{figure}
 
-\begin{proof}(\cite{lee2003introduction}, Ch. 19, proposition 19.16)
+\begin{proof}(\cite{lee2003introduction}, Ch. 19, Proposition 19.16)
 	Let $ N $ be an integral manifold of $ \mathcal{H}. $ Since the inclusion map $ \iota: N \hookrightarrow M $ is continuous, $ \varphi( \iota^{-1}(U))=\varphi(N\cap U) $  is open in $ \varphi(N) $. Then, $ \varphi(U\cap N) $ is the union of open slices (\textit{i.e.}, open subsets of a slice of $ \varphi(U)$) with $ x_i=\text{constant} $, for $ i=k+1,\cdots,m.$ Moreover, this union is at most countable, because $ N $ is second countable, and since $ \varphi(N\cap U) $ is a union of open slices, $ \pi(\varphi(U\cap N)) $ consists of a countable number of points (recall that $ \pi: \varphi(U) \rightarrow \mathbb{R}^{m-k} $ is the projection onto the last $ m-k $ coordinates) in $ \mathbb{R}^{m-k}, $ which implies that the union of open slices is at most countable.  
 
 	Finally, if $ V $ is an open slice in the slice $ S, $ the inclusion map $ \varphi^{-1}(V) \hookrightarrow M $ is a smooth embedding, because it is the composition of smooth embeddings $ \varphi^{-1}(V)\hookrightarrow \varphi^{-1}(S) \hookrightarrow M.$ 
 \end{proof}
 
-The last proposition implies that one can put all the maximal integral manifolds of an involutive distribution of rank $ k $  together to obtain a partition on $ M $ into $ k $-dimensional submanifolds that satisfy the following definition.
+Proposition \ref{prop:local_structure} implies that one can put all the maximal integral manifolds of an involutive distribution of rank $ k $  together to obtain a partition on $ M $ into $ k $-dimensional submanifolds that satisfy the following definition.
 \begin{df}
 	A smooth chart $ (U,\varphi) $ for $ M $ is called \textit{flat for a collection $ \mathcal{F} $ of $ k- $dimensional submanifolds of $ M $} if $ \varphi(U) $ is a cube in $ \mathbb{R}^m, $ and the image of each submanifold via $ \varphi $ intersects $ \varphi(U) $ in either the empty set or in a countable union of $ k- $dimensional slices of the form $ x^{k+1}=c^{k+1},\dots,x^m=c^m. $   
 \end{df}
@@ -576,16 +581,16 @@ From the definition of foliations, it is clear that \textit{if $ \mathcal{F} $ i
 	Let $ \mathcal{H} $ be an involutive distribution on a smooth manifold $ M. $ The collection of all maximal connected integral manifolds of $ \mathcal{H} $ forms a foliation of $ M. $ 
 \end{thm}
 
-The next lemma (\cite{lee2003introduction}, Ch. 19, lemma 19.22) is going to be used to prove this theorem.
+The next lemma (\cite{lee2003introduction}, Ch. 19, Lemma 19.22) is going to be used to prove this theorem.
 
 \begin{lm}\label{lm:man_struct}
 	Suppose that $ \mathcal{H}\subset TM $ is an involutive distribution, and let $ \left\{ N_\alpha \right\}_{\alpha\in A} $ be any collection of connected integral manifolds of $ \mathcal{H} $ with a point in common. Then, $ N=\bigcup_{\alpha} N_\alpha $ has a unique smooth manifold structure making it into a connected integral manifold of $ \mathcal{H}. $  
 \end{lm}
 
 \begin{proof}[Proof of the global Frobenius theorem]
-	(\cite{lee2003introduction}, Ch. 19, theorem 19.21) For each $ p\in M $, let $ L_p $ be the union of all connected integral manifolds of $ \mathcal{H} $ containing $ p. $ By lemma \ref{lm:man_struct}, $ L_p $ is a connected integral manifold of $ \mathcal{H} $ containing $ p $, and it is clearly maximal. By maximality, if $ L_p $ and $ L_{p'} $ intersect, $ L_p=L_{p'} $, because $ L_p\cup L_{p'} $ is an integral manifold containing both $ p $ and $ p' $. Thus, the maximal connected integral manifolds are either disjoint or identical.    
+	(\cite{lee2003introduction}, Ch. 19, theorem 19.21) For each $ p\in M $, let $ L_p $ be the union of all connected integral manifolds of $ \mathcal{H} $ containing $ p. $ By Lemma \ref{lm:man_struct}, $ L_p $ is a connected integral manifold of $ \mathcal{H} $ containing $ p $, and it is clearly maximal. By maximality, if $ L_p $ and $ L_{p'} $ intersect, $ L_p=L_{p'} $, because $ L_p\cup L_{p'} $ is an integral manifold containing both $ p $ and $ p' $. Thus, the maximal connected integral manifolds are either disjoint or identical.    
 
-	If $ (U,\varphi) $ is any flat chart for $ \mathcal{H}, $ then $ \varphi(L_p\cap U) $ is a countable union of open subsets of slices (by proposition \ref{prop:local_structure}). For any such slice $ S, $ if $ \varphi(U\cap L_p)\cap S $ is neither empty nor entire $ S, $ then $ L_p\cup \varphi^{-1}(S )$ is a connected integral manifold properly containing $ L_p, $ which contradicts the maximality of $ L_p. $ Therefore, $ \varphi(L_p\cap U) $ is precisely a countable union of slices, so the collection $ \left\{ L_p\ : \ p\in M \right\} $ is the desired foliation.
+	If $ (U,\varphi) $ is any flat chart for $ \mathcal{H}, $ then $ \varphi(L_p\cap U) $ is a countable union of open subsets of slices (by Proposition \ref{prop:local_structure}). For any such slice $ S, $ if $ \varphi(U\cap L_p)\cap S $ is neither empty nor entire $ S, $ then $ L_p\cup \varphi^{-1}(S )$ is a connected integral manifold properly containing $ L_p, $ which contradicts the maximality of $ L_p. $ Therefore, $ \varphi(L_p\cap U) $ is precisely a countable union of slices, so the collection $ \left\{ L_p\ : \ p\in M \right\} $ is the desired foliation.
 \end{proof}
 
 With the global Frobenius theorem, one can answer the question at the beginning of this subsection: in general, for an given distribution there is no smooth horizontal curve that connects an arbitrary pair of points, because the points can be in different leaves of the foliation given by the distribution.
@@ -624,14 +629,14 @@ $$ d(p,q) = \operatorname{inf} \left\{ \ell(\gamma) \ |\ \gamma:[0,1] \rightarro
 The distance between two points is said to be infinite if there is no horizontal curve joining them.
 \end{df}
 
-The curves that are considered in definition \ref{df:horizontal_distance} are required to be absolutely continuous, which is a weaker condition than smoothness in the sense that the former kind of curve is differentiable in almost all points of its domain, not necessarily in all its domain. Nevertheless, the distance remains the same if we consider instead the set of all smooth curves (see \cite{montgomery2002tour}, page 23), but the motivation to consider the bigger set of absolutely continuous curves is due to the fact that the curves that realize the distance between two points are not always smooth.
+The curves that are considered in Definition \ref{df:horizontal_distance} are required to be absolutely continuous, which is a weaker condition than smoothness in the sense that the former kind of curve is differentiable in almost all points of its domain, not necessarily in all its domain. Nevertheless, the distance remains the same if we consider instead the set of all smooth curves (see \cite{montgomery2002tour}, page 23), but the motivation to consider the bigger set of absolutely continuous curves is due to the fact that the curves that realize the distance between two points are not always smooth.
 
 \begin{df}
 	Given a sub-Riemannian structure $ (\mathcal{H}, \langle\cdot,\cdot\rangle) $ over a manifold $ M $  (or Riemannian structure, if $ \mathcal{H}=TM $), it is said that an absolutely continuous horizontal curve $ \gamma:  [a,b] \rightarrow M$ is a \textit{geodesic} if it locally minimizes distances, that is, there exists some $ \epsilon>0 $ such that $ d(\gamma(t_1),\gamma(t_2))=\ell(\gamma|_{t_1}^{t_2}) $, whenever $ |t_1-t_2|<\epsilon. $  
 \end{df}
 
 
-\subsection{Chow Theorem}%
+\subsection{Chow's Theorem}%
 \label{sub:chow_s_theorem}
 
 The section \ref{sub:frobenius_theorem} provides a class of (involutive) distributions where it is not true that every two points can be connected through a horizontal curve.  Now, it is worthwhile to ask for a sufficient condition for a distribution to guarantee the connectedness property through horizontal curves. To formulate such a condition, we need to make a preliminary discussion on bracket-generating distributions.
@@ -659,7 +664,7 @@ The section \ref{sub:frobenius_theorem} provides a class of (involutive) distrib
 	which is the desired result.	
 \end{proof}
 
-Chow theorem guarantees that any bracket-generating distribution over a connected manifold has the connectedness property through horizontal curves, and we are going to derive this result in the rest of this section, following closely the procedure of \cite{montgomery2002tour}, Section 2.4. First of all, choose a base point $ p\in M $ and a local orthonormal frame field $ X_i $, $ i=1,\dots, k $ for the distribution $ \mathcal{H} $. Let $ \Phi_i $ be the flow of $ X_i $. These flows can be used to move in the horizontal directions (points connected to $ p $ through integral curves of the orthonormal frame), using the formula $ \Phi_i(t)(q)=q+tX_i(q)+O(t^2), $ for sufficiently small $ t. $ 
+Chow's theorem guarantees that any bracket-generating distribution over a connected manifold has the connectedness property through horizontal curves, and we are going to derive this result in the rest of this section, following closely the procedure of \cite{montgomery2002tour}, Section 2.4. First of all, choose a base point $ p\in M $ and a local orthonormal frame field $ X_i $, $ i=1,\dots, k $ for the distribution $ \mathcal{H} $. Let $ \Phi_i $ be the flow of $ X_i $. These flows can be used to move in the horizontal directions (points connected to $ p $ through integral curves of the orthonormal frame), using the formula $ \Phi_i(t)(q)=q+tX_i(q)+O(t^2), $ for sufficiently small $ t. $ 
 
 The assignments $ t\mapsto \Phi_i(t)(q) $ are horizontal curves for the distribution $ \mathcal{H}, $ and are called \textit{simple horizontal curves.} As the frame is orthonormal, the length of a simple horizontal curve with $ 0\leq t\leq \epsilon  $ is $ \epsilon. $   
 
@@ -672,7 +677,7 @@ We can move in the remaining directions along horizontal paths by successive app
 $$ \mathcal{H}^2 := \mathcal{H}\oplus [\mathcal{H},\mathcal{H}],\quad \mathcal{H}^{r+1} := \mathcal{H}^r\oplus [\mathcal{H}, \mathcal{H}^r], $$
 where
 $$ \left[ \mathcal{H}, \mathcal{H}^j \right]:= \operatorname{span} \left\{ [X,Y] \ | \ X\in \mathcal{H},\ Y \in \mathcal{H}^j \right\}, \text{ for }j=1,2,\dots  $$ 
-The movement in the $ \mathcal{H}^2/\mathcal{H} $ directions can be made along horizontal paths by applying the commutators $ \Phi_{ij}(t):= [\Phi_i(t),\Phi_j(t)] $ to $ p. $ As $ \Phi_{ij}(t)(p)=p+t^2[X_i, X_j](p) $ (by lemma \ref{lm:approx}) if $ |t|\leq\epsilon, $ we will move by an amount $ \epsilon^2 $ in the $ \mathcal{H}^2/\mathcal{H} $ directions. This process is done inductively until exhausting the entire tangent space. Let $ I=(i_1,i_2,\dots,i_n), $ $ 1\leq i_j\leq k $, and $ X_I:=[X_{i_1}, X_J], $ where $ J=(i_2,\dots,i_n), $  so that $ X_I $ is the iteration of $ n $ Lie brackets. Similarly, define flows $ \Phi_I(t):=[\Phi_{i_1}(t), \Phi_J(t)] $. By successive application of lemma \ref{lm:approx}, we have that   
+The movement in the $ \mathcal{H}^2/\mathcal{H} $ directions can be made along horizontal paths by applying the commutators $ \Phi_{ij}(t):= [\Phi_i(t),\Phi_j(t)] $ to $ p. $ As $ \Phi_{ij}(t)(p)=p+t^2[X_i, X_j](p) $ (by Lemma \ref{lm:approx}) if $ |t|\leq\epsilon, $ we will move by an amount $ \epsilon^2 $ in the $ \mathcal{H}^2/\mathcal{H} $ directions. This process is done inductively until exhausting the entire tangent space. Let $ I=(i_1,i_2,\dots,i_n), $ $ 1\leq i_j\leq k $, and $ X_I:=[X_{i_1}, X_J], $ where $ J=(i_2,\dots,i_n), $  so that $ X_I $ is the iteration of $ n $ Lie brackets. Similarly, define flows $ \Phi_I(t):=[\Phi_{i_1}(t), \Phi_J(t)] $. By successive application of Lemma \ref{lm:approx}, we have that   
 $$ \Phi_I(t)= \mathbb{1} +t^n X_I+ O(t^{n+1}).$$ 
 Due to the bracket-generating condition over any local frame of the distribution, we can select a local frame for the entire tangent bundle amongst the $ X_I, $ letting $ n $ and $ i_1,\dots,i_n $ vary accordingly. We choose such a frame and relabel it as $ Y_i, $ $ i=1,\dots,m, $ in a way that it satisfies: $ Y_1=X_1,\dots, Y_k=X_k $ span $ \mathcal{H} $ near $ p, $ $ \left\{ Y_1,\dots,Y_{n_2} \right\} $ span $ \mathcal{H}^2 $ near $ p, $ $ \left\{ Y_1,\dots,Y_{n_2},\dots,Y_{n_3} \right\} $ span $ \mathcal{H}^3 $ near $ p $,  and so on. The tuple $ (k,n_2,n_3,\dots, n_r) $ is called the \textit{growth vector of the distribution at $ p $}, and the smallest integer $ r $ is called the \textit{step or degree of nonholonomy of the distribution at $ p. $ }   
 
@@ -684,7 +689,7 @@ We relabel the flows $ \Phi_I $ in a similar fashion, so that $ \Phi_i $ is the 
 $$ \Phi_i(t)(p)=p+t^{w_i}X_i(p)+ O(t^{w_i+1}), $$ 
 so $ \Phi_i(t)(p) $ lies in the Euclidean box of volume $ \epsilon^{w_i} $, in the $ \mathcal{H}^{w_i} $ directions. From this we can deduct that the sub-Riemannian ball $ B(\epsilon,p) $ contains an Euclidean coordinate box whose sides are of order $ \epsilon^{w_i} $ in the $ i $-th direction. This result is known as the ball-box theorem, and it will be stated and proved after the following definitions.
 
-\begin{df}[\cite{montgomery2002tour}, definition 2.4.1] 
+\begin{df}[\cite{montgomery2002tour}, Definition 2.4.1] 
 	Coordinates $ y_1,\dots,y_m $ are said to be \textit{linearly adapted to the distribution $\mathcal{H}$ at $ p $ } if $ \mathcal{H}^i(p):= \{ X(p) \ | \ X$ is a section of $\mathcal{H}$ defined on $p$$\}$ is annihilated by the differentials $ dy_{n_i+1},\dots, dy_m $ at $ p, $ where $ n_i=n_i(p) $ are the coordinates of the growth vector at $ p. $  
 \end{df}
 \begin{df}
@@ -737,9 +742,9 @@ Each curve in $ F( \operatorname{Box} (\epsilon) )$ is the endpoint of a horizon
 $$ F( \operatorname{Box} (\epsilon)) \subset B(M\epsilon, p), $$ 
 from where we get that $ \operatorname{Box}^w (c\epsilon)\subset B(\epsilon,p). $ 
 \end{proof}
-The remaining containment in the Ball-Box theorem will not be proved in this text, as the proof of Chow theorem only requires the first containment. The proof of the remaining containment can be found in \cite{montgomery2002tour}, section 2.7.
+The remaining containment in the Ball-Box theorem will not be proved in this text, as the proof of Chow's theorem only requires the first containment. The proof of the remaining containment can be found in \cite{montgomery2002tour}, section 2.7.
 
-With the Ball-Box theorem, Chow theorem can be derived easily.
+With the Ball-Box theorem, Chow's theorem can be derived easily.
 
 \begin{thm}[Chow Theorem]
 	If $ \mathcal{H} $ is a bracket-generating distribution on a connected manifold $ M $, then any two points of $ M $ can be connected by a horizontal path.
@@ -752,9 +757,9 @@ With the Ball-Box theorem, Chow theorem can be derived easily.
 \begin{ex}[Cartan's Distribution]\label{ex:cartan_distribution}
 	Consider the distribution over $ \mathbb{R}^3 $ determined by the 1-form $\omega =dy- zdx $, or in dual manner, by the smooth vector fields $ \partial /\partial x + z \partial / \partial y, \partial/\partial z. $ From its definition it is clear that the Cartan distribution is of rank 2, so we can not know beforehand if any two pair of points can be connected through a horizontal curve. Nevertheless, as 
 	$$ \left[ \frac{\partial}{\partial z}, \frac{\partial}{\partial x}+z \frac{\partial}{\partial y}    \right] = \frac{\partial}{\partial y}  $$ 
-	and $ T \mathbb{R}^3 = \operatorname{span}\{  \partial/\partial x + z \partial / \partial y, \partial/\partial z, \partial/\partial y\} $, Cartan distribution is bracket-generating, so by Chow theorem any two points in $ \mathbb{R}^3 $ can be connected by a horizontal path.
+	and $ T \mathbb{R}^3 = \operatorname{span}\{  \partial/\partial x + z \partial / \partial y, \partial/\partial z, \partial/\partial y\} $, the Cartan distribution is bracket-generating, so by Chow's theorem any two points in $ \mathbb{R}^3 $ can be connected by a horizontal path.
 
-	The horizontal path whose existence is guaranteed by Chow theorem can be found explicitly in the following way. Let $ (x_1,y_1,z_1), (x_2,y_2,z_2)\in \mathbb{R}^3 $ be distinct points. Their respective projections to $ \mathbb{R}^2 $, $(x_1, y_1), (x_2,y_2),$ can be connected through an integral curve of $ \partial/\partial x+ z\partial/\partial y, $ for a given $ z\in \mathbb{R}^3, $ given that $ x_1\neq x_2. $  Therefore, a horizontal curve that connects $  (x_1,y_1,z_1)$, $(x_2,y_2,z_2)$ is the absolutely continuous curve that starts at $ (x_1,y_1,z_1) $, goes to $ (x_1,y_1,z) $ through a vertical segment, from where it goes to $(x_2,y_2,z)  $ through an integral curve of $ \partial/\partial x+ z \partial/\partial y $, and it finally goes to $ (x_2,y_2,z_2) $ through a vertical segment. If $ x_1=x_2=x, $ we can connect $ (x,y_1,z_1) $ with $ (x,y_2,z_2) $ connecting $(x, y_1,z_1)$ with $ (\tilde x, y_2, z_1) $ (we assume without loss of generality that $ z_1\neq 0 $), to connect the latter with $ (\tilde x, y_2, 0), $ which can be connected with $ (x, y_2, 0), $ and this point can be connected with $ (x, y_2,z_2). $     
+	The horizontal path whose existence is guaranteed by Chow's theorem can be found explicitly in the following way. Let $ (x_1,y_1,z_1), (x_2,y_2,z_2)\in \mathbb{R}^3 $ be distinct points. Their respective projections to $ \mathbb{R}^2 $, $(x_1, y_1), (x_2,y_2),$ can be connected through an integral curve of $ \partial/\partial x+ z\partial/\partial y, $ for a given $ z\in \mathbb{R}^3, $ given that $ x_1\neq x_2. $  Therefore, a horizontal curve that connects $  (x_1,y_1,z_1)$, $(x_2,y_2,z_2)$ is the absolutely continuous curve that starts at $ (x_1,y_1,z_1) $, goes to $ (x_1,y_1,z) $ through a vertical segment, from where it goes to $(x_2,y_2,z)  $ through an integral curve of $ \partial/\partial x+ z \partial/\partial y $, and it finally goes to $ (x_2,y_2,z_2) $ through a vertical segment. If $ x_1=x_2=x, $ we can connect $ (x,y_1,z_1) $ with $ (x,y_2,z_2) $ connecting $(x, y_1,z_1)$ with $ (\tilde x, y_2, z_1) $ (we assume without loss of generality that $ z_1\neq 0 $), to connect the latter with $ (\tilde x, y_2, 0), $ which can be connected with $ (x, y_2, 0), $ and this point can be connected with $ (x, y_2,z_2). $     
 \end{ex}
 
 \begin{ex}[Martinet Distribution (\cite{montgomery2002tour}, p. 44)]
@@ -763,17 +768,17 @@ With the Ball-Box theorem, Chow theorem can be derived easily.
 	$$ \left[ \frac{\partial }{\partial x} + y^2 \frac{\partial }{\partial z} , \frac{\partial }{\partial y}  \right] =-2y \frac{\partial }{\partial z}, $$ 
 	and 
 	$$ \left[\left[ \frac{\partial }{\partial x} + y^2 \frac{\partial }{\partial z} , \frac{\partial }{\partial y}  \right], \frac{\partial }{\partial y} \right] = -2 \frac{\partial }{\partial z}.  $$ 
-	Given that $ T \mathbb{R}^3 = \operatorname{span} \left\{ \partial/\partial x+ y^2\partial/\partial z, \partial/\partial y, -2\partial/\partial z \right\},  $ the distribution is bracket-generating, and by Chow theorem any two points in $ \mathbb{R}^3 $ can be connected by a horizontal path. In this case the horizontal path that connects two arbitrary points in $ \mathbb{R}^3 $ can be found following the same procedure of example \ref{ex:cartan_distribution}.
+	Given that $ T \mathbb{R}^3 = \operatorname{span} \left\{ \partial/\partial x+ y^2\partial/\partial z, \partial/\partial y, -2\partial/\partial z \right\},  $ the distribution is bracket-generating, and by Chow's theorem any two points in $ \mathbb{R}^3 $ can be connected by a horizontal path. In this case the horizontal path that connects two arbitrary points in $ \mathbb{R}^3 $ can be found following the same procedure of example \ref{ex:cartan_distribution}.
 \end{ex}
 
 \begin{ex}[Contact Distribution on $ \mathbb{R}^{2n+1} $, (\cite{montgomery2002tour}, p. 39)]
 	The contact distribution on $ \mathbb{R}^{2n+1} $ generalizes the Cartan distribution of example \ref{ex:cartan_distribution} when $ n=1 $. Let $ (x_1,\dots,x_n,y_1,\\\dots, y_n,z) $ be coordinates on $ \mathbb{R}^{2n+1} $. The contact distribution is generated by the 1-form $ \omega = dz+ x_i dy_i$, or equivalently by the vector fields $ \partial/ \partial y_i, \partial/ \partial x_i+ y_i \partial/\partial z, $ for $ i=1,\dots, n. $ The rank of this distribution is $ 2n, $ but as 
 	$$ \left[ \frac{\partial }{\partial y_i} , \frac{\partial }{\partial x_i} + y_i \frac{\partial }{\partial z}  \right] = \frac{\partial }{\partial z},  $$ 
-	this distribution is bracket-generating, and by Chow theorem any pair of point in $ \mathbb{R}^{2n+1} $ can be connected through an horizontal curve.
+	this distribution is bracket-generating, and by Chow's theorem any pair of point in $ \mathbb{R}^{2n+1} $ can be connected through an horizontal curve.
 \end{ex}
 
 \begin{rem}[\cite{montgomery2002tour}, p. 45]
-	The converse of Chow theorem is false in general. That is, if any two points in $ (M,\mathcal{H}) $ can be connected through horizontal curves, it is not true that $ \mathcal{H} $ is bracket-generating. Even so, the converse holds for analytic distributions. A counterexample of  the converse of Chow theorem can be found on (\cite{montgomery2002tour}, p. 45).
+	The converse of Chow's theorem is false in general. That is, if any two points in $ (M,\mathcal{H}) $ can be connected through horizontal curves, it is not true that $ \mathcal{H} $ is bracket-generating. Even so, the converse holds for analytic distributions. A counterexample of  the converse of Chow's theorem can be found on (\cite{montgomery2002tour}, p. 45).
 \end{rem}
 \section{Sub-Riemannian metrics on Bundles}%
 \label{sec:metrics_on_bundles}
@@ -790,7 +795,7 @@ Let $ \pi : Q \rightarrow {M} $ be a submersion, which means that for all $ q\in
 
 The collection of vertical spaces is a distribution $ V \subset TQ $ that assigns to each $ q\in Q $ the space $ V_q. $ The distribution is by construction integrable, and its integral manifolds are the fibers $ Q_m, $ $ m\in \pi(Q). $ 
 
-\begin{df}[\cite{montgomery2002tour}, definition 11.1.1]
+\begin{df}[\cite{montgomery2002tour}, Definition 11.1.1]
 	A \textit{connection for a submersion} $ \pi:Q \rightarrow {M} $ is a distribution that is everywhere transverse to the vertical one, that is,  
 	$$ V_q \oplus \mathcal{H}_q = T_q Q,\ \text{for all } q\in Q. $$ 
 \end{df}
@@ -869,7 +874,7 @@ $ with the property that for each $ x\in M $ there is a neighborhood $ U $ of $ 
  $ Q $ is called the \textit{total space of the bundle}, $ M $ the \textit{base}, $ G $ the \textit{standard fiber},  and $ \pi $ the \textit{projection}.   
 \end{df}
 
-The following definition will require some definitions related to Lie group actions over manifolds, that we will cover next. 
+The following definition will require some concepts related to Lie group actions over manifolds, that we will cover next. 
 
 \begin{df}
 For a Lie group $ G $ and a manifold $ Q, $ a \textit{group right action or an action on the right} is a smooth application $ \alpha:  Q\times G \rightarrow Q $, denoted by $ \alpha(q,g) = q \cdot g, $ such that:
@@ -898,7 +903,7 @@ The orbit space of an action is not, in general, a manifold, but because of the 
 	\end{enumerate}
 \end{df}
 
-From definition \ref{df:principalGbundle} we can conclude that if $ \pi: Q \rightarrow M $ is a principal $ G- $bundle, then $Q/G  $ is a topological manifold, and $M $ is homeomorphic to $ Q/G $ (endowed with the quotient topology). This homeomorphism $ \phi: M \rightarrow {Q/G}$  is given by $ \phi(m)=[q], $ with $ \pi(q)=m. $ 
+From Definition \ref{df:principalGbundle} we can conclude that if $ \pi: Q \rightarrow M $ is a principal $ G- $bundle, then $Q/G  $ is a topological manifold, and $M $ is homeomorphic to $ Q/G $ (endowed with the quotient topology). This homeomorphism $ \phi: M \rightarrow {Q/G}$  is given by $ \phi(m)=[q], $ with $ \pi(q)=m. $ 
 
 \begin{df}[\cite{montgomery2002tour}, p. 196]
 	Given a principal $ G $-bundle $ \pi: Q \rightarrow M, $ we say that a horizontal distribution $ \mathcal{H} $ is a \textit{connection for this principal $ G $-bundle} if it is a connection for $ \pi $, and the $ G $-action on $ Q $ preserves the horizontal distribution $ \mathcal{H} $ in the sense that $ \mathcal{H}_{q\cdot g} = d(\alpha_g)_q (\mathcal{H}_q), $ for all $ q\in Q, $ $ g\in G $. In this case, we say that the pair $ (\pi$, $ \mathcal{H}) $ is a \textit{principal $ G $-bundle with connection}. 
@@ -908,11 +913,11 @@ From definition \ref{df:principalGbundle} we can conclude that if $ \pi: Q \righ
 \begin{rem}
 A connection for any principal $ G $-bundle is an Ehresmann connection, as it is stated in the following result. 
 \end{rem}
-\begin{prop}[\cite{kobayashi1963foundations}, proposition 3.1]\label{prop:comp_bundle}
+\begin{prop}[\cite{kobayashi1963foundations}, Proposition 3.1]\label{prop:comp_bundle}
 	Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection and $ c: I \rightarrow M $ a smooth curve. For an arbitrary $ q\in Q_{c(0)}= G_q $, there is a unique horizontal lift $ \gamma: I \rightarrow Q $ of $ c $ ($\pi\circ\gamma =c$, $ \dot{\gamma}(t)\in \mathcal{H}_{\gamma(t)} $ for all $ t\in I $) that starts from $ q $.    	
 \end{prop}
 
-\begin{df}[\cite{montgomery2002tour}, definition 11.2.1]
+\begin{df}[\cite{montgomery2002tour}, Definition 11.2.1]
 	Let $ M $ be endowed with a Riemannian metric. A sub-Riemannian metric $  \langle\cdot,\cdot\rangle $ defined on the sub-bundle $ \mathcal{H} $  of the tangent space of the total space of the principal $ G $-bundle $ \pi: Q \rightarrow {M}
 	$ is called a \textit{metric of bundle type} if it is an induced sub-Riemannian structure with respect to the submersion $ \pi $ and the metric on $ M $  (see Definition \ref{df:ind_sub_struc}).
 \end{df}
@@ -944,7 +949,7 @@ The set of all unitary quaternions can be identified with $ \mathbb{S}^3 $, so t
 
 	To find a connection for this submersion, we recall that, by the preimage of regular value theorem, $ \pi^{-1}(m) = \mathbb{S}^1_q $ is a submanifold of $ \mathbb{S}^3 $, of dimension $ \operatorname{dim}( \mathbb{S}^3)- \operatorname{dim}( \mathbb{S}^2) = 1,  $ and its tangent space (vertical space of the submersion) $ T_q \mathbb{S}^1_q $ is $ \operatorname{Ker}(d\pi_q)  $. Now, if $ \mathbb{S}^3 $ is endowed with the standard Riemannian structure, there is only one connection compatible with the metric, and is given by $ \mathcal{H}_q = \operatorname{Ker}(d\pi_q)^\perp. $ The vector that determines $ \operatorname{Ker}(d\pi_q)  $ can be found using the action if we consider the tangent vector of the curve $ \gamma: (-\epsilon, \epsilon) \rightarrow \mathbb{S}^3, $ $ t\mapsto \gamma(z_1,z_2, e^{it})=(z_1e^{it},z_2e^{it}) $ at $ t=0 $, where $ q=(z_1,z_2). $ With this, $ \operatorname{Ker}(d\pi_q) = \langle(iz_1, iz_2)\rangle,  $ and the connection at $ q\in \mathbb{S}^3 $,  $ \mathcal{H}_q $, will be the orthogonal complement (with respect to $ \mathbb{R}^4 $ provided with the usual norm) of the vector space $ \langle(iz_1,iz_2), (z_1,z_2)\rangle  {= \langle(x_1,y_1,x_2,y_2), (-y_1,x_1,-y_2,x_2)\rangle}$, that is, $ \mathcal{H}_q = \langle(x_2,-y_2,-x_1,y_1),(y_2,x_2,-y_1,-x_1)\rangle, $ where $ q=(x_1+iy_1, x_2+iy_2). $   
 
-	This principal $ \mathbb{S}^1$-bundle has connection because the kernel of $ d(\pi\circ \alpha_g)_q $ is the same of $ d\pi_q, $ as $ d\alpha_g $ is an isomorphism. Therefore, $ d(\alpha_g)_q ( \mathcal{H}_q) = \mathcal{H}_{q\cdot g}, $ and the $ \mathbb{S}^1 $-action preserves $ \mathcal{H}. $ By proposition \ref{prop:comp_bundle}, this connection $ \mathcal{H} $ is complete.  
+	This principal $ \mathbb{S}^1$-bundle has connection because the kernel of $ d(\pi\circ \alpha_g)_q $ is the same of $ d\pi_q, $ as $ d\alpha_g $ is an isomorphism. Therefore, $ d(\alpha_g)_q ( \mathcal{H}_q) = \mathcal{H}_{q\cdot g}, $ and the $ \mathbb{S}^1 $-action preserves $ \mathcal{H}. $ By Proposition \ref{prop:comp_bundle}, this connection $ \mathcal{H} $ is complete.  
  
 \subsection{Theorem on normal geodesics of bundle type sub-Riemannian metrics}
 \label{sub:theorem_on_normal_geodesics}
@@ -963,17 +968,17 @@ Before proceeding with one of the principal results on sub-Riemannian geometry a
 	Consider $ \mathbb{R}^{2n} $ with coordinates $ (q_1,q_2,\dots,q_n,p_1,p_2,\dots,p_n) $. The 2-form $ \omega = dp_i\wedge dq_i $ is closed and non-degenerate, so that the pair $ ( \mathbb{R}^{2n}, dp_i\wedge dq_i) $ is a symplectic manifold.  
 \end{ex}
 
-\begin{df}[\cite{montgomery2002tour}, definition A.4.1]
+\begin{df}[\cite{montgomery2002tour}, Definition A.4.1]
 	Given a symplectic manifold  $ (M,\omega) $, an \textit{observable} is a smooth function $ H: M \rightarrow \mathbb{R}. $ Depending of the context, a given observable can induce some structure on the symplectic manifold, and in these cases the observable will be referred as \textit{Hamiltonian.} 
 \end{df}
 
 Historically, the definition of a function over a symplectic manifold receives the name of observable because the physical space has been modeled through history as a manifold, and the dual tangent space of this manifold represents the position and momentum space, which is a symplectic manifold (as will be discussed below). In principle, all observables in a physical phenomena can be calculated with the variables of the dual tangent space of the manifold that represents physical space, and they are functions of the position and momentum. From this fact, a real function over the symplectic space receives the name of observable. Over all the physical observables, one of the most important is the Hamiltonian, as it describes the evolution of the system through Hamilton's equations as a function of time. Thus, a real function over the symplectic manifold that is important in the sense of giving additional structure to the manifold is called Hamiltonian.
 
-\begin{df}[\cite{arnol2013mathematical}, page 203]
+\begin{df}[\cite{arnol2013mathematical}, p. 203] \label{df:symplectic_form}
 	For each vector $ \xi\in T_mM  $ tangent to a symplectic manifold $ (M,\omega), $ we associate a 1-form $ \omega_\xi\in T^*_mM $ by the formula $$ \omega_\xi(\eta)=\omega(\xi,\eta). $$  
 \end{df}
 
-This last definition induces an isomorphism between $ T_mM $ and $ T^*_mM $ given by the map $ \xi \mapsto \omega_\xi. $ If $ H: M \rightarrow \mathbb{R} $ is a Hamiltonian, then $ dH = \partial_i H dq^i $ is a differential 1-form on $ M, $ and by the previous isomorphism, at every point $ m\in M $ there is a tangent vector $ (X_H)_m \in T_mM $ such that $ (dH)_m = \omega_{(X_H)_m}. $ 
+Definition \ref{df:symplectic_form} induces an isomorphism between $ T_mM $ and $ T^*_mM $ given by the map $ \xi \mapsto \omega_\xi. $ If $ H: M \rightarrow \mathbb{R} $ is a Hamiltonian, then $ dH = \partial_i H dq^i $ is a differential 1-form on $ M, $ and by the previous isomorphism, at every point $ m\in M $ there is a tangent vector $ (X_H)_m \in T_mM $ such that $ (dH)_m = \omega_{(X_H)_m}. $ 
 
 \begin{df}
 	For a given Hamiltonian $ H: M \rightarrow \mathbb{R} $, the vector field $ X_H\in \mathfrak{X}(M) $ that satisfies $$ dH = \omega(X_H, \cdot) $$ is called \textit{Hamiltonian vector field} for $ H $, or \textit{symplectic gradient} of $ H. $ 
@@ -1040,7 +1045,7 @@ In coordinates, the Poisson bracket is
 $$ \left\{ f,g \right\} = \frac{\partial g}{\partial p_i}\frac{\partial f}{\partial q^i} - \frac{\partial g}{\partial q^i} \frac{\partial f}{\partial p_i}.   $$ 
 Another way to write the Poisson bracket of $ f $ and $ g $ using the symplectic form $ \omega $ of $M$ is the following:
 $$ \left\{ f,g \right\} = df(X_g)=\omega (X_f,X_g). $$ 
-\begin{prop}
+\begin{prop}\label{prop:Poisson_bracket_properties}
 	The Poisson bracket satisfies the following properties:
 	\begin{enumerate}
 		\item $ \left\{ f,g \right\} = -\left\{ g,f \right\},$ 
@@ -1051,7 +1056,7 @@ $$ \left\{ f,g \right\} = df(X_g)=\omega (X_f,X_g). $$
 	where $ f,g,h: M \rightarrow \mathbb{R} $ are observables, and $ a,b\in \mathbb{R}. $ 
 \end{prop}
 \begin{proof}
-	(\cite{poisson}, proof of proposition 1.3) Properties 1,2 and 4 are trivial. The third property, known as the \textit{Jacobi identity},  is equivalent to the fact that $ \omega $ is a closed form, as will be shown below. Recall that $$ d\chi(X,Y,Z)=X\chi(Y,Z)-Y\chi(X,Z)+Z\chi(X,Y)-\chi([X,Y],Z)+\chi([X,Z],Y)-\chi([Y,Z],X) $$ 
+	(\cite{poisson}, proof of Proposition 1.3) Properties 1,2 and 4 are trivial. The third property, known as the \textit{Jacobi identity},  is equivalent to the fact that $ \omega $ is a closed form, as will be shown below. Recall that $$ d\chi(X,Y,Z)=X\chi(Y,Z)-Y\chi(X,Z)+Z\chi(X,Y)-\chi([X,Y],Z)+\chi([X,Z],Y)-\chi([Y,Z],X) $$ 
 	for any 2-form $ \chi $ and $ X,Y,Z\in \mathfrak{X}(T^*M). $ Therefore, 
 	
 
@@ -1064,7 +1069,7 @@ $\begin{aligned}
 
 From the last expression it is clear that $ d\omega=0 $ is equivalent to the Jacobi identity.
 \end{proof}
-The first three properties of last proposition guarantee that $ \left( C^\infty(M), \left\{ \cdot,\cdot \right\}  \right) $ is a Lie algebra. The last property is known as Leibniz identity, because due to it the operator $ f\mapsto \left\{ f,H \right\}  $, with $ H $ a Hamiltonian, is a derivation of $ C^\infty(M): $ 
+The first three properties of Proposition \ref{prop:Poisson_bracket_properties} guarantee that $ \left( C^\infty(M), \left\{ \cdot,\cdot \right\}  \right) $ is a Lie algebra. The last property is known as Leibniz identity, because due to it the operator $ f\mapsto \left\{ f,H \right\}  $, with $ H $ a Hamiltonian, is a derivation of $ C^\infty(M): $ 
 
 $$ \left\{ fg,H \right\} =f \left\{ g,H \right\} +g \left\{ f,H \right\} . $$ 
 Therefore, $ f\mapsto \left\{ f,H \right\}  $ determines a vector field over $M$: the Hamiltonian vector field of $ H, \ X_H $ (\cite{montgomery2002tour}, page 279).
@@ -1109,14 +1114,14 @@ where $ v^*,w^*\in T^*_qM, $ and $ v,w\in T_qM $ are the preimages of $ v^*,w^* 
 Now, if $ M $ is a manifold with a sub-Riemannian structure $ \left( \mathcal{H}, \langle \cdot,\cdot \rangle \right)  $, we can define a \textit{cometric}, that is just a metric over the fibers of the cotangent bundle as follows. Given a metric $ \langle \cdot,\cdot \rangle_q $ for $ \mathcal{H}_q, $ for any $ v^*\in T^*_qM $ there exists a single $ V\in \mathcal{H}_q $ such that $ v^*|_{\mathcal{H}_q} = \langle V,\cdot \rangle_q $. With this property, we can define the cometric $ (\cdot,\cdot)\in \mathfrak{X}_2^0(M) $ as a bilinear form (in general it is not a metric) over the fibers of the cotangent space as follows:
 $$ (v^*,w^*)_q= \langle V,W \rangle_q, $$ 
 where $ v^*,w^*\in T^*_qM $, and $ V,W\in \mathcal{H}_q $ are such that $ v^*|_{\mathcal{H}_q}= \langle V,\cdot \rangle_q, $ $ w^*|_{\mathcal{H}_q}= \langle W,\cdot \rangle_q. $ 
-\begin{df}[\cite{montgomery2002tour}, definition 1.5.2]
+\begin{df}[\cite{montgomery2002tour}, Definition 1.5.2]
 	If $ M $ is a manifold, and $ \left( \mathcal{H}, \langle\cdot,\cdot\rangle \right) $ is a sub-Riemannian structure over it, we define the sub-Riemannian Hamiltonian $ H_{sR}: T^*M \rightarrow \mathbb{R} $ as $$ H_{sR}(p,q)= \frac{1}{2} (p,p)_q, $$   	
 	where $ (\cdot,\cdot) $ is the cometric induced by $ \langle\cdot,\cdot\rangle. $ 
 \end{df}
 If $ \pi: Q \rightarrow M $ is a submersion endowed with an Ehresmann connection $ \mathcal{H} $, and $ (M,g) $ is a Riemannian manifold, we have a sub-Riemannian structure on $ Q: $ $ (\mathcal{H},\langle\cdot,\cdot\rangle) $, where $ \langle\cdot,\cdot\rangle $ is defined by the isomorphism $ d\pi_q|_{\mathcal{H}_q}: \mathcal{H}_q \rightarrow T_{\pi(q)}M $ and the metric $ g $ on $ M. $ 
 
 The sub-Riemannian Hamiltonian $ H_{sR}: T^*Q \rightarrow \mathbb{R}$ can be written in terms of the Riemannian Hamiltonian $ H_R: T^*M \rightarrow \mathbb{R} $ in the following way: given the splitting $ TQ= \mathcal{H}\oplus V, $ we have that $ T^*Q = \mathcal{H}^* \oplus V^*, $ and so we have the canonical projection $ \operatorname{pr}_1: T^*Q \rightarrow \mathcal{H}^*. $ Now, we define a second map $ \operatorname{pr}_2: \mathcal{H}^* \rightarrow T^*M $ by the formula $ \operatorname{pr}_2(\alpha)(v)=\alpha(h_q v), $ where $ \alpha\in \mathcal{H}^*_q, $ $ v\in T_{\pi(q)}M, $ and $h_qv$ is the horizontal lift of $ v $ into $ \mathcal{H}_q $ (well-defined and unique, because $ \mathcal{H} $ is an Ehresmann connection).
-\begin{prop}[\cite{montgomery2002tour}, proposition 11.1.5]
+\begin{prop}[\cite{montgomery2002tour}, Proposition 11.1.5]
 	The induced sub-Riemannian Hamiltonian is given by $H_{sR}= H_R \circ \operatorname{pr},$ where $ \operatorname{pr}= \operatorname{pr_2}\circ \operatorname{pr_1}. $ 
 \end{prop}
 
@@ -1139,14 +1144,14 @@ The sub-Riemannian Hamiltonian $ H_{sR}: T^*Q \rightarrow \mathbb{R}$ can be wri
 \begin{df}\label{df:compatible_riemannian_metric}
 	Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}. $ If $ (\mathcal{H},\langle\cdot,\cdot\rangle) $ is a metric of bundle type, we say that a metric $ h $ on $ Q $ is a \textit{compatible Riemannian metric} if $ h $ is $ G $-invariant and compatible (see Definition \ref{df:compatible}).
 \end{df}
- From definition \ref{df:compatible_riemannian_metric}, it is clear that $ h|_{G_q}: TG_q \oplus TG_q \rightarrow \mathbb{R} $ is a right-invariant metric, which we will use to define a metric on $ G $ later on.
+ From Definition \ref{df:compatible_riemannian_metric}, it is clear that $ h|_{G_q}: TG_q \oplus TG_q \rightarrow \mathbb{R} $ is a right-invariant metric, which we will use to define a metric on $ G $ later on.
  \begin{df}
 Let $ \mathfrak{g}= \operatorname{Lie}(G)=T_eG, $ and $ \operatorname{exp} : \mathfrak{g}\rightarrow G $ be the exponential application. \textit{The infinitesimal generator map for the group action $ \sigma_v: Q\rightarrow T_qQ $ }, for $ v \in \mathfrak{g} $,  is defined as
 $$ \sigma_v(q) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} \left( q\cdot \operatorname{exp} (\epsilon v) \right).$$ 
  \end{df}
 
 
-\begin{df}[\cite{montgomery2002tour}, definition 11.2.3]
+\begin{df}[\cite{montgomery2002tour}, Definition 11.2.3]
 	For a given $ q\in Q, $ the bilinear form on $ \mathfrak{g}, $ $ \mathbb{I}_q: \mathfrak{g}\times \mathfrak{g}\rightarrow \mathbb{R}, $ given by
 	$$ \mathbb{I}_q(v,w) = h_q(\sigma_v q, \sigma_w q) $$ 
 	is called the \textit{moment of inertia tensor at $ q. $ } 
@@ -1169,7 +1174,7 @@ Recall that for a Lie group $ G $, the map $ \operatorname{ad}_g: G \rightarrow 
 	\end{dmath*}
 \end{proof}
 
-Thanks to the last proposition and the fact that $ h $ is $ G $-invariant, we have that
+From Proposition \ref{prop:equiv_infinitesimal} and the fact that $ h $ is $ G $-invariant, we have that
 \begin{dmath*}
 	\mathbb{I}_{q\cdot g}(v,w)= h_{q\cdot g} \left( d(\alpha_g)_q\left(\sigma_{\operatorname{Ad}_g(v)}(q)\right), d(\alpha_g)_q\left(\sigma_{\operatorname{Ad}_g(w)}(q)\right)\right) = h_q \left( \sigma_{\operatorname{Ad}_g(v)}(q),\sigma_{\operatorname{Ad}_g(w)}(q)\right) = \mathbb{I}_q \left( \operatorname{Ad}_g(v), \operatorname{Ad}_g(w) \right).
 \end{dmath*}
@@ -1189,7 +1194,7 @@ for all $ g\in G $, $ v,w\in T_g G. $ If $ \beta $ is bi-invariant, both extensi
 Therefore, an adjoint invariant positive definite bilinear form on the Lie algebra defines a \textit{bi-invariant Riemannian metric on $ G $.}
 
 \begin{df}
-	[\cite{montgomery2002tour}, definition 11.2.4] The $ G $-invariant Riemannian metric (or pseudometric) $ h $ on $ Q $ is said to be of \textit{constant bi-invariant type} if its inertia tensor $ \mathbb{I}_q $ equals the same bi-invariant bilinear form on $ \mathfrak{g}, $ for all $q\in Q. $ 
+	[\cite{montgomery2002tour}, Definition 11.2.4] The $ G $-invariant Riemannian metric (or pseudometric) $ h $ on $ Q $ is said to be of \textit{constant bi-invariant type} if its inertia tensor $ \mathbb{I}_q $ equals the same bi-invariant bilinear form on $ \mathfrak{g}, $ for all $q\in Q. $ 
 \end{df}
 
 Note that if $ G $ is a Lie group acting on itself via the multiplication map $ \alpha: G\times G \rightarrow G,\ (k,h) \mapsto kh $, $ \alpha_h = R_h, $ and if $ g $ is a $ G $-invariant metric on $ G $ we have that 
@@ -1199,7 +1204,7 @@ $$\mathbb{I}_k(\xi,\eta)= g_k(v,w)= \mathbb{I}_{hk}(\xi,\eta)= g_{hk} \left( d(L
 as $ \sigma_\chi(k) = d(L_k)_e\chi $ for all $ k\in G, \ \chi\in \mathfrak{g}. $ 
 
 \begin{prop}\label{prop:essential_fact1}
-	If $ g $ is a bi-invariant metric on a Lie group $ G, $ its geodesics that passes through the identity element coincide with its one-parameter subgroups.
+	If $ g $ is a bi-invariant metric on a Lie group $ G, $ its geodesics that pass through the identity element coincide with its one-parameter subgroups.
 \end{prop}
 \begin{proof}
 	If $ m: G\times G \rightarrow G $ is the multiplication map, let $ h,k\in G $, and $ \gamma,\eta: \left( -\epsilon,\epsilon \right) \rightarrow G $ be two curves such that $ \gamma(0)=h, \dot{\gamma}(0)=v \in T_hG,\eta(0)=k,\dot{\eta}(0)=w\in T_kG. $ The differential $ dm_{(h,k)}: T_{(h,k)}G\times G\cong T_hG\oplus T_kG \rightarrow T_{hk} G $ is bilinear, so that if $ l,s: \left( -\epsilon,\epsilon \right) \rightarrow H $ are constant maps with $ l(t)=h,s(t)=k, $ then
@@ -1220,7 +1225,7 @@ as $ \sigma_\chi(k) = d(L_k)_e\chi $ for all $ k\in G, \ \chi\in \mathfrak{g}. $
 	If $ G $ is a Lie group endowed with a bi-invariant metric $ g, $ the Riemannian Hamiltonian $ H_R : T^*G \rightarrow \mathbb{R}, (q,p) \mapsto g_q(p,p)/2$ commutes with every right or left invariant observable $ f\in C^\infty ( T^*G). $ 
 \end{prop}
 \begin{proof}
-	From proposition \ref{prop:HEBF}, if $ f: T^*G \rightarrow G $ is an observable, then $ d/dt \left( f\circ c \right) (t)= \left\{ f, H_R \right\}(c(t)),  $ where $ c(t) $ is an integral curve of the Hamiltonian vector field associated to $ H_R. $ By proposition \ref{prop:geo}, $ c(t)=(q(t), g_{q(t)}(\cdot, \dot{q}(t))) $, where $ q(t) $ is a geodesic by Hopf-Rinow theorem. As $ G $ is complete (because $ g $ is bi-invariant), there is a geodesic that connects $ e $ with every $ h\in G, $ and by last proposition, this geodesic is a one-parameter subgroup, which implies that $ d/dt(f\circ c)(t)=0, $ because the quantity $ f\circ c(t) $ is constant since $ f $ is left or right invariant.	
+	From Proposition \ref{prop:HEBF}, if $ f: T^*G \rightarrow G $ is an observable, then $ d/dt \left( f\circ c \right) (t)= \left\{ f, H_R \right\}(c(t)),  $ where $ c(t) $ is an integral curve of the Hamiltonian vector field associated to $ H_R. $ By Proposition \ref{prop:geo}, $ c(t)=(q(t), g_{q(t)}(\cdot, \dot{q}(t))) $, where $ q(t) $ is a geodesic by Hopf-Rinow theorem. As $ G $ is complete (because $ g $ is bi-invariant), there is a geodesic that connects $ e $ with every $ h\in G, $ and by Proposition \ref{prop:essential_fact1}, this geodesic is a one-parameter subgroup, which implies that $ d/dt(f\circ c)(t)=0, $ because the quantity $ f\circ c(t) $ is constant since $ f $ is left or right invariant.	
 \end{proof}
 
 \begin{thm}[Theorem on normal geodesics of bundle type sub-Riemannian metrics, \cite{montgomery2002tour}, theorem 11.2.5]\label{thm:normal_geodesics}
@@ -1250,7 +1255,7 @@ The assumptions of this theorem are equivalent to suppose that $ \pi: Q \rightar
 		Equations \eqref{eq:ham1} and \eqref{eq:ham2} come from the fact that the metric is of constant bi-invariant type and $ G $-invariant. Using these equations, the Poisson bracket of $ H_{sR} $ and $ H_{G} $ is
 
 		$$ \left\{ f,\beta^* \right\} = \underbrace{\left\{ f,\beta^* \right\}_U}_0 + \left\{ f,\beta^* \right\}_G = \sum^{}_{a} \frac{\partial f}{\partial g^a} \frac{\partial \beta^*}{\partial \mu_a} = \sum^{}_{a} \frac{\partial f}{\partial \mu_a} \frac{\partial \mu_a}{\partial g^a} \frac{\partial \beta^*}{\partial \mu_a}  = \sum^{}_{a} \frac{\partial f}{\partial \mu_a} \left\{ \mu_a, \beta^* \right\}_G, $$ 
-		using both the Leibniz rule and the product Poisson structure, $ \mu_a $ are coordinates on $ \mathfrak{g}^*, $ and $ g^a $ are coordinates on $ G. $ As the $ \mu_a $ are right-invariant functions on $ T^*G$, by proposition \ref{prop:essential_fact2}, $ \left\{ \mu_a,\beta^* \right\}_G =0 $, and this proves the first claim.
+		using both the Leibniz rule and the product Poisson structure, $ \mu_a $ are coordinates on $ \mathfrak{g}^*, $ and $ g^a $ are coordinates on $ G. $ As the $ \mu_a $ are right-invariant functions on $ T^*G$, by Proposition \ref{prop:essential_fact2}, $ \left\{ \mu_a,\beta^* \right\}_G =0 $, and this proves the first claim.
 
 		To prove the second claim, note that the flow of $ H_G $ is of the form $\Phi_G(t)(x,p,g,\mu)= (x,p; \Phi_\beta(t)(g,\mu))$, where $ \Phi_\beta(t): T^*G \rightarrow T^*G$ is the flow associated with $ \beta^*, $ that is, $ \Phi_\beta(t)(g,\mu)=( \operatorname{exp}_g(tv), \mathfrak{v}_{ \operatorname{exp}_g(tv) }(\cdot, d/dt \operatorname{exp}_g(tv) ) ) $, where $ \mathfrak{v} $ is the vertical metric, and $ v \in \mathfrak{g} $ satisfies $ \mu = \mathfrak{v}_g(\cdot,v). $ With this, the projection to $ Q $ of $ \Phi_G(t)(x,p,g,\mu) $ is $ x \operatorname{exp}_g(tv). $  
 	\end{proof}
@@ -1276,7 +1281,7 @@ T_qQ \arrow[r, "\iota"] & TQ \arrow[r] & T^*Q \arrow[r, "\Phi_R(1)"] & T^*Q \arr
 \label{sec:classical_particles_in_yang_mills_fields}
 
 
-What we aim to show in this section is that, given a principal $ G $-bundle $ \pi:Q \rightarrow M $ with metric of bundle type $ (\mathcal{H}, \langle\cdot, \cdot \rangle) $,   there is a system of differential equations that describes the projected normal geodesics $ \pi\circ\gamma, $ where $ \gamma: I \rightarrow Q $ is a horizontal geodesic. When the fiber is a circle, these projected equations arise the \textit{Lorentz equations of electromagnetism} in a concrete system. When the fiber is a general Lie group $ G, $ these equations are called the \textit{non-abelian Lorentz equations,} also known as \textit{Wong equations} (\cite{montgomery2002tour}, p. 209). Moreover, the results of this section are useful to find the sub-Riemannian geodesics in cases where Theorem \ref{thm:normal_geodesics} can not be applied, which may happen when the Riemannian geodesics on $ M $ are not known, or are harder to compute than the sub-Riemannian geodesics.
+What we aim to show in this section is that, given a principal $ G $-bundle $ \pi:Q \rightarrow M $ with metric of bundle type $ (\mathcal{H}, \langle\cdot, \cdot \rangle) $,   there is a system of differential equations that describes the projected normal geodesics $ \pi\circ\gamma, $ where $ \gamma: I \rightarrow Q $ is a horizontal geodesic. When the fiber is a circle, these projected equations arise the \textit{Lorentz equations of electromagnetism} in a concrete system. When the fiber is a general Lie group $ G, $ these equations are called the \textit{non-abelian Lorentz equations,} also known as \textit{Wong's equations} (\cite{montgomery2002tour}, p. 209). Moreover, the results of this section are useful to find the sub-Riemannian geodesics in cases where Theorem \ref{thm:normal_geodesics} can not be applied, which may happen when the Riemannian geodesics on $ M $ are not known, or are harder to compute than the sub-Riemannian geodesics.
 
 The sub-Riemannian geodesic equations are ordinary differential equations on $ T^*Q. $ For metrics of bundle type, the Hamiltonian $ H: T^*Q \rightarrow  \mathbb{R} $ is $ G $-invariant, and hence the action of $ G $ on $ T^*Q $ takes sub-Riemannian geodesics to sub-Riemannian geodesics because of Theorem \ref{thm:constantCurves}. Therefore, we should be able to find differential equations for projections of the sub-Riemannian geodesics on $ T^*Q/G. $ 
 
@@ -1352,9 +1357,9 @@ Any $ k $-form $ \omega\in \Omega^k(M,\rho(Q)) $ is \textit{horizontal} if it an
 
 Given a projection $ \pi: Q \rightarrow M $ and a Lie group G acting on the total space $ Q, $ the infinitesimal generators of the $ G $-action $ \sigma_v: Q \rightarrow T_qQ, $ $ v\in \mathfrak{g,} $ 
 $$ \sigma_v(q) = \frac{d}{d\epsilon} \Big|_{\epsilon=0} q\cdot \operatorname{exp} (\epsilon v),$$
-satisfy $ V_q = \operatorname{Ker}d\pi_q = \left\{ \sigma_v(q): v\in \mathfrak{g} \right\} .  $ From this, $ \sigma_\cdot(q) $ is a linear isomorphism from $ \mathfrak{g} $ to $ V_q. $ Moreover, the map $ \eta_q(v)  = \sigma_v(q) $ is equivariant (see definition \ref{df:equivariant})
+satisfy $ V_q = \operatorname{Ker}d\pi_q = \left\{ \sigma_v(q): v\in \mathfrak{g} \right\} .  $ From this, $ \sigma_\cdot(q) $ is a linear isomorphism from $ \mathfrak{g} $ to $ V_q. $ Moreover, the map $ \eta_q(v)  = \sigma_v(q) $ is equivariant (see Definition \ref{df:equivariant})
 $$ \eta_{q\cdot g}\circ \operatorname{Ad}_{g^{-1}} = d\alpha_g  \circ \eta_q $$ 
-due to proposition \ref{prop:equiv_infinitesimal}. Thinking $ \sigma $ as a map from $ Q\times \mathfrak{g} $ to $ V, $ $ \sigma:Q\times \mathfrak{g}\rightarrow V, $ $ \sigma(q,v)= \sigma_v(q), $ we deduce that it is an \textit{equivariant bundle map} over $ Q, $ that is, it is a fiber bundle such that $ G $ acts on the total and base spaces, and the following equivariant property holds:
+due to Proposition \ref{prop:equiv_infinitesimal}. Thinking $ \sigma $ as a map from $ Q\times \mathfrak{g} $ to $ V, $ $ \sigma:Q\times \mathfrak{g}\rightarrow V, $ $ \sigma(q,v)= \sigma_v(q), $ we deduce that it is an \textit{equivariant bundle map} over $ Q, $ that is, it is a fiber bundle such that $ G $ acts on the total and base spaces, and the following equivariant property holds:
 $$ \sigma \left( (q,v)\cdot g \right) = \sigma(q,v) \cdot g. $$ 
 
 \begin{prop}\label{prop:isomorphism_vb}
@@ -1372,7 +1377,7 @@ $$ \sigma \left( (q,v)\cdot g \right) = \sigma(q,v) \cdot g. $$
 	\end{center}
 	but this is immediate, since $ \pi_{Ad(Q)}[q,v]=\pi_{V/G}[w_q]=\pi(q). $ 
 \end{proof}
-Under the isomorphism of proposition \ref{prop:isomorphism_vb}, given the one-to-one correspondence between sections of $ \operatorname{Ad} (Q)\rightarrow M $ and $ G $-equivariant maps $ C_G(Q, \mathfrak{g}), $ sections of the adjoint bundle correspond to $ G $-invariant vertical vector fields. This is because such a vector field defines and is uniquely defined by a section of $ V/G \rightarrow M. $ To see this, let $ X: Q \rightarrow V $ be a $ G $-invariant vertical vector field, that is, $ (d\alpha_g)_q(X_q) = X_{q\cdot g}, $ and $ X_q\in V_q $ for all $ q\in Q. $ The map $ \phi: M \rightarrow V/G $, $ \phi(m)= [X_q], $ where $ q\in \pi^{-1}(m) $ is well defined because of the $ G $-invariant property of $ X. $ Now, if $ \phi: M \rightarrow V/G $ is a section of $ V/G \rightarrow M, $ we can construct the $ G $-invariant vertical vector field $ X: Q \rightarrow V, $ $ X_q=w_q, $ where $ \phi(m)=[w_q], $ that is, we choose the element of the equivalence class $ \phi(m) $ that is based on $ q. $ This is a smooth vector field because the following diagram is commutative,
+Under the isomorphism of Proposition \ref{prop:isomorphism_vb}, given the one-to-one correspondence between sections of $ \operatorname{Ad} (Q)\rightarrow M $ and $ G $-equivariant maps $ C_G(Q, \mathfrak{g}), $ sections of the adjoint bundle correspond to $ G $-invariant vertical vector fields. This is because such a vector field defines and is uniquely defined by a section of $ V/G \rightarrow M. $ To see this, let $ X: Q \rightarrow V $ be a $ G $-invariant vertical vector field, that is, $ (d\alpha_g)_q(X_q) = X_{q\cdot g}, $ and $ X_q\in V_q $ for all $ q\in Q. $ The map $ \phi: M \rightarrow V/G $, $ \phi(m)= [X_q], $ where $ q\in \pi^{-1}(m) $ is well defined because of the $ G $-invariant property of $ X. $ Now, if $ \phi: M \rightarrow V/G $ is a section of $ V/G \rightarrow M, $ we can construct the $ G $-invariant vertical vector field $ X: Q \rightarrow V, $ $ X_q=w_q, $ where $ \phi(m)=[w_q], $ that is, we choose the element of the equivalence class $ \phi(m) $ that is based on $ q. $ This is a smooth vector field because the following diagram is commutative,
 \begin{center}
 	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQBFAHS7wFt4AAg4gAvqXSZc+QijIAmanSat23XlgFxBAWTESQGbHgJFypRTQYs2iTj35CAagHoA4vsnGZZikuuqdk6ehlImssjyFv4qtvYaWoI8fPQ4ABYAZgBO9ADWwADmoiFG0qZypMQxNmpiSjBQBfBEoNkQfEjmIDgQSFHKNXbkAPrqjto8aGlYIDSM9ABGMIwACmE+dllYBWk4IW0diP09SADMVrHsPDA49LMg80ur6+UgWzt74q1Z7Uhk3b1EF1Hss1t5Xu9dvcAnERmNNEJJjMviADkgACw0E5HC6DEA8ADG032P0OmIBZzmi1BL1kb22UNxgXxXBu9EJWCyBMJxJRaMQAFYsYD-jD2HCHAi4HD7iDnuC6ZDPgZ+UKKYhzgNmQANOqiIA
 \begin{tikzcd}
@@ -1398,7 +1403,7 @@ Q \arrow[rr, "\Phi"] \arrow[rd, "\pi"'] &   & Q \arrow[ld, "\pi"] \\
 Despite of not being a (finite dimensional) Lie group, we can associate a Lie algebra to it, and this algebra corresponds to the space of equivariant vector fields: if $ \Phi_t: Q \rightarrow Q $ is a one-parameter subgroup of the gauge group, we can consider the vector field $$ X_q = \frac{d \Phi_t(q)}{dt} \Big|_{t=0}\in T_qQ. $$ This vector field is equivariant, because $$ (d\alpha_g)_q(X_q)=(d\alpha_g)_q \left( \frac{d \Phi_t(q)}{dt} \Big|_{t=0} \right)= d(\alpha_g \circ \Phi_t(q))_{t=0}= \frac{d\Phi_t(q\cdot g)}{dt} \Big|_{t=0}=X_{q\cdot g}  $$
 due to the fact that $ \Phi $ is a $ G $-map. Moreover, if $ X\in \mathfrak{X}(Q) $ is an equivariant vector field, its flow is an element of the gauge group. Therefore, sections of the adjoint bundle form the Lie algebra of the gauge group via the isomorphism $ \sigma: \Gamma( \operatorname{Ad} (Q)) \rightarrow  \Gamma(V)_G. $ 
 
-\begin{df}[\cite{montgomery2002tour}, p. 212]
+\begin{df}[\cite{montgomery2002tour}, p. 212]\label{df:connection_one_form}
 	Let $ \pi:Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H} $. \textit{The connection one-form on $ Q $}, denoted as $ A, $ is a Lie-algebra-valued one-form on $ Q $, that is, $ A_q: T_qQ \rightarrow \mathfrak{g} $,  which satisfies the following conditions:
 
 	\begin{enumerate}
@@ -1406,9 +1411,9 @@ due to the fact that $ \Phi $ is a $ G $-map. Moreover, if $ X\in \mathfrak{X}(Q
 		\item $ A_q \circ \eta_q = 1_{ \mathfrak{g}}, \ \forall q\in Q. $ 
 	\end{enumerate}
 \end{df}
-The second condition of previous definition is a normalization condition: as the image of $ \eta_q $ is $ V_q, $ when restricting to the vertical $ A_q $ is the canonical identification between $ V_q $ and $ \mathfrak{g} $. This connection one-form is unique, and it satisfies the following equivariance condition:
+The second condition of Definition \ref{df:connection_one_form} is a normalization condition: as the image of $ \eta_q $ is $ V_q, $ when restricting to the vertical $ A_q $ is the canonical identification between $ V_q $ and $ \mathfrak{g} $. This connection one-form is unique, and it satisfies the following equivariance condition:
 $$ \operatorname{Ad}_{g^{-1}}\circ A_q = A_{q\cdot g}\circ (d\alpha_g)_q\circ \eta_q\circ A_q. $$ 
-As seen in proposition \ref{prop:isomorphism_vb}, differentiating the group action on $ Q $ yields the infinitesimal generator map $ \sigma: \operatorname{Ad}(Q) \rightarrow (TQ)/G,  $ whose image is $ V/G. $ $ (TQ)/G \rightarrow M $ is a vector bundle over $ M, $ with projection $ [q,w] \mapsto \pi(q). $ Similarly, $ d\pi: TQ \rightarrow TM $ is equivariant with respect to the $ G $-action, where $ G $ acts trivially on $ M, $ which means that $ d\pi: (TQ)/G \rightarrow M $ is well-defined. As $ \operatorname{Ker} d\pi = \operatorname{Im} \sigma,   $ these maps fit together in the following exact sequence of vector bundles over $ M $. 
+As seen in Proposition \ref{prop:isomorphism_vb}, differentiating the group action on $ Q $ yields the infinitesimal generator map $ \sigma: \operatorname{Ad}(Q) \rightarrow (TQ)/G,  $ whose image is $ V/G. $ $ (TQ)/G \rightarrow M $ is a vector bundle over $ M, $ with projection $ [q,w] \mapsto \pi(q). $ Similarly, $ d\pi: TQ \rightarrow TM $ is equivariant with respect to the $ G $-action, where $ G $ acts trivially on $ M, $ which means that $ d\pi: (TQ)/G \rightarrow M $ is well-defined. As $ \operatorname{Ker} d\pi = \operatorname{Im} \sigma,   $ these maps fit together in the following exact sequence of vector bundles over $ M $. 
 \begin{center}
 	%https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12I0YAnOnBF5g6AWxjAAglAC+ACgCKAShAzS6TLnyEUARnJVajFmzkAVZQHoA4qvUgM2PASIAmA9XrNWiEGYCyqoYwUADm8ESgAGa8EKJIZCCCSPpG3myc2KGidHbRsfGIqcmI7mkmvlCcaFhBMkA
 	\begin{tikzcd}
@@ -1446,7 +1451,7 @@ TM\oplus\operatorname{Ad}(Q) \arrow[rd] \arrow[r] & (TQ)/G \arrow[d] \arrow[r] &
 	is immediate from the definition.
 \end{proof}
 
-\begin{df}[\cite{montgomery2002tour}, definition 4.1.1]
+\begin{df}[\cite{montgomery2002tour}, Definition 4.1.1]
 	\textit{The curvature of a distribution $ \mathcal{H} $ } is the linear bundle map $ F: \Lambda^2 \mathcal{H} \rightarrow TQ/\mathcal{H} $ defined by $ F(X,Y) = -[X,Y] \operatorname{mod} \mathcal{H}.  $ 	
 \end{df}
 The connection one-form $ A $ provides an identification $ (TQ)/ \mathcal{H} \rightarrow \mathfrak{g}, $ given that the kernel of $ A_q $ is precisely $ \mathcal{H}_q. $ 
@@ -1461,7 +1466,7 @@ The connection one-form $ A $ provides an identification $ (TQ)/ \mathcal{H} \ri
 \begin{df}[\cite{montgomery2002tour}, p. 214]\label{df:covariantly_constant}
 	Let $ c:I \rightarrow M $ be a curve. A section $ \psi: M\rightarrow \rho(Q) $ is said to be \textit{covariantly constant over $ c $} if $ D_{\dot{c}}\psi=0. $  	
 \end{df}
-The $ G $-invariant vector fields on $ Q $ can be identified with sections of $ (TQ)/G, $ and due to proposition \ref{prop:splitting} we can split them up into horizontal and vertical vector fields, according to $ (TQ)/G = TM \oplus \operatorname{Ad} (Q). $ 
+The $ G $-invariant vector fields on $ Q $ can be identified with sections of $ (TQ)/G, $ and due to Proposition \ref{prop:splitting} we can split them up into horizontal and vertical vector fields, according to $ (TQ)/G = TM \oplus \operatorname{Ad} (Q). $ 
 
 Before proceeding, we will define a Lie bracket on the space of sections of $ \operatorname{Ad} (Q).$ Given two sections $ \xi,\chi: M \rightarrow \operatorname{Ad} (Q), $ we define its Lie bracket as the section $[\xi, \chi] : M \rightarrow \operatorname{Ad} (Q)$ defined by the application $ [\xi, \chi]_m= [\xi(m), \chi(m)]. $ The latter Lie bracket is the one defined on the Lie algebra $ \mathfrak{g}. $   The following Proposition will be useful to find the Poisson brackets of horizontal and vertical vector fields.
 
@@ -1485,7 +1490,7 @@ Before proceeding, we will define a Lie bracket on the space of sections of $ \o
 		\item For the same reason of the last proof, the horizontal component of $ [hX,\sigma \xi] $ is zero. On the other hand, suppose that $ \{e_\alpha\}_\alpha $ is a base of $ \mathfrak{g}.  $ Then, the left hand side of equation \eqref{eq:horizontal-vertical} is $[hX, f^\alpha(q) \sigma(e_\alpha)]_q = hX_q (f^\alpha(q))\sigma(e_\alpha) + f^\alpha(q) [hX, \sigma(e_\alpha)]_q = hX_q (f^\alpha(q))\sigma(e_\alpha)$, where $ F(q) = f^\alpha(q)e_\alpha $ is the G-equivariant map associated with $ \xi $. Finally, observe that $D_X\xi= [q,  hX_q (f^\alpha(q))e_\alpha]$, so that $\sigma(D_X\xi)(q) = hX_q (f^\alpha(q))\sigma(e_\alpha) $, and from this the desired equality holds. 
 	\end{itemize}
 \end{proof}
-\subsection{Wong equations}%
+\subsection{Wong's equations}%
 \label{sub:wong_s_equations}
 Let $ \pi: Q \rightarrow M $ be a principal $ G $-bundle with connection $ \mathcal{H}, $ and let $ \left( \mathcal{H}, \langle \cdot,\cdot \rangle \right)  $ be a metric of bundle type. The sub-Riemannian Hamiltonian $ H $ associated with the sub-Riemannian structure $ ( \mathcal{H}, \langle \cdot,\cdot \rangle) $ on $ Q $ is $ G $-invariant. We choose a local frame $ \left\{ X_i \right\}_{i=1}^n $ for the base space $ M $ to express $ H $: write $ g_{ij}=g(X_i,X_j) $ for the corresponding inner products with respect to the Riemannian metric $ g $ on $ M $. We take the horizontal lifts $ \left\{ hX_i \right\}_{i=1}^n $ to obtain a local horizontal frame on $ Q. $ If $ P_i:= P_{hX_i} $ are the momentum functions, then
 \begin{equation}\label{eq:sub-RiemannianHamiltonian}
@@ -1505,9 +1510,9 @@ where $ \alpha|_{ \mathcal{H}_{\pi_{T^*Q}(\alpha)}} = g_{\pi(\pi_{T^*Q}(\alpha))
 \begin{prop}[\cite{montgomery2002tour}, p. 282]\label{prop:momentum_map}
 	$ J: T^*Q \rightarrow \mathfrak{g}^* $ is constant along normal sub-Riemannian geodesics.
 \end{prop}
-The isomorphism between $ TQ/G $ and $ TM \oplus \operatorname{Ad} (Q) $ given in proposition \ref{prop:splitting} can be dualized to obtain the isomorphism $ T^*Q/G \rightarrow T^*M \oplus \operatorname{Ad}^*(Q) $ given by
+The isomorphism between $ TQ/G $ and $ TM \oplus \operatorname{Ad} (Q) $ given in Proposition \ref{prop:splitting} can be dualized to obtain the isomorphism $ T^*Q/G \rightarrow T^*M \oplus \operatorname{Ad}^*(Q) $ given by
 $$ \left[ \alpha \right] \mapsto h^*_q\alpha \oplus \left[ q, \eta_q^*(\alpha)\right], \ q=\pi_{T^*Q}(\alpha). $$ 
-By proposition \ref{prop:momentum_map}, if $ \alpha: I \rightarrow T^*Q $ is a sub-Riemannian geodesic, $ J(\alpha(t)) $ is constant. We denote as $ \lambda: I \rightarrow \operatorname{Ad}^*(Q) $ the curve that makes the following diagram commutative,
+By Proposition \ref{prop:momentum_map}, if $ \alpha: I \rightarrow T^*Q $ is a sub-Riemannian geodesic, $ J(\alpha(t)) $ is constant. We denote as $ \lambda: I \rightarrow \operatorname{Ad}^*(Q) $ the curve that makes the following diagram commutative,
 \begin{center}
 	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEkQBfU9TXfIRQBGclVqMWbACoA9AFQBFbrxAZseAkQBMY6vWatEIOUoD0AcRV8NgnaWHiDU46YCyAHQ8Q0zOAAIvHxgAJzocCBCwOgBbGGAAQSguBQAKRQBKazV+TSFkXW0nSSMQILRQ8MjouMTktMzucRgoAHN4IlAAMxCIGKQyEAikUQlDNi9GNAALOmyevpHqYcRtHm7e-tXliCQAZmoGLDBSqAgmACMGVmppmDooJDAmBgZluiwGNkgT+c39nZIAAs+hKE28FTCESisXiaF6ACsuAB9YDlSrQmrxJIpeTpDJcP6LRCDFYgsYuMoeBixC5QOaHOgXGAMAAKuTsxhCWFa0xwTS4QA
 \begin{tikzcd}
@@ -1519,10 +1524,10 @@ I \arrow[r, "\alpha"] \arrow[rrdd, "\lambda"'] & T^*Q \arrow[r] & T^*Q/G \arrow[
 that is, $ \lambda(t) = \left[ \pi_{T^*Q}(\alpha(t)), \eta^*_{\pi_{T^*Q}(\alpha)}(\alpha(t)) \right]  $. 
 
 \begin{thm}
-	Suppose that $ \pi: Q \rightarrow M $  is a principal $ G $-bundle with connection $ \mathcal{H} $ endowed with a sub-Riemannian metric of bundle type,  and $ \rho: G \rightarrow \operatorname{GL} (E) $ is a representation of $ G $ on a vector space $ E. $ Let $ c: I \rightarrow M $ be a curve on $ M. $ A section $ \psi: M \rightarrow \rho(Q) $   is covariantly constant (see definition \ref{df:covariantly_constant}) over $ c $  if and only if $ \psi(t)= [q(t), \psi_0] $, where $ \pi\circ q = c,  $ and $ \psi_0\in E $ is constant.
+	Suppose that $ \pi: Q \rightarrow M $  is a principal $ G $-bundle with connection $ \mathcal{H} $ endowed with a sub-Riemannian metric of bundle type,  and $ \rho: G \rightarrow \operatorname{GL} (E) $ is a representation of $ G $ on a vector space $ E. $ Let $ c: I \rightarrow M $ be a curve on $ M. $ A section $ \psi: M \rightarrow \rho(Q) $   is covariantly constant (see Definition \ref{df:covariantly_constant}) over $ c $  if and only if $ \psi(t)= [q(t), \psi_0] $, where $ \pi\circ q = c,  $ and $ \psi_0\in E $ is constant.
 \end{thm}
 \begin{proof}
-	Suppose that $ \psi(t)= [q(t), \psi_0] $ for a horizontal lift $ q: I \rightarrow Q $ of $ c: I \rightarrow M $, and $ \psi_0\in E $ constant. By proposition \ref{prop:equiv_section_equivariant}, the section $ \phi: \operatorname{Im} (c)\subset M \rightarrow \rho(Q) $ given by $ \phi(c(t))=\psi(t) $ corresponds to the equivariant map $ F: \operatorname{Im} (q)  \subset Q \rightarrow E, $ $ F(\tilde q)= \rho(g)\psi_0, $ where $ g $ is determined by $ \phi\circ\pi(\tilde q) = [\tilde q \cdot g, \psi_0]. $ Nevertheless, as $ \phi_0\in E $ is constant, $ g=e, $ and $ F=\psi_0 $ becomes the constant map, so that $ dF(h\dot{c})=0 $ is the null equivariant map, which precisely corresponds to the section $ s: \operatorname{Im} (c) \subset M \rightarrow \rho(Q) $ given by $ s(c(t)) =[q(t), 0] $, and $ D_{\dot{c}}\psi=0. $ 
+	Suppose that $ \psi(t)= [q(t), \psi_0] $ for a horizontal lift $ q: I \rightarrow Q $ of $ c: I \rightarrow M $, and $ \psi_0\in E $ constant. By Proposition \ref{prop:equiv_section_equivariant}, the section $ \phi: \operatorname{Im} (c)\subset M \rightarrow \rho(Q) $ given by $ \phi(c(t))=\psi(t) $ corresponds to the equivariant map $ F: \operatorname{Im} (q)  \subset Q \rightarrow E, $ $ F(\tilde q)= \rho(g)\psi_0, $ where $ g $ is determined by $ \phi\circ\pi(\tilde q) = [\tilde q \cdot g, \psi_0]. $ Nevertheless, as $ \phi_0\in E $ is constant, $ g=e, $ and $ F=\psi_0 $ becomes the constant map, so that $ dF(h\dot{c})=0 $ is the null equivariant map, which precisely corresponds to the section $ s: \operatorname{Im} (c) \subset M \rightarrow \rho(Q) $ given by $ s(c(t)) =[q(t), 0] $, and $ D_{\dot{c}}\psi=0. $ 
 
 	Now, if we suppose that $ D_{\dot{c}}\psi=0, $ we get that the equivariant map associated to the section $ \phi: \operatorname{Im} (c)\subset M \rightarrow \rho(Q) $ is constant, from where we obtain that $ \psi(t)=[q(t), \psi_0] $ for $ \psi_0\in E $ constant, and $ q $ must be a horizontal lift of $ c $ in order to satisfy $ \pi_{T^*Q}\circ\psi =c. $ 
 \end{proof}
@@ -1530,11 +1535,11 @@ that is, $ \lambda(t) = \left[ \pi_{T^*Q}(\alpha(t)), \eta^*_{\pi_{T^*Q}(\alpha)
 \begin{cor}[First Wong equation]\label{cor:fwe}
 	$\alpha: I \rightarrow T^*Q$ is a normal sub-Riemannian geodesic if and only if $ \lambda$ is covariantly constant, that is, $$ D_{\dot{c}}\lambda =0, $$ where $ c=\pi\circ\pi_{T^*Q}\circ\alpha, $ and $ \lambda(t)=[ \pi_{T^*Q}\circ\alpha(t), J\circ\alpha(t)]. $ 
 \end{cor}
-Every $ G $-invariant vector field on $ Q $ can be split into their vertical and horizontal components, so that any of these vector fields is determined by lifted horizontal vector field $ hX, $ where $ X: M \rightarrow TM, $ and a $ G $-invariant vertical vector field $ \sigma\xi, $ where $ \xi: M \rightarrow \operatorname{Ad} (Q) $ is a section, and $ \sigma: \Gamma( \operatorname{Ad} (Q)) \rightarrow \Gamma(V)_G $ is the isomorphism between sections described below proposition \ref{prop:isomorphism_vb}.
+Every $ G $-invariant vector field on $ Q $ can be split into their vertical and horizontal components, so that any of these vector fields is determined by lifted horizontal vector field $ hX, $ where $ X: M \rightarrow TM, $ and a $ G $-invariant vertical vector field $ \sigma\xi, $ where $ \xi: M \rightarrow \operatorname{Ad} (Q) $ is a section, and $ \sigma: \Gamma( \operatorname{Ad} (Q)) \rightarrow \Gamma(V)_G $ is the isomorphism between sections described below Proposition \ref{prop:isomorphism_vb}.
 
-We can identify $ \xi: M \rightarrow \operatorname{Ad} (Q) $ with a $ G $-equivariant map $ F: Q \rightarrow \mathfrak{g} $ using proposition \ref{prop:equiv_section_equivariant}. In this case, the momentum function associated to $ \sigma\xi $ is
+We can identify $ \xi: M \rightarrow \operatorname{Ad} (Q) $ with a $ G $-equivariant map $ F: Q \rightarrow \mathfrak{g} $ using Proposition \ref{prop:equiv_section_equivariant}. In this case, the momentum function associated to $ \sigma\xi $ is
 $$ P_{\sigma\xi}(\alpha)= J(\alpha) \left( F(\pi_{T^*Q}(\alpha)) \right).  $$ 
-To see this, by proposition \ref{prop:isomorphism_vb} we have that $ \sigma\circ \xi: M \rightarrow V/G $ is a section of $ V/G \rightarrow M, $ and the $ G $-invariant vertical vector field associated to it is $ \sigma\xi: Q \rightarrow V $, $ q \mapsto \sigma_v(q), $ where $ \xi(\pi(q))=[q,v] $ for a given $ v\in \mathfrak{g} $, and $ \sigma\circ\xi(\pi(q)) = \sigma([q,v])=[\sigma_v(q)] $. From this point, we can see that $ P_{\sigma\xi}(\alpha) = \alpha(\sigma\xi) = \alpha(\sigma_v(q)) = \alpha\circ \eta_q(v) = \eta_q^*(\alpha)(v) = J(\alpha)(v)= J(\alpha) \left( F(\pi_{T^*Q}(\alpha)) \right), $ as desired.    
+To see this, by Proposition \ref{prop:isomorphism_vb} we have that $ \sigma\circ \xi: M \rightarrow V/G $ is a section of $ V/G \rightarrow M, $ and the $ G $-invariant vertical vector field associated to it is $ \sigma\xi: Q \rightarrow V $, $ q \mapsto \sigma_v(q), $ where $ \xi(\pi(q))=[q,v] $ for a given $ v\in \mathfrak{g} $, and $ \sigma\circ\xi(\pi(q)) = \sigma([q,v])=[\sigma_v(q)] $. From this point, we can see that $ P_{\sigma\xi}(\alpha) = \alpha(\sigma\xi) = \alpha(\sigma_v(q)) = \alpha\circ \eta_q(v) = \eta_q^*(\alpha)(v) = J(\alpha)(v)= J(\alpha) \left( F(\pi_{T^*Q}(\alpha)) \right), $ as desired.    
 
 \begin{df}\label{df:lifted_configuration_function}
 	We say that a map $ f: T^*Q \rightarrow \mathbb{R} $ is a lifted configuration function if there exists a function $ \tilde f: M \rightarrow \mathbb{R} $ such that the following diagram commutes,
@@ -1556,10 +1561,10 @@ T^*Q \arrow[d, "f"'] \arrow[r, "\pi_{T^*Q}"] \arrow[rd, "\pi\circ\pi_{T^*Q}" des
 	\left\{ f, P_{hX} \right\} = d\tilde f(X),\\ \label{eq:lemma_4}
 	\left\{ f, P_{\sigma\xi} \right\} = \left\{ f,g \right\} =0,
 	\end{align}
-	where $\left[ \xi, \chi \right]$ 	represents the corresponding point-wise bracket of the associated $ G $-equivariant maps of $ Q \rightarrow \mathfrak{g} $ of $ \xi,\chi, $ while $ \tilde f : M \rightarrow \mathbb{R} $ is the function that makes the diagram of definition \ref{df:lifted_configuration_function} commutative.
+	where $\left[ \xi, \chi \right]$ 	represents the corresponding point-wise bracket of the associated $ G $-equivariant maps of $ Q \rightarrow \mathfrak{g} $ of $ \xi,\chi, $ while $ \tilde f : M \rightarrow \mathbb{R} $ is the function that makes the diagram of Definition \ref{df:lifted_configuration_function} commutative.
 \end{lm}
 \begin{proof}
-	These commutation relations follow from proposition \ref{prop:poisson_bracket_momentum}, and from commutation relations between vertical and horizontal vector fields \eqref{eq:horizontal-horizontal}-\eqref{eq:horizontal-vertical}. The relations involving lifted configuration functions follow from calculation in canonical coordinates on $ T^*Q. $ 
+	These commutation relations follow from Proposition \ref{prop:poisson_bracket_momentum}, and from commutation relations between vertical and horizontal vector fields \eqref{eq:horizontal-horizontal}-\eqref{eq:horizontal-vertical}. The relations involving lifted configuration functions follow from calculation in canonical coordinates on $ T^*Q. $ 
 \end{proof}
 Returning to the Hamiltonian \eqref{eq:sub-RiemannianHamiltonian}, note that the metric function $ g_{ij} $ is a lifted configuration function, while by definition $ P_i=P_{hX_i} $ are horizontal momentum functions. If $ f: T^*Q \rightarrow \mathbb{R} $ is a function of $ Q $ alone, by equation \eqref{eq:lemma_4} we have that $ \left\{ f, P_i \right\} = d\tilde f(X), $ so that the Poisson bracket between $ f $ and the Hamiltonian \eqref{eq:sub-RiemannianHamiltonian} is 
 \begin{align*}
@@ -1599,7 +1604,7 @@ If the structure group $ G $ of the principal $ G $-bundle $ \pi: Q \rightarrow 
 
 Assuming that $ G$ is abelian, by lemma \ref{lm:minus_inverse}, the Lie algebra is abelian. The covariant derivative  of a section $ \psi: M \rightarrow M\times \mathfrak{g}^{(*)} $ with respect to a vector field $ X\in \mathfrak{X}(M) $ corresponds to the usual derivative of the function $f:= \operatorname{proj_{ \mathfrak{g}^{(*)}}}\circ \psi,$ because the equivariant map associated with the section $ \psi $ is precisely $ f\circ\pi, $ so that $ D_X\psi=d(f\circ\pi)(hX) = df(X). $ 
 
-From the fist Wong equation (corollary \ref{cor:fwe}), we get that $ D_{\dot{c}}\lambda = d( \operatorname{proj}_{ \mathfrak{g}^*}\circ \lambda\circ\pi(\dot{c}))=0, $ from where we get that $ \lambda $ remains constant along $ \dot{c} $ when projected to $ \mathfrak{g}^{*}. $ The curvature appearing in the second Wong equation (Corollary \ref{cor:swe}) is a two-form on the base with values in the vector space $ \mathfrak{g} $ (\cite{montgomery2002tour}, p. 220).
+From the fist Wong equation (Corollary \ref{cor:fwe}), we get that $ D_{\dot{c}}\lambda = d( \operatorname{proj}_{ \mathfrak{g}^*}\circ \lambda\circ\pi(\dot{c}))=0, $ from where we get that $ \lambda $ remains constant along $ \dot{c} $ when projected to $ \mathfrak{g}^{*}. $ The curvature appearing in the second Wong equation (Corollary \ref{cor:swe}) is a two-form on the base with values in the vector space $ \mathfrak{g} $ (\cite{montgomery2002tour}, p. 220).
 
 If the structure group $ G $ is one dimensional (either $ \mathbb{R} $ or $ \mathbb{S}^1), $ we have that $ \mathfrak{g}^*= \mathbb{R}, $ and $ \operatorname{proj}_{ \mathfrak{g}^*} \circ\lambda\circ\pi $ is the constant map from $ Q $ to a real value, while the curvature is a real-valued two-form.
 
