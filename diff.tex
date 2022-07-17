@@ -1,7 +1,7 @@
 ﻿%%%% DESCRIPTION %%%%%
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL previous.tex   Mon Jul 11 14:55:37 2022
-%DIF ADD main.tex       Sat Jul 16 21:56:27 2022
+%DIF ADD main.tex       Sun Jul 17 11:42:59 2022
 % Title of Document: 
 % Start Date: 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -470,7 +470,7 @@ B' \arrow[r, hook]                    & B
 \DIFdelbegin %DIFDELCMD < 
 
 %DIFDELCMD < %%%
-\DIFdelend are a morphism of vector bundles.
+\DIFdel{are }\DIFdelend \DIFaddbegin \DIFadd{define }\DIFaddend a morphism of vector bundles.
 \DIFaddbegin \end{df}
 \DIFaddend \begin{df}
 
@@ -1249,7 +1249,7 @@ Recall that given a Riemannian manifold $ (M,g), $ we can construct a metric $ g
 $$ g^*_q(v^*,w^*):=g_q(v,w), $$ 
 where $ v^*,w^*\in T^*_qM, $ and $ v,w\in T_qM $ are the preimages of $ v^*,w^* $ via the isomorphism $ T^*_qM\cong T_qM $ induced by the metric $ g $, that is, $ v^*=g_q(v,\cdot) $ and $ w^*=g_q(w,\cdot) $. In coordinates, if $ g_q=g_{ij}(q) $, then $ g^*_q=g^{ij}(q). $
 
-Now, if $ M $ is a manifold with a sub-Riemannian structure $ \left( \mathcal{H}, \langle \cdot,\cdot \rangle \right)  $, we can define a \textit{cometric}, that is just a metric over the fibers of the cotangent bundle as follows. Given a metric $ \langle \cdot,\cdot \rangle_q $ for $ \mathcal{H}_q, $ for any $ v^*\in T^*_qM $ there exists a single $ V\in \mathcal{H}_q $ such that $ v^*|_{\mathcal{H}_q} = \langle V,\cdot \rangle_q $. With this property, we can define the \DIFaddbegin \DIFadd{sub-Riemannian }\DIFaddend cometric $ (\cdot,\cdot)\in \mathfrak{X}_2^0(M) $ as a bilinear form (in general it is not a metric) over the fibers of the cotangent space as follows:
+Now, if $ M $ is a manifold with a sub-Riemannian structure $ \left( \mathcal{H}, \langle \cdot,\cdot \rangle \right)  $, we can define a \textit{cometric}, that is just a metric over the fibers of the cotangent bundle as follows. Given a metric $ \langle \cdot,\cdot \rangle_q $ for $ \mathcal{H}_q, $ for any $ v^*\in T^*_qM $ there exists a single $ V\in \mathcal{H}_q $ such that \DIFdelbegin \DIFdel{$ v^*|_{\mathcal{H}_q} = \langle V,\cdot \rangle_q $}\DIFdelend \DIFaddbegin \DIFadd{$ v^*|_{\mathcal{H}_q} =:\iota^*(v^*)= \langle V,\cdot \rangle_q $, where $ \iota: \mathcal{H}_q \hookrightarrow T_qQ $ is the inclusion, and $ \iota^*: T_q^*Q \rightarrow \mathcal{H}_q^* $ is its pullback}\DIFaddend . With this property, we can define the \DIFaddbegin \DIFadd{sub-Riemannian }\DIFaddend cometric $ (\cdot,\cdot)\in \mathfrak{X}_2^0(M) $ as a bilinear form (in general it is not a metric) over the fibers of the cotangent space as follows:
 $$ (v^*,w^*)_q= \langle V,W \rangle_q, $$ 
 where $ v^*,w^*\in T^*_qM $, and $ V,W\in \mathcal{H}_q $ are such that $ v^*|_{\mathcal{H}_q}= \langle V,\cdot \rangle_q, $ $ w^*|_{\mathcal{H}_q}= \langle W,\cdot \rangle_q. $ 
 \DIFdelbegin %DIFDELCMD < \begin{df}[\cite{montgomery2002tour}, definition 1.5.2]
