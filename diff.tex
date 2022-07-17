@@ -1,7 +1,7 @@
 ﻿%%%% DESCRIPTION %%%%%
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL previous.tex   Mon Jul 11 14:55:37 2022
-%DIF ADD main.tex       Sat Jul 16 17:01:31 2022
+%DIF ADD main.tex       Sat Jul 16 21:56:27 2022
 % Title of Document: 
 % Start Date: 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -372,7 +372,7 @@
 \tableofcontents
 \newpage
 \begin{abstract}
-		The goal of this work is to \DIFdelbegin \DIFdel{introduce the main theorems }\DIFdelend \DIFaddbegin \DIFadd{explain the elements }\DIFaddend of sub-Riemannian geometry \DIFdelbegin \DIFdel{, and for that we will cover first the topic of distributions, stating the Frobenius ' theoremand introducing the idea of foliation. Later on, }\DIFdelend \DIFaddbegin \DIFadd{and present some of its applications. We start with the concept of distribution, then explain the Frobenius theorem. After that }\DIFaddend we focus on \DIFdelbegin \DIFdel{the }\DIFdelend sub-Riemannian structures, and prove \DIFdelbegin \DIFdel{Chow's }\DIFdelend \DIFaddbegin \DIFadd{the Chow }\DIFaddend theorem, central in the study of connectivity through horizontal geodesics. \DIFdelbegin \DIFdel{The }\DIFdelend \DIFaddbegin \DIFadd{In the }\DIFaddend last part of \DIFdelbegin \DIFdel{this work focuses on }\DIFdelend \DIFaddbegin \DIFadd{the thesis we consider the }\DIFaddend $ G $-principal bundles endowed with compatible sub-Riemannian structures\DIFdelbegin \DIFdel{. We use this construction with ideas of symplectic geometry to prove the Theorem }\DIFdelend \DIFaddbegin \DIFadd{, prove the theorem }\DIFaddend on normal geodesics of bundle type sub-Riemannian metrics\DIFdelbegin \DIFdel{and to }\DIFdelend \DIFaddbegin \DIFadd{, and }\DIFaddend study Wong's equations. \DIFdelbegin \DIFdel{This review of sub-Riemannian topics }\DIFdelend \DIFaddbegin \DIFadd{Our exposition }\DIFaddend is based mostly on \cite{montgomery2002tour}.
+		The goal of this work is to \DIFdelbegin \DIFdel{introduce the main theorems }\DIFdelend \DIFaddbegin \DIFadd{explain the elements }\DIFaddend of sub-Riemannian geometry \DIFdelbegin \DIFdel{, and for that we will cover first the topic of distributions, stating the Frobenius ' theoremand introducing the idea of foliation. Later on, }\DIFdelend \DIFaddbegin \DIFadd{and present some of its applications. We start with the concept of distribution, then explain the Frobenius theorem. After that }\DIFaddend we focus on \DIFdelbegin \DIFdel{the }\DIFdelend sub-Riemannian structures, and prove \DIFdelbegin \DIFdel{Chow's }\DIFdelend \DIFaddbegin \DIFadd{the Chow }\DIFaddend theorem, central in the study of connectivity through horizontal geodesics. \DIFdelbegin \DIFdel{The }\DIFdelend \DIFaddbegin \DIFadd{In the }\DIFaddend last part of \DIFdelbegin \DIFdel{this work focuses on }\DIFdelend \DIFaddbegin \DIFadd{the thesis we consider the }\DIFaddend $ G $-principal bundles endowed with compatible sub-Riemannian structures\DIFdelbegin \DIFdel{. We use this construction with ideas of symplectic geometry to prove the Theorem }\DIFdelend \DIFaddbegin \DIFadd{, prove the theorem }\DIFaddend on normal geodesics of bundle type sub-Riemannian metrics\DIFdelbegin \DIFdel{and to }\DIFdelend \DIFaddbegin \DIFadd{, and }\DIFaddend study Wong's equations. \DIFdelbegin \DIFdel{This review of sub-Riemannian topics }\DIFdelend \DIFaddbegin \DIFadd{Our exposition }\DIFaddend is based mostly \DIFdelbegin \DIFdel{on }\DIFdelend \DIFaddbegin \DIFadd{in }\DIFaddend \cite{montgomery2002tour}.
 \end{abstract}
 \newpage
 \pagenumbering{arabic}
@@ -385,7 +385,7 @@ In \DIFdelbegin \DIFdel{this field }\DIFdelend \DIFaddbegin \DIFadd{Riemannian g
 \DIFdelbegin \DIFdel{The non-degeneracy condition can be weakened, and this variation of the definition of Riemannian metric arises }\DIFdelend \DIFaddbegin 
 
 \DIFadd{If we replace the condition ``positive definite'' with the condition ``non-degenerate'' we arrive at }\DIFaddend the field of study known as pseudo-Riemannian \DIFdelbegin \DIFdel{metric. In this case some }\DIFdelend \DIFaddbegin \DIFadd{geometry. Some }\DIFaddend important examples raise up \DIFaddbegin \DIFadd{in this alternative theory}\DIFaddend , like the \DIFdelbegin \DIFdel{Lorentz/Minkowski geometry , the most widely used metric }\DIFdelend \DIFaddbegin \DIFadd{geometry of Minkowski space or, more generally, Lorenzian geometry; both being widely used }\DIFaddend in special relativity. 
-An extensive mathematical development of pseudo-Riemannian geometry can be found on \cite{o1983semi}.
+An extensive mathematical development of pseudo-Riemannian geometry can be found \DIFdelbegin \DIFdel{on }\DIFdelend \DIFaddbegin \DIFadd{in }\DIFaddend \cite{o1983semi}.
 
 Another variation of Riemannian metric arises when the condition of being a section of the $(0,2)$-tensor bundle is weakened to consider instead a continuous map $F: TM \rightarrow \mathbb{R}$, smooth on the set of nonzero vectors, whose restriction to each tangent space $T_pM$ is a norm \cite[p.~47]{lee2018introduction}. This definition is known as Finsler metric \DIFdelbegin \DIFdel{, and an approach to the consequences of this definition can be found on \mbox{%DIFAUXCMD
 \cite{bao2012introduction}}\hspace{0pt}%DIFAUXCMD
@@ -458,7 +458,8 @@ The proof that both definitions are consistent definitions of smooth vector bund
 \begin{df}
 	A \textit{smooth section} of a smooth vector bundle $ (E,M,\pi:E \rightarrow {M}) $ is a smooth application $ s: M \rightarrow {E} $ such that $ \pi\circ s= \mathbb{1}_{M}. $    
 \end{df}
-For an arbitrary smooth vector bundle $ (E,B,\pi:E \rightarrow {B}), $ a sub-bundle of this bundle $ (E',B',\pi':E' \rightarrow {B'}) $  is a smooth vector bundle that satisfies $ E'\subset E $, $ B'\subset B $, $ \pi|_{E'}=\pi' $ and the inclusion maps 
+\DIFdelbegin \DIFdel{For an arbitrary smooth vector bundle $ (E,B,\pi:E \rightarrow {B}), $ a }\DIFdelend \DIFaddbegin \begin{df}
+\DIFadd{A }\DIFaddend sub-bundle \DIFdelbegin \DIFdel{of this bundle $ (E',B',\pi':E' \rightarrow {B'}) $  }\DIFdelend \DIFaddbegin \DIFadd{$ (E',B',\pi':E' \rightarrow {B'}) $ of a vector bundle $  (E,B,\pi:E \rightarrow {B})  $   }\DIFaddend is a smooth vector bundle that satisfies $ E'\subset E $, $ B'\subset B $, $ \pi|_{E'}=\pi' $ and the \DIFaddbegin \DIFadd{pair of }\DIFaddend inclusion maps 
 \begin{center}
 	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFEByEAX1PUy58hFGQCMVWoxZsAQtz4DseAkTHlJ9Zq0Qde-EBmXC1pCdS0zds3pJhQA5vCKgAZgCcIAWyRkQOCCQAJmocOiwGNgALCAgAa303Tx9EdX9AxABmUPDI3Rj4xJAPb19QjLTLHRAAHRq0LG5qBjoAIxgGAAVBFREQdywHKJwikpSQ9KRsqW02OobbHiA
 \begin{tikzcd}
@@ -469,8 +470,9 @@ B' \arrow[r, hook]                    & B
 \DIFdelbegin %DIFDELCMD < 
 
 %DIFDELCMD < %%%
-\DIFdel{are a morphism }\DIFdelend \DIFaddbegin \DIFadd{are morphisms }\DIFaddend of vector bundles.
-\begin{df}
+\DIFdelend are a morphism of vector bundles.
+\DIFaddbegin \end{df}
+\DIFaddend \begin{df}
 
 	A \textit{distribution} $ \mathcal{H} $ over a manifold $ M $  is a vector sub-bundle of the tangent bundle $ TM $. \textit{ The rank $ k $}  of this distribution is defined as the dimension of its fibers.
 
@@ -626,7 +628,7 @@ Therefore, if a distribution is completely integrable, is then integrable, since
 	By the previous computations, $$ d\Phi_0\left( \frac{\partial}{\partial s^i}\Big|_{0} \right) = V_i |_{\varphi(p)}, \ i=1,\dots,k, $$ and on the other hand, since $ \Phi(0,\dots,0,s^{k+1},\dots,s^m)=(0,\dots,0,s^{k+1},\dots,s^m), $ it follows that
 	$$ d\Phi_0 \left( \frac{\partial}{\partial s^i}\Big|_{0}  \right) = \frac{\partial}{\partial x^i}\Big|_{\varphi(p)},\ i=k+1,\dots,m.  $$ 
 
-	Therefore, $ d\Phi_0 $ takes the basis $ \left( \partial/\partial s^1 |_0,\dots,\partial/\partial s^m |_0 \right) $ of $ T_0 \mathbb{R}^m $ to the basis $ ( V_1|_{\varphi(p)},  \dots,$ $ V_k|_{\varphi(p)}, \partial/\partial x^{k+1}|_{\varphi(p)}, \dots, \partial/\partial x^{m}|_{\varphi(p)}) $ of $ T_{\varphi(p)} \varphi(U). $ By the inverse function theorem, $ \Phi $ is a local diffeomorphism (in a neighborhood of $ 0 $), and $ \phi=\Phi^{-1} $ is a smooth coordinate chart that takes $ V_i $ to $ \partial/\partial s^i $, for $ i=1,\dots,k, $ and takes $ \partial / \partial x^{i} $ to $ \partial/\partial s^i $, for $ i=k+1,\dots,m. $ Thus, the smooth coordinate chart flat for $ \mathcal{H} $ in a neighborhood of $ p\in M $ is $ \phi\circ\varphi, $ and since this is independent of $ p $, for every point there is a smooth coordinate chart flat for $ \mathcal{H}, $ what makes $ \mathcal{H} $ a completely integrable distribution.
+	Therefore, $ d\Phi_0 $ takes the basis $ \left( \partial/\partial s^1 |_0,\dots,\partial/\partial s^m |_0 \right) $ of $ T_0 \mathbb{R}^m $ to the basis $ ( V_1|_{\varphi(p)},  \dots,$ $ V_k|_{\varphi(p)}, \partial/\partial x^{k+1}|_{\varphi(p)}, \dots, \partial/\partial x^{m}|_{\varphi(p)}) $ of $ T_{\varphi(p)} \varphi(U). $ By the inverse function theorem, $ \Phi $ is a local diffeomorphism (in a neighborhood of $ 0 $), and $ \phi=\Phi^{-1} $ is a smooth coordinate chart that takes $ V_i $ to $ \partial/\partial s^i $, for $ i=1,\dots,k, $ and takes $ \partial / \partial x^{i} $ to $ \partial/\partial s^i $, for $ i=k+1,\dots,m. $ Thus, the smooth coordinate \DIFdelbegin \DIFdel{chart flat }\DIFdelend \DIFaddbegin \DIFadd{flat chart }\DIFaddend for $ \mathcal{H} $ in a neighborhood of $ p\in M $ is $ \phi\circ\varphi, $ and since this is independent of $ p $, for every point there is a smooth coordinate \DIFdelbegin \DIFdel{chart flat }\DIFdelend \DIFaddbegin \DIFadd{flat chart }\DIFaddend for $ \mathcal{H}, $ what makes $ \mathcal{H} $ a completely integrable distribution.
 
 \end{proof}
 
@@ -853,7 +855,7 @@ Each curve in $ F( \operatorname{Box} (\epsilon) )$ is the endpoint of a horizon
 $$ F( \operatorname{Box} (\epsilon)) \subset B(M\epsilon, p), $$ 
 from where we get that $ \operatorname{Box}^w (c\epsilon)\subset B(\epsilon,p). $ 
 \end{proof}
-The remaining containment in the Ball-Box theorem will not be proved in this text, as the proof of Chow's theorem only requires the first containment. The proof of the remaining containment can be found \DIFdelbegin \DIFdel{in }\DIFdelend \DIFaddbegin \DIFadd{on }\DIFaddend \cite{montgomery2002tour}, section 2.7.
+The remaining \DIFdelbegin \DIFdel{containment }\DIFdelend \DIFaddbegin \DIFadd{inclusion }\DIFaddend in the Ball-Box theorem will not be proved in this text, as the proof of Chow's theorem only requires the first \DIFdelbegin \DIFdel{containment}\DIFdelend \DIFaddbegin \DIFadd{inclusion}\DIFaddend . The proof of the remaining \DIFdelbegin \DIFdel{containment }\DIFdelend \DIFaddbegin \DIFadd{inclusion }\DIFaddend can be found in \cite{montgomery2002tour}, section 2.7.
 
 With the Ball-Box theorem, Chow's theorem can be derived easily.
 
@@ -862,7 +864,7 @@ With the Ball-Box theorem, Chow's theorem can be derived easily.
 \DIFdelend \DIFaddbegin \begin{thm}[Chow Theorem]
 	\DIFaddend If $ \mathcal{H} $ is a bracket-generating distribution on a connected manifold $ M $, then any two points of $ M $ can be connected by a horizontal path.
 \end{thm}
-\begin{proof} (\cite{montgomery2002tour}, page 52). The containment $ \operatorname{Box}^w(c\epsilon) \subset B(\epsilon,p)$ shows that $ B(\epsilon, p) $ is a neighborhood of $ p $, which means that the \DIFdelbegin \DIFdel{accesible }\DIFdelend \DIFaddbegin \DIFadd{accessible }\DIFaddend points from $ p $ through horizontal curves form a neighborhood of $ p. $ Let $ q\in M $ be another arbitrary point on the connected manifold, and take a smooth curve $ \gamma $ connecting $ p $ and $ q. $  
+\begin{proof} (\cite{montgomery2002tour}, \DIFdelbegin \DIFdel{page }\DIFdelend \DIFaddbegin \DIFadd{p. }\DIFaddend 52). The \DIFdelbegin \DIFdel{containment }\DIFdelend \DIFaddbegin \DIFadd{inclusion }\DIFaddend $ \operatorname{Box}^w(c\epsilon) \subset B(\epsilon,p)$ shows that $ B(\epsilon, p) $ is a neighborhood of $ p $, which means that the \DIFdelbegin \DIFdel{accesible }\DIFdelend \DIFaddbegin \DIFadd{accessible }\DIFaddend points from $ p $ through horizontal curves form a neighborhood of $ p. $ Let $ q\in M $ be another arbitrary point on the connected manifold, and take a smooth curve $ \gamma $ connecting $ p $ and $ q. $  
 
 	The image of $ \gamma $ is compact, so we can cover it with finitely many \DIFdelbegin \DIFdel{succesive }\DIFdelend \DIFaddbegin \DIFadd{successive }\DIFaddend box neighborhoods, where the Ball-Box theorem holds. Denote these neighborhoods as $ U_1,\dots,U_n, $ with each one of these boxes centered on \DIFdelbegin \DIFdel{succesive }\DIFdelend \DIFaddbegin \DIFadd{successive }\DIFaddend points $ p_i $ along the image of $ \gamma, $ and $ p_1=p, $ $ p_n=q. $ Moreover, these open sets can be chosen in \DIFdelbegin \DIFdel{orden }\DIFdelend \DIFaddbegin \DIFadd{order }\DIFaddend to satisfy $ U_i\cap U_{i+1}\neq\emptyset, $ so that there exists $ q_i \in U_i\cap U_{i+1}. $ By the Ball-Box theorem, we have paths connecting $ p_i $ with $ q_i, $ and $ q_i $ with $ p_{i+1}. $ Concatenating these paths yields a piecewise horizontal path connecting $ p $ and $ q. $ 
 
@@ -891,7 +893,7 @@ With the Ball-Box theorem, Chow's theorem can be derived easily.
 \end{ex}
 
 \begin{rem}[\cite{montgomery2002tour}, p. 45]
-	The converse of Chow's theorem is false in general. That is, if any two points in $ (M,\mathcal{H}) $ can be connected through horizontal curves, it is not true that $ \mathcal{H} $ is bracket-generating. Even so, the converse holds for analytic distributions. A counterexample of  the converse of Chow's theorem can be found on (\cite{montgomery2002tour}, p. 45).
+	The converse of Chow's theorem is false in general. That is, if any two points in $ (M,\mathcal{H}) $ can be connected through horizontal curves, it is not true that $ \mathcal{H} $ is bracket-generating. Even so, the converse holds for analytic distributions. A counterexample of  the converse of Chow's theorem can be found \DIFdelbegin \DIFdel{on }\DIFdelend \DIFaddbegin \DIFadd{in }\DIFaddend (\cite{montgomery2002tour}, p. 45).
 \end{rem}
 \section{Sub-Riemannian metrics on Bundles}%
 \label{sec:metrics_on_bundles}
@@ -966,7 +968,7 @@ $$ \frac{d\gamma(t)}{dt} = d\pi^{-1}_{c(t)} \left( \frac{dc(t)}{dt}  \right),\qu
 \end{df}
 
 \begin{rem}
-Thanks to the orthogonal algebraic splitting, a compatible Riemannian metric is determined by its restriction to $ V, $ and the induced sub-Riemannian structure restricted to $ \mathcal{H} $. Equivalently, we can take a Riemannian metric $ g_Q $ on $ Q. $ Let $ V_q^\perp $ be the orthogonal complement of the vertical space $ V_q $ in $ q\in Q $ with respect to the Riemannian metric, and set $ \mathcal{H}_q=V_q^\perp. $ The Riemannian metric defines inner products in $ V_q^\perp $  and $ T_mM, $ \DIFdelbegin \DIFdel{being defined }\DIFdelend in the first \DIFdelbegin \DIFdel{as }\DIFdelend \DIFaddbegin \DIFadd{case, by }\DIFaddend the restriction of the Riemannian metric, and in the second \DIFdelbegin \DIFdel{is given }\DIFdelend \DIFaddbegin \DIFadd{case, }\DIFaddend by the metric and the isomorphism $ \mathcal{H}_q\cong T_mM. $ Nevertheless, this inner product on $ T_mM $ can depend on the point $ q\in Q_m $. If that is the case, we cannot construct a Riemannian metric on $ M, $ as there is no consistent way to choose which $ q\in Q_m $ is going to be used to define the inner product (\cite{montgomery2002tour}, page 195).
+Thanks to the orthogonal algebraic splitting, a compatible Riemannian metric is determined by its restriction to $ V, $ and the induced sub-Riemannian structure restricted to $ \mathcal{H} $. Equivalently, we can take a Riemannian metric $ g_Q $ on $ Q. $ Let $ V_q^\perp $ be the orthogonal complement of the vertical space $ V_q $ in $ q\in Q $ with respect to the Riemannian metric, and set $ \mathcal{H}_q=V_q^\perp. $ The Riemannian metric defines inner products in $ V_q^\perp $  and $ T_mM, $ \DIFdelbegin \DIFdel{being defined }\DIFdelend in the first \DIFdelbegin \DIFdel{as }\DIFdelend \DIFaddbegin \DIFadd{case, by }\DIFaddend the restriction of the Riemannian metric, and in the second \DIFdelbegin \DIFdel{is given }\DIFdelend \DIFaddbegin \DIFadd{case, }\DIFaddend by the metric and the isomorphism $ \mathcal{H}_q\cong T_mM. $ Nevertheless, this inner product on $ T_mM $ can depend on the point $ q\in Q_m $. If that is the case, we cannot construct a Riemannian metric on $ M, $ as there is no consistent way to choose which $ q\in Q_m $ is going to be used to define the inner product (\cite{montgomery2002tour}, \DIFdelbegin \DIFdel{page }\DIFdelend \DIFaddbegin \DIFadd{p. }\DIFaddend 195).
 \end{rem}
 
 \begin{df}\label{def:riemannian_submersion}
@@ -1024,7 +1026,7 @@ The orbit space of an action is not, in general, a manifold, but because of the 
 From Definition \ref{df:principalGbundle} we can conclude that if $ \pi: Q \rightarrow M $ is a principal \DIFdelbegin \DIFdel{$ G- $bundle}\DIFdelend \DIFaddbegin \DIFadd{$ G $-bundle}\DIFaddend , then $Q/G  $ is a topological manifold, and $M $ is homeomorphic to $ Q/G $ (endowed with the quotient topology). This homeomorphism $ \phi: M \rightarrow {Q/G}$  is given by $ \phi(m)=[q], $ with $ \pi(q)=m. $ 
 
 \begin{df}[\cite{montgomery2002tour}, p. 196]
-	Given a principal $ G $-bundle $ \pi: Q \rightarrow M, $ we say that a horizontal distribution $ \mathcal{H} $ is a \textit{connection for this principal $ G $-bundle} if it is a connection for $ \pi $, and the $ G $-action on $ Q $ preserves the horizontal distribution $ \mathcal{H} $ in the sense that $ \mathcal{H}_{q\cdot g} = d(\alpha_g)_q (\mathcal{H}_q), $ for all $ q\in Q, $ $ g\in G $. In this case, we say that the pair $ (\pi$, $ \mathcal{H}) $ is a \textit{principal $ G $-bundle with connection}. 
+	Given a principal $ G $-bundle $ \pi: Q \rightarrow M, $ we say that a horizontal distribution $ \mathcal{H} $ is a \textit{connection for this principal $ G $-bundle} if it is a connection for $ \pi $, and the $ G $-action \DIFaddbegin \DIFadd{$ \alpha $  }\DIFaddend on $ Q $ preserves the horizontal distribution $ \mathcal{H} $ in the sense that $ \mathcal{H}_{q\cdot g} = d(\alpha_g)_q (\mathcal{H}_q), $ for all $ q\in Q, $ $ g\in G $. In this case, we say that the pair $ (\pi$, $ \mathcal{H}) $ is a \textit{principal $ G $-bundle with connection}. 
 
 \end{df}
 
