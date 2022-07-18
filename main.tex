@@ -40,9 +40,9 @@
 \usepackage{url}
 % Paragraph Settings:
 %\setlength{\parindent}{1em}
-\setlength{\parskip}{1em}
+%\setlength{\parskip}{1em}
 % Skip indentation
-\usepackage{parskip}
+%\usepackage{parskip}
 %%%%%%%%%%%%%%%%%
 \newcommand{\incfig}[2][1]{%
     \def\svgwidth{#1\columnwidth}
@@ -300,9 +300,7 @@
 
 Riemannian geometry is an intensively studied field due to the fact that it provides a generalization of the idea of distance from euclidean space to manifolds. 
 This characteristic makes Riemannian geometry one of the preferred formalisms to work in physics topics like general relativity and quantum mechanics. 
-In Riemannian geometry we start with a manifold endowed with a \emph{a metric tensor field} $g$, where $g$ is a $(0,2)$-tensor field that is symmetric and positive definite at all points of the manifold. 
-
-If we replace the condition ``positive definite'' with the condition ``non-degenerate'' we arrive at the field of study known as pseudo-Riemannian geometry. Some important examples raise up in this alternative theory, like the geometry of Minkowski space or, more generally, Lorenzian geometry; both being widely used in special relativity. 
+In Riemannian geometry we start with a manifold endowed with a \emph{a metric tensor field} $g$, where $g$ is a $(0,2)$-tensor field that is symmetric and positive definite at all points of the manifold.  If we replace the condition ``positive definite'' with the condition ``non-degenerate'' we arrive at the field of study known as pseudo-Riemannian geometry. Some important examples raise up in this alternative theory, like the geometry of Minkowski space or, more generally, Lorenzian geometry; both being widely used in special relativity. 
 An extensive mathematical development of pseudo-Riemannian geometry can be found in \cite{o1983semi}.
 
 Another variation of Riemannian metric arises when the condition of being a section of the $(0,2)$-tensor bundle is weakened to consider instead a continuous map $F: TM \rightarrow \mathbb{R}$, smooth on the set of nonzero vectors, whose restriction to each tangent space $T_pM$ is a norm \cite[p.~47]{lee2018introduction}. This definition is known as Finsler metric (see e.\, g. \cite{bao2012introduction}).
@@ -312,11 +310,16 @@ The variation of  the Riemannian geometry theory that will be covered throughout
 In Section \ref{sec:sub-Riemannian_geometry} we introduce the concept of sub-Riemannian structure, and define the horizontal distance as the infimum of the length of all horizontal curves that connect two given points in the manifold, in analogy with Riemannian distance. We define the bracket-generating distributions characterized by the property that taking the span of the vector fields obtained by the successive application of the Lie bracket to the vector fields tangent to the distribution we get the tangent bundle, then we state and prove the Chow theorem, which states that a sufficient condition for all points to be connected through horizontal curves is that the distribution is bracket-generating. Therefore, the distance between two points in a sub-Riemannian structure is always well-defined when the corresponding distribution is bracket-generating. 
 
 Section \ref{sub:metrics_on_principal_bundles} is devoted to the study of sub-Riemannian metrics on bundles.
-We start with Definition of a submersion, and explain how to endow it with a sub-Riemannian structure in the total space (equivalently, a Riemannian structure in the base space). With these tools, we study metrics on principal bundles in Subsection~\ref{sub:metrics_on_principal_bundles}, and give some examples of principal $ G $-bundles in Section \ref{sub:examples_of_principal_g_bundles}. 
+We start with the definition of a submersion, and explain how to endow it with a sub-Riemannian structure in the total space (equivalently, a Riemannian structure in the base space). With these tools, we study metrics on principal bundles in Subsection~\ref{sub:metrics_on_principal_bundles}, and give some examples of principal $ G $-bundles in Section \ref{sub:examples_of_principal_g_bundles}. 
 
 Following the steps of Riemannian geometry, in Section \ref{sub:theorem_on_normal_geodesics} we proceed studying the normal geodesics associated to sub-Riemannian structures, and in order to do that we make a brief introduction to symplectic geometry. This will allow to use the Hamiltonian formalism to characterize the horizontal geodesics as integral curves of the vector field associated to the sub-Riemannian Hamiltonian, which is defined in the same way than the Riemannian Hamiltonian, using the sub-Riemannian metric instead. With this formalism we proceed proving a theorem on normal geodesics of bundle type sub-Riemannian metrics, which provides a way to identify normal (horizontal) geodesics in the (base) total space for a principal $ G $-bundle whose metric satisfies some special properties.
 
-The cases where the conditions of the Theorem on normal geodesics of bundle type sub-Riemannian metrics do not apply are covered in Section \ref{sec:classical_particles_in_yang_mills_fields}, where we characterize the normal horizontal geodesics of a principal $ G $-bundle using the Wong equations, a system of differential equations on the quotient of the total space of the cotangent bundle with respect to the action of the Lie group $ G $ over it.\section{Distributions}
+The cases where the conditions of the Theorem on normal geodesics of bundle type sub-Riemannian metrics do not apply are covered in Section \ref{sec:classical_particles_in_yang_mills_fields}, where we characterize the normal horizontal geodesics of a principal $ G $-bundle using the Wong equations, a system of differential equations on the quotient of the total space of the cotangent bundle with respect to the action of the Lie group $ G $ over it.
+
+\section*{Acknowledgments}
+I would like to express my deepest gratitude to professors Mikhail Malakhaltsev, Andres Vargas, Alexander Trejos and Jean Carlos Cortissoz for their helpful suggestions and comments during the writing process for this text.
+\section{Distributions}
+
 \label{sec:1}
 
 \subsection{Distributions and Horizontal Curves}%
@@ -439,7 +442,7 @@ There are distributions over a manifold that do not have integral manifolds, as 
 	$$ X = \frac{\partial}{\partial x} + y \frac{\partial}{\partial z}, \quad Y = \frac{\partial}{\partial y}.  $$ 
 	This distribution does not have integral manifolds. To see this, suppose that $ N $ is an integral manifold that contains an arbitrary point $ \textbf{x} \in \mathbb{R}^3.  $ As $ X $ and $ Y $ are tangent to $ N $, any integral curve of $ X $ or $ Y $ that starts in $ N $ stays in $ N $, at least for a short time (\textit{i.e.}, the integral curve $ \gamma $ must be defined over a sufficiently small interval such that its image is fully contained in $ N $).   
 
-	Therefore, as the integral curve of $ X $ is a straight line contained in the plane that is parallel to the $ xz $-plane, there is a segment of this line that is contained in $ N $, and for every point in this segment the integral curves of $ Y $ that passes through them are straight lines parallel to the $ y $-axis, so there must be an open neighborhood of $ \textbf{x}  $ that contains a plane generated by the segments of the integral curves of $ X $ and $ Y $ that passes through $ \textbf{x}$ (see figure \ref{fig:no_integral_manifolds}). However, the tangent plane at any point $ p $  of this plane  of the segment induced by the integral curve of $ X $ is not equal to $ \mathcal{H}_p, $ since $ X $ depends on $ y $.   
+	Therefore, as the integral curve of $ X $ is a straight line contained in the plane that is parallel to the $ xz $-plane, there is a segment of this line that is contained in $ N $, and for every point in this segment the integral curves of $ Y $ that passes through them are straight lines parallel to the $ y $-axis, so there must be an open neighborhood of $ \textbf{x}  $ that contains a plane generated by the segments of the integral curves of $ X $ and $ Y $ that passes through $ \textbf{x}$ (see Figure \ref{fig:no_integral_manifolds}). However, the tangent plane at any point $ p $  of this plane  of the segment induced by the integral curve of $ X $ is not equal to $ \mathcal{H}_p, $ since $ X $ depends on $ y $.   
 \end{ex}
 
 \begin{figure}
@@ -468,7 +471,7 @@ In fact, the involutivity condition does not need to be checked for all smooth v
 \end{lm}
 
 \begin{df}
-	Given a smooth distribution $ \mathcal{H}\subset TM $  of rank $ k, $ a smooth coordinate chart $ (U,\phi) $ of $ M $ is said to be \textit{flat for $ \mathcal{H} $ } if $ \phi(U) $ is a cube in $ \mathbb{R}^m  $ (being $ m $ the dimension of $ M $), and at points of $ U $, $ \mathcal{H} $ is spanned by the first $ k $ coordinate vector fields $ \partial/\partial x^1,\dots,\partial/\partial x^k $ (see figure \ref{fig:fittogether}).
+	Given a smooth distribution $ \mathcal{H}\subset TM $  of rank $ k, $ a smooth coordinate chart $ (U,\phi) $ of $ M $ is said to be \textit{flat for $ \mathcal{H} $ } if $ \phi(U) $ is a cube in $ \mathbb{R}^m  $ (being $ m $ the dimension of $ M $), and at points of $ U $, $ \mathcal{H} $ is spanned by the first $ k $ coordinate vector fields $ \partial/\partial x^1,\dots,\partial/\partial x^k $ (see Figure \ref{fig:fittogether}).
 \end{df}
 The geometrical meaning of this property for a distribution is that the manifold is locally homeomorphic to a cube in $ \mathbb{R}^m  $ through the flat chart for $ \mathcal{H}, $  and the vector subspaces induced by the distribution at each point fit together as affine spaces of dimension given by the rank of the distribution in $ \mathbb{R}^m $. Also, each slice of the form $ x^{k+1}=c^{k+1},\dots, x^m=c^m,$ for constants $ c^{k+1}, \dots, c^m $ in the image of $ U $ of such a chart is an integral manifold of the distribution generated by $ \partial/\partial x^1,\dots,\partial/\partial x^k $, and the preimage of this integral manifold is an integral manifold of $ \mathcal{H}, $ contained in $ U. $  
 
